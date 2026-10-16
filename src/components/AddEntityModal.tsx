@@ -32,6 +32,8 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
   const [targetId, setTargetId] = useState<string>('');
   const [relationType, setRelationType] = useState<RelationType>('AFFILIATED_WITH');
   const [edgeLabel, setEdgeLabel] = useState<string>('');
+  const [howInput, setHowInput] = useState<string>('');
+  const [modalityInput, setModalityInput] = useState<string>('');
 
   if (!isOpen) return null;
 
@@ -64,6 +66,11 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
     } else if (nodeType === 'product') {
       (base as any).productType = extraField1 || 'Software Library';
       (base as any).version = extraField2 || 'v1.0.0';
+    } else if (nodeType === 'topic') {
+      (base as any).domain = extraField1 || 'Wildfire Intelligence';
+      (base as any).modalities = extraField2
+        ? extraField2.split(',').map((m) => m.trim()).filter(Boolean)
+        : ['satellite', 'manual'];
     }
 
     onAddNode(base);
@@ -80,6 +87,8 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
       target: targetId,
       type: relationType,
       label: edgeLabel.trim() || relationType.replace(/_/g, ' '),
+      how: howInput.trim() || undefined,
+      modality: modalityInput.trim() || undefined,
     };
 
     onAddEdge(newEdge);
@@ -188,6 +197,7 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
                 <option value="grant">💰 Grant</option>
                 <option value="research">📄 Research</option>
                 <option value="meeting">📅 Meeting</option>
+                <option value="topic">🎯 Topic</option>
               </select>
             </div>
 
@@ -369,6 +379,51 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
               </div>
             )}
 
+            {nodeType === 'topic' && (
+              <div style={{ display: 'flex', gap: 12 }}>
+                <div style={{ flex: 1 }}>
+                  <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 4 }}>
+                    Domain
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Wildfire Intelligence"
+                    value={extraField1}
+                    onChange={(e) => setExtraField1(e.target.value)}
+                    style={{
+                      width: '100%',
+                      height: 38,
+                      padding: '0 12px',
+                      backgroundColor: 'var(--bg-surface)',
+                      border: '1px solid var(--border-subtle)',
+                      borderRadius: 'var(--radius-md)',
+                      color: 'var(--text-primary)',
+                    }}
+                  />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 4 }}>
+                    Modalities (comma-separated)
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. satellite, manual"
+                    value={extraField2}
+                    onChange={(e) => setExtraField2(e.target.value)}
+                    style={{
+                      width: '100%',
+                      height: 38,
+                      padding: '0 12px',
+                      backgroundColor: 'var(--bg-surface)',
+                      border: '1px solid var(--border-subtle)',
+                      borderRadius: 'var(--radius-md)',
+                      color: 'var(--text-primary)',
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+
             <div>
               <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 4 }}>
                 Tags (comma-separated)
@@ -481,6 +536,13 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
                 }}
               >
                 <option value="AFFILIATED_WITH">AFFILIATED_WITH</option>
+                <option value="PARTNERS_IN">PARTNERS_IN</option>
+                <option value="PARTICIPATES_IN">PARTICIPATES_IN</option>
+                <option value="HAS_PROJECT">HAS_PROJECT</option>
+                <option value="PRODUCES">PRODUCES</option>
+                <option value="HAS_TOPIC">HAS_TOPIC</option>
+                <option value="SUBSIDIARY_OF">SUBSIDIARY_OF</option>
+                <option value="INVOLVED_IN">INVOLVED_IN</option>
                 <option value="LEADS">LEADS</option>
                 <option value="MEMBER_OF">MEMBER_OF</option>
                 <option value="DEVELOPS">DEVELOPS</option>
@@ -495,6 +557,50 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
                 <option value="COLLABORATES_WITH">COLLABORATES_WITH</option>
                 <option value="STEERS">STEERS</option>
               </select>
+            </div>
+
+            <div style={{ display: 'flex', gap: 12 }}>
+              <div style={{ flex: 1 }}>
+                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 4 }}>
+                  Role / "How" Attribute (Optional)
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. analyzes data, makes satellites"
+                  value={howInput}
+                  onChange={(e) => setHowInput(e.target.value)}
+                  style={{
+                    width: '100%',
+                    height: 38,
+                    padding: '0 12px',
+                    backgroundColor: 'var(--bg-surface)',
+                    border: '1px solid var(--border-subtle)',
+                    borderRadius: 'var(--radius-md)',
+                    color: 'var(--text-primary)',
+                  }}
+                />
+              </div>
+
+              <div style={{ flex: 1 }}>
+                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 4 }}>
+                  Modality Attribute (Optional)
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. satellite, manual, aerial"
+                  value={modalityInput}
+                  onChange={(e) => setModalityInput(e.target.value)}
+                  style={{
+                    width: '100%',
+                    height: 38,
+                    padding: '0 12px',
+                    backgroundColor: 'var(--bg-surface)',
+                    border: '1px solid var(--border-subtle)',
+                    borderRadius: 'var(--radius-md)',
+                    color: 'var(--text-primary)',
+                  }}
+                />
+              </div>
             </div>
 
             <div>

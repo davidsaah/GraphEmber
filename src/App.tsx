@@ -8,6 +8,7 @@ import { DossierDrawer } from './components/DossierDrawer';
 import { PathFinderModal } from './components/PathFinderModal';
 import { MetricsModal } from './components/MetricsModal';
 import { AddEntityModal } from './components/AddEntityModal';
+import { OntologyModal } from './components/OntologyModal';
 
 const ALL_TYPES: NodeType[] = [
   'person',
@@ -18,6 +19,7 @@ const ALL_TYPES: NodeType[] = [
   'grant',
   'research',
   'meeting',
+  'topic',
 ];
 
 export const App: React.FC = () => {
@@ -39,6 +41,7 @@ export const App: React.FC = () => {
   const [isPathFinderOpen, setIsPathFinderOpen] = useState<boolean>(false);
   const [isMetricsOpen, setIsMetricsOpen] = useState<boolean>(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
+  const [isOntologyOpen, setIsOntologyOpen] = useState<boolean>(false);
 
   // Path finder highlight state
   const [pathNodeIds, setPathNodeIds] = useState<string[]>([]);
@@ -172,6 +175,38 @@ export const App: React.FC = () => {
     setPathEdgeIds([]);
   }, []);
 
+  // Highlight the Earth Fire Alliance (EFA) & FireSat ontology ecosystem from the slide
+  const handleFocusEcosystem = useCallback(() => {
+    const efaNodeIds = [
+      'collab-efa',
+      'prod-firesat',
+      'inst-google',
+      'inst-google-org',
+      'inst-muon-space',
+      'inst-edf',
+      'inst-cwi',
+      'inst-minderoo',
+      'inst-moore',
+      'topic-fire-monitoring',
+    ];
+    const efaEdgeIds = [
+      'edge-google-org-google',
+      'edge-google-efa',
+      'edge-muon-efa',
+      'edge-edf-efa',
+      'edge-cwi-efa',
+      'edge-minderoo-efa',
+      'edge-moore-efa',
+      'edge-efa-firesat',
+      'edge-firesat-topic',
+      'edge-cwi-topic',
+    ];
+    setPathNodeIds(efaNodeIds);
+    setPathEdgeIds(efaEdgeIds);
+    const efaNode = nodes.find((n) => n.id === 'collab-efa');
+    if (efaNode) setSelectedNode(efaNode);
+  }, [nodes]);
+
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
       {/* Top Header Bar */}
@@ -182,6 +217,7 @@ export const App: React.FC = () => {
         onSearchChange={setSearchQuery}
         onOpenPathFinder={() => setIsPathFinderOpen(true)}
         onOpenAnalytics={() => setIsMetricsOpen(true)}
+        onOpenOntology={() => setIsOntologyOpen(true)}
         onOpenAddModal={() => setIsAddModalOpen(true)}
         onExportData={handleExportData}
       />
@@ -246,6 +282,14 @@ export const App: React.FC = () => {
         nodes={nodes}
         onAddNode={handleAddNode}
         onAddEdge={handleAddEdge}
+      />
+
+      {/* Firelines Graph Ontology Blueprint Modal */}
+      <OntologyModal
+        isOpen={isOntologyOpen}
+        onClose={() => setIsOntologyOpen(false)}
+        onFocusEcosystem={handleFocusEcosystem}
+        nodes={nodes}
       />
     </div>
   );

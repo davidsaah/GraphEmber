@@ -23,6 +23,7 @@ const TYPE_COLORS: Record<NodeType, string> = {
   grant: '#ef4444',
   research: '#a855f7',
   meeting: '#06b6d4',
+  topic: '#e11d48',
 };
 
 const TYPE_ICONS: Record<NodeType, string> = {
@@ -34,6 +35,7 @@ const TYPE_ICONS: Record<NodeType, string> = {
   grant: '💰',
   research: '📄',
   meeting: '📅',
+  topic: '🎯',
 };
 
 export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
@@ -78,6 +80,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
       case 'program':
       case 'product':
       case 'grant':
+      case 'topic':
         return 24;
       case 'person':
         return 22;
@@ -233,22 +236,32 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
         ctx.closePath();
         ctx.fill();
 
-        // Render relationship label if highlighted
-        if ((isConnectedToFocus || isPathEdge) && edge.label) {
+        // Render relationship label if highlighted (with how / modality attributes)
+        const rawLabel = edge.label || edge.type;
+        const displayLabel = edge.how
+          ? `${rawLabel} (${edge.how})`
+          : edge.modality
+          ? `${rawLabel} [${edge.modality}]`
+          : rawLabel;
+
+        if ((isConnectedToFocus || isPathEdge) && displayLabel) {
           const midX = (source.x + target.x) / 2;
           const midY = (source.y + target.y) / 2;
 
           ctx.font = '500 10px Inter, sans-serif';
-          ctx.fillStyle = '#f8fafc';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
 
-          const textWidth = ctx.measureText(edge.label).width;
-          ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
-          ctx.fillRect(midX - textWidth / 2 - 4, midY - 7, textWidth + 8, 14);
+          const textWidth = ctx.measureText(displayLabel).width;
+          ctx.fillStyle = 'rgba(15, 23, 42, 0.92)';
+          ctx.fillRect(midX - textWidth / 2 - 5, midY - 8, textWidth + 10, 16);
+
+          ctx.strokeStyle = isPathEdge ? 'rgba(249, 115, 22, 0.5)' : 'rgba(255, 255, 255, 0.15)';
+          ctx.lineWidth = 1;
+          ctx.strokeRect(midX - textWidth / 2 - 5, midY - 8, textWidth + 10, 16);
 
           ctx.fillStyle = isPathEdge ? '#fb923c' : '#cbd5e1';
-          ctx.fillText(edge.label, midX, midY);
+          ctx.fillText(displayLabel, midX, midY);
         }
       });
 

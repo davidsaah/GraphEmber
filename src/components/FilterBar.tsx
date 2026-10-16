@@ -23,6 +23,7 @@ const TYPE_CONFIG: Array<{ type: NodeType; label: string; icon: string; color: s
   { type: 'grant', label: 'Grants', icon: '💰', color: 'var(--color-grant)' },
   { type: 'research', label: 'Research', icon: '📄', color: 'var(--color-research)' },
   { type: 'meeting', label: 'Meetings', icon: '📅', color: 'var(--color-meeting)' },
+  { type: 'topic', label: 'Topics', icon: '🎯', color: 'var(--color-topic)' },
 ];
 
 export const FilterBar: React.FC<FilterBarProps> = ({
@@ -47,6 +48,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
       grant: 0,
       research: 0,
       meeting: 0,
+      topic: 0,
     };
     nodes.forEach((n) => {
       if (counts[n.type] !== undefined) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Route, BarChart3, Plus, Flame, X, Download } from 'lucide-react';
+import { Search, Route, BarChart3, Plus, Flame, X, Download, Network } from 'lucide-react';
 import type { GraphNode, GraphEdge } from '../types/graph';
 
 interface HeaderProps {
@@ -9,6 +9,7 @@ interface HeaderProps {
   onSearchChange: (query: string) => void;
   onOpenPathFinder: () => void;
   onOpenAnalytics: () => void;
+  onOpenOntology: () => void;
   onOpenAddModal: () => void;
   onExportData: () => void;
 }
@@ -20,6 +21,7 @@ export const Header: React.FC<HeaderProps> = ({
   onSearchChange,
   onOpenPathFinder,
   onOpenAnalytics,
+  onOpenOntology,
   onOpenAddModal,
   onExportData,
 }) => {
@@ -268,6 +270,34 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <BarChart3 size={15} color="var(--color-program)" />
             <span>Analytics</span>
+          </button>
+
+          <button
+            onClick={onOpenOntology}
+            title="View Firelines Graph Ontology Blueprint"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 6,
+              padding: '8px 12px',
+              backgroundColor: 'var(--bg-surface)',
+              border: '1px solid rgba(249, 115, 22, 0.3)',
+              borderRadius: 'var(--radius-md)',
+              color: 'var(--text-primary)',
+              fontSize: '0.8rem',
+              fontWeight: 500,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--bg-surface-elevated)';
+              e.currentTarget.style.borderColor = 'var(--accent-ember)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--bg-surface)';
+              e.currentTarget.style.borderColor = 'rgba(249, 115, 22, 0.3)';
+            }}
+          >
+            <Network size={15} color="#fb923c" />
+            <span style={{ color: '#fed7aa', fontWeight: 600 }}>Ontology</span>
           </button>
 
           <button

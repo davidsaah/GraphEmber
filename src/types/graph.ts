@@ -6,7 +6,8 @@ export type NodeType =
   | 'product'
   | 'grant'
   | 'research'
-  | 'meeting';
+  | 'meeting'
+  | 'topic';
 
 export type RelationType =
   | 'AFFILIATED_WITH'
@@ -28,7 +29,12 @@ export type RelationType =
   | 'PARTICIPATES_IN'
   | 'COLLABORATES_WITH'
   | 'STEERS'
-  | 'RELATED_TO';
+  | 'RELATED_TO'
+  | 'PARTNERS_IN'
+  | 'HAS_PROJECT'
+  | 'HAS_TOPIC'
+  | 'SUBSIDIARY_OF'
+  | 'INVOLVED_IN';
 
 export interface BaseNode {
   id: string;
@@ -86,12 +92,13 @@ export interface ProgramNode extends BaseNode {
 
 export interface ProductNode extends BaseNode {
   type: 'product';
-  productType?: 'Software Library' | 'Web Platform / SaaS' | 'API / Data Service' | 'CLI Tool' | 'AI / Machine Learning Model' | 'Data Pipeline';
+  productType?: 'Software Library' | 'Web Platform / SaaS' | 'API / Data Service' | 'CLI Tool' | 'AI / Machine Learning Model' | 'Data Pipeline' | 'Project / Hardware';
   version?: string;
   license?: string;
   repositoryUrl?: string;
   documentationUrl?: string;
-  status?: 'Operational' | 'Active Development' | 'Beta' | 'Prototype';
+  location?: string;
+  status?: 'Operational' | 'Active Development' | 'Beta' | 'Prototype' | 'Ongoing';
   techStack?: string[];
 }
 
@@ -127,6 +134,13 @@ export interface MeetingNode extends BaseNode {
   outcomes?: string[];
 }
 
+export interface TopicNode extends BaseNode {
+  type: 'topic';
+  domain?: string;
+  modalities?: string[];
+  scope?: string;
+}
+
 export type GraphNode =
   | PersonNode
   | InstitutionNode
@@ -135,7 +149,8 @@ export type GraphNode =
   | ProductNode
   | GrantNode
   | ResearchNode
-  | MeetingNode;
+  | MeetingNode
+  | TopicNode;
 
 export interface GraphEdge {
   id: string;
@@ -145,6 +160,9 @@ export interface GraphEdge {
   label?: string;
   weight?: number;
   description?: string;
+  how?: string;
+  modality?: string;
+  properties?: Record<string, any>;
   startDate?: string;
   endDate?: string;
 }

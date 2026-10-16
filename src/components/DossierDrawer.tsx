@@ -32,6 +32,7 @@ const TYPE_ICONS: Record<NodeType, string> = {
   grant: '💰',
   research: '📄',
   meeting: '📅',
+  topic: '🎯',
 };
 
 export const DossierDrawer: React.FC<DossierDrawerProps> = ({
@@ -458,6 +459,47 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
               )}
             </>
           )}
+
+          {/* Topic details */}
+          {node.type === 'topic' && (
+            <>
+              {node.domain && (
+                <div style={{ fontSize: '0.85rem' }}>
+                  <strong>Domain:</strong> <span style={{ color: '#fb7185' }}>{node.domain}</span>
+                </div>
+              )}
+              {node.scope && (
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                  <strong>Scope:</strong> {node.scope}
+                </div>
+              )}
+              {node.modalities && node.modalities.length > 0 && (
+                <div>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    Observed Modalities:
+                  </span>
+                  <div style={{ display: 'flex', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
+                    {node.modalities.map((mod, idx) => (
+                      <span
+                        key={idx}
+                        style={{
+                          fontSize: '0.74rem',
+                          padding: '3px 8px',
+                          borderRadius: 'var(--radius-full)',
+                          backgroundColor: 'rgba(225, 29, 72, 0.15)',
+                          color: '#fb7185',
+                          border: '1px solid rgba(225, 29, 72, 0.35)',
+                          fontWeight: 500,
+                        }}
+                      >
+                        📡 {mod}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          )}
         </div>
 
         {/* Tags */}
@@ -538,8 +580,38 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                     >
                       {otherNode.label}
                     </div>
-                    <div style={{ fontSize: '0.72rem', color: '#fb923c', textTransform: 'capitalize' }}>
-                      {relationLabel}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap', marginTop: 2 }}>
+                      <span style={{ fontSize: '0.72rem', color: '#fb923c', textTransform: 'capitalize' }}>
+                        {relationLabel}
+                      </span>
+                      {edge.how && (
+                        <span
+                          style={{
+                            fontSize: '0.68rem',
+                            padding: '1px 6px',
+                            borderRadius: 'var(--radius-sm)',
+                            backgroundColor: 'rgba(249, 115, 22, 0.15)',
+                            color: '#fdba74',
+                            border: '1px solid rgba(249, 115, 22, 0.3)',
+                          }}
+                        >
+                          how: {edge.how}
+                        </span>
+                      )}
+                      {edge.modality && (
+                        <span
+                          style={{
+                            fontSize: '0.68rem',
+                            padding: '1px 6px',
+                            borderRadius: 'var(--radius-sm)',
+                            backgroundColor: 'rgba(225, 29, 72, 0.15)',
+                            color: '#fda4af',
+                            border: '1px solid rgba(225, 29, 72, 0.3)',
+                          }}
+                        >
+                          modality: {edge.modality}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
