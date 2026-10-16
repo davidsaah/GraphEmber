@@ -18,6 +18,7 @@ interface MapViewProps {
   selectedNodeId: string | null;
   highlightedPathNodeIds: string[];
   onSelectNode: (node: GraphNode | null) => void;
+  rightInset?: number;
 }
 
 interface Located {
@@ -57,7 +58,7 @@ const LABEL_ALL_ZOOM = 3.2;
 
 const cssVar = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
-export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, highlightedPathNodeIds, onSelectNode }) => {
+export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, highlightedPathNodeIds, onSelectNode, rightInset = 0 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const markersRef = useRef<maplibregl.Marker[]>([]);
@@ -240,9 +241,9 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
 
     const sel = selectedNodeId ? byId.get(selectedNodeId) : undefined;
     // Keep the selection clear of the dossier drawer on the right
-    if (sel) map.easeTo({ center: sel.lngLat, zoom: Math.max(map.getZoom(), 2.5), duration: 600, padding: { top: 0, bottom: 0, left: 0, right: 440 } });
+    if (sel) map.easeTo({ center: sel.lngLat, zoom: Math.max(map.getZoom(), 2.5), duration: 600, padding: { top: 0, bottom: 0, left: 0, right: 440 + rightInset } });
     setLinkNote(selectedNodeId ? { shown: data.features.length, total: relevant.length } : null);
-  }, [ready, edges, byId, selectedNodeId, highlightedPathNodeIds]);
+  }, [ready, edges, byId, selectedNodeId, highlightedPathNodeIds, rightInset]);
 
   // Place labels (HTML markers, since the basemap carries no font glyphs)
   useEffect(() => {

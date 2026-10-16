@@ -262,7 +262,18 @@ export const App: React.FC = () => {
   }, [nodes]);
 
   return (
-    <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+    <div
+      style={
+        {
+          position: 'relative',
+          width: '100vw',
+          height: '100vh',
+          overflow: 'hidden',
+          // Room the chat panel takes on the right; the dossier and canvas controls shift left of it
+          '--right-inset': isChatOpen ? 'calc(min(400px, 100vw - 32px) + 12px)' : '0px',
+        } as React.CSSProperties
+      }
+    >
       {/* Top Header Bar */}
       <Header
         nodes={nodes}
@@ -315,6 +326,7 @@ export const App: React.FC = () => {
             selectedNodeId={selectedNode ? selectedNode.id : null}
             highlightedPathNodeIds={pathNodeIds}
             onSelectNode={setSelectedNode}
+            rightInset={isChatOpen ? 412 : 0}
           />
         </Suspense>
       )}

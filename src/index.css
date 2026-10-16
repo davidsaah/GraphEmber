@@ -289,3 +289,4 @@ button {
 .segmented button:focus-visible { outline: 2px solid var(--color-cwi-gold); outline-offset: 1px; }
 .map-place-minor { display: none; }
 .map-zoomed .map-place-minor { display: block; }
+.maplibregl-ctrl-bottom-right { right: var(--right-inset, 0px); }

@@ -110,7 +110,7 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ isOpen, onClose, nodes, ed
       style={{
         position: 'absolute',
         top: 'calc(16px + var(--header-height) + 10px)',
-        left: 16,
+        right: 16,
         bottom: 16,
         width: 'min(400px, calc(100vw - 32px))',
         zIndex: 35,

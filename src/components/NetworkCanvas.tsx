@@ -466,7 +466,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
         style={{
           position: 'absolute',
           bottom: 20,
-          right: 20,
+          right: 'calc(20px + var(--right-inset, 0px))',
           display: 'flex',
           flexDirection: 'column',
           gap: 2,
@@ -564,7 +564,7 @@ const Legend: React.FC<{ nodes: GraphNode[] }> = ({ nodes }) => {
       style={{
         position: 'absolute',
         bottom: 20,
-        right: 72,
+        right: 'calc(72px + var(--right-inset, 0px))',
         display: 'flex',
         alignItems: 'center',
         gap: 14,
