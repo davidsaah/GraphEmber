@@ -305,8 +305,10 @@ export const App: React.FC = () => {
         onSelectNode={setSelectedNode}
       />
 
-      {/* Bottom-left CWI Institutional Watermark */}
-      <div
+      {/* Bottom-left attribution */}
+      <button
+        onClick={() => setIsCwiModalOpen(true)}
+        title="About the Climate & Wildfire Institute"
         style={{
           position: 'absolute',
           bottom: 20,
@@ -314,43 +316,16 @@ export const App: React.FC = () => {
           zIndex: 25,
           display: 'flex',
           alignItems: 'center',
-          gap: 10,
-          padding: '6px 14px',
-          borderRadius: 'var(--radius-full)',
-          background: 'rgba(13, 19, 34, 0.88)',
-          backdropFilter: 'blur(16px)',
-          border: '1px solid rgba(246, 186, 19, 0.35)',
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(246, 186, 19, 0.2)',
+          gap: 8,
+          fontSize: '0.72rem',
+          color: 'var(--text-muted)',
         }}
       >
-        <CwiLogo variant="mark" size={20} glow={false} />
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '0.04em' }}>
-            Climate & Wildfire Institute
-          </span>
-          <span style={{ fontSize: '0.68rem', color: '#f6ba13' }}>·</span>
-          <span style={{ fontSize: '0.68rem', color: 'var(--text-secondary)' }}>
-            Firelines Landscape ({filteredNodes.length} mapped)
-          </span>
-        </div>
-        <button
-          onClick={() => setIsCwiModalOpen(true)}
-          style={{
-            fontSize: '0.68rem',
-            fontWeight: 600,
-            color: '#fed7aa',
-            background: 'rgba(246, 186, 19, 0.15)',
-            padding: '2px 8px',
-            borderRadius: 'var(--radius-full)',
-            border: '1px solid rgba(246, 186, 19, 0.3)',
-            marginLeft: 4,
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.25)')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.15)')}
-        >
-          About CWI
-        </button>
-      </div>
+        <CwiLogo variant="mark" size={16} glow={false} />
+        <span>
+          A Climate & Wildfire Institute tool · showing {filteredNodes.length} of {nodes.length}
+        </span>
+      </button>
 
       {/* Path Finder Modal */}
       <PathFinderModal

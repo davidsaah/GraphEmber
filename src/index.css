@@ -8,7 +8,7 @@
   --bg-canvas: #07090e;
   --bg-surface: #0e131f;
   --bg-surface-elevated: #151d30;
-  --bg-glass: rgba(15, 23, 42, 0.78);
+  --bg-glass: rgba(11, 15, 24, 0.86);
   --bg-glass-hover: rgba(22, 33, 58, 0.85);
   --bg-glass-active: rgba(30, 41, 69, 0.92);
 
@@ -23,25 +23,18 @@
   --text-muted: #64748b;
   --text-inverse: #0f172a;
 
-  /* Graph Node Entity Color Tokens */
-  --color-person: #10b981;
-  --color-person-glow: rgba(16, 185, 129, 0.35);
-  --color-institution: #f59e0b;
-  --color-institution-glow: rgba(245, 158, 11, 0.35);
-  --color-collaborative: #f97316;
-  --color-collaborative-glow: rgba(249, 115, 22, 0.45);
-  --color-program: #3b82f6;
-  --color-program-glow: rgba(59, 130, 246, 0.35);
-  --color-product: #6366f1;
-  --color-product-glow: rgba(99, 102, 241, 0.35);
-  --color-grant: #ef4444;
-  --color-grant-glow: rgba(239, 68, 68, 0.35);
-  --color-research: #a855f7;
-  --color-research-glow: rgba(168, 85, 247, 0.35);
-  --color-meeting: #06b6d4;
-  --color-meeting-glow: rgba(6, 182, 212, 0.35);
-  --color-topic: #e11d48;
-  --color-topic-glow: rgba(225, 29, 72, 0.45);
+  /* Graph Node Entity Color Tokens
+     Institutions are the bulk of the graph, so they stay a quiet slate; the CWI
+     brand hues are reserved for the structural nodes (topics, collaboratives). */
+  --color-person: #a78bfa;
+  --color-institution: #8fa3bf;
+  --color-collaborative: #eb7c26;
+  --color-program: #34c38f;
+  --color-product: #4fb3d9;
+  --color-grant: #e23e1d;
+  --color-research: #c084fc;
+  --color-meeting: #22d3ee;
+  --color-topic: #f6ba13;
 
   /* UI Accent Palette */
   --accent-ember: #f97316;
@@ -66,7 +59,7 @@
   --shadow-cwi: 0 0 24px rgba(246, 186, 19, 0.35);
 
   /* Layout Constants */
-  --header-height: 64px;
+  --header-height: 56px;
   --dossier-width: 440px;
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -162,56 +155,93 @@ button {
   letter-spacing: 0.02em;
 }
 
-.badge-person {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+/* Type badges: tinted from the entity tokens */
+.badge-person { --c: var(--color-person); }
+.badge-institution { --c: var(--color-institution); }
+.badge-collaborative { --c: var(--color-collaborative); }
+.badge-program { --c: var(--color-program); }
+.badge-product { --c: var(--color-product); }
+.badge-grant { --c: var(--color-grant); }
+.badge-research { --c: var(--color-research); }
+.badge-meeting { --c: var(--color-meeting); }
+.badge-topic { --c: var(--color-topic); }
+[class*='badge-']:not(.badge-cwi) {
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
 }
 
-.badge-institution {
-  background: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.btn:hover { color: var(--text-primary); background: var(--bg-surface-elevated); }
+.btn:focus-visible, .chip:focus-visible, .icon-btn:focus-visible {
+  outline: 2px solid var(--color-cwi-gold);
+  outline-offset: 2px;
+}
+.btn-primary {
+  color: #1a1206;
+  background: var(--color-cwi-gold);
+  font-weight: 600;
+}
+.btn-primary:hover { color: #1a1206; background: #ffcb3d; }
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+}
+.icon-btn:hover { color: var(--text-primary); background: var(--bg-surface-elevated); }
+
+/* Filter chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.chip:hover { border-color: var(--border-strong); color: var(--text-secondary); }
+.chip[aria-pressed='true'] { color: var(--text-primary); background: var(--bg-surface-elevated); border-color: var(--border-strong); }
+.chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); opacity: 0.35; }
+.chip[aria-pressed='true'] .dot { opacity: 1; }
+.chip .count { font-variant-numeric: tabular-nums; color: var(--text-muted); font-size: 0.7rem; }
+
+.eyebrow {
+  font-family: var(--font-brand);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-cwi-gold);
 }
 
-.badge-collaborative {
-  background: rgba(249, 115, 22, 0.18);
-  color: #fb923c;
-  border: 1px solid rgba(249, 115, 22, 0.4);
+@media (max-width: 1180px) {
+  .hide-md { display: none !important; }
+}
+@media (max-width: 900px) {
+  .hide-sm { display: none !important; }
 }
 
-.badge-program {
-  background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-}
-
-.badge-product {
-  background: rgba(99, 102, 241, 0.18);
-  color: #a5b4fc;
-  border: 1px solid rgba(99, 102, 241, 0.4);
-}
-
-.badge-grant {
-  background: rgba(239, 68, 68, 0.15);
-  color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.3);
-}
-
-.badge-research {
-  background: rgba(168, 85, 247, 0.15);
-  color: #c084fc;
-  border: 1px solid rgba(168, 85, 247, 0.3);
-}
-
-.badge-meeting {
-  background: rgba(6, 182, 212, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(6, 182, 212, 0.3);
-}
-
-.badge-topic {
-  background: rgba(225, 29, 72, 0.18);
-  color: #fb7185;
-  border: 1px solid rgba(225, 29, 72, 0.4);
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }

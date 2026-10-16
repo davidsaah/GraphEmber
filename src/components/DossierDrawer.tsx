@@ -76,10 +76,10 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
       className="glass-panel"
       style={{
         position: 'absolute',
-        top: 16,
+        top: 'calc(16px + var(--header-height) + 10px)',
         right: 16,
         bottom: 16,
-        width: 'var(--dossier-width)',
+        width: 'min(var(--dossier-width), calc(100vw - 32px))',
         display: 'flex',
         flexDirection: 'column',
         zIndex: 40,
@@ -556,7 +556,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
         {/* Tags */}
         {node.tags && node.tags.length > 0 && (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-            {node.tags.map((t) => (
+            {node.tags.filter((t) => !t.startsWith('Works with: ')).map((t) => (
               <span
                 key={t}
                 style={{
@@ -568,10 +568,21 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                   color: 'var(--text-secondary)',
                 }}
               >
-                #{t}
+                {t}
               </span>
             ))}
           </div>
+        )}
+
+        {/* Collaborators named in the sheet that aren't entities in the graph */}
+        {node.tags?.some((t) => t.startsWith('Works with: ')) && (
+          <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+            <span style={{ color: 'var(--text-muted)' }}>Also works with </span>
+            {node.tags
+              .filter((t) => t.startsWith('Works with: '))
+              .map((t) => t.slice('Works with: '.length))
+              .join(', ')}
+          </p>
         )}
 
         {/* Connected Ecosystem Entities Section */}
