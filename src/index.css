@@ -245,3 +245,47 @@ button {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Map view */
+.map-place-label {
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: rgba(7, 9, 14, 0.72);
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.maplibregl-ctrl-group {
+  background: var(--bg-glass) !important;
+  border: 1px solid var(--border-subtle);
+  box-shadow: none !important;
+}
+.maplibregl-ctrl-group button + button { border-top-color: var(--border-subtle) !important; }
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon { filter: invert(0.85); }
+.maplibregl-ctrl-attrib { background: transparent !important; }
+.maplibregl-ctrl-attrib, .maplibregl-ctrl-attrib a { color: var(--text-muted) !important; }
+
+.segmented {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+}
+.segmented button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+.segmented button[aria-pressed='true'] { color: var(--text-primary); background: var(--bg-surface-elevated); }
+.segmented button:focus-visible { outline: 2px solid var(--color-cwi-gold); outline-offset: 1px; }
+.map-place-minor { display: none; }
+.map-zoomed .map-place-minor { display: block; }

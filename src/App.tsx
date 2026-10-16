@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, Suspense, lazy } from 'react';
 import type { GraphNode, GraphEdge, NodeType } from './types/graph';
 import { INITIAL_DATASET } from './data/initialData';
 import { Header } from './components/Header';
@@ -12,6 +12,9 @@ import { OntologyModal } from './components/OntologyModal';
 import { CwiBrandModal } from './components/CwiBrandModal';
 import { CwiLogo } from './components/CwiLogo';
 import { ChatPanel } from './components/ChatPanel';
+
+// The map library is large, so it loads only when the map view is opened
+const MapView = lazy(() => import('./components/MapView'));
 
 const ALL_TYPES: NodeType[] = [
   'person',
@@ -47,6 +50,7 @@ export const App: React.FC = () => {
   const [isOntologyOpen, setIsOntologyOpen] = useState<boolean>(false);
   const [isCwiModalOpen, setIsCwiModalOpen] = useState<boolean>(false);
   const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
+  const [view, setView] = useState<'network' | 'map'>('network');
 
   // Path finder highlight state
   const [pathNodeIds, setPathNodeIds] = useState<string[]>([]);
@@ -272,6 +276,8 @@ export const App: React.FC = () => {
         onOpenAddModal={() => setIsAddModalOpen(true)}
         onExportData={handleExportData}
         onOpenChat={() => setIsChatOpen((open) => !open)}
+        view={view}
+        onViewChange={setView}
       />
 
       {/* Floating Filter Bar */}
@@ -287,17 +293,31 @@ export const App: React.FC = () => {
         onResetFilters={handleResetFilters}
       />
 
-      {/* Interactive 60fps Network Canvas */}
-      <NetworkCanvas
-        nodes={filteredNodes}
-        edges={filteredEdges}
-        selectedNodeId={selectedNode ? selectedNode.id : null}
-        highlightedPathNodeIds={pathNodeIds}
-        highlightedPathEdgeIds={pathEdgeIds}
-        onSelectNode={setSelectedNode}
-        hoveredNodeId={hoveredNodeId}
-        onHoverNode={setHoveredNodeId}
-      />
+      {view === 'network' ? (
+        <>
+        {/* Interactive 60fps Network Canvas */}
+        <NetworkCanvas
+          nodes={filteredNodes}
+          edges={filteredEdges}
+          selectedNodeId={selectedNode ? selectedNode.id : null}
+          highlightedPathNodeIds={pathNodeIds}
+          highlightedPathEdgeIds={pathEdgeIds}
+          onSelectNode={setSelectedNode}
+          hoveredNodeId={hoveredNodeId}
+          onHoverNode={setHoveredNodeId}
+        />
+        </>
+      ) : (
+        <Suspense fallback={null}>
+          <MapView
+            nodes={filteredNodes}
+            edges={filteredEdges}
+            selectedNodeId={selectedNode ? selectedNode.id : null}
+            highlightedPathNodeIds={pathNodeIds}
+            onSelectNode={setSelectedNode}
+          />
+        </Suspense>
+      )}
 
       {/* Slide-out Entity Dossier Drawer */}
       <DossierDrawer

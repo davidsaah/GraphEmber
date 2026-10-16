@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Route, BarChart3, Plus, X, Download, Network, Sparkles } from 'lucide-react';
+import { Search, Route, BarChart3, Plus, X, Download, Network, Sparkles, Share2, Map as MapIcon } from 'lucide-react';
 import type { GraphNode, GraphEdge } from '../types/graph';
 import { CwiLogo } from './CwiLogo';
 
@@ -15,6 +15,8 @@ interface HeaderProps {
   onOpenAddModal: () => void;
   onExportData: () => void;
   onOpenChat: () => void;
+  view: 'network' | 'map';
+  onViewChange: (view: 'network' | 'map') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -29,6 +31,8 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenAddModal,
   onExportData,
   onOpenChat,
+  view,
+  onViewChange,
 }) => {
   return (
     <header
@@ -102,6 +106,18 @@ export const Header: React.FC<HeaderProps> = ({
             <X size={14} />
           </button>
         )}
+      </div>
+
+      {/* View switch */}
+      <div className="segmented" role="group" aria-label="View">
+        <button aria-pressed={view === 'network'} onClick={() => onViewChange('network')} title="Network view">
+          <Share2 size={14} />
+          <span className="hide-sm">Network</span>
+        </button>
+        <button aria-pressed={view === 'map'} onClick={() => onViewChange('map')} title="Map view">
+          <MapIcon size={14} />
+          <span className="hide-sm">Map</span>
+        </button>
       </div>
 
       {/* Network size */}

@@ -13,6 +13,10 @@ npm run lint
 
 The build uses relative asset paths, so `dist/` can be served from any static host or subfolder.
 
+## Map
+
+The **Network / Map** switch in the header shows the same entities on a world map (MapLibre GL, with a Natural Earth basemap bundled in the app, so there's no tile server or API key). Entities are placed from their `location` text by the lookup in `src/map/places.ts`. The sheet records places at country or region level, so entities sharing a place fan out around one point. Entities marked Global, or with no location, aren't drawn, and the map says how many. Selecting an entity draws its connections to other mapped entities. Filters, search and the dossier work the same in both views.
+
 ## Chat
 
 The **Ask** button opens a chat that answers questions from the graph data and links every entity it mentions (clicking one opens its dossier; the entities in an answer light up on the map).
