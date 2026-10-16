@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Route, BarChart3, Plus, X, Download, Network } from 'lucide-react';
+import { Search, Route, BarChart3, Plus, X, Download, Network, Sparkles } from 'lucide-react';
 import type { GraphNode, GraphEdge } from '../types/graph';
 import { CwiLogo } from './CwiLogo';
 
@@ -14,6 +14,7 @@ interface HeaderProps {
   onOpenCwiModal: () => void;
   onOpenAddModal: () => void;
   onExportData: () => void;
+  onOpenChat: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -27,6 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenCwiModal,
   onOpenAddModal,
   onExportData,
+  onOpenChat,
 }) => {
   return (
     <header
@@ -118,6 +120,10 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Tools */}
       <nav style={{ display: 'flex', alignItems: 'center', gap: 2, flexShrink: 0, marginLeft: 'auto' }}>
+        <button className="btn" onClick={onOpenChat} title="Ask questions about the network" style={{ color: 'var(--color-cwi-gold)' }}>
+          <Sparkles size={15} />
+          <span className="hide-sm">Ask</span>
+        </button>
         <button className="btn" onClick={onOpenPathFinder} title="Find the shortest connection between two entities">
           <Route size={15} />
           <span className="hide-md">Path Finder</span>

@@ -11,6 +11,7 @@ import { AddEntityModal } from './components/AddEntityModal';
 import { OntologyModal } from './components/OntologyModal';
 import { CwiBrandModal } from './components/CwiBrandModal';
 import { CwiLogo } from './components/CwiLogo';
+import { ChatPanel } from './components/ChatPanel';
 
 const ALL_TYPES: NodeType[] = [
   'person',
@@ -45,6 +46,7 @@ export const App: React.FC = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   const [isOntologyOpen, setIsOntologyOpen] = useState<boolean>(false);
   const [isCwiModalOpen, setIsCwiModalOpen] = useState<boolean>(false);
+  const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
 
   // Path finder highlight state
   const [pathNodeIds, setPathNodeIds] = useState<string[]>([]);
@@ -269,6 +271,7 @@ export const App: React.FC = () => {
         onOpenCwiModal={() => setIsCwiModalOpen(true)}
         onOpenAddModal={() => setIsAddModalOpen(true)}
         onExportData={handleExportData}
+        onOpenChat={() => setIsChatOpen((open) => !open)}
       />
 
       {/* Floating Filter Bar */}
@@ -303,6 +306,16 @@ export const App: React.FC = () => {
         allEdges={edges}
         onClose={() => setSelectedNode(null)}
         onSelectNode={setSelectedNode}
+      />
+
+      {/* Chat about the network, grounded in the graph data */}
+      <ChatPanel
+        isOpen={isChatOpen}
+        onClose={() => setIsChatOpen(false)}
+        nodes={nodes}
+        edges={edges}
+        onSelectNode={setSelectedNode}
+        onHighlight={handleApplyPathHighlight}
       />
 
       {/* Bottom-left attribution */}

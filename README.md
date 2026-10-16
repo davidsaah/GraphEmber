@@ -13,6 +13,20 @@ npm run lint
 
 The build uses relative asset paths, so `dist/` can be served from any static host or subfolder.
 
+## Chat
+
+The **Ask** button opens a chat that answers questions from the graph data and links every entity it mentions (clicking one opens its dossier; the entities in an answer light up on the map).
+
+The chat calls Claude (`claude-opus-5-5`) through `server/chat.mjs`, which needs an Anthropic API key. Put it in a `.env.local` file (git-ignored) or the environment:
+
+```bash
+echo "ANTHROPIC_API_KEY=sk-ant-..." > .env.local
+npm run dev                                   # chat served at /api/chat by the dev server
+npm run build && ANTHROPIC_API_KEY=... npm start   # production: serves dist/ + /api/chat on $PORT (default 3000)
+```
+
+A plain static host has no `/api/chat`, so the chat explains it isn't set up there. When the app runs as a claude.ai artifact it uses the viewer's own Claude account instead (no key needed). The model has server-side refusal fallbacks enabled (`fallbacks: "default"`).
+
 ## Data
 
 The graph is generated, not hand-edited:
