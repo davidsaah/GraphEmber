@@ -9,6 +9,8 @@ import { PathFinderModal } from './components/PathFinderModal';
 import { MetricsModal } from './components/MetricsModal';
 import { AddEntityModal } from './components/AddEntityModal';
 import { OntologyModal } from './components/OntologyModal';
+import { CwiBrandModal } from './components/CwiBrandModal';
+import { CwiLogo } from './components/CwiLogo';
 
 const ALL_TYPES: NodeType[] = [
   'person',
@@ -42,6 +44,7 @@ export const App: React.FC = () => {
   const [isMetricsOpen, setIsMetricsOpen] = useState<boolean>(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   const [isOntologyOpen, setIsOntologyOpen] = useState<boolean>(false);
+  const [isCwiModalOpen, setIsCwiModalOpen] = useState<boolean>(false);
 
   // Path finder highlight state
   const [pathNodeIds, setPathNodeIds] = useState<string[]>([]);
@@ -175,36 +178,81 @@ export const App: React.FC = () => {
     setPathEdgeIds([]);
   }, []);
 
-  // Highlight the Earth Fire Alliance (EFA) & FireSat ontology ecosystem from the slide
+  // Highlight the Earth Fire Alliance (EFA) & FireSat ontology ecosystem
   const handleFocusEcosystem = useCallback(() => {
     const efaNodeIds = [
       'collab-efa',
       'prod-firesat',
-      'inst-google',
       'inst-google-org',
       'inst-muon-space',
-      'inst-edf',
       'inst-cwi',
-      'inst-minderoo',
-      'inst-moore',
       'topic-fire-monitoring',
+      'topic-firesat',
     ];
     const efaEdgeIds = [
-      'edge-google-org-google',
       'edge-google-efa',
       'edge-muon-efa',
-      'edge-edf-efa',
       'edge-cwi-efa',
-      'edge-minderoo-efa',
-      'edge-moore-efa',
       'edge-efa-firesat',
-      'edge-firesat-topic',
-      'edge-cwi-topic',
+      'edge-firesat-topic-mon',
+      'edge-firesat-topic-sat',
     ];
     setPathNodeIds(efaNodeIds);
     setPathEdgeIds(efaEdgeIds);
     const efaNode = nodes.find((n) => n.id === 'collab-efa');
     if (efaNode) setSelectedNode(efaNode);
+  }, [nodes]);
+
+  // Focus Climate & Wildfire Institute (CWI) core initiatives
+  const handleFocusCwiEcosystem = useCallback(() => {
+    const cwiNodeIds = [
+      'inst-cwi',
+      'prog-rhf',
+      'prod-firelines',
+      'collab-efa',
+      'prod-firesat',
+      'inst-calfire',
+      'inst-google-org',
+      'inst-muon-space',
+      'topic-fire-monitoring',
+      'topic-home-hardening',
+      'topic-decision-support',
+    ];
+    const cwiEdgeIds = [
+      'edge-cwi-rhf',
+      'edge-cwi-firelines',
+      'edge-cwi-efa',
+      'edge-calfire-rhf',
+      'edge-google-efa',
+      'edge-muon-efa',
+      'edge-efa-firesat',
+      'edge-firesat-topic-mon',
+      'edge-rhf-topic-hh',
+      'edge-firelines-topic-dec',
+    ];
+    setPathNodeIds(cwiNodeIds);
+    setPathEdgeIds(cwiEdgeIds);
+    const cwiNode = nodes.find((n) => n.id === 'inst-cwi');
+    if (cwiNode) setSelectedNode(cwiNode);
+  }, [nodes]);
+
+  // Focus Resilient Home Fund (RHF) specifically
+  const handleFocusResilientHomeFund = useCallback(() => {
+    const rhfNodeIds = [
+      'prog-rhf',
+      'inst-cwi',
+      'inst-calfire',
+      'topic-home-hardening',
+    ];
+    const rhfEdgeIds = [
+      'edge-cwi-rhf',
+      'edge-calfire-rhf',
+      'edge-rhf-topic-hh',
+    ];
+    setPathNodeIds(rhfNodeIds);
+    setPathEdgeIds(rhfEdgeIds);
+    const rhfNode = nodes.find((n) => n.id === 'prog-rhf');
+    if (rhfNode) setSelectedNode(rhfNode);
   }, [nodes]);
 
   return (
@@ -218,6 +266,7 @@ export const App: React.FC = () => {
         onOpenPathFinder={() => setIsPathFinderOpen(true)}
         onOpenAnalytics={() => setIsMetricsOpen(true)}
         onOpenOntology={() => setIsOntologyOpen(true)}
+        onOpenCwiModal={() => setIsCwiModalOpen(true)}
         onOpenAddModal={() => setIsAddModalOpen(true)}
         onExportData={handleExportData}
       />
@@ -256,6 +305,53 @@ export const App: React.FC = () => {
         onSelectNode={setSelectedNode}
       />
 
+      {/* Bottom-left CWI Institutional Watermark */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 20,
+          left: 20,
+          zIndex: 25,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          padding: '6px 14px',
+          borderRadius: 'var(--radius-full)',
+          background: 'rgba(13, 19, 34, 0.88)',
+          backdropFilter: 'blur(16px)',
+          border: '1px solid rgba(246, 186, 19, 0.35)',
+          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(246, 186, 19, 0.2)',
+        }}
+      >
+        <CwiLogo variant="mark" size={20} glow={false} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '0.04em' }}>
+            Climate & Wildfire Institute
+          </span>
+          <span style={{ fontSize: '0.68rem', color: '#f6ba13' }}>·</span>
+          <span style={{ fontSize: '0.68rem', color: 'var(--text-secondary)' }}>
+            Firelines Landscape ({filteredNodes.length} mapped)
+          </span>
+        </div>
+        <button
+          onClick={() => setIsCwiModalOpen(true)}
+          style={{
+            fontSize: '0.68rem',
+            fontWeight: 600,
+            color: '#fed7aa',
+            background: 'rgba(246, 186, 19, 0.15)',
+            padding: '2px 8px',
+            borderRadius: 'var(--radius-full)',
+            border: '1px solid rgba(246, 186, 19, 0.3)',
+            marginLeft: 4,
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.25)')}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.15)')}
+        >
+          About CWI
+        </button>
+      </div>
+
       {/* Path Finder Modal */}
       <PathFinderModal
         isOpen={isPathFinderOpen}
@@ -289,6 +385,15 @@ export const App: React.FC = () => {
         isOpen={isOntologyOpen}
         onClose={() => setIsOntologyOpen(false)}
         onFocusEcosystem={handleFocusEcosystem}
+        nodes={nodes}
+      />
+
+      {/* Climate & Wildfire Institute Brand & Initiatives Modal */}
+      <CwiBrandModal
+        isOpen={isCwiModalOpen}
+        onClose={() => setIsCwiModalOpen(false)}
+        onFocusCwiEcosystem={handleFocusCwiEcosystem}
+        onFocusResilientHomeFund={handleFocusResilientHomeFund}
         nodes={nodes}
       />
     </div>

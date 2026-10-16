@@ -14,6 +14,7 @@ import {
   Shield,
   Layers,
 } from 'lucide-react';
+import { CwiLogo } from './CwiLogo';
 
 interface DossierDrawerProps {
   node: GraphNode | null;
@@ -150,6 +151,56 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
           gap: 20,
         }}
       >
+        {/* CWI Ecosystem Verified Badge */}
+        {(node.id === 'inst-cwi' || node.tags?.includes('CWI') || node.id === 'prog-rhf' || node.id === 'prod-firelines') && (
+          <div
+            style={{
+              padding: '12px 14px',
+              borderRadius: 'var(--radius-md)',
+              background: 'linear-gradient(135deg, rgba(246, 186, 19, 0.12) 0%, rgba(235, 124, 38, 0.18) 100%)',
+              border: '1px solid rgba(246, 186, 19, 0.35)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: 12,
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <CwiLogo variant="mark" size={28} glow={false} />
+              <div>
+                <span style={{ fontSize: '0.68rem', fontWeight: 700, color: '#f6ba13', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                  Climate & Wildfire Institute
+                </span>
+                <p style={{ fontSize: '0.75rem', fontWeight: 600, color: '#fed7aa', margin: 0 }}>
+                  Boundary Organization Initiative
+                </p>
+              </div>
+            </div>
+
+            <a
+              href={node.id === 'prog-rhf' ? 'https://www.resilienthomefund.org/' : 'https://www.climateandwildfire.org/'}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Visit official portal"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 4,
+                padding: '4px 8px',
+                borderRadius: 'var(--radius-sm)',
+                backgroundColor: 'rgba(246, 186, 19, 0.2)',
+                color: '#fed7aa',
+                fontSize: '0.7rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+              }}
+            >
+              <span>Portal</span>
+              <ExternalLink size={11} />
+            </a>
+          </div>
+        )}
+
         {/* Description or Bio */}
         {node.description && (
           <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>

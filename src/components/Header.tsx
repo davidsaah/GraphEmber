@@ -1,6 +1,7 @@
 import React from 'react';
-import { Search, Route, BarChart3, Plus, Flame, X, Download, Network } from 'lucide-react';
+import { Search, Route, BarChart3, Plus, X, Download, Network, ExternalLink } from 'lucide-react';
 import type { GraphNode, GraphEdge } from '../types/graph';
+import { CwiLogo } from './CwiLogo';
 
 interface HeaderProps {
   nodes: GraphNode[];
@@ -10,6 +11,7 @@ interface HeaderProps {
   onOpenPathFinder: () => void;
   onOpenAnalytics: () => void;
   onOpenOntology: () => void;
+  onOpenCwiModal: () => void;
   onOpenAddModal: () => void;
   onExportData: () => void;
 }
@@ -22,6 +24,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenPathFinder,
   onOpenAnalytics,
   onOpenOntology,
+  onOpenCwiModal,
   onOpenAddModal,
   onExportData,
 }) => {
@@ -57,54 +60,79 @@ export const Header: React.FC<HeaderProps> = ({
         borderRadius: 'var(--radius-lg)',
       }}
     >
-      {/* Brand & Logo */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <div
+      {/* CWI Brand & App Lockup */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+        <button
+          onClick={onOpenCwiModal}
+          title="Learn about Climate & Wildfire Institute (CWI) and Initiatives"
           style={{
-            width: 36,
-            height: 36,
-            borderRadius: 'var(--radius-md)',
-            background: 'linear-gradient(135deg, #f97316 0%, #ef4444 100%)',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 0 16px rgba(249, 115, 22, 0.45)',
+            background: 'none',
+            border: 'none',
+            padding: 0,
+            cursor: 'pointer',
           }}
         >
-          <Flame size={22} color="#ffffff" />
-        </div>
+          <CwiLogo variant="mark" size={40} glow={true} className="cwi-flame-pulse" />
+        </button>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-brand, "Poppins", sans-serif)',
+                fontSize: '0.68rem',
+                fontWeight: 700,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: '#f6ba13',
+              }}
+            >
+              Climate & Wildfire Institute
+            </span>
+            <span
+              style={{
+                fontSize: '0.62rem',
+                fontWeight: 600,
+                padding: '1px 6px',
+                borderRadius: 'var(--radius-full)',
+                background: 'rgba(246, 186, 19, 0.15)',
+                color: '#fed7aa',
+                border: '1px solid rgba(246, 186, 19, 0.35)',
+              }}
+            >
+              501(c)(3)
+            </span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 1 }}>
             <h1
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: '1.25rem',
-                fontWeight: 700,
+                fontWeight: 800,
                 letterSpacing: '-0.02em',
                 background: 'linear-gradient(to right, #ffffff, #fed7aa)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
+                lineHeight: 1.1,
               }}
             >
               GraphEmber
             </h1>
             <span
               style={{
-                fontSize: '0.7rem',
+                fontSize: '0.65rem',
                 fontWeight: 600,
-                padding: '2px 6px',
+                padding: '2px 7px',
                 borderRadius: 'var(--radius-full)',
-                background: 'rgba(249, 115, 22, 0.2)',
+                background: 'rgba(235, 124, 38, 0.18)',
                 color: '#fb923c',
-                border: '1px solid rgba(249, 115, 22, 0.35)',
+                border: '1px solid rgba(249, 115, 22, 0.4)',
               }}
             >
-              Intelligence Network
+              Firelines Landscape
             </span>
           </div>
-          <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-            Ecosystem Mapping: People, Collaboratives, Products, Grants & Science
-          </p>
         </div>
       </div>
 
@@ -158,6 +186,111 @@ export const Header: React.FC<HeaderProps> = ({
             <X size={14} />
           </button>
         )}
+      </div>
+
+      {/* CWI Ecosystem Quick Actions */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <button
+          onClick={onOpenCwiModal}
+          title="Learn about Climate & Wildfire Institute boundary initiatives"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+            padding: '6px 12px',
+            borderRadius: 'var(--radius-full)',
+            background: 'linear-gradient(135deg, rgba(246, 186, 19, 0.15) 0%, rgba(235, 124, 38, 0.15) 100%)',
+            border: '1px solid rgba(246, 186, 19, 0.35)',
+            color: '#fed7aa',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.25)';
+            e.currentTarget.style.borderColor = '#f6ba13';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.15)';
+            e.currentTarget.style.borderColor = 'rgba(246, 186, 19, 0.35)';
+          }}
+        >
+          <CwiLogo variant="mark" size={15} glow={false} />
+          <span>About CWI</span>
+        </button>
+
+        <a
+          href="https://www.climateandwildfire.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Open Climate & Wildfire Institute official website"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 5,
+            padding: '6px 11px',
+            borderRadius: 'var(--radius-full)',
+            backgroundColor: 'var(--bg-surface)',
+            border: '1px solid var(--border-subtle)',
+            color: 'var(--text-secondary)',
+            fontSize: '0.75rem',
+            fontWeight: 500,
+            textDecoration: 'none',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'var(--bg-surface-elevated)';
+            e.currentTarget.style.color = '#ffffff';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'var(--bg-surface)';
+            e.currentTarget.style.color = 'var(--text-secondary)';
+          }}
+        >
+          <span>climateandwildfire.org</span>
+          <ExternalLink size={12} />
+        </a>
+
+        <a
+          href="https://www.resilienthomefund.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Explore Resilient Home Fund - Wildfire Risk Reduction Grants for Homeowners"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+            padding: '6px 12px',
+            borderRadius: 'var(--radius-full)',
+            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.16) 100%)',
+            border: '1px solid rgba(16, 185, 129, 0.35)',
+            color: '#a7f3d0',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            textDecoration: 'none',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(16, 185, 129, 0.22)';
+            e.currentTarget.style.borderColor = '#10b981';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(16, 185, 129, 0.12)';
+            e.currentTarget.style.borderColor = 'rgba(16, 185, 129, 0.35)';
+          }}
+        >
+          <span>Resilient Home Fund</span>
+          <span
+            style={{
+              fontSize: '0.62rem',
+              fontWeight: 700,
+              padding: '1px 5px',
+              borderRadius: 'var(--radius-sm)',
+              background: '#10b981',
+              color: '#064e3b',
+            }}
+          >
+            Grants
+          </span>
+          <ExternalLink size={12} />
+        </a>
       </div>
 
       {/* Network Stats & Action Buttons */}

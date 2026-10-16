@@ -48,11 +48,22 @@
   --accent-ember-light: #fb923c;
   --accent-ember-dark: #c2410c;
 
+  /* Climate & Wildfire Institute (CWI) Brand Tokens */
+  --font-brand: 'Poppins', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-cwi-gold: #f6ba13;
+  --color-cwi-amber: #eb7c26;
+  --color-cwi-flame: #e23e1d;
+  --color-cwi-pine: #10b981;
+  --color-cwi-navy: #0d1322;
+  --cwi-gradient-flame: linear-gradient(135deg, #f6ba13 0%, #eb7c26 50%, #e23e1d 100%);
+  --cwi-gradient-badge: linear-gradient(135deg, rgba(246, 186, 19, 0.15) 0%, rgba(235, 124, 38, 0.22) 100%);
+
   /* Shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65);
   --shadow-glow: 0 0 24px rgba(249, 115, 22, 0.25);
+  --shadow-cwi: 0 0 24px rgba(246, 186, 19, 0.35);
 
   /* Layout Constants */
   --header-height: 64px;
@@ -61,6 +72,25 @@
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-full: 9999px;
+}
+
+@keyframes cwiGlowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(246, 186, 19, 0.4)) drop-shadow(0 0 16px rgba(235, 124, 38, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(246, 186, 19, 0.75)) drop-shadow(0 0 24px rgba(226, 62, 29, 0.45));
+  }
+}
+
+.cwi-flame-pulse {
+  animation: cwiGlowPulse 3.5s ease-in-out infinite;
+}
+
+.badge-cwi {
+  background: var(--cwi-gradient-badge);
+  color: #fed7aa;
+  border: 1px solid rgba(246, 186, 19, 0.45);
 }
 
 * {

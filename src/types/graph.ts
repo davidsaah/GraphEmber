@@ -34,13 +34,18 @@ export type RelationType =
   | 'HAS_PROJECT'
   | 'HAS_TOPIC'
   | 'SUBSIDIARY_OF'
-  | 'INVOLVED_IN';
+  | 'INVOLVED_IN'
+  | 'OPERATES'
+  | 'ADMINISTERS';
 
 export interface BaseNode {
   id: string;
   type: NodeType;
   label: string;
   description?: string;
+  website?: string;
+  acronym?: string;
+  location?: string;
   tags?: string[];
   // D3 force simulation coordinates
   x?: number;

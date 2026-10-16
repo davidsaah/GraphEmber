@@ -58,16 +58,24 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     return counts;
   }, [nodes]);
 
-  // Extract top tags
+  // Extract top tags, prioritizing key CWI initiatives
   const topTags = React.useMemo(() => {
     const tagMap = new Map<string, number>();
     nodes.forEach((n) => {
       n.tags?.forEach((t) => tagMap.set(t, (tagMap.get(t) || 0) + 1));
     });
-    return Array.from(tagMap.entries())
+    const sorted = Array.from(tagMap.entries())
       .sort((a, b) => b[1] - a[1])
-      .slice(0, 8)
       .map(([tag]) => tag);
+    const priority = ['CWI', 'Resilient Home Fund', 'FireSat', 'AI Charter', 'California'];
+    const result: string[] = [];
+    priority.forEach((p) => {
+      if (sorted.includes(p)) result.push(p);
+    });
+    sorted.forEach((t) => {
+      if (!result.includes(t)) result.push(t);
+    });
+    return result.slice(0, 9);
   }, [nodes]);
 
   const areFiltersApplied =
