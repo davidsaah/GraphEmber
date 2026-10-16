@@ -1,7 +1,9 @@
 import React from 'react';
-import { Search, Route, BarChart3, Plus, X, Download, Network, Sparkles, Share2, Map as MapIcon } from 'lucide-react';
+import { Search, Route, BarChart3, Plus, X, Download, Network, Share2, Map as MapIcon, Table2 } from 'lucide-react';
 import type { GraphNode, GraphEdge } from '../types/graph';
 import { CwiLogo } from './CwiLogo';
+
+export type AppView = 'network' | 'map' | 'data';
 
 interface HeaderProps {
   nodes: GraphNode[];
@@ -14,9 +16,8 @@ interface HeaderProps {
   onOpenCwiModal: () => void;
   onOpenAddModal: () => void;
   onExportData: () => void;
-  onOpenChat: () => void;
-  view: 'network' | 'map';
-  onViewChange: (view: 'network' | 'map') => void;
+  view: AppView;
+  onViewChange: (view: AppView) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -30,7 +31,6 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenCwiModal,
   onOpenAddModal,
   onExportData,
-  onOpenChat,
   view,
   onViewChange,
 }) => {
@@ -57,7 +57,7 @@ export const Header: React.FC<HeaderProps> = ({
         style={{ display: 'flex', alignItems: 'center', gap: 10, padding: 0, flexShrink: 0, textAlign: 'left' }}
       >
         <CwiLogo variant="mark" size={30} glow={false} />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+        <div className="hide-xs" style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
           <span className="eyebrow">Climate & Wildfire Institute</span>
           <h1
             style={{
@@ -118,6 +118,10 @@ export const Header: React.FC<HeaderProps> = ({
           <MapIcon size={14} />
           <span className="hide-sm">Map</span>
         </button>
+        <button aria-pressed={view === 'data'} onClick={() => onViewChange('data')} title="Data tables">
+          <Table2 size={14} />
+          <span className="hide-sm">Data</span>
+        </button>
       </div>
 
       {/* Network size */}
@@ -136,11 +140,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Tools */}
       <nav style={{ display: 'flex', alignItems: 'center', gap: 2, flexShrink: 0, marginLeft: 'auto' }}>
-        <button className="btn" onClick={onOpenChat} title="Ask questions about the network" style={{ color: 'var(--color-cwi-gold)' }}>
-          <Sparkles size={15} />
-          <span className="hide-sm">Ask</span>
-        </button>
-        <button className="btn" onClick={onOpenPathFinder} title="Find the shortest connection between two entities">
+<button className="btn" onClick={onOpenPathFinder} title="Find the shortest connection between two entities">
           <Route size={15} />
           <span className="hide-md">Path Finder</span>
         </button>
@@ -158,7 +158,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div style={{ width: 1, height: 20, background: 'var(--border-subtle)', margin: '0 6px' }} />
         <button className="btn btn-primary" onClick={onOpenAddModal}>
           <Plus size={15} />
-          <span>Add</span>
+          <span className="hide-xs">Add</span>
         </button>
       </nav>
     </header>

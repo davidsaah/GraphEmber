@@ -1,12 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowUp, Sparkles, Square, Trash2, X } from 'lucide-react';
+import { ArrowUp, Sparkles, Square, Trash2 } from 'lucide-react';
 import type { GraphNode, GraphEdge } from '../types/graph';
 import { buildGraphContext } from '../chat/graphContext';
 import { askClaude, describeError, ChatError, type ChatTurn } from '../chat/askClaude';
 
 interface ChatPanelProps {
-  isOpen: boolean;
-  onClose: () => void;
   nodes: GraphNode[];
   edges: GraphEdge[];
   onSelectNode: (node: GraphNode) => void;
@@ -31,7 +29,7 @@ const endpointId = (end: string | GraphNode) => (typeof end === 'string' ? end :
 const referencedIds = (text: string, byId: Map<string, GraphNode>) =>
   [...new Set([...text.matchAll(REF)].map((m) => m[1]))].filter((id) => byId.has(id));
 
-export const ChatPanel: React.FC<ChatPanelProps> = ({ isOpen, onClose, nodes, edges, onSelectNode, onHighlight }) => {
+export const ChatPanel: React.FC<ChatPanelProps> = ({ nodes, edges, onSelectNode, onHighlight }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [draft, setDraft] = useState('');
   const [busy, setBusy] = useState(false);
@@ -45,10 +43,6 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ isOpen, onClose, nodes, ed
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
   }, [messages]);
-
-  useEffect(() => {
-    if (isOpen) inputRef.current?.focus();
-  }, [isOpen]);
 
   // Light up the entities an answer mentions, plus the links between them
   const highlightAnswer = (text: string) => {
@@ -101,39 +95,42 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ isOpen, onClose, nodes, ed
     onHighlight([], []);
   };
 
-  if (!isOpen) return null;
-
   return (
     <aside
-      className="glass-panel"
       aria-label="Ask about the network"
       style={{
-        position: 'absolute',
-        top: 'calc(16px + var(--header-height) + 10px)',
-        right: 16,
-        bottom: 16,
-        width: 'min(400px, calc(100vw - 32px))',
-        zIndex: 35,
+        width: 'var(--chat-width)',
+        flexShrink: 0,
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',
-        background: 'rgba(11, 15, 24, 0.97)',
+        background: 'var(--bg-sidebar)',
+        borderLeft: '1px solid var(--border-subtle)',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '14px 12px 12px 16px', borderBottom: '1px solid var(--border-subtle)' }}>
+      {/* Header row lines up with the floating app header */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          minHeight: 'calc(32px + var(--header-height))',
+          padding: '0 12px 0 18px',
+          borderBottom: '1px solid var(--border-subtle)',
+          flexShrink: 0,
+        }}
+      >
         <Sparkles size={16} style={{ color: 'var(--color-cwi-gold)' }} />
         <div style={{ flex: 1 }}>
           <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '0.95rem' }}>Ask the network</div>
-          <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Answers come from the {nodes.length} entities on this map</div>
+          <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Answers from the {nodes.length} entities in this network</div>
         </div>
         {messages.length > 0 && (
           <button className="icon-btn" onClick={clear} title="Clear conversation" aria-label="Clear conversation">
             <Trash2 size={15} />
           </button>
         )}
-        <button className="icon-btn" onClick={onClose} title="Close" aria-label="Close chat">
-          <X size={16} />
-        </button>
       </div>
 
       <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', padding: 16, display: 'flex', flexDirection: 'column', gap: 14 }}>

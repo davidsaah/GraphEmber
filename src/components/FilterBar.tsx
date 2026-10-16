@@ -54,12 +54,24 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     return FEATURED_TAGS.filter((t) => present.has(t));
   }, [nodes]);
 
+  // Publish the bar's height so panels below it (the data table) can sit underneath
+  const barRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    const el = barRef.current;
+    if (!el) return;
+    const root = document.documentElement;
+    const observer = new ResizeObserver(() => root.style.setProperty('--filterbar-height', `${el.offsetHeight}px`));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const hasGrants = (typeCounts.get('grant') || 0) > 0;
   const allTypesOn = visibleTypes.every((t) => activeTypes.has(t.type));
   const areFiltersApplied = !allTypesOn || selectedTags.size > 0 || minFunding > 0;
 
   return (
     <div
+      ref={barRef}
       className="glass-panel"
       style={{
         position: 'absolute',
@@ -70,7 +82,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         flexDirection: 'column',
         gap: 8,
         zIndex: 25,
-        maxWidth: 'min(760px, calc(100vw - 32px))',
+        maxWidth: 'min(760px, calc(100% - 32px))',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>

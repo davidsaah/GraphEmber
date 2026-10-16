@@ -77,9 +77,9 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
       style={{
         position: 'absolute',
         top: 'calc(16px + var(--header-height) + 10px)',
-        right: 'calc(16px + var(--right-inset, 0px))',
+        right: 16,
         bottom: 16,
-        width: 'min(var(--dossier-width), calc(100vw - 32px - var(--right-inset, 0px)))',
+        width: 'min(var(--dossier-width), calc(100% - 32px))',
         display: 'flex',
         flexDirection: 'column',
         zIndex: 40,

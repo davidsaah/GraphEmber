@@ -18,7 +18,6 @@ interface MapViewProps {
   selectedNodeId: string | null;
   highlightedPathNodeIds: string[];
   onSelectNode: (node: GraphNode | null) => void;
-  rightInset?: number;
 }
 
 interface Located {
@@ -53,15 +52,16 @@ const countries: FeatureCollection = (() => {
 })();
 
 // Small places only get a label once zoomed in, so the US cluster stays readable
-const LABEL_MIN_COUNT = 3;
+const LABEL_MIN_COUNT = 4;
 const LABEL_ALL_ZOOM = 3.2;
 
 const cssVar = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
-export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, highlightedPathNodeIds, onSelectNode, rightInset = 0 }) => {
+export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, highlightedPathNodeIds, onSelectNode }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const markersRef = useRef<maplibregl.Marker[]>([]);
+  const framedRef = useRef(false);
   const onSelectRef = useRef(onSelectNode);
   const nodeByIdRef = useRef(new Map<string, GraphNode>());
   const [ready, setReady] = useState(false);
@@ -215,6 +215,14 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
       })),
     };
     (map.getSource('entities') as GeoJSONSource).setData(data);
+
+    // Frame everything that's mapped the first time there is data
+    if (!framedRef.current && located.length > 0) {
+      framedRef.current = true;
+      const bounds = new maplibregl.LngLatBounds();
+      located.forEach((l) => bounds.extend(l.lngLat));
+      map.fitBounds(bounds, { padding: { top: 190, bottom: 80, left: 60, right: 60 }, maxZoom: 3, duration: 0 });
+    }
   }, [ready, located, degree, selectedNodeId, highlightedPathNodeIds]);
 
   // Connections of the selected entity (or the highlighted path) between mapped places
@@ -241,9 +249,9 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
 
     const sel = selectedNodeId ? byId.get(selectedNodeId) : undefined;
     // Keep the selection clear of the dossier drawer on the right
-    if (sel) map.easeTo({ center: sel.lngLat, zoom: Math.max(map.getZoom(), 2.5), duration: 600, padding: { top: 0, bottom: 0, left: 0, right: 440 + rightInset } });
+    if (sel) map.easeTo({ center: sel.lngLat, zoom: Math.max(map.getZoom(), 2.5), duration: 600, padding: { top: 0, bottom: 0, left: 0, right: 440 } });
     setLinkNote(selectedNodeId ? { shown: data.features.length, total: relevant.length } : null);
-  }, [ready, edges, byId, selectedNodeId, highlightedPathNodeIds, rightInset]);
+  }, [ready, edges, byId, selectedNodeId, highlightedPathNodeIds]);
 
   // Place labels (HTML markers, since the basemap carries no font glyphs)
   useEffect(() => {
