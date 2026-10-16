@@ -39,6 +39,8 @@ export const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeTypes, setActiveTypes] = useState<Set<NodeType>>(new Set(ALL_TYPES));
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
+  // Default scope: CWI's own projects and partners (the CWI Projects and Collaborators sheet)
+  const [cwiOnly, setCwiOnly] = useState<boolean>(true);
   const [minFunding, setMinFunding] = useState<number>(0);
 
   // Selection & Hover state
@@ -89,16 +91,24 @@ export const App: React.FC = () => {
     setSearchQuery('');
     setActiveTypes(new Set(ALL_TYPES));
     setSelectedTags(new Set());
+    setCwiOnly(true);
     setMinFunding(0);
     setPathNodeIds([]);
     setPathEdgeIds([]);
   }, []);
 
   // Filtered nodes and edges
+  const scopedNodes = useMemo(() => (cwiOnly ? nodes.filter((n) => n.tags?.includes('CWI Network')) : nodes), [nodes, cwiOnly]);
+  const scopedEdges = useMemo(() => {
+    if (!cwiOnly) return edges;
+    const ids = new Set(scopedNodes.map((n) => n.id));
+    return edges.filter((e) => ids.has(typeof e.source === 'object' ? e.source.id : e.source) && ids.has(typeof e.target === 'object' ? e.target.id : e.target));
+  }, [edges, scopedNodes, cwiOnly]);
+
   const filteredNodes = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
 
-    return nodes.filter((node) => {
+    return scopedNodes.filter((node) => {
       // 1. Type filter
       if (!activeTypes.has(node.type)) return false;
 
@@ -130,7 +140,7 @@ export const App: React.FC = () => {
 
       return true;
     });
-  }, [nodes, activeTypes, minFunding, selectedTags, searchQuery]);
+  }, [scopedNodes, activeTypes, minFunding, selectedTags, searchQuery]);
 
   const filteredNodeIds = useMemo(() => new Set(filteredNodes.map((n) => n.id)), [filteredNodes]);
 
@@ -293,8 +303,8 @@ export const App: React.FC = () => {
       >
         {/* Top Header Bar */}
         <Header
-          nodes={nodes}
-          edges={edges}
+          nodes={scopedNodes}
+          edges={scopedEdges}
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           onOpenPathFinder={() => setIsPathFinderOpen(true)}
@@ -309,7 +319,7 @@ export const App: React.FC = () => {
 
         {/* Floating Filter Bar */}
         <FilterBar
-          nodes={nodes}
+          nodes={scopedNodes}
           activeTypes={activeTypes}
           onToggleType={handleToggleType}
           onSelectAllTypes={handleSelectAllTypes}
@@ -318,6 +328,8 @@ export const App: React.FC = () => {
           minFunding={minFunding}
           onMinFundingChange={setMinFunding}
           onResetFilters={handleResetFilters}
+          cwiOnly={cwiOnly}
+          onToggleCwiOnly={() => setCwiOnly((v) => !v)}
         />
 
         {view === 'network' ? (
@@ -352,6 +364,7 @@ export const App: React.FC = () => {
             edges={filteredEdges}
             selectedNodeId={selectedNode ? selectedNode.id : null}
             onSelectNode={setSelectedNode}
+            searchQuery={searchQuery}
           />
         )}
 

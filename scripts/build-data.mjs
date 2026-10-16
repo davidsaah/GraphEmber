@@ -1,5 +1,6 @@
 // Regenerates src/data/initialData.ts from the AI Wildfire Landscape sheet (sheet1.csv)
 // plus the hand-curated Firelines/CWI records in data/curated.json.
+// and the CWI Projects and Collaborators sheet (data/cwi-projects.csv).
 // Usage: node scripts/build-data.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,6 +10,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SHEET = path.join(root, 'sheet1.csv');
 const CURATED = path.join(root, 'data/curated.json');
 const OUT = path.join(root, 'src/data/initialData.ts');
+const CWI_SHEET = path.join(root, 'data/cwi-projects.csv'); // "CWI Projects and Collaborators" Google Sheet, exported as CSV
+const PLACES = path.join(root, 'data/places.json');
+const RAW_OUT = path.join(root, 'src/data/rawSheets.ts');
 
 // ---------- CSV ----------
 function parseCsv(text) {
@@ -287,6 +291,118 @@ for (const [name, type, label, how] of efa) {
 }
 addEdge({ id: nextId('efa'), source: 'inst-cwi', target: 'topic-fire-monitoring', type: 'HAS_TOPIC', label: 'has topic', how: 'boundary translation', modality: 'manual / boundary' });
 
+
+// ---------- CWI Projects and Collaborators sheet ----------
+// One row per (project, partner); the project and its location appear only on a project's first row.
+const CWI_TAG = 'CWI Network';
+const places = JSON.parse(fs.readFileSync(PLACES, 'utf8'));
+const placeKey = (loc) => {
+  let k = norm(loc).replace(/\?/g, '').replace(/,\s*maryland$/, ', md').replace(/,\s*oregon$/, ', or').trim();
+  const parts = k.split(',').map((p) => p.trim());
+  if (parts.length > 2) k = parts.slice(-2).join(', '); // "You Bet Rd, Grass Valley, CA"
+  return k;
+};
+// Fixes for locations the sheet gets wrong
+const LOCATION_FIXES = { 'fort collins, ca': 'Fort Collins, CO', 'gardnerville, ca': 'Gardnerville, NV' };
+const fixLocation = (loc) => LOCATION_FIXES[placeKey(loc)] || clean(loc).replace(/\s*\?\s*$/, '');
+const coordsFor = (loc) => places[placeKey(loc)];
+
+// Spelling variants of the same partner in the sheet
+const PARTNER_ALIASES = {
+  'planet labs (planet)': 'Planet',
+  'envirommental defense fund': 'Environmental Defense Fund',
+  'ca council on science & technology': 'California Council on Science & Technology',
+  'ca air resources board': 'California Air Resources Board',
+  'csu chico': 'Chico State',
+  'san diego supercomputer': 'UC San Diego Supercomputer Center',
+  'ucsd wildfire science and technology data commons': 'Wildfire Science and Technology Commons',
+  'fire forward / all hands ecology': 'All Hands Ecology - Fire Forward',
+  'chico state big chico creek ecological reserves': 'Chico State Big Chico Creek Ecological Reserve',
+  'universty of san francisco': 'University of San Francisco',
+  'tahoe central sierra intiative': 'Tahoe Central Sierra Initiative',
+};
+const PEOPLE = new Set(['patrick baylis', 'judson boomhower']);
+const PRODUCT_PROJECTS = /data hub|resource kits|embergraph/i;
+const MEETING_PROJECTS = /convening|workshop/i;
+const slug = (s) => norm(s).replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+// Existing landscape entities can be matched by their label without a trailing "(ACRONYM)"
+for (const n of nodes.values()) register(n.label.replace(/\s*\([^)]*\)\s*$/, ''), n.id);
+
+const cwiRows = parseCsv(fs.readFileSync(CWI_SHEET, 'utf8'));
+const cwiStats = { projects: 0, partners: 0, matched: [] };
+const tagNode = (n) => { n.tags = uniq([...(n.tags || []), CWI_TAG]); };
+tagNode(nodes.get('inst-cwi'));
+nodes.get('inst-cwi').coordinates = places['berkeley, ca'];
+
+const projectPartners = new Map(); // project id -> Set(partner id)
+let project = null;
+for (const r of cwiRows.slice(1)) {
+  const projectName = clean(r[0]);
+  if (projectName) {
+    const id = `cwi-proj-${slug(projectName)}`;
+    const type = MEETING_PROJECTS.test(projectName) ? 'meeting' : PRODUCT_PROJECTS.test(projectName) ? 'product' : 'program';
+    const location = clean(r[1]) || undefined;
+    project = { id, type, label: projectName, location, coordinates: location ? coordsFor(location) : undefined, tags: [CWI_TAG, 'CWI project'] };
+    nodes.set(id, project);
+    projectPartners.set(id, new Set());
+    cwiStats.projects++;
+    const isMeeting = type === 'meeting';
+    addEdge({ id: nextId('cwi'), source: 'inst-cwi', target: id, type: isMeeting ? 'ORGANIZES' : 'LEADS', label: isMeeting ? 'convenes' : 'leads', how: 'CWI project' });
+  }
+  const rawName = clean(r[2]).replace(/\s+/g, ' ');
+  if (!project || !rawName) continue;
+  const name = PARTNER_ALIASES[norm(rawName)] || rawName;
+  const location = clean(r[3]) ? fixLocation(r[3]) : undefined;
+
+  let id = byName.get(norm(name));
+  if (id && !id.startsWith('cwi-')) {
+    if (!cwiStats.matched.includes(name)) cwiStats.matched.push(name);
+  }
+  if (!id) {
+    id = `cwi-org-${slug(name)}`;
+    nodes.set(id, { id, type: PEOPLE.has(norm(name)) ? 'person' : 'institution', label: name, tags: ['CWI partner'] });
+    register(name, id);
+    cwiStats.partners++;
+  }
+  const node = nodes.get(id);
+  tagNode(node);
+  if (location && !node.location) node.location = location;
+  if (location && !node.coordinates && coordsFor(location)) node.coordinates = coordsFor(location);
+  const note = clean(r[6]);
+  if (note) node.sheetNote = note;
+
+  if (projectPartners.get(project.id).has(id)) continue;
+  projectPartners.get(project.id).add(id);
+  const isMeeting = project.type === 'meeting';
+  addEdge({ id: nextId('cwi'), source: id, target: project.id, type: isMeeting ? 'ATTENDED' : 'PARTICIPATES_IN', label: isMeeting ? 'attended' : 'partner on', how: 'CWI Projects and Collaborators sheet' });
+}
+
+// Descriptions from the sheet's structure
+const projectsOf = new Map();
+for (const [pid, partners] of projectPartners) for (const id of partners) projectsOf.set(id, [...(projectsOf.get(id) || []), nodes.get(pid).label]);
+for (const [pid, partners] of projectPartners) {
+  const p = nodes.get(pid);
+  p.description = `CWI ${p.type === 'meeting' ? 'convening' : 'project'}${p.location ? ` in ${p.location}` : ''} with ${partners.size} partner${partners.size === 1 ? '' : 's'}.`;
+}
+for (const [id, projects] of projectsOf) {
+  const n = nodes.get(id);
+  if (!n.description) n.description = `Partner on ${projects.length} CWI project${projects.length === 1 ? '' : 's'}: ${projects.join('; ')}.`;
+}
+
+// Raw sheets for the Data view, exactly as exported (empty trailing columns dropped)
+const rawSheet = (title, rows, headerRow) => {
+  const header = rows[headerRow].map(clean);
+  const body = rows.slice(headerRow + 1).filter((r) => r.some((v) => clean(v)));
+  const width = Math.max(...[header, ...body].map((r) => r.length));
+  const keep = [...Array(width).keys()].filter((i) => header[i] || body.some((r) => clean(r[i])));
+  return { title, columns: keep.map((i) => header[i] || (i === 6 && title.startsWith('CWI') ? 'Notes' : `Column ${i + 1}`)), rows: body.map((r) => keep.map((i) => clean(r[i]))) };
+};
+const rawSheets = [
+  rawSheet('CWI Projects and Collaborators', cwiRows, 0),
+  rawSheet('AI Wildfire Landscape', rows, headerIdx),
+];
+
 // ---------- write ----------
 const strip = (o) => JSON.parse(JSON.stringify(o));
 const nodeList = strip([...nodes.values()]);
@@ -319,7 +435,21 @@ fs.writeFileSync(OUT, `import type { NetworkDataset } from '../types/graph';
 export const INITIAL_DATASET: NetworkDataset = ${JSON.stringify(dataset, null, 2)};
 `);
 
+fs.writeFileSync(RAW_OUT, `/**
+ * Source spreadsheets as exported, for the Data view's raw tabs.
+ * GENERATED FILE: run \`npm run data\`.
+ */
+export interface RawSheet {
+  title: string;
+  columns: string[];
+  rows: string[][];
+}
+
+export const RAW_SHEETS: RawSheet[] = ${JSON.stringify(rawSheets)};
+`);
+
 console.log(`nodes ${nodeList.length}, edges ${edgeList.length}, isolated ${isolated.length}`);
+console.log(`CWI sheet: ${cwiStats.projects} projects, ${cwiStats.partners} new partners, matched to existing: ${cwiStats.matched.join('; ')}`);
 console.log(`merged into curated ${stats.merged}, duplicate rows merged ${stats.duplicates}`);
 console.log(`unresolved collaborator names ${unresolved.size} (kept as "Works with" tags)`);
 if (process.argv.includes('--verbose')) {

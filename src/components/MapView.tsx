@@ -54,6 +54,7 @@ const countries: FeatureCollection = (() => {
 // Small places only get a label once zoomed in, so the US cluster stays readable
 const LABEL_MIN_COUNT = 4;
 const LABEL_ALL_ZOOM = 3.2;
+const CITY_LABEL_ZOOM = 7.5;
 
 const cssVar = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
@@ -78,20 +79,25 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
     const centers = new Map<string, [number, number]>();
     let missing = 0;
     for (const node of nodes) {
-      const place = placeFor(node.location);
+      // Exact coordinates from the source win; otherwise fall back to the country/region lookup
+      const place = node.coordinates
+        ? { name: node.location || 'Mapped location', lngLat: node.coordinates, exact: true }
+        : placeFor(node.location);
       if (!place) {
         missing++;
         continue;
       }
       centers.set(place.name, place.lngLat);
       const group = byPlace.get(place.name) || [];
-      group.push({ node, place: place.name, lngLat: spread(place.lngLat, group.length) });
+      group.push({ node, place: place.name, lngLat: spread(place.lngLat, group.length, 'exact' in place ? 0.035 : 0.9) });
       byPlace.set(place.name, group);
     }
     // Labels sit just above each place's cluster of dots
     const placeList = [...byPlace.entries()].map(([name, group]) => {
       const [lng, lat] = centers.get(name)!;
-      return { name, count: group.length, lngLat: [lng, lat + 0.9 * Math.sqrt(group.length - 1) + 0.8] as [number, number] };
+      const exact = group[0].node.coordinates !== undefined;
+      const offset = exact ? 0.035 * Math.sqrt(group.length - 1) + 0.03 : 0.9 * Math.sqrt(group.length - 1) + 0.8;
+      return { name, count: group.length, exact, lngLat: [lng, lat + offset] as [number, number] };
     });
     return { located: [...byPlace.values()].flat(), unmapped: missing, places: placeList };
   }, [nodes]);
@@ -129,7 +135,7 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
       center: [-20, 25],
       zoom: 1.3,
       minZoom: 0.8,
-      maxZoom: 9,
+      maxZoom: 12,
       renderWorldCopies: false,
       attributionControl: false,
       dragRotate: false,
@@ -138,7 +144,10 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
     map.touchZoomRotate.disableRotation();
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Natural Earth' }), 'bottom-right');
-    const syncLabels = () => containerRef.current?.classList.toggle('map-zoomed', map.getZoom() >= LABEL_ALL_ZOOM);
+    const syncLabels = () => {
+      containerRef.current?.classList.toggle('map-zoomed', map.getZoom() >= LABEL_ALL_ZOOM);
+      containerRef.current?.classList.toggle('map-zoomed-city', map.getZoom() >= CITY_LABEL_ZOOM);
+    };
     map.on('zoom', syncLabels);
     map.on('movestart', () => setHover(null));
 
@@ -219,9 +228,12 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
     // Frame everything that's mapped the first time there is data
     if (!framedRef.current && located.length > 0) {
       framedRef.current = true;
-      const bounds = new maplibregl.LngLatBounds();
-      located.forEach((l) => bounds.extend(l.lngLat));
-      map.fitBounds(bounds, { padding: { top: 190, bottom: 80, left: 60, right: 60 }, maxZoom: 3, duration: 0 });
+      // Frame the bulk of the points (5th to 95th percentile) so one far-off partner doesn't zoom the map out
+      const pct = (vals: number[], q: number) => vals.sort((a, b) => a - b)[Math.floor(q * (vals.length - 1))];
+      const lngs = located.map((l) => l.lngLat[0]);
+      const lats = located.map((l) => l.lngLat[1]);
+      const bounds = new maplibregl.LngLatBounds([pct(lngs, 0.05), pct(lats, 0.05)], [pct(lngs, 0.95), pct(lats, 0.95)]);
+      map.fitBounds(bounds, { padding: { top: 190, bottom: 80, left: 60, right: 60 }, maxZoom: 6, duration: 0 });
     }
   }, [ready, located, degree, selectedNodeId, highlightedPathNodeIds]);
 
@@ -258,9 +270,10 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
     const map = mapRef.current;
     if (!map) return;
     markersRef.current.forEach((m) => m.remove());
-    markersRef.current = places.map(({ name, count, lngLat }) => {
+    markersRef.current = places.map(({ name, count, lngLat, exact }) => {
       const el = document.createElement('div');
-      el.className = count >= LABEL_MIN_COUNT ? 'map-place-label' : 'map-place-label map-place-minor';
+      // City-level places crowd each other, so their labels wait for a closer zoom
+      el.className = exact ? 'map-place-label map-place-city' : count >= LABEL_MIN_COUNT ? 'map-place-label' : 'map-place-label map-place-minor';
       el.textContent = `${name} · ${count}`;
       return new maplibregl.Marker({ element: el, anchor: 'bottom', offset: [0, -14] }).setLngLat(lngLat).addTo(map);
     });
@@ -301,7 +314,7 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
       >
         {linkNote
           ? `${linkNote.shown} of ${linkNote.total} connections shown · the rest go to topics, hubs or entities without a location`
-          : `${located.length} entities placed by country or region · ${unmapped} global or without a location`}
+          : `${located.length} entities on the map · ${unmapped} global or without a location`}
       </div>
     </div>
   );

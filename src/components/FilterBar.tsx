@@ -1,6 +1,7 @@
 import React from 'react';
 import type { NodeType, GraphNode } from '../types/graph';
 import { RotateCcw } from 'lucide-react';
+import { CwiLogo } from './CwiLogo';
 
 interface FilterBarProps {
   nodes: GraphNode[];
@@ -12,6 +13,8 @@ interface FilterBarProps {
   minFunding: number;
   onMinFundingChange: (amount: number) => void;
   onResetFilters: () => void;
+  cwiOnly: boolean;
+  onToggleCwiOnly: () => void;
 }
 
 const TYPE_CONFIG: Array<{ type: NodeType; label: string; color: string }> = [
@@ -39,6 +42,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   minFunding,
   onMinFundingChange,
   onResetFilters,
+  cwiOnly,
+  onToggleCwiOnly,
 }) => {
   const typeCounts = React.useMemo(() => {
     const counts = new Map<NodeType, number>();
@@ -50,9 +55,11 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   const visibleTypes = TYPE_CONFIG.filter((t) => (typeCounts.get(t.type) || 0) > 0);
 
   const tags = React.useMemo(() => {
+    // The featured tags describe the AI landscape sheet, so they only show outside the CWI scope
+    if (cwiOnly) return [];
     const present = new Set(nodes.flatMap((n) => n.tags || []));
     return FEATURED_TAGS.filter((t) => present.has(t));
-  }, [nodes]);
+  }, [nodes, cwiOnly]);
 
   // Publish the bar's height so panels below it (the data table) can sit underneath
   const barRef = React.useRef<HTMLDivElement>(null);
@@ -86,6 +93,17 @@ export const FilterBar: React.FC<FilterBarProps> = ({
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+        {/* Scope: CWI's own projects and partners, or everything including the AI landscape */}
+        <button
+          className="chip chip-scope"
+          aria-pressed={cwiOnly}
+          onClick={onToggleCwiOnly}
+          title={cwiOnly ? 'Showing CWI projects and partners. Click to include the full AI wildfire landscape.' : 'Show only CWI projects and partners'}
+        >
+          <CwiLogo variant="mark" size={13} glow={false} />
+          <span>CWI network</span>
+        </button>
+        <span style={{ width: 1, height: 18, background: 'var(--border-subtle)', margin: '0 2px' }} />
         {visibleTypes.map(({ type, label, color }) => (
           <button
             key={type}

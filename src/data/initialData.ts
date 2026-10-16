@@ -178,7 +178,12 @@ export const INITIAL_DATASET: NetworkDataset = {
         "Policy",
         "Community Resilience",
         "Boundary Org",
-        "501(c)(3)"
+        "501(c)(3)",
+        "CWI Network"
+      ],
+      "coordinates": [
+        -122.273,
+        37.872
       ]
     },
     {
@@ -248,7 +253,8 @@ export const INITIAL_DATASET: NetworkDataset = {
         "All Stages",
         "AI Charter",
         "GWFC Funded",
-        "Creating data, technology, & AI solutions that accelerate action"
+        "Creating data, technology, & AI solutions that accelerate action",
+        "CWI Network"
       ],
       "description": "Alliance uniting Google.org, Muon Space, Environmental Defense Fund, CWI, Moore Foundation, and Minderoo Foundation to launch and operate FireSat.",
       "website": "https://www.earthfirealliance.org/"
@@ -311,7 +317,12 @@ export const INITIAL_DATASET: NetworkDataset = {
         "Global",
         "Phase: All",
         "All Stages",
-        "Enabling environment"
+        "Enabling environment",
+        "CWI Network"
+      ],
+      "coordinates": [
+        -122.084,
+        37.386
       ]
     },
     {
@@ -361,7 +372,12 @@ export const INITIAL_DATASET: NetworkDataset = {
         "All Stages",
         "Convening",
         "Works with: Planscape",
-        "Works with: Utility Companies"
+        "Works with: Utility Companies",
+        "CWI Network"
+      ],
+      "coordinates": [
+        -121.494,
+        38.582
       ]
     },
     {
@@ -687,13 +703,19 @@ export const INITIAL_DATASET: NetworkDataset = {
       "label": "Blue Forest",
       "description": "Program Funders in the AI wildfire landscape.",
       "website": "https://www.blueforest.org/finance/forest-resilience-bond/",
+      "location": "Sacramento, CA",
       "tags": [
         "Nonprofit",
         "Delivery Support",
         "Program Funders",
-        "Convening"
+        "Convening",
+        "CWI Network"
       ],
-      "institutionType": "NGO"
+      "institutionType": "NGO",
+      "coordinates": [
+        -121.494,
+        38.582
+      ]
     },
     {
       "id": "land-121",
@@ -907,9 +929,14 @@ export const INITIAL_DATASET: NetworkDataset = {
         "External",
         "Colorado, USA",
         "Phase: All",
-        "All Stages"
+        "All Stages",
+        "CWI Network"
       ],
-      "institutionType": "University"
+      "institutionType": "University",
+      "coordinates": [
+        -105.084,
+        40.585
+      ]
     },
     {
       "id": "land-63",
@@ -1134,10 +1161,15 @@ export const INITIAL_DATASET: NetworkDataset = {
         "GWFC Funded",
         "Enabling faster, more precise data-driven decision making",
         "Works with: Governments",
-        "Works with: NGOs"
+        "Works with: NGOs",
+        "CWI Network"
       ],
       "acronym": "EDF",
-      "institutionType": "NGO"
+      "institutionType": "NGO",
+      "coordinates": [
+        -74.006,
+        40.713
+      ]
     },
     {
       "id": "land-86",
@@ -1477,9 +1509,14 @@ export const INITIAL_DATASET: NetworkDataset = {
         "All Stages",
         "AI Charter",
         "Enabling environment",
-        "Works with: Various environmental organizations"
+        "Works with: Various environmental organizations",
+        "CWI Network"
       ],
-      "institutionType": "NGO"
+      "institutionType": "NGO",
+      "coordinates": [
+        -122.143,
+        37.442
+      ]
     },
     {
       "id": "land-88",
@@ -1831,9 +1868,14 @@ export const INITIAL_DATASET: NetworkDataset = {
         "USA",
         "Phase: All",
         "All Stages",
-        "Works with: Community Organizations"
+        "Works with: Community Organizations",
+        "CWI Network"
       ],
-      "institutionType": "NGO"
+      "institutionType": "NGO",
+      "coordinates": [
+        -118.244,
+        34.052
+      ]
     },
     {
       "id": "land-45",
@@ -2134,12 +2176,19 @@ export const INITIAL_DATASET: NetworkDataset = {
       "label": "PG&E",
       "description": "Program Funders in the AI wildfire landscape.",
       "website": "https://www.pge.com/en.html",
+      "location": "Oakland, CA",
       "tags": [
         "Startup / Private",
         "Delivery Support",
-        "Program Funders"
+        "Program Funders",
+        "CWI Network"
       ],
-      "institutionType": "Private Sector"
+      "institutionType": "Private Sector",
+      "coordinates": [
+        -122.271,
+        37.804
+      ],
+      "sheetNote": "No location"
     },
     {
       "id": "land-22",
@@ -2421,10 +2470,15 @@ export const INITIAL_DATASET: NetworkDataset = {
         "Program Management Office",
         "AI Charter",
         "GWFC Funded",
-        "Enabling environment"
+        "Enabling environment",
+        "CWI Network"
       ],
       "acronym": "SIG",
-      "institutionType": "Private Sector"
+      "institutionType": "Private Sector",
+      "coordinates": [
+        -121.875,
+        37.662
+      ]
     },
     {
       "id": "land-100",
@@ -2488,9 +2542,14 @@ export const INITIAL_DATASET: NetworkDataset = {
         "Phase: Pre",
         "Assess Pre-fire Risks",
         "Works with: Fire Agencies",
-        "Works with: Utility Companies"
+        "Works with: Utility Companies",
+        "CWI Network"
       ],
-      "institutionType": "Private Sector"
+      "institutionType": "Private Sector",
+      "coordinates": [
+        -117.271,
+        32.833
+      ]
     },
     {
       "id": "land-91",
@@ -2557,9 +2616,14 @@ export const INITIAL_DATASET: NetworkDataset = {
         "Global",
         "Phase: All",
         "All Stages",
-        "Works with: Environmental NGOs"
+        "Works with: Environmental NGOs",
+        "CWI Network"
       ],
-      "institutionType": "NGO"
+      "institutionType": "NGO",
+      "coordinates": [
+        -77.091,
+        38.88
+      ]
     },
     {
       "id": "land-38",
@@ -2591,9 +2655,14 @@ export const INITIAL_DATASET: NetworkDataset = {
       "tags": [
         "Academic",
         "Advisors",
-        "Research"
+        "Research",
+        "CWI Network"
       ],
-      "institutionType": "University"
+      "institutionType": "University",
+      "coordinates": [
+        -122.273,
+        37.872
+      ]
     },
     {
       "id": "land-171-uc-irvine-climate-carbon-and-fire-dynamics-lab",
@@ -2836,14 +2905,20 @@ export const INITIAL_DATASET: NetworkDataset = {
       "label": "Watch Duty",
       "description": "Primary Delivery Partners in the AI wildfire landscape.",
       "website": "https://www.watchduty.org/",
+      "location": "Santa Rosa, CA",
       "tags": [
         "Nonprofit",
         "Primary Delivery Partners",
         "AI Charter",
         "GWFC Funded",
-        "Creating data, technology, & AI solutions that accelerate action"
+        "Creating data, technology, & AI solutions that accelerate action",
+        "CWI Network"
       ],
-      "institutionType": "NGO"
+      "institutionType": "NGO",
+      "coordinates": [
+        -122.714,
+        38.44
+      ]
     },
     {
       "id": "land-152",
@@ -2958,12 +3033,18 @@ export const INITIAL_DATASET: NetworkDataset = {
       "label": "Wildfire Science and Technology Commons",
       "description": "External in the AI wildfire landscape.",
       "website": "https://www.wildfirecommons.org/",
+      "location": "San Diego, CA",
       "tags": [
         "NGO / Private / Public Partnership",
         "External",
-        "AI Charter"
+        "AI Charter",
+        "CWI Network"
       ],
-      "status": "Operational"
+      "status": "Operational",
+      "coordinates": [
+        -117.161,
+        32.716
+      ]
     },
     {
       "id": "land-154",
@@ -3088,9 +3169,14 @@ export const INITIAL_DATASET: NetworkDataset = {
         "Assess Pre-fire Risks",
         "Convening",
         "Works with: Forestry Companies",
-        "Works with: Governments"
+        "Works with: Governments",
+        "CWI Network"
       ],
-      "institutionType": "Private Sector"
+      "institutionType": "Private Sector",
+      "coordinates": [
+        -122.348,
+        37.936
+      ]
     },
     {
       "id": "collab-ai-wildfire",
@@ -3102,6 +3188,2974 @@ export const INITIAL_DATASET: NetworkDataset = {
         "Collaborative",
         "AI Charter"
       ]
+    },
+    {
+      "id": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "program",
+      "label": "PG&E Wildfire Resilience Project",
+      "location": "Nevada County, El Dorado County, Sonoma County",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project in Nevada County, El Dorado County, Sonoma County with 13 partners."
+    },
+    {
+      "id": "cwi-org-city-of-grass-valley",
+      "type": "institution",
+      "label": "City of Grass Valley",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Grass Valley, CA",
+      "coordinates": [
+        -121.061,
+        39.219
+      ],
+      "sheetNote": "Double check location",
+      "description": "Partner on 2 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-city-of-nevada-city",
+      "type": "institution",
+      "label": "City of Nevada City",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Nevada City, CA",
+      "coordinates": [
+        -121.017,
+        39.262
+      ],
+      "sheetNote": "Name issue (renaming from year to year, possibly incorrect, etc.)",
+      "description": "Partner on 2 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-you-bet-firewise",
+      "type": "institution",
+      "label": "You Bet Firewise",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "You Bet Rd, Grass Valley, CA",
+      "coordinates": [
+        -121.061,
+        39.219
+      ],
+      "description": "Partner on 1 CWI project: PG&E Wildfire Resilience Project."
+    },
+    {
+      "id": "cwi-org-wildfire-ready-coalition-of-nevada-county",
+      "type": "institution",
+      "label": "Wildfire Ready Coalition of Nevada County",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Grass Valley, CA",
+      "coordinates": [
+        -121.061,
+        39.219
+      ],
+      "description": "Partner on 1 CWI project: PG&E Wildfire Resilience Project."
+    },
+    {
+      "id": "cwi-org-american-forest-foundation",
+      "type": "institution",
+      "label": "American Forest Foundation",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Washington, DC",
+      "coordinates": [
+        -77.037,
+        38.907
+      ],
+      "description": "Partner on 1 CWI project: PG&E Wildfire Resilience Project."
+    },
+    {
+      "id": "cwi-org-fire-aside",
+      "type": "institution",
+      "label": "Fire Aside",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Anselmo, CA",
+      "coordinates": [
+        -122.562,
+        37.975
+      ],
+      "description": "Partner on 6 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund; Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2026 Convening; 2025 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-rockrose-risk",
+      "type": "institution",
+      "label": "RockRose Risk",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 4 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund; Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2025 Convening."
+    },
+    {
+      "id": "cwi-org-home-hardening-solutions-inc",
+      "type": "institution",
+      "label": "Home Hardening Solutions, Inc.",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Grass Valley, CA",
+      "coordinates": [
+        -121.061,
+        39.219
+      ],
+      "description": "Partner on 1 CWI project: PG&E Wildfire Resilience Project."
+    },
+    {
+      "id": "cwi-org-wui-fire-institute-at-cal-poly-slo",
+      "type": "institution",
+      "label": "WUI FIRE Institute at Cal Poly SLO",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Luis Obispo, CA",
+      "coordinates": [
+        -120.66,
+        35.283
+      ],
+      "description": "Partner on 1 CWI project: PG&E Wildfire Resilience Project."
+    },
+    {
+      "id": "cwi-org-nevada-county-office-of-emergency-services",
+      "type": "institution",
+      "label": "Nevada County Office of Emergency Services",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Nevada City, CA",
+      "coordinates": [
+        -121.017,
+        39.262
+      ],
+      "description": "Partner on 2 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-fire-safe-people-tv",
+      "type": "institution",
+      "label": "Fire Safe People TV",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 2 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-proj-nevada-county-resilience-fund",
+      "type": "program",
+      "label": "Nevada County Resilience Fund",
+      "location": "Nevada County",
+      "coordinates": [
+        -120.77,
+        39.3
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project in Nevada County with 14 partners."
+    },
+    {
+      "id": "cwi-org-nevada-county-resource-conservation-district",
+      "type": "institution",
+      "label": "Nevada County Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Grass Valley, CA",
+      "coordinates": [
+        -121.061,
+        39.219
+      ],
+      "description": "Partner on 1 CWI project: Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-national-forest-foundation",
+      "type": "institution",
+      "label": "National Forest Foundation",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Missoula, MT",
+      "coordinates": [
+        -113.994,
+        46.872
+      ],
+      "description": "Partner on 2 CWI projects: Nevada County Resilience Fund; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-the-resiliency-company",
+      "type": "institution",
+      "label": "The Resiliency Company",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Washington, DC",
+      "coordinates": [
+        -77.037,
+        38.907
+      ],
+      "description": "Partner on 1 CWI project: Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-patrick-baylis",
+      "type": "person",
+      "label": "Patrick Baylis",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Vancouver, BC",
+      "coordinates": [
+        -123.121,
+        49.283
+      ],
+      "description": "Partner on 1 CWI project: Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-judson-boomhower",
+      "type": "person",
+      "label": "Judson Boomhower",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Diego, CA",
+      "coordinates": [
+        -117.161,
+        32.716
+      ],
+      "description": "Partner on 1 CWI project: Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-burnbot",
+      "type": "institution",
+      "label": "BurnBot",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South San Francisco, CA",
+      "coordinates": [
+        -122.408,
+        37.655
+      ],
+      "description": "Partner on 5 CWI projects: Nevada County Resilience Fund; Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2026 Convening; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "program",
+      "label": "Tahoe Sierra Spark / Incline Fire Smart Community Pilot",
+      "location": "Lake Tahoe Basin",
+      "coordinates": [
+        -120.04,
+        39.09
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project in Lake Tahoe Basin with 31 partners."
+    },
+    {
+      "id": "cwi-org-tahoe-fund",
+      "type": "institution",
+      "label": "Tahoe Fund",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Incline Village, NV",
+      "coordinates": [
+        -119.952,
+        39.251
+      ],
+      "description": "Partner on 4 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2025 Convening; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-north-lake-tahoe-fire-protection-district",
+      "type": "institution",
+      "label": "North Lake Tahoe Fire Protection District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Tahoe City, CA",
+      "coordinates": [
+        -120.145,
+        39.172
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tahoe-central-sierra-initiative",
+      "type": "institution",
+      "label": "Tahoe Central Sierra Initiative",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-chris-anthony-firewerx",
+      "type": "institution",
+      "label": "Chris Anthony / FireWERX",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 3 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-vibrant-planet",
+      "type": "institution",
+      "label": "Vibrant Planet",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Truckee, CA",
+      "coordinates": [
+        -120.183,
+        39.328
+      ],
+      "description": "Partner on 5 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2026 Convening; 2025 Convening; 2023 Convening; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-nv-energy-foundation",
+      "type": "institution",
+      "label": "NV Energy Foundation",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Las Vegas, NV",
+      "coordinates": [
+        -115.14,
+        36.17
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tahoe-regional-planning-agency",
+      "type": "institution",
+      "label": "Tahoe Regional Planning Agency",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Stateline, NV",
+      "coordinates": [
+        -119.94,
+        38.962
+      ],
+      "description": "Partner on 2 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-wildfire-services",
+      "type": "institution",
+      "label": "Wildfire Services",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Windsor, CA",
+      "coordinates": [
+        -122.817,
+        38.547
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tahoe-resource-conservation-district",
+      "type": "institution",
+      "label": "Tahoe Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tahoe-douglas-fire-protection-district",
+      "type": "institution",
+      "label": "Tahoe Douglas Fire Protection District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Zephyr Cove, NV",
+      "coordinates": [
+        -119.947,
+        39.007
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-lake-valley-fire-protection-district",
+      "type": "institution",
+      "label": "Lake Valley Fire Protection District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Meyers, CA",
+      "coordinates": [
+        -120.024,
+        38.856
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-north-tahoe-fire-protection-district",
+      "type": "institution",
+      "label": "North Tahoe Fire Protection District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Tahoe City, CA",
+      "coordinates": [
+        -120.145,
+        39.172
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-south-lake-tahoe-fire-rescue",
+      "type": "institution",
+      "label": "South Lake Tahoe Fire Rescue",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-truckee-fire-protection-district",
+      "type": "institution",
+      "label": "Truckee Fire Protection District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Truckee, CA",
+      "coordinates": [
+        -120.183,
+        39.328
+      ],
+      "description": "Partner on 2 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-vanderbilt-university",
+      "type": "institution",
+      "label": "Vanderbilt University",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Nashville, TN",
+      "coordinates": [
+        -86.781,
+        36.163
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-opalai",
+      "type": "institution",
+      "label": "OpalAI",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Los Angeles, CA",
+      "coordinates": [
+        -118.244,
+        34.052
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-lake-tahoe-environmental-improvement-program",
+      "type": "institution",
+      "label": "Lake Tahoe Environmental Improvement Program",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Stateline, NV",
+      "coordinates": [
+        -119.94,
+        38.962
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-stanford-university",
+      "type": "institution",
+      "label": "Stanford University",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Stanford, CA",
+      "coordinates": [
+        -122.17,
+        37.427
+      ],
+      "description": "Partner on 4 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2026 Convening; 2025 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-carnelian-woods-hoa",
+      "type": "institution",
+      "label": "Carnelian Woods HOA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Carnelian Bay, CA",
+      "coordinates": [
+        -120.084,
+        39.228
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tyrolian-village-hoa",
+      "type": "institution",
+      "label": "Tyrolian Village HOA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Incline Village, NV",
+      "coordinates": [
+        -119.952,
+        39.251
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-martis-camp-community-association",
+      "type": "institution",
+      "label": "Martis Camp Community Association",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Truckee, CA",
+      "coordinates": [
+        -120.183,
+        39.328
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-glenbrook-hoa",
+      "type": "institution",
+      "label": "Glenbrook HOA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Glenbrook, NV",
+      "coordinates": [
+        -119.94,
+        39.088
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tahoe-network-of-fire-adapted-communities",
+      "type": "institution",
+      "label": "Tahoe Network of Fire Adapted Communities",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-liberty-utilities",
+      "type": "institution",
+      "label": "Liberty Utilities",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 2 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2026 Convening."
+    },
+    {
+      "id": "cwi-proj-intentional-fire-fund",
+      "type": "program",
+      "label": "Intentional Fire Fund",
+      "location": "Teakettle Experimental Forest / Alder Creek Grove",
+      "coordinates": [
+        -119.024,
+        36.963
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project in Teakettle Experimental Forest / Alder Creek Grove with 10 partners."
+    },
+    {
+      "id": "cwi-org-us-forest-service-sierra-national-forest",
+      "type": "institution",
+      "label": "US Forest Service - Sierra National Forest",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Clovis, CA",
+      "coordinates": [
+        -119.703,
+        36.825
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-us-forest-service-pacific-southwest-research-station",
+      "type": "institution",
+      "label": "US Forest Service - Pacific Southwest Research Station",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Davis, CA",
+      "coordinates": [
+        -121.74,
+        38.545
+      ],
+      "description": "Partner on 3 CWI projects: Intentional Fire Fund; 2026 Convening; Regional Resource Kits."
+    },
+    {
+      "id": "cwi-org-us-forest-service-sequoia-national-forest",
+      "type": "institution",
+      "label": "US Forest Service - Sequoia National Forest",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Porterville, CA",
+      "coordinates": [
+        -119.017,
+        36.065
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-cal-fire-fku",
+      "type": "institution",
+      "label": "CAL FIRE FKU",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Friant, CA",
+      "coordinates": [
+        -119.711,
+        36.987
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-sierra-resource-conservation-district",
+      "type": "institution",
+      "label": "Sierra Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Auberry, CA",
+      "coordinates": [
+        -119.485,
+        37.081
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-sierra-sequoia-restoration-group",
+      "type": "institution",
+      "label": "Sierra-Sequoia Restoration Group",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Tollhouse, CA",
+      "coordinates": [
+        -119.398,
+        37.019
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-the-fire-restoration-group",
+      "type": "institution",
+      "label": "The Fire Restoration Group",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-krempl-consulting",
+      "type": "institution",
+      "label": "Krempl Consulting",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Twain Harte, CA",
+      "coordinates": [
+        -120.233,
+        38.04
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-applied-earthworks",
+      "type": "institution",
+      "label": "Applied Earthworks",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Fresno, CA",
+      "coordinates": [
+        -119.787,
+        36.738
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-cultural-resources-facility",
+      "type": "institution",
+      "label": "Cultural Resources Facility",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Arcata, CA",
+      "coordinates": [
+        -124.083,
+        40.867
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-proj-epic",
+      "type": "program",
+      "label": "EPIC",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 6 partners."
+    },
+    {
+      "id": "cwi-org-environmental-policy-innovation-center",
+      "type": "institution",
+      "label": "Environmental Policy Innovation Center",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "College Park, Maryland",
+      "coordinates": [
+        -76.937,
+        38.981
+      ],
+      "description": "Partner on 1 CWI project: EPIC."
+    },
+    {
+      "id": "cwi-org-timmons-group",
+      "type": "institution",
+      "label": "Timmons Group",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Richmond, VA",
+      "coordinates": [
+        -77.436,
+        37.541
+      ],
+      "description": "Partner on 1 CWI project: EPIC."
+    },
+    {
+      "id": "cwi-org-reshape",
+      "type": "institution",
+      "label": "ReSHAPE",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Fort Collins, CO",
+      "coordinates": [
+        -105.084,
+        40.585
+      ],
+      "description": "Partner on 1 CWI project: EPIC."
+    },
+    {
+      "id": "cwi-org-pyrologix",
+      "type": "institution",
+      "label": "Pyrologix",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Missoula, MT",
+      "coordinates": [
+        -113.994,
+        46.872
+      ],
+      "description": "Partner on 1 CWI project: EPIC."
+    },
+    {
+      "id": "cwi-proj-2026-convening",
+      "type": "meeting",
+      "label": "2026 Convening",
+      "location": "Jamestown, CA",
+      "coordinates": [
+        -120.423,
+        37.953
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in Jamestown, CA with 55 partners."
+    },
+    {
+      "id": "cwi-org-3pointx",
+      "type": "institution",
+      "label": "3pointx",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-butte-county-fire-safe-council",
+      "type": "institution",
+      "label": "Butte County Fire Safe Council",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Paradise, CA",
+      "coordinates": [
+        -121.622,
+        39.76
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-ca-forward",
+      "type": "institution",
+      "label": "CA Forward",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-california-tahoe-conservancy",
+      "type": "institution",
+      "label": "California Tahoe Conservancy",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-ca-state-office-of-energy-infrastructure-safety",
+      "type": "institution",
+      "label": "CA State Office of Energy Infrastructure Safety",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "type": "institution",
+      "label": "CA Wildfire & Forest Resilience Taskforce",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 7 CWI projects: 2026 Convening; 2025 Convening; 2024 Convening; 2023 Convening; Wildfire Data Hub; Regional Resource Kits; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-california-council-on-science-and-technology",
+      "type": "institution",
+      "label": "California Council on Science & Technology",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 4 CWI projects: 2026 Convening; 2025 Convening; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-carbon-plan",
+      "type": "institution",
+      "label": "Carbon Plan",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-chico-state-big-chico-creek-ecological-reserve",
+      "type": "institution",
+      "label": "Chico State Big Chico Creek Ecological Reserve",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Chico, CA",
+      "coordinates": [
+        -121.837,
+        39.729
+      ],
+      "description": "Partner on 3 CWI projects: 2026 Convening; 2025 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-ca-natural-resources-agency",
+      "type": "institution",
+      "label": "CA Natural Resources Agency",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-planet",
+      "type": "institution",
+      "label": "Planet",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2025 Convening."
+    },
+    {
+      "id": "cwi-org-desert-research-institute",
+      "type": "institution",
+      "label": "Desert Research Institute",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Reno, NV",
+      "coordinates": [
+        -119.814,
+        39.53
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2025 Convening."
+    },
+    {
+      "id": "cwi-org-grassroots-wildland-firefighters",
+      "type": "institution",
+      "label": "Grassroots Wildland Firefighters",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Carlton, OR",
+      "coordinates": [
+        -123.177,
+        45.294
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-jbird-consulting",
+      "type": "institution",
+      "label": "JBIRD Consulting",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Marble Falls, TX",
+      "coordinates": [
+        -98.272,
+        30.578
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-marin-wildfire-prevention-authority",
+      "type": "institution",
+      "label": "Marin Wildfire Prevention Authority",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Rafael, CA",
+      "coordinates": [
+        -122.531,
+        37.974
+      ],
+      "description": "Partner on 3 CWI projects: 2026 Convening; 2025 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-milliman",
+      "type": "institution",
+      "label": "Milliman",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Seattle, WA",
+      "coordinates": [
+        -122.332,
+        47.606
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-nasa",
+      "type": "institution",
+      "label": "NASA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Washington, DC",
+      "coordinates": [
+        -77.037,
+        38.907
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-ors-impact",
+      "type": "institution",
+      "label": "ORS Impact",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Seattle, WA",
+      "coordinates": [
+        -122.332,
+        47.606
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-planscape",
+      "type": "institution",
+      "label": "Planscape",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-fullscope-consulting",
+      "type": "institution",
+      "label": "FullScope Consulting",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Missoula, MT",
+      "coordinates": [
+        -113.994,
+        46.872
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-sierra-sequoia-burn-cooperative",
+      "type": "institution",
+      "label": "Sierra-Sequoia Burn Cooperative",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-princeton-university",
+      "type": "institution",
+      "label": "Princeton University",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Nashville, TN",
+      "coordinates": [
+        -86.781,
+        36.163
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-sonoma-land-trust",
+      "type": "institution",
+      "label": "Sonoma Land Trust",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Rosa, CA",
+      "coordinates": [
+        -122.714,
+        38.44
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-tuolumne-fire-safe-council",
+      "type": "institution",
+      "label": "Tuolumne Fire Safe Council",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Tuolumne, CA",
+      "coordinates": [
+        -120.243,
+        37.962
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-tuolumne-rcd",
+      "type": "institution",
+      "label": "Tuolumne RCD",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sonora, CA",
+      "coordinates": [
+        -120.382,
+        37.984
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-uc-davis",
+      "type": "institution",
+      "label": "UC Davis",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Davis, CA",
+      "coordinates": [
+        -121.74,
+        38.545
+      ],
+      "description": "Partner on 4 CWI projects: 2026 Convening; 2024 Convening; 2023 Convening; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-uc-merced",
+      "type": "institution",
+      "label": "UC Merced",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Merced, CA",
+      "coordinates": [
+        -120.483,
+        37.302
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-uc-san-diego",
+      "type": "institution",
+      "label": "UC San Diego",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Diego, CA",
+      "coordinates": [
+        -117.161,
+        32.716
+      ],
+      "description": "Partner on 5 CWI projects: 2026 Convening; 2025 Convening; 2024 Convening; Wildfire Data Hub; BLM Fireforecasting."
+    },
+    {
+      "id": "cwi-org-us-department-of-agriculture",
+      "type": "institution",
+      "label": "US Department of Agriculture",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Washington, DC",
+      "coordinates": [
+        -77.037,
+        38.907
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-verisk",
+      "type": "institution",
+      "label": "Verisk",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Jersey City, NJ",
+      "coordinates": [
+        -74.077,
+        40.728
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-vibrant-planet-data-commons",
+      "type": "institution",
+      "label": "Vibrant Planet Data Commons",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Conifer, CO",
+      "coordinates": [
+        -105.305,
+        39.522
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-washoe-environmental-protection-department",
+      "type": "institution",
+      "label": "Washoe Environmental Protection Department",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Gardnerville, NV",
+      "coordinates": [
+        -119.75,
+        38.941
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-rural-county-representatives-of-california",
+      "type": "institution",
+      "label": "Rural County Representatives of California",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-watershed-research-and-training-center",
+      "type": "institution",
+      "label": "Watershed Research and Training Center",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Hayfork, CA",
+      "coordinates": [
+        -123.183,
+        40.554
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-western-fire-and-forest-resilience-collaborative",
+      "type": "institution",
+      "label": "Western Fire and Forest Resilience Collaborative",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Millbrook, NY",
+      "coordinates": [
+        -73.694,
+        41.785
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2025 Convening."
+    },
+    {
+      "id": "cwi-org-wui-data-commons",
+      "type": "institution",
+      "label": "WUI Data Commons",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-wuuii",
+      "type": "institution",
+      "label": "WUUII",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-yosemite-rivers-alliance",
+      "type": "institution",
+      "label": "Yosemite Rivers Alliance",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sonora, CA",
+      "coordinates": [
+        -120.382,
+        37.984
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "meeting",
+      "label": "2026 CAL FIRE Vintner Convening",
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in Napa, CA with 47 partners."
+    },
+    {
+      "id": "cwi-org-all-hands-ecology-fire-forward",
+      "type": "institution",
+      "label": "All Hands Ecology - Fire Forward",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Stinson Beach, CA",
+      "coordinates": [
+        -122.644,
+        37.9
+      ],
+      "description": "Partner on 2 CWI projects: 2026 CAL FIRE Vintner Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-baldacci-family-vineyards",
+      "type": "institution",
+      "label": "Baldacci Family Vineyards",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-bay-area-air-district",
+      "type": "institution",
+      "label": "Bay Area Air District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-cain-vineyard-and-winery",
+      "type": "institution",
+      "label": "Cain Vineyard & Winery",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "St Helena, CA",
+      "coordinates": [
+        -122.47,
+        38.505
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-california-air-resources-board",
+      "type": "institution",
+      "label": "California Air Resources Board",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 3 CWI projects: 2026 CAL FIRE Vintner Convening; 2023 Convening; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-cal-fire-lnu",
+      "type": "institution",
+      "label": "CAL FIRE LNU",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "St Helena, CA",
+      "coordinates": [
+        -122.47,
+        38.505
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-california-state-parks",
+      "type": "institution",
+      "label": "California State Parks",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-capcoa",
+      "type": "institution",
+      "label": "CAPCOA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-clarity-movement-co",
+      "type": "institution",
+      "label": "Clarity Movement Co.",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Berkeley, CA",
+      "coordinates": [
+        -122.273,
+        37.872
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-constellation-brands",
+      "type": "institution",
+      "label": "Constellation Brands",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Rochester, NY",
+      "coordinates": [
+        -77.611,
+        43.157
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-dyer-vineyard",
+      "type": "institution",
+      "label": "DYER Vineyard",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Calistoga, CA",
+      "coordinates": [
+        -122.58,
+        38.579
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-epic-insurance-brokers-and-consultants",
+      "type": "institution",
+      "label": "EPIC Insurance Brokers and Consultants",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "New York, NY",
+      "coordinates": [
+        -74.006,
+        40.713
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-farella-vineyards",
+      "type": "institution",
+      "label": "Farella Vineyards",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-honig-vineyard-and-winery",
+      "type": "institution",
+      "label": "Honig Vineyard & Winery",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Rutherford, CA",
+      "coordinates": [
+        -122.42,
+        38.459
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-jencap-group",
+      "type": "institution",
+      "label": "Jencap Group",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "New York, NY",
+      "coordinates": [
+        -74.006,
+        40.713
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-jones-family",
+      "type": "institution",
+      "label": "Jones Family",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Calistoga, CA",
+      "coordinates": [
+        -122.58,
+        38.579
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-land-trust-of-napa-county",
+      "type": "institution",
+      "label": "Land Trust of Napa County",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-long-meadow-ranch",
+      "type": "institution",
+      "label": "Long Meadow Ranch",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "St Helena, CA",
+      "coordinates": [
+        -122.47,
+        38.505
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-los-alamos-national-laboratory",
+      "type": "institution",
+      "label": "Los Alamos National Laboratory",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Los Alamos, NM",
+      "coordinates": [
+        -106.304,
+        35.888
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-napa-communities-firewise-foundation",
+      "type": "institution",
+      "label": "Napa Communities Firewise Foundation",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 2 CWI projects: 2026 CAL FIRE Vintner Convening; 2025 Convening."
+    },
+    {
+      "id": "cwi-org-napa-county-board-of-supervisors",
+      "type": "institution",
+      "label": "Napa County Board of Supervisors",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-bailey-vegetation-management",
+      "type": "institution",
+      "label": "Bailey Vegetation Management",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-napa-prescribed-burn-association",
+      "type": "institution",
+      "label": "Napa Prescribed Burn Association",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-napa-resource-conservation-district",
+      "type": "institution",
+      "label": "Napa Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-napa-valley-grapegrowers",
+      "type": "institution",
+      "label": "Napa Valley Grapegrowers",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-napa-valley-vintners",
+      "type": "institution",
+      "label": "Napa Valley Vintners",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "St Helena, CA",
+      "coordinates": [
+        -122.47,
+        38.505
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-opus-one-winery",
+      "type": "institution",
+      "label": "Opus One Winery",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Oakville, CA",
+      "coordinates": [
+        -122.402,
+        38.437
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-pepperwood-preserve",
+      "type": "institution",
+      "label": "Pepperwood Preserve",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Rosa, CA",
+      "coordinates": [
+        -122.714,
+        38.44
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-pina-vineyard-management",
+      "type": "institution",
+      "label": "Pina Vineyard Management",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-placer-county-air-pollution-district",
+      "type": "institution",
+      "label": "Placer County Air Pollution District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Auburn, CA",
+      "coordinates": [
+        -121.077,
+        38.897
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-santa-barbara-county-air-pollution-district",
+      "type": "institution",
+      "label": "Santa Barbara County Air Pollution District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Barbara, CA",
+      "coordinates": [
+        -119.698,
+        34.421
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-schramsberg-vineyards",
+      "type": "institution",
+      "label": "Schramsberg Vineyards",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Calistoga, CA",
+      "coordinates": [
+        -122.58,
+        38.579
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-seavey-vineyard",
+      "type": "institution",
+      "label": "Seavey Vineyard",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "St Helena, CA",
+      "coordinates": [
+        -122.47,
+        38.505
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-shute-mihaly-and-weinberger-llp",
+      "type": "institution",
+      "label": "Shute, Mihaly & Weinberger LLP",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 3 CWI projects: 2026 CAL FIRE Vintner Convening; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-silver-oak",
+      "type": "institution",
+      "label": "Silver Oak",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Oakville, CA",
+      "coordinates": [
+        -122.402,
+        38.437
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-sonoma-ag-open-space",
+      "type": "institution",
+      "label": "Sonoma Ag + Open Space",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Rosa, CA",
+      "coordinates": [
+        -122.714,
+        38.44
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-sonoma-county-regional-parks",
+      "type": "institution",
+      "label": "Sonoma County Regional Parks",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Rosa, CA",
+      "coordinates": [
+        -122.714,
+        38.44
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-sonoma-resource-conservation-district",
+      "type": "institution",
+      "label": "Sonoma Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Rosa, CA",
+      "coordinates": [
+        -122.714,
+        38.44
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-uc-cooperative-extension",
+      "type": "institution",
+      "label": "UC Cooperative Extension",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 2 CWI projects: 2026 CAL FIRE Vintner Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-uc-san-diego-supercomputer-center",
+      "type": "institution",
+      "label": "UC San Diego Supercomputer Center",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Diego, CA",
+      "coordinates": [
+        -117.161,
+        32.716
+      ],
+      "description": "Partner on 3 CWI projects: 2026 CAL FIRE Vintner Convening; 2024 Convening; Wildfire Data Hub."
+    },
+    {
+      "id": "cwi-org-usda-ars",
+      "type": "institution",
+      "label": "USDA-ARS",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Albany, CA",
+      "coordinates": [
+        -122.298,
+        37.887
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-viader-vineyards-and-winery",
+      "type": "institution",
+      "label": "VIADER Vineyards & Winery",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Deer Park, CA",
+      "coordinates": [
+        -122.476,
+        38.549
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-wildland-resource-management-wrm",
+      "type": "institution",
+      "label": "Wildland Resource Management (WRM)",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Alamo, CA",
+      "coordinates": [
+        -122.032,
+        37.85
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-wildlife-conservation-board",
+      "type": "institution",
+      "label": "Wildlife Conservation Board",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-wine-institute",
+      "type": "institution",
+      "label": "Wine Institute",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-proj-2025-convening",
+      "type": "meeting",
+      "label": "2025 Convening",
+      "location": "San Rafael, CA",
+      "coordinates": [
+        -122.531,
+        37.974
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in San Rafael, CA with 35 partners."
+    },
+    {
+      "id": "cwi-org-ucla",
+      "type": "institution",
+      "label": "UCLA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Los Angeles, CA",
+      "coordinates": [
+        -118.244,
+        34.052
+      ],
+      "description": "Partner on 3 CWI projects: 2025 Convening; 2023 Convening; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-american-wildfire-experience",
+      "type": "institution",
+      "label": "American Wildfire Experience",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-university-of-san-francisco",
+      "type": "institution",
+      "label": "University of San Francisco",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-chico-state",
+      "type": "institution",
+      "label": "Chico State",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Chico, CA",
+      "coordinates": [
+        -121.837,
+        39.729
+      ],
+      "description": "Partner on 4 CWI projects: 2025 Convening; 2024 Convening; 2023 Convening; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-ascent-environmental-inc",
+      "type": "institution",
+      "label": "Ascent Environmental, Inc.",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-center-for-law-energy-and-the-environment",
+      "type": "institution",
+      "label": "Center for Law, Energy & the Environment",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Berkeley, CA",
+      "coordinates": [
+        -122.273,
+        37.872
+      ],
+      "description": "Partner on 2 CWI projects: 2025 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-metrolab-network",
+      "type": "institution",
+      "label": "MetroLab Network",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Washington, DC",
+      "coordinates": [
+        -77.037,
+        38.907
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-mayday-ai",
+      "type": "institution",
+      "label": "Mayday.ai",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Irvine, CA",
+      "coordinates": [
+        -117.826,
+        33.684
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-the-triangle",
+      "type": "institution",
+      "label": "The Triangle",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-washoe-tribe",
+      "type": "institution",
+      "label": "Washoe Tribe",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Gardnerville, NV",
+      "coordinates": [
+        -119.75,
+        38.941
+      ],
+      "description": "Partner on 3 CWI projects: 2025 Convening; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-uc-irvine",
+      "type": "institution",
+      "label": "UC Irvine",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Irvine, CA",
+      "coordinates": [
+        -117.826,
+        33.684
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-nephila-advisors-llc",
+      "type": "institution",
+      "label": "Nephila Advisors LLC",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Larkspur, CA",
+      "coordinates": [
+        -122.535,
+        37.934
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-willow-labs",
+      "type": "institution",
+      "label": "Willow Labs",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-proj-2024-convening",
+      "type": "meeting",
+      "label": "2024 Convening",
+      "location": "Olympic Valley, CA",
+      "coordinates": [
+        -120.235,
+        39.197
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in Olympic Valley, CA with 37 partners."
+    },
+    {
+      "id": "cwi-org-cal-fire-neu",
+      "type": "institution",
+      "label": "CAL FIRE NEU",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Auburn, CA",
+      "coordinates": [
+        -121.077,
+        38.897
+      ],
+      "description": "Partner on 2 CWI projects: 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-us-geological-survey",
+      "type": "institution",
+      "label": "US Geological Survey",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-us-forest-service-tahoe-national-forest",
+      "type": "institution",
+      "label": "US Forest Service - Tahoe National Forest",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Nevada City, CA",
+      "coordinates": [
+        -121.017,
+        39.262
+      ],
+      "description": "Partner on 2 CWI projects: 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-environmmental-defense-fund",
+      "type": "institution",
+      "label": "Environmmental Defense Fund",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "New York, NY",
+      "coordinates": [
+        -74.006,
+        40.713
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-university-of-nevada-reno",
+      "type": "institution",
+      "label": "University of Nevada, Reno",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Reno, NV",
+      "coordinates": [
+        -119.814,
+        39.53
+      ],
+      "description": "Partner on 2 CWI projects: 2024 Convening; BLM Fireforecasting."
+    },
+    {
+      "id": "cwi-org-uc-agriculture-and-natural-resources",
+      "type": "institution",
+      "label": "UC Agriculture and Natural Resources",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Davis, CA",
+      "coordinates": [
+        -121.74,
+        38.545
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-national-center-for-ecological-analysis-and-synthesis",
+      "type": "institution",
+      "label": "National Center for Ecological Analysis & Synthesis",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Barbara, CA",
+      "coordinates": [
+        -119.698,
+        34.421
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-cal-poly-slo",
+      "type": "institution",
+      "label": "Cal Poly SLO",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Luis Obispo, CA",
+      "coordinates": [
+        -120.66,
+        35.283
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-jpl-nasa",
+      "type": "institution",
+      "label": "JPL / NASA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Mountain View, CA",
+      "coordinates": [
+        -122.084,
+        37.386
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-cultural-fire-management-council",
+      "type": "institution",
+      "label": "Cultural Fire Management Council",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Hoopa, CA",
+      "coordinates": [
+        -123.675,
+        41.05
+      ],
+      "description": "Partner on 2 CWI projects: 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-proj-2023-convening",
+      "type": "meeting",
+      "label": "2023 Convening",
+      "location": "Olympic Valley, CA",
+      "coordinates": [
+        -120.235,
+        39.197
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in Olympic Valley, CA with 34 partners."
+    },
+    {
+      "id": "cwi-org-dinkey-collaborative",
+      "type": "institution",
+      "label": "Dinkey Collaborative",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Fresno, CA",
+      "coordinates": [
+        -119.787,
+        36.738
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-deer-creek-resources",
+      "type": "institution",
+      "label": "Deer Creek Resources",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Chico, CA",
+      "coordinates": [
+        -121.837,
+        39.729
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-sierra-nevada-conservancy",
+      "type": "institution",
+      "label": "Sierra Nevada Conservancy",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Auburn, CA",
+      "coordinates": [
+        -121.077,
+        38.897
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-inyo-county",
+      "type": "institution",
+      "label": "Inyo County",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Independence, CA",
+      "coordinates": [
+        -118.2,
+        36.803
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-karuk-tribe",
+      "type": "institution",
+      "label": "Karuk Tribe",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Happy Camp, CA",
+      "coordinates": [
+        -123.375,
+        41.793
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-tribal-eco-restoration-alliance",
+      "type": "institution",
+      "label": "Tribal Eco-Restoration Alliance",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Lakeport, CA",
+      "coordinates": [
+        -122.915,
+        39.043
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-mono-county",
+      "type": "institution",
+      "label": "Mono County",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Mammoth Lakes, CA",
+      "coordinates": [
+        -118.972,
+        37.649
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-alaska-interagency-incident-management-team",
+      "type": "institution",
+      "label": "Alaska Interagency Incident Management Team",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Wainwright, AK",
+      "coordinates": [
+        -160.038,
+        70.637
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-national-park-service-pnw",
+      "type": "institution",
+      "label": "National Park Service - PNW",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Seattle, WA",
+      "coordinates": [
+        -122.332,
+        47.606
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-proj-wildfire-data-hub",
+      "type": "product",
+      "label": "Wildfire Data Hub",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 5 partners."
+    },
+    {
+      "id": "cwi-proj-regional-resource-kits",
+      "type": "product",
+      "label": "Regional Resource Kits",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 4 partners."
+    },
+    {
+      "id": "cwi-proj-chaparral-workshop",
+      "type": "meeting",
+      "label": "Chaparral Workshop",
+      "location": "Arcadia, CA",
+      "coordinates": [
+        -118.035,
+        34.14
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in Arcadia, CA with 24 partners."
+    },
+    {
+      "id": "cwi-org-ucsb",
+      "type": "institution",
+      "label": "UCSB",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Barbara, CA",
+      "coordinates": [
+        -119.698,
+        34.421
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-us-forest-service-pacific-northwest-research-station",
+      "type": "institution",
+      "label": "US Forest Service - Pacific Northwest Research Station",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Corvallis, Oregon",
+      "coordinates": [
+        -123.262,
+        44.565
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-san-diego-state-university",
+      "type": "institution",
+      "label": "San Diego State University",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Diego, CA",
+      "coordinates": [
+        -117.161,
+        32.716
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-santa-monica-mountains-conservancy",
+      "type": "institution",
+      "label": "Santa Monica Mountains Conservancy",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Los Angeles, CA",
+      "coordinates": [
+        -118.244,
+        34.052
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-ca-state-parks-inland-empire-district",
+      "type": "institution",
+      "label": "CA State Parks - Inland Empire District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Perris, CA",
+      "coordinates": [
+        -117.229,
+        33.783
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-endangered-habitats-league",
+      "type": "institution",
+      "label": "Endangered Habitats League",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "West Hollywood, CA",
+      "coordinates": [
+        -118.362,
+        34.09
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-chaparral-institute",
+      "type": "institution",
+      "label": "Chaparral Institute",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Escondido, CA",
+      "coordinates": [
+        -117.087,
+        33.119
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-irvine-ranch-conservancy",
+      "type": "institution",
+      "label": "Irvine Ranch Conservancy",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Irvine, CA",
+      "coordinates": [
+        -117.826,
+        33.684
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-inland-empire-resource-conservation-district",
+      "type": "institution",
+      "label": "Inland Empire Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Redlands, CA",
+      "coordinates": [
+        -117.183,
+        34.056
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-usfs-cleveland-national-forest",
+      "type": "institution",
+      "label": "USFS - Cleveland National Forest",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Diego, CA",
+      "coordinates": [
+        -117.161,
+        32.716
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-treepeople",
+      "type": "institution",
+      "label": "TreePeople",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Los Angeles, CA",
+      "coordinates": [
+        -118.244,
+        34.052
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-usfs-los-padres-national-forest",
+      "type": "institution",
+      "label": "USFS - Los Padres National Forest",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Solvang, CA",
+      "coordinates": [
+        -120.139,
+        34.596
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-ca-dept-of-conservation",
+      "type": "institution",
+      "label": "CA Dept of Conservation",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-usfs-pacific-southwest-region",
+      "type": "institution",
+      "label": "USFS Pacific Southwest Region",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Vallejo, CA",
+      "coordinates": [
+        -122.257,
+        38.104
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-conservation-biology-institute",
+      "type": "institution",
+      "label": "Conservation Biology Institute",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Corvallis, Oregon",
+      "coordinates": [
+        -123.262,
+        44.565
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-indian-heritage-commission",
+      "type": "institution",
+      "label": "Indian Heritage Commission",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "West Sacramento, CA",
+      "coordinates": [
+        -121.53,
+        38.58
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-proj-blm-fireforecasting",
+      "type": "program",
+      "label": "BLM Fireforecasting",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 2 partners."
+    },
+    {
+      "id": "cwi-proj-western-foresters-outcomes-based-metrics",
+      "type": "program",
+      "label": "Western Foresters Outcomes Based Metrics",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 0 partners."
+    },
+    {
+      "id": "cwi-proj-2027-convening",
+      "type": "meeting",
+      "label": "2027 Convening",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening with 0 partners."
+    },
+    {
+      "id": "cwi-proj-embergraph",
+      "type": "product",
+      "label": "EmberGraph",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 0 partners."
     }
   ],
   "edges": [
@@ -6209,6 +9263,2678 @@ export const INITIAL_DATASET: NetworkDataset = {
       "label": "has topic",
       "how": "boundary translation",
       "modality": "manual / boundary"
+    },
+    {
+      "id": "edge-cwi-309",
+      "source": "inst-cwi",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-310",
+      "source": "land-44",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-311",
+      "source": "cwi-org-city-of-grass-valley",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-312",
+      "source": "cwi-org-city-of-nevada-city",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-313",
+      "source": "cwi-org-you-bet-firewise",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-314",
+      "source": "cwi-org-wildfire-ready-coalition-of-nevada-county",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-315",
+      "source": "cwi-org-american-forest-foundation",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-316",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-317",
+      "source": "cwi-org-rockrose-risk",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-318",
+      "source": "cwi-org-home-hardening-solutions-inc",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-319",
+      "source": "cwi-org-wui-fire-institute-at-cal-poly-slo",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-320",
+      "source": "cwi-org-nevada-county-office-of-emergency-services",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-321",
+      "source": "cwi-org-fire-safe-people-tv",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-322",
+      "source": "land-155",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-323",
+      "source": "inst-cwi",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-324",
+      "source": "cwi-org-nevada-county-resource-conservation-district",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-325",
+      "source": "land-44",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-326",
+      "source": "cwi-org-city-of-grass-valley",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-327",
+      "source": "cwi-org-city-of-nevada-city",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-328",
+      "source": "cwi-org-national-forest-foundation",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-329",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-330",
+      "source": "cwi-org-rockrose-risk",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-331",
+      "source": "cwi-org-nevada-county-office-of-emergency-services",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-332",
+      "source": "cwi-org-fire-safe-people-tv",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-333",
+      "source": "cwi-org-the-resiliency-company",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-334",
+      "source": "cwi-org-patrick-baylis",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-335",
+      "source": "cwi-org-judson-boomhower",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-336",
+      "source": "cwi-org-burnbot",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-337",
+      "source": "land-155",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-338",
+      "source": "inst-cwi",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-339",
+      "source": "cwi-org-burnbot",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-340",
+      "source": "land-2",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-341",
+      "source": "cwi-org-tahoe-fund",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-342",
+      "source": "cwi-org-north-lake-tahoe-fire-protection-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-343",
+      "source": "cwi-org-tahoe-central-sierra-initiative",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-344",
+      "source": "cwi-org-chris-anthony-firewerx",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-345",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-346",
+      "source": "cwi-org-vibrant-planet",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-347",
+      "source": "cwi-org-nv-energy-foundation",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-348",
+      "source": "cwi-org-tahoe-regional-planning-agency",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-349",
+      "source": "land-122",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-350",
+      "source": "cwi-org-wildfire-services",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-351",
+      "source": "cwi-org-tahoe-resource-conservation-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-352",
+      "source": "cwi-org-tahoe-douglas-fire-protection-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-353",
+      "source": "cwi-org-lake-valley-fire-protection-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-354",
+      "source": "cwi-org-north-tahoe-fire-protection-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-355",
+      "source": "cwi-org-south-lake-tahoe-fire-rescue",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-356",
+      "source": "cwi-org-truckee-fire-protection-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-357",
+      "source": "cwi-org-vanderbilt-university",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-358",
+      "source": "land-149",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-359",
+      "source": "cwi-org-opalai",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-360",
+      "source": "land-155",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-361",
+      "source": "cwi-org-rockrose-risk",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-362",
+      "source": "cwi-org-lake-tahoe-environmental-improvement-program",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-363",
+      "source": "cwi-org-stanford-university",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-364",
+      "source": "cwi-org-carnelian-woods-hoa",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-365",
+      "source": "cwi-org-tyrolian-village-hoa",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-366",
+      "source": "cwi-org-martis-camp-community-association",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-367",
+      "source": "cwi-org-glenbrook-hoa",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-368",
+      "source": "cwi-org-tahoe-network-of-fire-adapted-communities",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-369",
+      "source": "cwi-org-liberty-utilities",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-370",
+      "source": "inst-cwi",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-371",
+      "source": "cwi-org-us-forest-service-sierra-national-forest",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-372",
+      "source": "cwi-org-us-forest-service-pacific-southwest-research-station",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-373",
+      "source": "cwi-org-us-forest-service-sequoia-national-forest",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-374",
+      "source": "cwi-org-cal-fire-fku",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-375",
+      "source": "cwi-org-sierra-resource-conservation-district",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-376",
+      "source": "cwi-org-sierra-sequoia-restoration-group",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-377",
+      "source": "cwi-org-the-fire-restoration-group",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-378",
+      "source": "cwi-org-krempl-consulting",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-379",
+      "source": "cwi-org-applied-earthworks",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-380",
+      "source": "cwi-org-cultural-resources-facility",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-381",
+      "source": "inst-cwi",
+      "target": "cwi-proj-epic",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-382",
+      "source": "cwi-org-environmental-policy-innovation-center",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-383",
+      "source": "cwi-org-timmons-group",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-384",
+      "source": "land-167",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-385",
+      "source": "land-122",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-386",
+      "source": "cwi-org-reshape",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-387",
+      "source": "cwi-org-pyrologix",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-388",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2026-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-389",
+      "source": "cwi-org-3pointx",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-390",
+      "source": "land-39",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-391",
+      "source": "cwi-org-burnbot",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-392",
+      "source": "cwi-org-butte-county-fire-safe-council",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-393",
+      "source": "cwi-org-ca-forward",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-394",
+      "source": "cwi-org-california-tahoe-conservancy",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-395",
+      "source": "cwi-org-ca-state-office-of-energy-infrastructure-safety",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-396",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-397",
+      "source": "inst-calfire",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-398",
+      "source": "cwi-org-california-council-on-science-and-technology",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-399",
+      "source": "cwi-org-carbon-plan",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-400",
+      "source": "land-19",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-401",
+      "source": "cwi-org-chico-state-big-chico-creek-ecological-reserve",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-402",
+      "source": "cwi-org-ca-natural-resources-agency",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-403",
+      "source": "cwi-org-planet",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-404",
+      "source": "cwi-org-desert-research-institute",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-405",
+      "source": "cwi-org-grassroots-wildland-firefighters",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-406",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-407",
+      "source": "inst-google-org",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-408",
+      "source": "land-2",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-409",
+      "source": "cwi-org-jbird-consulting",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-410",
+      "source": "cwi-org-liberty-utilities",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-411",
+      "source": "cwi-org-marin-wildfire-prevention-authority",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-412",
+      "source": "land-69",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-413",
+      "source": "cwi-org-milliman",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-414",
+      "source": "cwi-org-nasa",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-415",
+      "source": "cwi-org-ors-impact",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-416",
+      "source": "land-44",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-417",
+      "source": "cwi-org-planscape",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-418",
+      "source": "cwi-org-fullscope-consulting",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-419",
+      "source": "cwi-org-sierra-sequoia-burn-cooperative",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-420",
+      "source": "cwi-org-princeton-university",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-421",
+      "source": "cwi-org-sonoma-land-trust",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-422",
+      "source": "cwi-org-stanford-university",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-423",
+      "source": "land-16",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-424",
+      "source": "cwi-org-tuolumne-fire-safe-council",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-425",
+      "source": "cwi-org-tuolumne-rcd",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-426",
+      "source": "land-14",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-427",
+      "source": "cwi-org-uc-davis",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-428",
+      "source": "cwi-org-uc-merced",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-429",
+      "source": "cwi-org-uc-san-diego",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-430",
+      "source": "land-167",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-431",
+      "source": "cwi-org-us-department-of-agriculture",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-432",
+      "source": "cwi-org-us-forest-service-pacific-southwest-research-station",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-433",
+      "source": "cwi-org-verisk",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-434",
+      "source": "cwi-org-vibrant-planet",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-435",
+      "source": "cwi-org-vibrant-planet-data-commons",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-436",
+      "source": "cwi-org-washoe-environmental-protection-department",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-437",
+      "source": "cwi-org-rural-county-representatives-of-california",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-438",
+      "source": "land-163",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-439",
+      "source": "cwi-org-watershed-research-and-training-center",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-440",
+      "source": "cwi-org-western-fire-and-forest-resilience-collaborative",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-441",
+      "source": "cwi-org-wui-data-commons",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-442",
+      "source": "cwi-org-wuuii",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-443",
+      "source": "cwi-org-yosemite-rivers-alliance",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-444",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-445",
+      "source": "cwi-org-all-hands-ecology-fire-forward",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-446",
+      "source": "cwi-org-baldacci-family-vineyards",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-447",
+      "source": "cwi-org-bay-area-air-district",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-448",
+      "source": "cwi-org-cain-vineyard-and-winery",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-449",
+      "source": "cwi-org-california-air-resources-board",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-450",
+      "source": "inst-calfire",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-451",
+      "source": "cwi-org-cal-fire-lnu",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-452",
+      "source": "cwi-org-california-state-parks",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-453",
+      "source": "cwi-org-capcoa",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-454",
+      "source": "cwi-org-clarity-movement-co",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-455",
+      "source": "cwi-org-constellation-brands",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-456",
+      "source": "cwi-org-dyer-vineyard",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-457",
+      "source": "cwi-org-epic-insurance-brokers-and-consultants",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-458",
+      "source": "cwi-org-farella-vineyards",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-459",
+      "source": "cwi-org-honig-vineyard-and-winery",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-460",
+      "source": "cwi-org-jencap-group",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-461",
+      "source": "cwi-org-jones-family",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-462",
+      "source": "cwi-org-land-trust-of-napa-county",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-463",
+      "source": "cwi-org-long-meadow-ranch",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-464",
+      "source": "cwi-org-los-alamos-national-laboratory",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-465",
+      "source": "cwi-org-napa-communities-firewise-foundation",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-466",
+      "source": "cwi-org-napa-county-board-of-supervisors",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-467",
+      "source": "cwi-org-bailey-vegetation-management",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-468",
+      "source": "cwi-org-napa-prescribed-burn-association",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-469",
+      "source": "cwi-org-napa-resource-conservation-district",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-470",
+      "source": "cwi-org-napa-valley-grapegrowers",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-471",
+      "source": "cwi-org-napa-valley-vintners",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-472",
+      "source": "cwi-org-opus-one-winery",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-473",
+      "source": "cwi-org-pepperwood-preserve",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-474",
+      "source": "cwi-org-pina-vineyard-management",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-475",
+      "source": "cwi-org-placer-county-air-pollution-district",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-476",
+      "source": "cwi-org-santa-barbara-county-air-pollution-district",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-477",
+      "source": "cwi-org-schramsberg-vineyards",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-478",
+      "source": "cwi-org-seavey-vineyard",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-479",
+      "source": "cwi-org-shute-mihaly-and-weinberger-llp",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-480",
+      "source": "cwi-org-silver-oak",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-481",
+      "source": "cwi-org-sonoma-ag-open-space",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-482",
+      "source": "cwi-org-sonoma-county-regional-parks",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-483",
+      "source": "cwi-org-sonoma-land-trust",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-484",
+      "source": "cwi-org-sonoma-resource-conservation-district",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-485",
+      "source": "cwi-org-uc-cooperative-extension",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-486",
+      "source": "cwi-org-uc-san-diego-supercomputer-center",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-487",
+      "source": "cwi-org-usda-ars",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-488",
+      "source": "cwi-org-viader-vineyards-and-winery",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-489",
+      "source": "cwi-org-wildland-resource-management-wrm",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-490",
+      "source": "cwi-org-wildlife-conservation-board",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-491",
+      "source": "cwi-org-wine-institute",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-492",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2025-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-493",
+      "source": "cwi-org-ucla",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-494",
+      "source": "inst-calfire",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-495",
+      "source": "cwi-org-rockrose-risk",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-496",
+      "source": "collab-efa",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-497",
+      "source": "land-39",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-498",
+      "source": "cwi-org-american-wildfire-experience",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-499",
+      "source": "land-23",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-500",
+      "source": "cwi-org-tahoe-fund",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-501",
+      "source": "land-14",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-502",
+      "source": "cwi-org-marin-wildfire-prevention-authority",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-503",
+      "source": "cwi-org-napa-communities-firewise-foundation",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-504",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-505",
+      "source": "cwi-org-western-fire-and-forest-resilience-collaborative",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-506",
+      "source": "cwi-org-university-of-san-francisco",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-507",
+      "source": "cwi-org-planet",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-508",
+      "source": "cwi-org-chico-state-big-chico-creek-ecological-reserve",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-509",
+      "source": "cwi-org-chico-state",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-510",
+      "source": "cwi-org-california-council-on-science-and-technology",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-511",
+      "source": "cwi-org-ascent-environmental-inc",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-512",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-513",
+      "source": "land-2",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-514",
+      "source": "cwi-org-uc-san-diego",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-515",
+      "source": "land-19",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-516",
+      "source": "cwi-org-stanford-university",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-517",
+      "source": "cwi-org-vibrant-planet",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-518",
+      "source": "cwi-org-center-for-law-energy-and-the-environment",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-519",
+      "source": "cwi-org-metrolab-network",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-520",
+      "source": "cwi-org-mayday-ai",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-521",
+      "source": "cwi-org-the-triangle",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-522",
+      "source": "cwi-org-washoe-tribe",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-523",
+      "source": "cwi-org-uc-irvine",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-524",
+      "source": "cwi-org-nephila-advisors-llc",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-525",
+      "source": "cwi-org-willow-labs",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-526",
+      "source": "cwi-org-desert-research-institute",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-527",
+      "source": "land-69",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-528",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2024-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-529",
+      "source": "inst-calfire",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-530",
+      "source": "cwi-org-cal-fire-neu",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-531",
+      "source": "cwi-org-tahoe-regional-planning-agency",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-532",
+      "source": "collab-efa",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-533",
+      "source": "cwi-org-tahoe-fund",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-534",
+      "source": "cwi-org-marin-wildfire-prevention-authority",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-535",
+      "source": "cwi-org-uc-san-diego-supercomputer-center",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-536",
+      "source": "cwi-org-us-geological-survey",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-537",
+      "source": "cwi-org-chico-state",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-538",
+      "source": "cwi-org-us-forest-service-tahoe-national-forest",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-539",
+      "source": "cwi-org-environmmental-defense-fund",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-540",
+      "source": "cwi-org-university-of-nevada-reno",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-541",
+      "source": "land-2",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-542",
+      "source": "cwi-org-uc-san-diego",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-543",
+      "source": "cwi-org-shute-mihaly-and-weinberger-llp",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-544",
+      "source": "cwi-org-verisk",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-545",
+      "source": "land-14",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-546",
+      "source": "cwi-org-uc-agriculture-and-natural-resources",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-547",
+      "source": "cwi-org-california-tahoe-conservancy",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-548",
+      "source": "land-69",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-549",
+      "source": "cwi-org-fullscope-consulting",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-550",
+      "source": "cwi-org-uc-davis",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-551",
+      "source": "cwi-org-california-council-on-science-and-technology",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-552",
+      "source": "cwi-org-burnbot",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-553",
+      "source": "cwi-org-national-center-for-ecological-analysis-and-synthesis",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-554",
+      "source": "cwi-org-chris-anthony-firewerx",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-555",
+      "source": "cwi-org-truckee-fire-protection-district",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-556",
+      "source": "cwi-org-cal-poly-slo",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-557",
+      "source": "cwi-org-washoe-tribe",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-558",
+      "source": "land-122",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-559",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-560",
+      "source": "cwi-org-nasa",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-561",
+      "source": "land-39",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-562",
+      "source": "cwi-org-jpl-nasa",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-563",
+      "source": "cwi-org-cultural-fire-management-council",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-564",
+      "source": "cwi-org-stanford-university",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-565",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-566",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2023-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-567",
+      "source": "cwi-org-us-forest-service-tahoe-national-forest",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-568",
+      "source": "cwi-org-dinkey-collaborative",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-569",
+      "source": "cwi-org-california-council-on-science-and-technology",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-570",
+      "source": "cwi-org-watershed-research-and-training-center",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-571",
+      "source": "cwi-org-all-hands-ecology-fire-forward",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-572",
+      "source": "cwi-org-washoe-tribe",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-573",
+      "source": "cwi-org-grassroots-wildland-firefighters",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-574",
+      "source": "cwi-org-deer-creek-resources",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-575",
+      "source": "cwi-org-sierra-nevada-conservancy",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-576",
+      "source": "cwi-org-shute-mihaly-and-weinberger-llp",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-577",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-578",
+      "source": "cwi-org-uc-davis",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-579",
+      "source": "land-16",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-580",
+      "source": "cwi-org-chris-anthony-firewerx",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-581",
+      "source": "cwi-org-burnbot",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-582",
+      "source": "inst-calfire",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-583",
+      "source": "cwi-org-cal-fire-neu",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-584",
+      "source": "cwi-org-uc-cooperative-extension",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-585",
+      "source": "land-2",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-586",
+      "source": "cwi-org-california-air-resources-board",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-587",
+      "source": "cwi-org-cultural-fire-management-council",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-588",
+      "source": "cwi-org-inyo-county",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-589",
+      "source": "cwi-org-karuk-tribe",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-590",
+      "source": "land-69",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-591",
+      "source": "cwi-org-chico-state-big-chico-creek-ecological-reserve",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-592",
+      "source": "cwi-org-tribal-eco-restoration-alliance",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-593",
+      "source": "cwi-org-chico-state",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-594",
+      "source": "cwi-org-ucla",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-595",
+      "source": "cwi-org-center-for-law-energy-and-the-environment",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-596",
+      "source": "cwi-org-tahoe-fund",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-597",
+      "source": "cwi-org-vibrant-planet",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-598",
+      "source": "cwi-org-mono-county",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-599",
+      "source": "cwi-org-alaska-interagency-incident-management-team",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-600",
+      "source": "cwi-org-national-park-service-pnw",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-601",
+      "source": "inst-cwi",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-602",
+      "source": "land-14",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-603",
+      "source": "land-19",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-604",
+      "source": "cwi-org-uc-san-diego",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-605",
+      "source": "cwi-org-uc-san-diego-supercomputer-center",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-606",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-607",
+      "source": "inst-cwi",
+      "target": "cwi-proj-regional-resource-kits",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-608",
+      "source": "land-14",
+      "target": "cwi-proj-regional-resource-kits",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-609",
+      "source": "land-19",
+      "target": "cwi-proj-regional-resource-kits",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-610",
+      "source": "cwi-org-us-forest-service-pacific-southwest-research-station",
+      "target": "cwi-proj-regional-resource-kits",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-611",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-regional-resource-kits",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-612",
+      "source": "inst-cwi",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-613",
+      "source": "cwi-org-ucsb",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-614",
+      "source": "cwi-org-national-forest-foundation",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-615",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-616",
+      "source": "cwi-org-uc-davis",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-617",
+      "source": "cwi-org-us-forest-service-pacific-northwest-research-station",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-618",
+      "source": "cwi-org-vibrant-planet",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-619",
+      "source": "cwi-org-san-diego-state-university",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-620",
+      "source": "cwi-org-santa-monica-mountains-conservancy",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-621",
+      "source": "cwi-org-ca-state-parks-inland-empire-district",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-622",
+      "source": "cwi-org-endangered-habitats-league",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-623",
+      "source": "cwi-org-chaparral-institute",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-624",
+      "source": "cwi-org-irvine-ranch-conservancy",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-625",
+      "source": "cwi-org-inland-empire-resource-conservation-district",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-626",
+      "source": "cwi-org-ucla",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-627",
+      "source": "cwi-org-usfs-cleveland-national-forest",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-628",
+      "source": "cwi-org-treepeople",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-629",
+      "source": "cwi-org-usfs-los-padres-national-forest",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-630",
+      "source": "cwi-org-ca-dept-of-conservation",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-631",
+      "source": "cwi-org-california-air-resources-board",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-632",
+      "source": "cwi-org-usfs-pacific-southwest-region",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-633",
+      "source": "cwi-org-conservation-biology-institute",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-634",
+      "source": "land-16",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-635",
+      "source": "cwi-org-chico-state",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-636",
+      "source": "cwi-org-indian-heritage-commission",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-637",
+      "source": "inst-cwi",
+      "target": "cwi-proj-blm-fireforecasting",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-638",
+      "source": "cwi-org-university-of-nevada-reno",
+      "target": "cwi-proj-blm-fireforecasting",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-639",
+      "source": "cwi-org-uc-san-diego",
+      "target": "cwi-proj-blm-fireforecasting",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-640",
+      "source": "inst-cwi",
+      "target": "cwi-proj-western-foresters-outcomes-based-metrics",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-641",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2027-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-642",
+      "source": "inst-cwi",
+      "target": "cwi-proj-embergraph",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
     }
   ]
 };

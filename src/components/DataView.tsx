@@ -1,15 +1,17 @@
 import React, { useMemo, useState } from 'react';
 import { ArrowDown, ArrowUp, Download } from 'lucide-react';
 import type { GraphNode, GraphEdge, NodeType } from '../types/graph';
+import { RAW_SHEETS } from '../data/rawSheets';
 
 interface DataViewProps {
   nodes: GraphNode[];
   edges: GraphEdge[];
   selectedNodeId: string | null;
   onSelectNode: (node: GraphNode) => void;
+  searchQuery: string;
 }
 
-type Tab = 'entities' | 'relationships';
+type Tab = 'entities' | 'relationships' | 'raw';
 type Sort = { key: string; dir: 1 | -1 };
 
 const TYPE_LABELS: Record<NodeType, string> = {
@@ -39,9 +41,17 @@ const download = (name: string, text: string) => {
   URL.revokeObjectURL(url);
 };
 
-export const DataView: React.FC<DataViewProps> = ({ nodes, edges, selectedNodeId, onSelectNode }) => {
+export const DataView: React.FC<DataViewProps> = ({ nodes, edges, selectedNodeId, onSelectNode, searchQuery }) => {
   const [tab, setTab] = useState<Tab>('entities');
   const [sort, setSort] = useState<Sort>({ key: 'connections', dir: -1 });
+  const [sheetIndex, setSheetIndex] = useState(0);
+  const sheet = RAW_SHEETS[sheetIndex];
+
+  // Raw rows are shown exactly as in the source sheet; only the search box narrows them
+  const rawRows = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim();
+    return q ? sheet.rows.filter((r) => r.some((v) => v.toLowerCase().includes(q))) : sheet.rows;
+  }, [sheet, searchQuery]);
 
   const byId = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes]);
 
@@ -89,7 +99,9 @@ export const DataView: React.FC<DataViewProps> = ({ nodes, edges, selectedNodeId
   };
 
   const exportCsv = () => {
-    if (tab === 'entities') {
+    if (tab === 'raw') {
+      download(`${sheet.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.csv`, toCsv([sheet.columns, ...sheet.rows]));
+    } else if (tab === 'entities') {
       download(
         'graphember-entities.csv',
         toCsv([
@@ -147,8 +159,21 @@ export const DataView: React.FC<DataViewProps> = ({ nodes, edges, selectedNodeId
           <button role="tab" aria-pressed={tab === 'relationships'} aria-selected={tab === 'relationships'} onClick={() => switchTab('relationships')}>
             Relationships <span className="count">{relationshipRows.length}</span>
           </button>
+          <button role="tab" aria-pressed={tab === 'raw'} aria-selected={tab === 'raw'} onClick={() => switchTab('raw')}>
+            Raw sheets
+          </button>
         </div>
-        <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Filters and search apply · click a name to open it</span>
+        {tab === 'raw' ? (
+          <div className="segmented" role="group" aria-label="Source sheet">
+            {RAW_SHEETS.map((s, i) => (
+              <button key={s.title} aria-pressed={sheetIndex === i} onClick={() => setSheetIndex(i)}>
+                {s.title} <span className="count">{s.rows.length}</span>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <span className="hide-sm" style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Filters and search apply · click a name to open it</span>
+        )}
         <button className="btn" onClick={exportCsv} style={{ marginLeft: 'auto' }} title="Download this table as CSV">
           <Download size={14} />
           <span className="hide-sm">CSV</span>
@@ -156,7 +181,32 @@ export const DataView: React.FC<DataViewProps> = ({ nodes, edges, selectedNodeId
       </div>
 
       <div style={{ flex: 1, overflow: 'auto' }}>
-        {tab === 'entities' ? (
+        {tab === 'raw' ? (
+          <table className="data-table raw-table">
+            <thead>
+              <tr>
+                <th className="row-num">#</th>
+                {sheet.columns.map((c, i) => (
+                  <th key={i}>
+                    <span className="th-sort" style={{ cursor: 'default' }}>{c}</span>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rawRows.map((r, i) => (
+                <tr key={i}>
+                  <td className="row-num">{sheet.rows.indexOf(r) + 1}</td>
+                  {r.map((v, j) => (
+                    <td key={j} title={v}>
+                      {v}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : tab === 'entities' ? (
           <table className="data-table">
             <thead>
               <tr>

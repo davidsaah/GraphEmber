@@ -16,10 +16,10 @@ interface Message extends ChatTurn {
 }
 
 const SUGGESTIONS = [
-  'Who works on Earth Fire Alliance and FireSat?',
-  'Which organizations are most central to the network?',
-  'What is CWI connected to?',
-  'Which groups work on home hardening?',
+  'Which partners work on the most CWI projects?',
+  'Who attended the 2026 Convening?',
+  'Which CWI partners are based around Lake Tahoe?',
+  'How is CWI connected to Earth Fire Alliance?',
 ];
 
 const REF = /\[\[([^\]\s]+)\]\]/g;

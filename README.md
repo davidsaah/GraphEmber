@@ -39,11 +39,21 @@ A plain static host has no `/api/chat`, so the chat explains it isn't set up the
 
 The graph is generated, not hand-edited:
 
-- `sheet1.csv` is the AI Wildfire Landscape sheet export (172 rows).
+- `data/cwi-projects.csv` is the **CWI Projects and Collaborators** Google Sheet, exported as CSV: one row per project and partner, with city-level partner locations. This is the default scope of the app (the **CWI network** filter).
+- `data/places.json` has coordinates for every city and project area in that sheet, so the map can place partners exactly.
+- `sheet1.csv` is the AI Wildfire Landscape sheet export (172 rows). It shows when the CWI network filter is turned off.
 - `data/curated.json` holds the hand-curated Firelines/CWI records (topics, CWI, Resilient Home Fund, Earth Fire Alliance, FireSat).
-- `npm run data` runs `scripts/build-data.mjs`, which merges the two into `src/data/initialData.ts`.
+- `npm run data` runs `scripts/build-data.mjs`, which merges them into `src/data/initialData.ts` and writes the source rows to `src/data/rawSheets.ts` for the Data view's **Raw sheets** tab.
 
-What the script does:
+What the script does with the CWI sheet:
+
+- Each project becomes a program, convening (meeting) or tool node, led or convened by CWI (`LEADS` / `ORGANIZES`). Each partner `PARTICIPATES_IN` the project, or `ATTENDED` it for convenings.
+- Spelling variants of the same partner are merged (see `PARTNER_ALIASES`), and partners that already exist in the landscape data (CAL FIRE, Google.org, Earth Fire Alliance and others) are linked to the existing entity rather than duplicated. Everything from this sheet is tagged `CWI Network`.
+- Two location typos are corrected (Fort Collins, CA → CO; Gardnerville, CA → NV).
+
+To refresh it, export the sheet as CSV over `data/cwi-projects.csv` and run `npm run data`. Any new city needs an entry in `data/places.json`.
+
+What the script does with the landscape sheet:
 
 - Merges sheet rows that duplicate a curated record or an earlier row (for example "CalFIRE" into CAL FIRE).
 - Links each organization in the sheet's collaborative design to the **AI Wildfire Collaborative** with `PARTNERS_IN` (how = delivery role).
@@ -52,5 +62,3 @@ What the script does:
 - Resolves "Key Collaborators" names to existing nodes as `COLLABORATES_WITH`. Names that aren't entities (such as "Fire Agencies") are kept on the node and shown as "Also works with".
 
 Run `node scripts/build-data.mjs --verbose` to list isolated nodes and unresolved collaborator names.
-
-To add the second sheet, export it as CSV (it's private, so a plain download returns a Google sign-in page) and extend the script.

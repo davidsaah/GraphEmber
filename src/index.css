@@ -384,3 +384,16 @@ button {
 }
 .selection-pill button:hover { background: var(--bg-glass-active); }
 .selection-pill kbd { font-family: var(--font-mono); font-size: 0.66rem; color: var(--text-muted); }
+.map-place-city { display: none; }
+.map-zoomed-city .map-place-city { display: block; }
+.chip-scope[aria-pressed='true'] {
+  color: #1a1206;
+  background: var(--color-cwi-gold);
+  border-color: var(--color-cwi-gold);
+  font-weight: 600;
+}
+.raw-table { table-layout: auto; width: max-content; min-width: 100%; }
+.raw-table td { max-width: 320px; color: var(--text-secondary); }
+.raw-table th .th-sort { white-space: nowrap; }
+.raw-table .row-num { width: 48px; text-align: right; color: var(--text-muted); font-variant-numeric: tabular-nums; position: sticky; left: 0; background: var(--bg-surface); }
+.raw-table thead .row-num { z-index: 2; padding: 9px 14px; font-size: 0.7rem; }
