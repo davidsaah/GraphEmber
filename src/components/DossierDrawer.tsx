@@ -15,6 +15,7 @@ import {
   Layers,
 } from 'lucide-react';
 import { CwiLogo } from './CwiLogo';
+import { WebFindings } from './WebFindings';
 
 interface DossierDrawerProps {
   node: GraphNode | null;
@@ -584,6 +585,9 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
               .join(', ')}
           </p>
         )}
+
+        {/* Approved findings from web research, with their sources */}
+        <WebFindings node={node} edges={connectedEdges} />
 
         {/* Connected Ecosystem Entities Section */}
         <div>

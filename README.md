@@ -35,6 +35,20 @@ npm run build && ANTHROPIC_API_KEY=... npm start   # production: serves dist/ + 
 
 A plain static host has no `/api/chat`, so the chat explains it isn't set up there. When the app runs as a claude.ai artifact it uses the viewer's own Claude account instead (no key needed). The model has server-side refusal fallbacks enabled (`fallbacks: "default"`).
 
+## Web research and the Inbox
+
+Select an entity (or highlight a set, for example from a chat answer) and choose **Research** in the selection bar. Claude searches the public web for what those entities are doing and what impact it is having: new connections, new partners, updates and impact numbers. Findings never change the graph directly. They land in the **Inbox** (header button, with a count), the entities they're about get an ember dot, and proposed connections are drawn dashed. A reviewer approves, edits or rejects each one; approved findings appear in the graph and in the entity's dossier under "From the web" with their sources and who approved them.
+
+Safeguards (full reasoning in the plan, `web-research-plan.md` in the project files):
+
+- **Scope:** at most 10 entities per run and 5 searches each. Only names, acronyms, websites and locations are sent; descriptions, notes and tags never leave the app. Social networks and people-search sites are blocked.
+- **Citations:** every finding needs a source the search actually returned, with a quote. The server re-fetches each page (public addresses only) and checks the quote is on it. A finding with no verified quote can only be approved by ticking "I checked this myself".
+- **Confidence is computed, not claimed:** high needs a verified primary source (the entity's own site, government, grant databases, journals), medium a verified established outlet. Impact numbers need two independent sources or one primary. Older claims are flagged.
+- **Privacy:** findings mentioning emails, phone numbers, street addresses or private details are dropped. People appear only in their professional role.
+- **Record:** decisions (who, when, edits, reasons) and every run's searches and dropped findings are kept in `data/research/proposals.json`. Rejected findings aren't proposed again, and approvals can be reverted.
+
+Research uses the same `ANTHROPIC_API_KEY` as the chat (`server/research.mjs`, `/api/research` and `/api/proposals`). On a static host or in the claude.ai demo the Inbox explains that research needs the server. `npm run check:research` tests the safeguards offline.
+
 ## Data
 
 The graph is generated, not hand-edited:
