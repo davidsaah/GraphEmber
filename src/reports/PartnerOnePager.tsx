@@ -1,22 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { type ReportModel, coPartners, endpointId, exceptions, introductions, kindOf, projectCodes, regionOf, sectorOf, yearOf } from './reportData';
-import { Basis, EntityLink, Exhibit, ExceptionsRegister, Finding, Kpis, ReportHeader, Rows, Section, type ReportNav } from './ReportKit';
+import { Basis, EntityLink, Exhibit, ExceptionsRegister, Finding, Kpis, ReadingGuide, ReportHeader, Rows, Section, type ReportNav } from './ReportKit';
 
-export const PartnerOnePager: React.FC<{ m: ReportModel; nav: ReportNav; initialId?: string }> = ({ m, nav, initialId }) => {
-  const ranked = useMemo(
-    () =>
-      m.partners
-        .filter((p) => p.id !== 'inst-cwi')
-        .sort((a, b) => (m.projectsOf.get(b.id) || []).length - (m.projectsOf.get(a.id) || []).length || a.label.localeCompare(b.label)),
-    [m],
-  );
-  const [id, setId] = useState<string>(initialId && m.projectsOf.has(initialId) ? initialId : ranked[0]?.id);
-  // Selecting a partner anywhere in the app (including from this page) opens their one-pager
-  const [seenInitial, setSeenInitial] = useState(initialId);
-  if (initialId !== seenInitial) {
-    setSeenInitial(initialId);
-    if (initialId && m.projectsOf.has(initialId) && initialId !== 'inst-cwi') setId(initialId);
-  }
+export const PartnerOnePager: React.FC<{ m: ReportModel; nav: ReportNav; id: string }> = ({ m, nav, id }) => {
   const p = m.byId.get(id);
 
   const r = useMemo(() => {
@@ -44,20 +30,8 @@ export const PartnerOnePager: React.FC<{ m: ReportModel; nav: ReportNav; initial
 
   return (
     <>
-      <div className="rp-picker no-print">
-        <label htmlFor="rp-partner">Partner</label>
-        <select id="rp-partner" value={id} onChange={(e) => setId(e.target.value)}>
-          {ranked.map((n) => (
-            <option key={n.id} value={n.id}>
-              {n.label} ({(m.projectsOf.get(n.id) || []).length})
-            </option>
-          ))}
-        </select>
-        <span className="rp-muted">Sorted by number of engagements</span>
-      </div>
-
       <ReportHeader
-        code={`R-03 · ${p.label}`}
+        code="R-03 · Partner report"
         title={`Your work with CWI: ${p.label}`}
         audience={p.label}
         mandate="Coordinate and align research; convene experts; build capacity across sectors"
@@ -65,12 +39,14 @@ export const PartnerOnePager: React.FC<{ m: ReportModel; nav: ReportNav; initial
         sources={['CWI Projects and Collaborators sheet', ...(r.topics.length || r.funding.length ? ['AI wildfire landscape sheet'] : [])]}
       />
 
+      <ReadingGuide />
+
       <Kpis
         items={[
-          { value: r.work.length, label: 'Programs and products', exhibit: 'A' },
-          { value: r.conv.length, label: 'Convenings attended', exhibit: 'A' },
-          { value: r.co.length, label: 'Partners worked alongside', exhibit: 'B' },
-          { value: r.intros.length, label: 'Suggested introductions', exhibit: 'C' },
+          { value: r.work.length, label: 'Programs and products', hint: 'CWI programs and products this partner is on', exhibit: 'A' },
+          { value: r.conv.length, label: 'Convenings attended', hint: 'CWI convenings this partner attended', exhibit: 'A' },
+          { value: r.co.length, label: 'Partners worked alongside', hint: 'Other partners on the same projects or convenings', exhibit: 'B' },
+          { value: r.intros.length, label: 'Suggested introductions', hint: 'Nearby CWI partners it has not yet worked with', exhibit: 'C' },
         ]}
       />
 
@@ -135,7 +111,7 @@ export const PartnerOnePager: React.FC<{ m: ReportModel; nav: ReportNav; initial
       </Section>
 
       <Section title="Exhibits">
-        <Exhibit id="A" title="Engagement schedule" source="CWI Projects and Collaborators sheet; rows are where this partner appears" ids={[p.id, ...r.eng.map((x) => x.project.id)]} nav={nav}>
+        <Exhibit id="A" guide={{ what: 'Every CWI project and convening this partner appears on.', read: 'Ref matches the project codes in the other reports. Sheet rows are where this partner is listed in the spreadsheet, so the record can be checked.', why: "It is the partner's track record with CWI in one table." }} title="Engagement schedule" source="CWI Projects and Collaborators sheet; rows are where this partner appears" ids={[p.id, ...r.eng.map((x) => x.project.id)]} nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -167,7 +143,7 @@ export const PartnerOnePager: React.FC<{ m: ReportModel; nav: ReportNav; initial
           </table>
         </Exhibit>
 
-        <Exhibit id="B" title="Partners worked alongside" source="Other partners on the same projects and convenings" ids={r.co.slice(0, 15).map((c) => c.partner.id)} nav={nav}>
+        <Exhibit id="B" guide={{ what: 'The other organisations this partner has worked alongside on CWI projects and convenings.', read: 'Shared counts the projects and convenings they have in common, and Where lists their codes.', why: "It shows the partner's existing relationships inside CWI's network." }} title="Partners worked alongside" source="Other partners on the same projects and convenings" ids={r.co.slice(0, 15).map((c) => c.partner.id)} nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -193,7 +169,7 @@ export const PartnerOnePager: React.FC<{ m: ReportModel; nav: ReportNav; initial
           {r.co.length > 15 && <p className="rp-note">And {r.co.length - 15} more.</p>}
         </Exhibit>
 
-        <Exhibit id="C" title="Suggested introductions" source="CWI partners within 80 km with no shared project or convening, ranked by their own engagement" ids={r.intros.map((x) => x.partner.id)} nav={nav}>
+        <Exhibit id="C" guide={{ what: 'CWI partners within 80 km that have never shared a project or convening with this partner.', read: 'Partners are ranked by how active they are with CWI, then by distance. Distance is a straight line between city locations.', why: 'These are warm introductions CWI can make, which is part of its role as a convener.' }} title="Suggested introductions" source="CWI partners within 80 km with no shared project or convening, ranked by their own engagement" ids={r.intros.map((x) => x.partner.id)} nav={nav}>
           {r.intros.length ? (
             <table className="rp-table">
               <thead>
@@ -225,7 +201,7 @@ export const PartnerOnePager: React.FC<{ m: ReportModel; nav: ReportNav; initial
         </Exhibit>
 
         {r.funding.length > 0 && (
-          <Exhibit id="D" title="Recorded funding relationships" source="Funding links in the landscape sheet and curated records" nav={nav}>
+          <Exhibit id="D" guide={{ what: 'Funding relationships recorded for this organisation.', read: 'Amount reads Not recorded where the data has no figure.', why: 'It shows where money flows to or from this partner.' }} title="Recorded funding relationships" source="Funding links in the landscape sheet and curated records" nav={nav}>
             <table className="rp-table">
               <thead>
                 <tr>
@@ -253,7 +229,7 @@ export const PartnerOnePager: React.FC<{ m: ReportModel; nav: ReportNav; initial
           </Exhibit>
         )}
 
-        <Exhibit id={r.funding.length ? 'E' : 'D'} title="Record quality for this partner" source="Automated checks over the sheet and graph" nav={nav}>
+        <Exhibit id={r.funding.length ? 'E' : 'D'} guide={{ what: 'Problems found in the records for this partner.', read: 'Severity runs from High (could change a figure) to Info (cosmetic). Each item has a suggested fix.', why: 'Clean records make the page safe to send to the partner.' }} title="Record quality for this partner" source="Automated checks over the sheet and graph" nav={nav}>
           {r.ex.length ? <ExceptionsRegister items={r.ex} nav={nav} /> : <p className="rp-note">No exceptions. This partner's records are complete.</p>}
         </Exhibit>
       </Section>

@@ -18,7 +18,7 @@ import {
   sectorOf,
   stateOf,
 } from './reportData';
-import { Bar, Basis, EntityLink, Exhibit, ExceptionsRegister, Finding, Kpis, ReconTable, ReportHeader, Section, type ReportNav } from './ReportKit';
+import { Bar, Basis, EntityLink, Exhibit, ExceptionsRegister, Finding, Kpis, ReadingGuide, ReconTable, ReportHeader, Section, type ReportNav } from './ReportKit';
 
 export const ImpactBrief: React.FC<{ m: ReportModel; nav: ReportNav }> = ({ m, nav }) => {
   const r = useMemo(() => {
@@ -78,14 +78,16 @@ export const ImpactBrief: React.FC<{ m: ReportModel; nav: ReportNav }> = ({ m, n
         sources={['CWI Projects and Collaborators sheet', 'AI wildfire landscape sheet (funding links)', 'GraphEmber curated records']}
       />
 
+      <ReadingGuide />
+
       <Kpis
         items={[
-          { value: m.projects.length, label: 'Projects and convenings', exhibit: 'A' },
-          { value: fmt(P), label: 'Distinct partners', exhibit: 'C' },
-          { value: fmt(r.links), label: 'Partner engagements', exhibit: 'A' },
-          { value: pct(r.west, P), label: 'Partners in the West', exhibit: 'B' },
-          { value: pct(r.repeat, r.perPartner.length), label: 'Partners engaged more than once', exhibit: 'E' },
-          { value: r.material, label: 'Open exceptions (high + medium)', exhibit: 'H' },
+          { value: m.projects.length, label: 'Projects and convenings', hint: 'Rows in the sheet that start a project or event', exhibit: 'A' },
+          { value: fmt(P), label: 'Distinct partners', hint: 'Organisations and people, after merging spelling variants', exhibit: 'C' },
+          { value: fmt(r.links), label: 'Partner engagements', hint: 'One partner on one project or convening', exhibit: 'A' },
+          { value: pct(r.west, P), label: 'Partners in the West', hint: 'California, Nevada and other Western states', exhibit: 'B' },
+          { value: pct(r.repeat, r.perPartner.length), label: 'Partners engaged more than once', hint: 'Share of partners on two or more projects or convenings', exhibit: 'E' },
+          { value: r.material, label: 'Open exceptions (high + medium)', hint: 'Record problems to fix before publishing', exhibit: 'H' },
         ]}
       />
 
@@ -131,7 +133,7 @@ export const ImpactBrief: React.FC<{ m: ReportModel; nav: ReportNav }> = ({ m, n
       </Section>
 
       <Section title="Exhibits">
-        <Exhibit id="A" title="Portfolio schedule" source="CWI Projects and Collaborators sheet, project column; row is where each project block starts" ids={m.projects.map((p) => p.id)} nav={nav}>
+        <Exhibit id="A" guide={{ what: 'Every project and convening on the CWI sheet, with how many partners each one involves.', read: "Ref is a stable code (P-01…) used across all reports. The bar shows each project's share of all partner engagements. Row is where the project starts in the spreadsheet.", why: 'It is the portfolio at a glance, the equivalent of a schedule of accounts. The total ties to the reconciliation in Exhibit G.' }} title="Portfolio schedule" source="CWI Projects and Collaborators sheet, project column; row is where each project block starts" ids={m.projects.map((p) => p.id)} nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -173,7 +175,7 @@ export const ImpactBrief: React.FC<{ m: ReportModel; nav: ReportNav }> = ({ m, n
           </table>
         </Exhibit>
 
-        <Exhibit id="B" title="Geographic reach of partners" source="Partner location column; region assigned from the state in each location" ids={m.partners.map((p) => p.id)} nav={nav}>
+        <Exhibit id="B" guide={{ what: "Where CWI's partners are based, grouped by region and by state.", read: 'California, Nevada and Other Western US together make up the Western footprint. Not recorded means the sheet has no location for that partner.', why: "CWI's mandate is to grow from California and Nevada to the whole Western U.S. This is the baseline to measure that growth against." }} title="Geographic reach of partners" source="Partner location column; region assigned from the state in each location" ids={m.partners.map((p) => p.id)} nav={nav}>
           <div className="rp-two">
             <table className="rp-table">
               <thead>
@@ -214,7 +216,7 @@ export const ImpactBrief: React.FC<{ m: ReportModel; nav: ReportNav }> = ({ m, n
           </div>
         </Exhibit>
 
-        <Exhibit id="C" title="Partner composition by sector" source="Inferred from partner names; the sheet has no sector column (see basis of preparation)" nav={nav}>
+        <Exhibit id="C" guide={{ what: 'The kinds of organisation CWI works with, such as agencies, universities, companies and community groups.', read: "Sectors are worked out from each organisation's name, because the sheet has no sector column. Unclassified means no rule matched. The examples are the most-engaged partners in each sector.", why: 'A bridge organisation should reach every part of the system. Gaps here show who is missing from the table.' }} title="Partner composition by sector" source="Inferred from partner names; the sheet has no sector column (see basis of preparation)" nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -249,7 +251,7 @@ export const ImpactBrief: React.FC<{ m: ReportModel; nav: ReportNav }> = ({ m, n
           </table>
         </Exhibit>
 
-        <Exhibit id="D" title="Convening cohort analysis" source="Attendee lists for each convening in the sheet; returning means the attendee appears at an earlier convening" ids={m.convenings.map((c) => c.id)} nav={nav}>
+        <Exhibit id="D" guide={{ what: 'Attendance at each CWI convening, and how many attendees had been to an earlier one.', read: 'Returning means the organisation attended an earlier convening on the sheet. Retention is returning attendees as a share of everyone who came.', why: 'High retention shows a community that keeps coming back, and first-time attendees show reach. Healthy convenings have both.' }} title="Convening cohort analysis" source="Attendee lists for each convening in the sheet; returning means the attendee appears at an earlier convening" ids={m.convenings.map((c) => c.id)} nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -284,7 +286,7 @@ export const ImpactBrief: React.FC<{ m: ReportModel; nav: ReportNav }> = ({ m, n
           </table>
         </Exhibit>
 
-        <Exhibit id="E" title="Concentration: most-engaged partners" source="Partner engagements across all projects and convenings" ids={r.top10.map((x) => x.p.id)} nav={nav}>
+        <Exhibit id="E" guide={{ what: 'The ten partners with the most engagements across projects and convenings.', read: 'Cumulative share is how much of all engagements the partners down to that row account for. The HHI note below the table measures how evenly engagement is spread across projects.', why: 'In finance this is a dependency check. If a few partners carry most of the work, losing one is a risk; if engagement is spread out, the network is resilient.' }} title="Concentration: most-engaged partners" source="Partner engagements across all projects and convenings" ids={r.top10.map((x) => x.p.id)} nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -321,7 +323,7 @@ export const ImpactBrief: React.FC<{ m: ReportModel; nav: ReportNav }> = ({ m, n
           </p>
         </Exhibit>
 
-        <Exhibit id="F" title="Follow the money: recorded funding into the network" source="Funding links in the AI wildfire landscape sheet and curated records" ids={r.funding.flatMap((f) => [f.from.id, f.to.id])} nav={nav}>
+        <Exhibit id="F" guide={{ what: "Every recorded funding relationship that involves an organisation in CWI's network.", read: 'Amount shows Not recorded where the data has no figure. The last column shows how many CWI projects or convenings the recipient is part of.', why: 'Following the money is how you show leverage and accountability. Until amounts are recorded, the report can say who funds whom, but not how much.' }} title="Follow the money: recorded funding into the network" source="Funding links in the AI wildfire landscape sheet and curated records" ids={r.funding.flatMap((f) => [f.from.id, f.to.id])} nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -356,11 +358,11 @@ export const ImpactBrief: React.FC<{ m: ReportModel; nav: ReportNav }> = ({ m, n
           </p>
         </Exhibit>
 
-        <Exhibit id="G" title="Reconciliation: source sheet to graph" source="Raw CWI Projects and Collaborators sheet compared with graph links" nav={nav}>
+        <Exhibit id="G" guide={{ what: 'A step-by-step tie-out from the raw spreadsheet to the links in the graph.', read: 'Read it like a bank reconciliation. Start with the rows, take away merged repeats and anything that could not be traced, and the result must equal the links in the graph. Reconciled means nothing is missing or double counted.', why: 'It proves every other figure in the report rests on complete records.' }} title="Reconciliation: source sheet to graph" source="Raw CWI Projects and Collaborators sheet compared with graph links" nav={nav}>
           <ReconTable lines={r.recon} />
         </Exhibit>
 
-        <Exhibit id="H" title="Exceptions register" source="Automated checks over the sheet and graph" nav={nav}>
+        <Exhibit id="H" guide={{ what: 'Problems found automatically in the records, each with a reference number and a suggested fix.', read: 'High could change a headline figure, Medium limits what the report can say, Low is housekeeping, and Info is cosmetic (hidden by default). Click a row to open the record.', why: 'Clearing High and Medium items before sharing figures externally is what makes them defensible.' }} title="Exceptions register" source="Automated checks over the sheet and graph" nav={nav}>
           <ExceptionsRegister items={r.ex} nav={nav} />
         </Exhibit>
       </Section>

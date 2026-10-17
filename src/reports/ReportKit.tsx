@@ -3,7 +3,8 @@
  * exhibits, exhibits that cite their source, a reconciliation schedule and
  * an exceptions register.
  */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { ExplainContext } from './explain';
 import type { GraphNode } from '../types/graph';
 import { fmt, type Exception, type ReconLine, type Severity } from './reportData';
 
@@ -72,17 +73,96 @@ export const ReportHeader: React.FC<{
   </header>
 );
 
-export const Kpis: React.FC<{ items: { value: React.ReactNode; label: string; exhibit?: string }[] }> = ({ items }) => (
-  <div className="rp-kpis">
-    {items.map((k) => (
-      <div className="rp-kpi" key={k.label}>
-        <div className="rp-kpi-value">{k.value}</div>
-        <div className="rp-kpi-label">{k.label}</div>
-        {k.exhibit && <ExhibitRef id={k.exhibit} />}
-      </div>
-    ))}
-  </div>
-);
+export const Kpis: React.FC<{ items: { value: React.ReactNode; label: string; exhibit?: string; hint?: string }[] }> = ({ items }) => {
+  const explain = useContext(ExplainContext);
+  return (
+    <div className="rp-kpis">
+      {items.map((k) => (
+        <div className="rp-kpi" key={k.label} title={k.hint}>
+          <div className="rp-kpi-value">{k.value}</div>
+          <div className="rp-kpi-label">{k.label}</div>
+          {explain && k.hint && <div className="rp-kpi-hint">{k.hint}</div>}
+          {k.exhibit && <ExhibitRef id={k.exhibit} />}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+/** A plain-language note: what an element shows, how to read it, and why it matters. */
+export interface Guide {
+  what: React.ReactNode;
+  read?: React.ReactNode;
+  why?: React.ReactNode;
+}
+
+export const GuideNote: React.FC<{ guide?: Guide }> = ({ guide }) => {
+  const explain = useContext(ExplainContext);
+  if (!explain || !guide) return null;
+  return (
+    <div className="rp-guide">
+      <p>
+        <strong>What it shows.</strong> {guide.what}
+      </p>
+      {guide.read && (
+        <p>
+          <strong>How to read it.</strong> {guide.read}
+        </p>
+      )}
+      {guide.why && (
+        <p>
+          <strong>Why it matters.</strong> {guide.why}
+        </p>
+      )}
+    </div>
+  );
+};
+
+/** Explains the report's building blocks once, at the top of every report. */
+export const ReadingGuide: React.FC = () => {
+  const explain = useContext(ExplainContext);
+  if (!explain) return null;
+  return (
+    <details className="rp-reading" open>
+      <summary>How to read this report</summary>
+      <dl>
+        <div>
+          <dt>Headline figures</dt>
+          <dd>The numbers in the boxes below. Each one names the exhibit that proves it.</dd>
+        </div>
+        <div>
+          <dt>Findings (F1, F2…)</dt>
+          <dd>Short conclusions in plain words. Each ends with "Evidence", linking to the exhibits that support it, so no finding stands on its own say-so.</dd>
+        </div>
+        <div>
+          <dt>Exhibits (A, B…)</dt>
+          <dd>The tables behind the findings. Each says what source it comes from. Click any name to open its details, or "Show in network" to see those entities on the graph.</dd>
+        </div>
+        <div>
+          <dt>Sheet rows</dt>
+          <dd>Row numbers in the CWI Projects and Collaborators spreadsheet, so anyone can check a figure against the original.</dd>
+        </div>
+        <div>
+          <dt>Reconciliation</dt>
+          <dd>A check, as an auditor would do, that every row in the spreadsheet is accounted for in the graph and nothing was lost or double counted.</dd>
+        </div>
+        <div>
+          <dt>Exceptions register</dt>
+          <dd>
+            A numbered list (X-01…) of problems found in the records, from High (could change a headline figure) to Info (cosmetic), each with a suggested fix.
+          </dd>
+        </div>
+        <div>
+          <dt>Concentration (HHI)</dt>
+          <dd>
+            A standard measure, borrowed from finance, of whether activity is spread out or dependent on a few. It runs from 0 to 10,000: under 1,500 is spread out, over 2,500
+            is concentrated.
+          </dd>
+        </div>
+      </dl>
+    </details>
+  );
+};
 
 export const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <section className="rp-section">
@@ -116,8 +196,9 @@ export const Exhibit: React.FC<{
   source: string;
   ids?: string[];
   nav: ReportNav;
+  guide?: Guide;
   children: React.ReactNode;
-}> = ({ id, title, source, ids, nav, children }) => (
+}> = ({ id, title, source, ids, nav, guide, children }) => (
   <figure className="rp-exhibit" id={`exhibit-${id}`}>
     <figcaption className="rp-exhibit-head">
       <span className="rp-exhibit-id">Exhibit {id}</span>
@@ -128,6 +209,7 @@ export const Exhibit: React.FC<{
         </button>
       )}
     </figcaption>
+    <GuideNote guide={guide} />
     <div className="rp-exhibit-body">{children}</div>
     <div className="rp-source">Source: {source}</div>
   </figure>

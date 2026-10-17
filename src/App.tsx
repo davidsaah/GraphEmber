@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback, useEffect, Suspense, lazy } from 'react';
-import { X } from 'lucide-react';
+import { X, FileText } from 'lucide-react';
+import type { ReportTarget } from './components/ReportsView';
 import type { GraphNode, GraphEdge, NodeType } from './types/graph';
 import { INITIAL_DATASET } from './data/initialData';
 import { Header, type AppView } from './components/Header';
@@ -57,6 +58,7 @@ export const App: React.FC = () => {
   const [isCwiModalOpen, setIsCwiModalOpen] = useState<boolean>(false);
   const [view, setView] = useState<AppView>('network');
   const [insightsOpen, setInsightsOpen] = useState<boolean>(true);
+  const [reportTarget, setReportTarget] = useState<ReportTarget | null>(null);
 
   // Path finder highlight state
   const [pathNodeIds, setPathNodeIds] = useState<string[]>([]);
@@ -185,6 +187,15 @@ export const App: React.FC = () => {
   const handleApplyPathHighlight = useCallback((pNodes: string[], pEdges: string[]) => {
     setPathNodeIds(pNodes);
     setPathEdgeIds(pEdges);
+  }, []);
+
+  // "Run report" on a selected node opens its report in the Reports view
+  const handleRunReport = useCallback((node: GraphNode) => {
+    setReportTarget((prev) => ({ id: node.id, n: (prev?.n || 0) + 1 }));
+    setSelectedNode(null);
+    setPathNodeIds([]);
+    setPathEdgeIds([]);
+    setView('reports');
   }, []);
 
   // From a report exhibit: show its entities on the network, widening the scope if any sit outside the CWI network
@@ -391,7 +402,7 @@ export const App: React.FC = () => {
                 <ReportsView
                   nodes={nodes}
                   edges={edges}
-                  selectedNodeId={selectedNode ? selectedNode.id : null}
+                  target={reportTarget}
                   onSelectNode={setSelectedNode}
                   onShowInNetwork={handleShowInNetwork}
                 />
@@ -419,6 +430,12 @@ export const App: React.FC = () => {
                     <strong>{pathNodeIds.length}</strong> entities highlighted
                   </span>
                 )}
+                {selectedNode && (
+                  <button onClick={() => handleRunReport(selectedNode)} title="Open a report on this node">
+                    <FileText size={13} />
+                    Run report
+                  </button>
+                )}
                 <button onClick={handleClearSelection} title="Clear selection (Esc)">
                   <X size={13} />
                   Clear <kbd>Esc</kbd>
@@ -433,6 +450,7 @@ export const App: React.FC = () => {
               allEdges={edges}
               onClose={() => setSelectedNode(null)}
               onSelectNode={setSelectedNode}
+              onRunReport={handleRunReport}
             />
           </div>
         </div>

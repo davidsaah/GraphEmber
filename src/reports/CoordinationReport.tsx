@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { type ReportModel, exceptions, kindOf, pct, projectCodes, prospects, sectorOf, sharedPartners, topicCoverage } from './reportData';
-import { Bar, Basis, EntityLink, Exhibit, ExceptionsRegister, Finding, Kpis, ReportHeader, Section, type ReportNav } from './ReportKit';
+import { Bar, Basis, EntityLink, Exhibit, ExceptionsRegister, Finding, Kpis, ReadingGuide, ReportHeader, Section, type ReportNav } from './ReportKit';
 
 const GAP_THRESHOLD = 0.2;
 
@@ -49,12 +49,14 @@ export const CoordinationReport: React.FC<{ m: ReportModel; nav: ReportNav }> = 
         sources={['CWI Projects and Collaborators sheet', 'AI wildfire landscape sheet (topics, organisations)', 'GraphEmber curated records']}
       />
 
+      <ReadingGuide />
+
       <Kpis
         items={[
-          { value: r.workPairs.length, label: 'Program pairs sharing partners', exhibit: 'A' },
-          { value: r.brokers.length, label: 'Bridging partners', exhibit: 'B' },
-          { value: r.islands.length, label: 'Programs with no shared partner', exhibit: 'C' },
-          { value: r.gaps.length, label: `Topics under ${GAP_THRESHOLD * 100}% coverage`, exhibit: 'D' },
+          { value: r.workPairs.length, label: 'Program pairs sharing partners', hint: 'Pairs of programs with at least one partner in common', exhibit: 'A' },
+          { value: r.brokers.length, label: 'Bridging partners', hint: 'Partners on two or more programs', exhibit: 'B' },
+          { value: r.islands.length, label: 'Programs with no shared partner', hint: 'Programs working alone in the network', exhibit: 'C' },
+          { value: r.gaps.length, label: `Topics under ${GAP_THRESHOLD * 100}% coverage`, exhibit: 'D', hint: 'Busy landscape topics where few organisations are CWI partners' },
         ]}
       />
 
@@ -111,7 +113,7 @@ export const CoordinationReport: React.FC<{ m: ReportModel; nav: ReportNav }> = 
       </Section>
 
       <Section title="Exhibits">
-        <Exhibit id="A" title="Shared-partner matrix" source="Partners listed on each pair of projects in the sheet; cells show partners in common" ids={r.projects.map((p) => p.id)} nav={nav}>
+        <Exhibit id="A" guide={{ what: 'Every pair of projects and convenings, and how many partners they have in common.', read: "Find a project's code (P-01…) on the left and read across. A darker cell means more shared partners, and the striped diagonal is a project against itself. The table underneath lists the strongest pairs between programs.", why: "Shared partners are ready-made channels for aligning methods and sharing data, which is CWI's coordination mandate." }} title="Shared-partner matrix" source="Partners listed on each pair of projects in the sheet; cells show partners in common" ids={r.projects.map((p) => p.id)} nav={nav}>
           <div className="rp-scroll">
             <table className="rp-matrix">
               <thead>
@@ -175,7 +177,7 @@ export const CoordinationReport: React.FC<{ m: ReportModel; nav: ReportNav }> = 
           </table>
         </Exhibit>
 
-        <Exhibit id="B" title="Bridging partners" source="Partners on two or more programs or products" ids={r.brokers.map((b) => b.p.id)} nav={nav}>
+        <Exhibit id="B" guide={{ what: 'Partners that work on two or more CWI programs.', read: 'Programs connected lists the project codes from Exhibit A. Convenings counts events they also attended.', why: 'These organisations already carry knowledge between programs. They are the first people to involve when aligning work.' }} title="Bridging partners" source="Partners on two or more programs or products" ids={r.brokers.map((b) => b.p.id)} nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -202,7 +204,7 @@ export const CoordinationReport: React.FC<{ m: ReportModel; nav: ReportNav }> = 
           </table>
         </Exhibit>
 
-        <Exhibit id="C" title="Isolated and thinly partnered programs" source="Programs and products in the sheet" ids={[...new Set([...r.islands, ...r.thin].map((p) => p.id))]} nav={nav}>
+        <Exhibit id="C" guide={{ what: 'Programs with three partners or fewer, or with no partner in common with any other program.', read: 'Shares partners with another program reads No when the program is a coordination island.', why: 'Isolated work misses the benefit of the network. These are candidates for introductions or a slot at the next convening.' }} title="Isolated and thinly partnered programs" source="Programs and products in the sheet" ids={[...new Set([...r.islands, ...r.thin].map((p) => p.id))]} nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -229,7 +231,7 @@ export const CoordinationReport: React.FC<{ m: ReportModel; nav: ReportNav }> = 
           </table>
         </Exhibit>
 
-        <Exhibit id="D" title="Coverage of the AI wildfire landscape by topic" source="Topic links in the AI wildfire landscape sheet; in network means the organisation is also on the CWI sheet" ids={r.gaps.map((g) => g.topic.id)} nav={nav}>
+        <Exhibit id="D" guide={{ what: "For each topic in the wider AI wildfire landscape, how many active organisations there are and how many are in CWI's network.", read: "Coverage is the share in CWI's network. A gap is a topic with at least five organisations and under 20% coverage.", why: 'It shows where the field is busy but CWI is not yet present, which is where to look for new partners or research gaps.' }} title="Coverage of the AI wildfire landscape by topic" source="Topic links in the AI wildfire landscape sheet; in network means the organisation is also on the CWI sheet" ids={r.gaps.map((g) => g.topic.id)} nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -258,7 +260,7 @@ export const CoordinationReport: React.FC<{ m: ReportModel; nav: ReportNav }> = 
           </table>
         </Exhibit>
 
-        <Exhibit id="E" title="Prospective partners" source="Organisations in the AI wildfire landscape sheet that are not on the CWI sheet, ranked by number of links" ids={r.leads.map((l) => l.node.id)} nav={nav}>
+        <Exhibit id="E" guide={{ what: 'The best-connected organisations in the AI wildfire landscape that are not yet CWI partners.', read: 'Links counts their connections in the landscape data, and Topics shows what they work on.', why: "It is a shortlist for outreach. Fit still needs a person's judgement." }} title="Prospective partners" source="Organisations in the AI wildfire landscape sheet that are not on the CWI sheet, ranked by number of links" ids={r.leads.map((l) => l.node.id)} nav={nav}>
           <table className="rp-table">
             <thead>
               <tr>
@@ -283,7 +285,7 @@ export const CoordinationReport: React.FC<{ m: ReportModel; nav: ReportNav }> = 
           </table>
         </Exhibit>
 
-        <Exhibit id="F" title="Exceptions affecting these figures (high and medium)" source="Automated checks; the full register is in R-01 Exhibit H" nav={nav}>
+        <Exhibit id="F" guide={{ what: 'Record problems rated High or Medium.', read: 'The same register as the State impact brief, filtered to the items that could change these figures.', why: 'Fix these first so the coordination picture can be trusted.' }} title="Exceptions affecting these figures (high and medium)" source="Automated checks; the full register is in R-01 Exhibit H" nav={nav}>
           <ExceptionsRegister items={r.ex} nav={nav} />
         </Exhibit>
       </Section>

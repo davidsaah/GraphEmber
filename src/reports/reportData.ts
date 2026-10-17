@@ -399,3 +399,63 @@ export const pct = (n: number, d: number) => (d ? `${Math.round((n / d) * 100)}%
 
 /** Stable reference codes (P-01…) in sheet order, used across exhibits. */
 export const projectCodes = (m: ReportModel) => new Map(m.projects.map((p, i) => [p.id, `P-${String(i + 1).padStart(2, '0')}`]));
+
+// ---------- Any-node reports ----------
+
+export const relationLabel = (t: string) => t.toLowerCase().replace(/_/g, ' ');
+
+/** Every link touching a node, with the node at the other end. */
+export const connections = (m: ReportModel, id: string) =>
+  m.edges.flatMap((e) => {
+    const s = endpointId(e.source), t = endpointId(e.target);
+    if (s !== id && t !== id) return [];
+    const other = m.byId.get(s === id ? t : s);
+    return other ? [{ edge: e, other, outgoing: s === id }] : [];
+  });
+
+/** Shortest chain of links between two nodes, ignoring direction (breadth-first). */
+export const shortestPath = (m: ReportModel, from: string, to: string): GraphNode[] => {
+  if (from === to) return [m.byId.get(from)!].filter(Boolean);
+  const adj = new Map<string, string[]>();
+  for (const e of m.edges) {
+    const s = endpointId(e.source), t = endpointId(e.target);
+    adj.set(s, [...(adj.get(s) || []), t]);
+    adj.set(t, [...(adj.get(t) || []), s]);
+  }
+  const prev = new Map<string, string>([[from, from]]);
+  const queue = [from];
+  while (queue.length) {
+    const cur = queue.shift()!;
+    if (cur === to) break;
+    for (const nx of adj.get(cur) || []) if (!prev.has(nx)) { prev.set(nx, cur); queue.push(nx); }
+  }
+  if (!prev.has(to)) return [];
+  const path = [to];
+  while (path[0] !== from) path.unshift(prev.get(path[0])!);
+  return path.map((id) => m.byId.get(id)!).filter(Boolean);
+};
+
+/** Organisations that share topics with this node, ranked by topics in common. */
+export const topicPeers = (m: ReportModel, id: string, limit = 10) => {
+  const topicsOf = (nid: string) =>
+    new Set(m.edges.filter((e) => e.type === 'HAS_TOPIC' && endpointId(e.source) === nid).map((e) => endpointId(e.target)));
+  const mine = topicsOf(id);
+  if (!mine.size) return [];
+  const counts = new Map<string, number>();
+  for (const e of m.edges)
+    if (e.type === 'HAS_TOPIC' && mine.has(endpointId(e.target)) && endpointId(e.source) !== id)
+      counts.set(endpointId(e.source), (counts.get(endpointId(e.source)) || 0) + 1);
+  return [...counts]
+    .map(([nid, shared]) => ({ node: m.byId.get(nid)!, shared, inNetwork: !!m.byId.get(nid)?.tags?.includes(CWI_TAG) }))
+    .filter((x) => x.node)
+    .sort((a, b) => b.shared - a.shared || Number(b.inNetwork) - Number(a.inNetwork) || a.node.label.localeCompare(b.node.label))
+    .slice(0, limit);
+};
+
+export const inCwiNetwork = (n: GraphNode) => !!n.tags?.includes(CWI_TAG);
+export const isCwiProject = (n: GraphNode) => !!n.tags?.includes(PROJECT_TAG);
+
+/** Which report a node gets: CWI partners a one-pager, CWI projects a project report, anything else an entity report. */
+export const reportKind = (m: ReportModel, n: GraphNode): 'project' | 'partner' | 'entity' =>
+  isCwiProject(n) ? 'project' : n.id !== CWI_ID && m.projectsOf.has(n.id) ? 'partner' : 'entity';
+
