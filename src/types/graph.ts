@@ -38,6 +38,24 @@ export type RelationType =
   | 'OPERATES'
   | 'ADMINISTERS';
 
+// Where an approved web finding came from, and who let it in.
+export interface WebProvenance {
+  proposalId: string;
+  summary: string;
+  sources: { url: string; title: string; publisher: string }[];
+  approvedBy: string;
+  approvedAt: string;
+}
+
+export interface WebFact extends WebProvenance {
+  kind: 'update' | 'impact';
+  date?: string;
+  field?: string;
+  value?: string;
+  metric?: string;
+  unit?: string;
+}
+
 export interface BaseNode {
   id: string;
   type: NodeType;
@@ -51,6 +69,16 @@ export interface BaseNode {
   coordinates?: [number, number];
   // Reviewer note carried over from the source sheet
   sheetNote?: string;
+  // Facts found by web research and approved in the Inbox (see src/research)
+  webFacts?: WebFact[];
+  // Set on entities that exist only because an approved web finding added them
+  webSource?: WebProvenance;
+  // Other names this entity is known by, kept when duplicates are merged into it
+  aliases?: string[];
+  // Entities merged into this one, newest last (see src/curation)
+  mergedFrom?: { id: string; label: string; by: string; at: string }[];
+  // Number of hand edits applied to this entity
+  editCount?: number;
   // D3 force simulation coordinates
   x?: number;
   y?: number;
@@ -174,6 +202,7 @@ export interface GraphEdge {
   properties?: Record<string, any>;
   startDate?: string;
   endDate?: string;
+  webSource?: WebProvenance;
 }
 
 export interface NetworkDataset {

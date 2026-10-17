@@ -1,0 +1,153 @@
+/* Research Inbox: the review queue for web findings. Uses the shared tokens in index.css. */
+.inbox {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  bottom: 12px;
+  width: min(460px, calc(100% - 24px));
+  z-index: 42;
+  /* Opaque so the dossier underneath never shows through */
+  background: #0b0f18;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.inbox-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px 14px 8px 18px;
+}
+.inbox-head h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--text-primary); }
+.inbox-note, .inbox-muted { font-size: 0.74rem; color: var(--text-muted); line-height: 1.45; }
+.inbox-note { margin: 0 18px 12px; padding: 10px 12px; border-radius: var(--radius-md); background: var(--bg-surface); color: var(--text-secondary); }
+.inbox-muted svg { vertical-align: -2px; }
+.inbox code { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-secondary); }
+
+.inbox-research {
+  margin: 0 14px 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(246, 186, 19, 0.3);
+  background: var(--cwi-gradient-badge);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.inbox-research-title { display: flex; align-items: center; gap: 8px; color: var(--text-primary); font-size: 0.86rem; }
+.inbox-research-title svg { color: var(--color-cwi-gold); }
+.inbox-targets { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; }
+.inbox-row { display: flex; align-items: center; justify-content: flex-end; gap: 6px; flex-wrap: wrap; }
+.inbox-research .inbox-row { justify-content: flex-start; }
+.inbox-running { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-secondary); }
+.inbox .spin { animation: inboxSpin 0.9s linear infinite; }
+@keyframes inboxSpin { to { transform: rotate(360deg); } }
+.inbox-error { font-size: 0.76rem; color: #fca5a5; }
+.inbox-check { display: flex; align-items: center; gap: 8px; font-size: 0.76rem; color: var(--text-secondary); cursor: pointer; }
+.inbox-check input { accent-color: var(--color-cwi-gold); }
+
+.inbox-reviewer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 18px 10px;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+.inbox input:not([type='checkbox']), .inbox textarea {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 9px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.8rem;
+  outline: none;
+}
+.inbox input:focus, .inbox textarea:focus { border-color: rgba(246, 186, 19, 0.5); }
+.inbox textarea { width: 100%; resize: vertical; }
+.inbox-tabs { margin: 0 14px 8px; align-self: flex-start; }
+
+.inbox-list { flex: 1; overflow-y: auto; padding: 4px 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.inbox-empty { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 32px 16px; text-align: center; color: var(--text-muted); font-size: 0.8rem; line-height: 1.5; }
+
+.inbox-card {
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--border-strong);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.inbox-card.conf-high { border-left-color: var(--color-cwi-pine); }
+.inbox-card.conf-medium { border-left-color: var(--color-cwi-gold); }
+.inbox-card.conf-low { border-left-color: var(--color-cwi-flame); }
+.inbox-card-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.inbox-kind { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ember-light); }
+.inbox-conf { font-size: 0.68rem; padding: 1px 7px; border-radius: var(--radius-full); text-transform: capitalize; border: 1px solid var(--border-subtle); }
+.inbox-conf.conf-high { color: #6ee7b7; border-color: rgba(16, 185, 129, 0.4); }
+.inbox-conf.conf-medium { color: #fcd34d; border-color: rgba(246, 186, 19, 0.4); }
+.inbox-conf.conf-low { color: #fca5a5; border-color: rgba(226, 62, 29, 0.45); }
+.inbox-summary { font-size: 0.84rem; color: var(--text-primary); line-height: 1.45; }
+.inbox-fact { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; }
+.inbox-fact > input, .inbox-fact > .inbox-muted { flex-basis: 100%; }
+.inbox-rel { font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-cwi-gold); padding: 0 4px; }
+.inbox-new { font-size: 0.7rem; color: var(--accent-ember-light); }
+.inbox-link { color: var(--text-primary); font-weight: 600; text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 2px; }
+.inbox-link:hover { text-decoration-color: var(--color-cwi-gold); }
+.inbox-flags { display: flex; flex-wrap: wrap; gap: 6px; }
+.inbox-flag { font-size: 0.68rem; padding: 2px 7px; border-radius: var(--radius-full); background: rgba(226, 62, 29, 0.12); color: #fdba74; }
+
+.inbox-sources { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.inbox-sources li { padding-left: 10px; border-left: 1px solid var(--border-subtle); }
+.inbox-source-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 0.74rem; }
+.inbox-source-head a { color: var(--text-primary); display: inline-flex; align-items: center; gap: 3px; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.inbox-source-head a:hover { color: var(--color-cwi-gold); }
+.inbox-tier { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+.inbox-tier.tier-primary { color: #6ee7b7; }
+.inbox-verify { display: inline-flex; align-items: center; gap: 3px; font-size: 0.68rem; color: #fca5a5; }
+.inbox-verify.v-verified { color: #6ee7b7; }
+.inbox-verify.v-partial, .inbox-verify.v-pdf { color: #fcd34d; }
+.inbox-sources blockquote { margin-top: 4px; font-size: 0.76rem; font-style: italic; color: var(--text-secondary); line-height: 1.45; }
+.inbox-reason { width: 100%; }
+.inbox-reject { color: #fca5a5; }
+.inbox-decided { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 0.72rem; color: var(--text-muted); }
+
+.inbox-run { padding: 10px 12px; border-radius: var(--radius-md); background: var(--bg-surface); font-size: 0.78rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px; }
+.inbox-research .inbox-run { background: rgba(7, 9, 14, 0.5); }
+.inbox-run strong { color: var(--text-primary); }
+.inbox-run summary { cursor: pointer; color: var(--text-muted); font-size: 0.72rem; }
+.inbox-run ul { margin: 6px 0 0 16px; display: flex; flex-direction: column; gap: 3px; font-size: 0.72rem; }
+.inbox-run em { color: var(--text-muted); }
+
+/* Header button count */
+.inbox-badge {
+  min-width: 17px;
+  height: 17px;
+  padding: 0 5px;
+  border-radius: var(--radius-full);
+  background: var(--accent-ember);
+  color: #1a1206;
+  font-size: 0.66rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Approved web findings in the entity dossier */
+.web-findings { display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: var(--radius-md); background: rgba(249, 115, 22, 0.06); border: 1px solid rgba(249, 115, 22, 0.25); }
+.web-findings-title { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-ember-light); }
+.web-finding { display: flex; flex-direction: column; gap: 3px; }
+.web-finding + .web-finding { padding-top: 8px; border-top: 1px solid var(--border-subtle); }
+.web-finding-heading { font-size: 0.74rem; color: var(--color-cwi-gold); text-transform: capitalize; }
+.web-finding p { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45; }
+.web-finding-sources { display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.72rem; }
+.web-finding-sources a { color: var(--text-primary); display: inline-flex; align-items: center; gap: 3px; }
+.web-finding-sources a:hover { color: var(--color-cwi-gold); }
+.web-finding-meta { font-size: 0.68rem; color: var(--text-muted); }

@@ -12,6 +12,10 @@ interface NetworkCanvasProps {
   onSelectNode: (node: GraphNode | null) => void;
   hoveredNodeId: string | null;
   onHoverNode: (nodeId: string | null) => void;
+  // Entities with web findings waiting for review get an ember dot
+  pendingNodeIds?: Set<string>;
+  // Proposed connections, drawn dashed until approved
+  ghostEdges?: { source: string; target: string }[];
 }
 
 // Mirrors the --color-* tokens in index.css (canvas can't read CSS variables cheaply per frame).
@@ -28,6 +32,7 @@ const TYPE_COLORS: Record<NodeType, string> = {
 };
 
 const HIGHLIGHT = '#f6ba13';
+const EMBER = '#f97316';
 const BG = '#07090e';
 // Margin kept clear around the graph when fitting it, leaving room for the legend below.
 const VIEW_PADDING = { top: 40, right: 72, bottom: 64, left: 40 };
@@ -47,6 +52,8 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
   onSelectNode,
   hoveredNodeId,
   onHoverNode,
+  pendingNodeIds,
+  ghostEdges = [],
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -219,6 +226,25 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
       ctx.fill();
     }
 
+    // --- proposed connections (dashed) ---
+    if (ghostEdges.length) {
+      const byId = new Map(nodes.map((n) => [n.id, n]));
+      ctx.save();
+      ctx.setLineDash([4 * px, 4 * px]);
+      ctx.lineWidth = 1.5 * px;
+      ctx.strokeStyle = 'rgba(249, 115, 22, 0.75)';
+      ctx.beginPath();
+      for (const g of ghostEdges) {
+        const s = byId.get(g.source);
+        const t = byId.get(g.target);
+        if (s?.x === undefined || t?.x === undefined) continue;
+        ctx.moveTo(s.x, s.y!);
+        ctx.lineTo(t.x, t.y!);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
     // --- nodes ---
     for (const node of nodes) {
       if (node.x === undefined || node.y === undefined) continue;
@@ -241,6 +267,19 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
         ctx.arc(node.x, node.y, radius + 4 * px, 0, Math.PI * 2);
         ctx.lineWidth = 2 * px;
         ctx.strokeStyle = '#ffffff';
+        ctx.stroke();
+      }
+
+      // New learning waiting in the Inbox
+      if (pendingNodeIds?.has(node.id)) {
+        const d = radius * 0.72;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.arc(node.x + d, node.y - d, Math.max(3.2 * px, radius * 0.32), 0, Math.PI * 2);
+        ctx.fillStyle = EMBER;
+        ctx.fill();
+        ctx.lineWidth = 1.5 * px;
+        ctx.strokeStyle = BG;
         ctx.stroke();
       }
     }

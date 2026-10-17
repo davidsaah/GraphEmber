@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback, useEffect, Suspense, lazy } from 'react';
-import { X } from 'lucide-react';
+import { X, Globe } from 'lucide-react';
 import type { GraphNode, GraphEdge, NodeType } from './types/graph';
 import { INITIAL_DATASET } from './data/initialData';
 import { Header, type AppView } from './components/Header';
@@ -15,6 +15,15 @@ import { CwiLogo } from './components/CwiLogo';
 import { ChatPanel } from './components/ChatPanel';
 import { DataView } from './components/DataView';
 import { InsightsPanel } from './components/InsightsPanel';
+import { InboxPanel } from './components/InboxPanel';
+import { applyApproved, WEB_TAG } from './research/applyApproved';
+import { decide, loadQueue } from './research/api';
+import type { DecisionInput, Proposal, ResearchRun, ReviewQueue } from './research/types';
+import { applyCuration } from './curation/applyCuration';
+import { findDuplicates } from './curation/findDuplicates';
+import { loadCuration, saveCuration, type CurationMode } from './curation/api';
+import { CurationContext, readReviewer, storeReviewer, type CurationContextValue } from './curation/CurationContext';
+import type { CurationInput, CurationLog } from './curation/types';
 
 // The map library is large, so it loads only when the map view is opened
 const MapView = lazy(() => import('./components/MapView'));
@@ -33,8 +42,49 @@ const ALL_TYPES: NodeType[] = [
 
 export const App: React.FC = () => {
   // Graph dataset state
-  const [nodes, setNodes] = useState<GraphNode[]>(INITIAL_DATASET.nodes);
-  const [edges, setEdges] = useState<GraphEdge[]>(INITIAL_DATASET.edges);
+  const [baseNodes, setNodes] = useState<GraphNode[]>(INITIAL_DATASET.nodes);
+  const [baseEdges, setEdges] = useState<GraphEdge[]>(INITIAL_DATASET.edges);
+
+  // Web research review queue; approved findings are layered over the curated data
+  const [queue, setQueue] = useState<ReviewQueue | null>(null);
+  const [researchAvailable, setResearchAvailable] = useState<boolean>(false);
+  const [isInboxOpen, setIsInboxOpen] = useState<boolean>(false);
+  const [inboxTab, setInboxTab] = useState<{ tab: 'pending' | 'duplicates' } | null>(null);
+  const [researchScope, setResearchScope] = useState<GraphNode[]>([]);
+  useEffect(() => {
+    loadQueue()
+      .then((q) => {
+        setQueue(q);
+        setResearchAvailable(true);
+      })
+      .catch(() => setResearchAvailable(false));
+  }, []);
+  // Hand edits and merges of duplicates, layered over the approved findings
+  const [curationLog, setCurationLog] = useState<CurationLog | null>(null);
+  const [curationMode, setCurationMode] = useState<CurationMode>('local');
+  const [reviewer, setReviewerState] = useState<string>(readReviewer);
+  useEffect(() => {
+    loadCuration().then(({ log, mode }) => {
+      setCurationLog(log);
+      setCurationMode(mode);
+    });
+  }, []);
+  const { nodes, edges } = useMemo(() => {
+    const web = applyApproved(baseNodes, baseEdges, queue?.proposals || []);
+    return applyCuration(web.nodes, web.edges, curationLog);
+  }, [baseNodes, baseEdges, queue, curationLog]);
+  const duplicates = useMemo(() => {
+    const dismissed = new Set(
+      (curationLog?.entries || []).flatMap((e) => (e.type === 'dismiss' && !e.undoneAt ? [e.pair] : [])),
+    );
+    return findDuplicates(nodes, edges, dismissed);
+  }, [nodes, edges, curationLog]);
+  const pending = useMemo(() => (queue?.proposals || []).filter((p) => p.status === 'pending'), [queue]);
+  const pendingNodeIds = useMemo(() => new Set(pending.flatMap((p) => [p.subjectId, ...(p.targetId ? [p.targetId] : [])])), [pending]);
+  const ghostEdges = useMemo(
+    () => pending.filter((p) => p.kind === 'connection' && p.targetId).map((p) => ({ source: p.subjectId, target: p.targetId! })),
+    [pending],
+  );
 
   // Search & Filtering state
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -45,7 +95,16 @@ export const App: React.FC = () => {
   const [minFunding, setMinFunding] = useState<number>(0);
 
   // Selection & Hover state
-  const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
+  const [selectedEntity, setSelectedNode] = useState<GraphNode | null>(null);
+  // Always show the current version: edits replace the node, and a merged entity resolves to the one it went into
+  const selectedNode = useMemo(() => {
+    if (!selectedEntity) return null;
+    return (
+      nodes.find((n) => n.id === selectedEntity.id) ||
+      nodes.find((n) => n.mergedFrom?.some((m) => m.id === selectedEntity.id)) ||
+      null
+    );
+  }, [selectedEntity, nodes]);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
 
   // Modal states
@@ -100,7 +159,10 @@ export const App: React.FC = () => {
   }, []);
 
   // Filtered nodes and edges
-  const scopedNodes = useMemo(() => (cwiOnly ? nodes.filter((n) => n.tags?.includes('CWI Network')) : nodes), [nodes, cwiOnly]);
+  const scopedNodes = useMemo(
+    () => (cwiOnly ? nodes.filter((n) => n.tags?.includes('CWI Network') || n.tags?.includes(WEB_TAG)) : nodes),
+    [nodes, cwiOnly],
+  );
   const filteredNodes = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
 
@@ -129,7 +191,8 @@ export const App: React.FC = () => {
         const matchesDesc = node.description?.toLowerCase().includes(q);
         const matchesType = node.type.toLowerCase().includes(q);
         const matchesTags = node.tags?.some((t) => t.toLowerCase().includes(q));
-        if (!matchesLabel && !matchesDesc && !matchesType && !matchesTags) {
+        const matchesAlias = node.aliases?.some((a) => a.toLowerCase().includes(q));
+        if (!matchesLabel && !matchesDesc && !matchesType && !matchesTags && !matchesAlias) {
           return false;
         }
       }
@@ -259,6 +322,67 @@ export const App: React.FC = () => {
     if (rhfNode) setSelectedNode(rhfNode);
   }, [nodes]);
 
+  // Research the selected entity, or the highlighted set, on the web
+  const handleOpenResearch = useCallback(() => {
+    const ids = selectedNode ? [selectedNode.id] : pathNodeIds;
+    setResearchScope(ids.map((id) => nodes.find((n) => n.id === id)).filter((n): n is GraphNode => !!n));
+    setIsInboxOpen(true);
+  }, [selectedNode, pathNodeIds, nodes]);
+
+  const handleOpenInbox = useCallback(() => {
+    setResearchScope([]);
+    setIsInboxOpen(true);
+  }, []);
+
+  const setReviewer = useCallback((name: string) => {
+    setReviewerState(name);
+    storeReviewer(name);
+  }, []);
+
+  const handleSaveCuration = useCallback(
+    async (input: CurationInput) => {
+      const entry = await saveCuration(curationMode, { ...input, by: reviewer.trim() });
+      setCurationLog((log) => {
+        const entries = log?.entries || [];
+        const i = entries.findIndex((e) => e.id === entry.id);
+        return { version: 1, ...log, entries: i >= 0 ? entries.map((e) => (e.id === entry.id ? entry : e)) : [...entries, entry] };
+      });
+    },
+    [curationMode, reviewer],
+  );
+
+  const curation = useMemo<CurationContextValue>(
+    () => ({
+      reviewer,
+      setReviewer,
+      mode: curationMode,
+      log: curationLog,
+      save: handleSaveCuration,
+      research: (targets) => {
+        setResearchScope(targets);
+        setInboxTab({ tab: 'pending' });
+        setIsInboxOpen(true);
+      },
+      researchAvailable,
+      pendingFor: (id) => pending.filter((p) => p.subjectId === id || p.targetId === id).length,
+      openInbox: (tab = 'pending') => {
+        setResearchScope([]);
+        setInboxTab({ tab });
+        setIsInboxOpen(true);
+      },
+    }),
+    [reviewer, setReviewer, curationMode, curationLog, handleSaveCuration, researchAvailable, pending],
+  );
+
+  const handleResearched = useCallback((run: ResearchRun, found: Proposal[]) => {
+    setQueue((q) => ({ version: 1, ...q, proposals: [...(q?.proposals || []), ...found], runs: [run, ...(q?.runs || [])] }));
+  }, []);
+
+  const handleDecide = useCallback(async (input: DecisionInput) => {
+    const updated = await decide(input);
+    setQueue((q) => (q ? { ...q, proposals: q.proposals.map((p) => (p.id === updated.id ? updated : p)) } : q));
+  }, []);
+
   // Clear the selected entity and any highlighted path or chat answer
   const hasSelection = selectedNode !== null || pathNodeIds.length > 0;
   const handleClearSelection = useCallback(() => {
@@ -271,7 +395,10 @@ export const App: React.FC = () => {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const anyModalOpen = isPathFinderOpen || isMetricsOpen || isAddModalOpen || isOntologyOpen || isCwiModalOpen;
-      if (e.key === 'Escape' && !anyModalOpen) handleClearSelection();
+      if (e.key === 'Escape' && !anyModalOpen) {
+        if (isInboxOpen) setIsInboxOpen(false);
+        else handleClearSelection();
+      }
       // "/" jumps to search, unless the user is already typing somewhere
       const typing =
         e.target instanceof HTMLElement && (e.target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName));
@@ -282,9 +409,10 @@ export const App: React.FC = () => {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [handleClearSelection, isPathFinderOpen, isMetricsOpen, isAddModalOpen, isOntologyOpen, isCwiModalOpen]);
+  }, [handleClearSelection, isPathFinderOpen, isMetricsOpen, isAddModalOpen, isOntologyOpen, isCwiModalOpen, isInboxOpen]);
 
   return (
+    <CurationContext.Provider value={curation}>
     <div
       style={{
         display: 'flex',
@@ -306,6 +434,8 @@ export const App: React.FC = () => {
           onExportData={handleExportData}
           view={view}
           onViewChange={setView}
+          inboxCount={pending.length + duplicates.length}
+          onOpenInbox={handleOpenInbox}
         />
 
         <FilterBar
@@ -353,6 +483,8 @@ export const App: React.FC = () => {
                   onSelectNode={setSelectedNode}
                   hoveredNodeId={hoveredNodeId}
                   onHoverNode={setHoveredNodeId}
+                  pendingNodeIds={pendingNodeIds}
+                  ghostEdges={ghostEdges}
                 />
               </>
             ) : view === 'map' ? (
@@ -388,6 +520,10 @@ export const App: React.FC = () => {
                     <strong>{pathNodeIds.length}</strong> entities highlighted
                   </span>
                 )}
+                <button onClick={handleOpenResearch} title="Search the web for new learnings about this">
+                  <Globe size={13} />
+                  Research
+                </button>
                 <button onClick={handleClearSelection} title="Clear selection (Esc)">
                   <X size={13} />
                   Clear <kbd>Esc</kbd>
@@ -402,6 +538,22 @@ export const App: React.FC = () => {
               allEdges={edges}
               onClose={() => setSelectedNode(null)}
               onSelectNode={setSelectedNode}
+            />
+
+            {/* Web research review queue */}
+            <InboxPanel
+              isOpen={isInboxOpen}
+              onClose={() => setIsInboxOpen(false)}
+              queue={queue}
+              available={researchAvailable}
+              scope={researchScope}
+              nodes={nodes}
+              edges={edges}
+              onResearched={handleResearched}
+              onDecide={handleDecide}
+              onSelectNode={setSelectedNode}
+              duplicates={duplicates}
+              requestedTab={inboxTab}
             />
           </div>
         </div>
@@ -476,6 +628,7 @@ export const App: React.FC = () => {
       {/* Chat about the network, always docked on the right */}
       <ChatPanel nodes={nodes} edges={edges} onSelectNode={setSelectedNode} onHighlight={handleApplyPathHighlight} />
     </div>
+    </CurationContext.Provider>
   );
 };
 

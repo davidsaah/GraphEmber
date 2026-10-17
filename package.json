@@ -8,6 +8,8 @@
     "data": "node scripts/build-data.mjs",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
+    "check:research": "node scripts/check-research.mjs",
+    "check:curation": "node scripts/check-curation.mjs",
     "preview": "vite preview",
     "start": "node server/index.mjs"
   },

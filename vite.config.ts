@@ -1,13 +1,24 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig, loadEnv, type Plugin } from 'vite'
 
-// Serves /api/chat during `npm run dev` so the chatbot works locally.
+// Serves /api/chat, /api/research, /api/proposals and /api/curation during `npm run dev` so chat and web research work locally.
 const chatApi = (): Plugin => ({
   name: 'graphember-chat-api',
   async configureServer(server) {
     const { handleChat } = await import('./server/chat.mjs')
     server.middlewares.use('/api/chat', (req, res) => {
       void handleChat(req, res)
+    })
+    const { handleResearch, handleProposals } = await import('./server/research.mjs')
+    server.middlewares.use('/api/research', (req, res) => {
+      void handleResearch(req, res)
+    })
+    server.middlewares.use('/api/proposals', (req, res) => {
+      void handleProposals(req, res)
+    })
+    const { handleCuration } = await import('./server/curation.mjs')
+    server.middlewares.use('/api/curation', (req, res) => {
+      void handleCuration(req, res)
     })
   },
 })
@@ -22,5 +33,7 @@ export default defineConfig(({ mode }) => {
     // Relative asset paths so the build works from any static host or subfolder
     base: './',
     plugins: [react(), chatApi()],
+    // The review queue is written while the dev server runs; don't reload the page when it changes
+    server: { watch: { ignored: ['**/data/research/**', '**/data/curation.json'] } },
   }
 })

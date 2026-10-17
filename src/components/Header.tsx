@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Route, BarChart3, Plus, X, Download, Network, Share2, Map as MapIcon, Table2 } from 'lucide-react';
+import { Search, Route, BarChart3, Plus, X, Download, Network, Share2, Map as MapIcon, Table2, Inbox } from 'lucide-react';
 import { CwiLogo } from './CwiLogo';
 
 export type AppView = 'network' | 'map' | 'data';
@@ -15,6 +15,9 @@ interface HeaderProps {
   onExportData: () => void;
   view: AppView;
   onViewChange: (view: AppView) => void;
+  // Web findings waiting for review
+  inboxCount: number;
+  onOpenInbox: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -28,6 +31,8 @@ export const Header: React.FC<HeaderProps> = ({
   onExportData,
   view,
   onViewChange,
+  inboxCount,
+  onOpenInbox,
 }) => {
   return (
     <header className="app-header">
@@ -130,6 +135,16 @@ export const Header: React.FC<HeaderProps> = ({
         <button className="btn" onClick={onOpenOntology} title="Firelines graph ontology">
           <Network size={15} />
           <span className="hide-md">Ontology</span>
+        </button>
+        <button
+          className="btn"
+          onClick={onOpenInbox}
+          title="Web findings and possible duplicates waiting for review"
+          aria-label={inboxCount ? `Inbox, ${inboxCount} to review` : 'Inbox'}
+        >
+          <Inbox size={15} />
+          <span className="hide-md">Inbox</span>
+          {inboxCount > 0 && <span className="inbox-badge">{inboxCount}</span>}
         </button>
         <button className="icon-btn" onClick={onExportData} title="Export graph as JSON" aria-label="Export graph as JSON">
           <Download size={15} />
