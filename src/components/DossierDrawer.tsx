@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GraphNode, GraphEdge, NodeType } from '../types/graph';
+import type { GraphNode, GraphEdge } from '../types/graph';
 import {
   X,
   ExternalLink,
@@ -14,8 +14,10 @@ import {
   Shield,
   Layers,
   FileText,
+  Radio,
 } from 'lucide-react';
 import { CwiLogo } from './CwiLogo';
+import { TypeBadge } from './TypeIcon';
 
 interface DossierDrawerProps {
   node: GraphNode | null;
@@ -25,18 +27,6 @@ interface DossierDrawerProps {
   onSelectNode: (node: GraphNode) => void;
   onRunReport?: (node: GraphNode) => void;
 }
-
-const TYPE_ICONS: Record<NodeType, string> = {
-  person: '👤',
-  institution: '🏛️',
-  collaborative: '🤝',
-  program: '🚀',
-  product: '📦',
-  grant: '💰',
-  research: '📄',
-  meeting: '📅',
-  topic: '🎯',
-};
 
 export const DossierDrawer: React.FC<DossierDrawerProps> = ({
   node,
@@ -104,7 +94,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <span style={{ fontSize: '1.6rem' }}>{TYPE_ICONS[node.type]}</span>
+          <TypeBadge type={node.type} size={40} />
           <div>
             <span className={`badge badge-${node.type}`}>{node.type}</span>
             <h2
@@ -550,9 +540,13 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                           color: '#fb7185',
                           border: '1px solid rgba(225, 29, 72, 0.35)',
                           fontWeight: 500,
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 4,
                         }}
                       >
-                        📡 {mod}
+                        <Radio size={11} />
+                        {mod}
                       </span>
                     ))}
                   </div>
@@ -637,7 +631,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-                  <span style={{ fontSize: '1.2rem' }}>{TYPE_ICONS[otherNode.type]}</span>
+                  <TypeBadge type={otherNode.type} size={28} />
                   <div style={{ minWidth: 0 }}>
                     <div
                       style={{

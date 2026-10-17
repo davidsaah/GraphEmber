@@ -172,6 +172,13 @@ button {
   background: color-mix(in srgb, var(--c) 14%, transparent);
   border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
 }
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
 
 /* Buttons */
 .btn {
@@ -226,6 +233,8 @@ button {
 .chip[aria-pressed='true'] { color: var(--text-primary); background: var(--bg-surface-elevated); border-color: var(--border-strong); }
 .chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); opacity: 0.35; }
 .chip[aria-pressed='true'] .dot { opacity: 1; }
+.chip .type-glyph { color: var(--c); opacity: 0.45; flex-shrink: 0; }
+.chip[aria-pressed='true'] .type-glyph { opacity: 1; }
 .chip .count { font-variant-numeric: tabular-nums; color: var(--text-muted); font-size: 0.7rem; }
 
 .eyebrow {

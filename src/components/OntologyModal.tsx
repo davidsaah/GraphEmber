@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Network, ArrowRight, ShieldCheck, Sparkles, Building2, Flame, Layers, Box, Tag } from 'lucide-react';
+import { X, Network, ArrowRight, ShieldCheck, Building2, Flame, Layers, Box, Tag } from 'lucide-react';
 import type { GraphNode } from '../types/graph';
 
 interface OntologyModalProps {
@@ -137,7 +137,7 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#fb923c', fontSize: '0.8rem', fontWeight: 600 }}>
-              <Sparkles size={16} />
+              <Network size={16} />
               <span>Ontological Foundation</span>
             </div>
             <p style={{ fontSize: '0.88rem', color: '#e2e8f0', lineHeight: 1.5 }}>
