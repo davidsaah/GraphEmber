@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { ArrowDown, ArrowUp, Download } from 'lucide-react';
+import { TypeIcon } from './TypeIcon';
 import type { GraphNode, GraphEdge, NodeType } from '../types/graph';
 import { RAW_SHEETS } from '../data/rawSheets';
 
@@ -131,7 +132,7 @@ export const DataView: React.FC<DataViewProps> = ({ nodes, edges, selectedNodeId
 
   const entityLink = (node: GraphNode) => (
     <button className="cell-link" onClick={() => onSelectNode(node)}>
-      <span className="dot" style={{ background: `var(--color-${node.type})` }} />
+      <TypeIcon type={node.type} size={12} style={{ color: `var(--color-${node.type})`, flexShrink: 0 }} />
       {node.label}
     </button>
   );

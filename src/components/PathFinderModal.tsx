@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { GraphNode, GraphEdge } from '../types/graph';
 import { findShortestPath } from '../utils/graphMetrics';
-import { Route, X, ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Route, X, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface PathFinderModalProps {
   isOpen: boolean;
@@ -181,7 +181,7 @@ export const PathFinderModal: React.FC<PathFinderModalProps> = ({
               opacity: !sourceId || !targetId || sourceId === targetId ? 0.5 : 1,
             }}
           >
-            <Sparkles size={16} />
+            <Route size={16} />
             <span>Trace Connection Path</span>
           </button>
 

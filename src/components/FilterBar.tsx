@@ -2,6 +2,7 @@ import React from 'react';
 import type { NodeType, GraphNode } from '../types/graph';
 import { RotateCcw, PanelLeft } from 'lucide-react';
 import { CwiLogo } from './CwiLogo';
+import { TypeIcon } from './TypeIcon';
 
 interface FilterBarProps {
   nodes: GraphNode[];
@@ -111,7 +112,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             onClick={() => onToggleType(type)}
             style={{ '--c': color } as React.CSSProperties}
           >
-            <span className="dot" />
+            <TypeIcon type={type} size={13} className="type-glyph" />
             <span>{label}</span>
             <span className="count">{typeCounts.get(type)}</span>
           </button>

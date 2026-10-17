@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useLayoutEffect, useState, useCallback, useMe
 import * as d3 from 'd3';
 import type { GraphNode, GraphEdge, NodeType } from '../types/graph';
 import { ZoomIn, ZoomOut, Maximize2, Play, Pause } from 'lucide-react';
+import { typeIconPath2D } from '../utils/typeIcons';
+import { TypeIcon } from './TypeIcon';
 
 interface NetworkCanvasProps {
   nodes: GraphNode[];
@@ -28,6 +30,8 @@ const TYPE_COLORS: Record<NodeType, string> = {
 };
 
 const HIGHLIGHT = '#f6ba13';
+// Screen radius (px) above which a node shows its type glyph
+const MIN_GLYPH_RADIUS = 9;
 const BG = '#07090e';
 // Margin kept clear around the graph when fitting it, leaving room for the legend below.
 const VIEW_PADDING = { top: 40, right: 72, bottom: 64, left: 40 };
@@ -235,6 +239,21 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
       ctx.lineWidth = 1.5 * px;
       ctx.strokeStyle = BG;
       ctx.stroke();
+
+      // Type glyph inside the node once it is big enough on screen to read
+      const glyph = radius / px >= MIN_GLYPH_RADIUS ? typeIconPath2D(node.type) : null;
+      if (glyph) {
+        const size = radius * 1.1;
+        ctx.save();
+        ctx.translate(node.x - size / 2, node.y - size / 2);
+        ctx.scale(size / 24, size / 24);
+        ctx.lineWidth = 2.25;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = BG;
+        ctx.stroke(glyph);
+        ctx.restore();
+      }
 
       if (node.id === selectedNodeId || (isFocus && node.id === hoveredNodeId)) {
         ctx.beginPath();
@@ -596,7 +615,7 @@ const Legend: React.FC<{ nodes: GraphNode[] }> = ({ nodes }) => {
     <div className="canvas-caption legend hide-sm" style={{ bottom: 16, left: 16 }}>
       {types.map((t) => (
         <span key={t} style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-          <span style={{ width: 8, height: 8, borderRadius: '50%', background: TYPE_COLORS[t] }} />
+          <TypeIcon type={t} size={12} style={{ color: TYPE_COLORS[t] }} />
           {LEGEND_LABELS[t]}
         </span>
       ))}

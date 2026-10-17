@@ -8,7 +8,7 @@ import {
   Network,
   Users,
   Award,
-  Sparkles,
+  Database,
   ArrowRight,
 } from 'lucide-react';
 import { CwiLogo } from './CwiLogo';
@@ -449,7 +449,7 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                  <Sparkles size={16} color="#fb923c" />
+                  <Database size={16} color="#fb923c" />
                   <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f8fafc' }}>
                     Data & Innovation
                   </span>
