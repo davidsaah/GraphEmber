@@ -1,7 +1,8 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, Suspense, lazy } from 'react';
+import { X } from 'lucide-react';
 import type { GraphNode, GraphEdge, NodeType } from './types/graph';
 import { INITIAL_DATASET } from './data/initialData';
-import { Header } from './components/Header';
+import { Header, type AppView } from './components/Header';
 import { FilterBar } from './components/FilterBar';
 import { NetworkCanvas } from './components/NetworkCanvas';
 import { DossierDrawer } from './components/DossierDrawer';
@@ -11,6 +12,12 @@ import { AddEntityModal } from './components/AddEntityModal';
 import { OntologyModal } from './components/OntologyModal';
 import { CwiBrandModal } from './components/CwiBrandModal';
 import { CwiLogo } from './components/CwiLogo';
+import { ChatPanel } from './components/ChatPanel';
+import { DataView } from './components/DataView';
+import { InsightsPanel } from './components/InsightsPanel';
+
+// The map library is large, so it loads only when the map view is opened
+const MapView = lazy(() => import('./components/MapView'));
 
 const ALL_TYPES: NodeType[] = [
   'person',
@@ -33,6 +40,8 @@ export const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeTypes, setActiveTypes] = useState<Set<NodeType>>(new Set(ALL_TYPES));
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
+  // Default scope: CWI's own projects and partners (the CWI Projects and Collaborators sheet)
+  const [cwiOnly, setCwiOnly] = useState<boolean>(true);
   const [minFunding, setMinFunding] = useState<number>(0);
 
   // Selection & Hover state
@@ -45,6 +54,8 @@ export const App: React.FC = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   const [isOntologyOpen, setIsOntologyOpen] = useState<boolean>(false);
   const [isCwiModalOpen, setIsCwiModalOpen] = useState<boolean>(false);
+  const [view, setView] = useState<AppView>('network');
+  const [insightsOpen, setInsightsOpen] = useState<boolean>(true);
 
   // Path finder highlight state
   const [pathNodeIds, setPathNodeIds] = useState<string[]>([]);
@@ -82,16 +93,18 @@ export const App: React.FC = () => {
     setSearchQuery('');
     setActiveTypes(new Set(ALL_TYPES));
     setSelectedTags(new Set());
+    setCwiOnly(true);
     setMinFunding(0);
     setPathNodeIds([]);
     setPathEdgeIds([]);
   }, []);
 
   // Filtered nodes and edges
+  const scopedNodes = useMemo(() => (cwiOnly ? nodes.filter((n) => n.tags?.includes('CWI Network')) : nodes), [nodes, cwiOnly]);
   const filteredNodes = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
 
-    return nodes.filter((node) => {
+    return scopedNodes.filter((node) => {
       // 1. Type filter
       if (!activeTypes.has(node.type)) return false;
 
@@ -123,7 +136,7 @@ export const App: React.FC = () => {
 
       return true;
     });
-  }, [nodes, activeTypes, minFunding, selectedTags, searchQuery]);
+  }, [scopedNodes, activeTypes, minFunding, selectedTags, searchQuery]);
 
   const filteredNodeIds = useMemo(() => new Set(filteredNodes.map((n) => n.id)), [filteredNodes]);
 
@@ -238,164 +251,230 @@ export const App: React.FC = () => {
 
   // Focus Resilient Home Fund (RHF) specifically
   const handleFocusResilientHomeFund = useCallback(() => {
-    const rhfNodeIds = [
-      'prog-rhf',
-      'inst-cwi',
-      'inst-calfire',
-      'topic-home-hardening',
-    ];
-    const rhfEdgeIds = [
-      'edge-cwi-rhf',
-      'edge-calfire-rhf',
-      'edge-rhf-topic-hh',
-    ];
+    const rhfNodeIds = ['prog-rhf', 'inst-cwi', 'inst-calfire', 'topic-home-hardening'];
+    const rhfEdgeIds = ['edge-cwi-rhf', 'edge-calfire-rhf', 'edge-rhf-topic-hh'];
     setPathNodeIds(rhfNodeIds);
     setPathEdgeIds(rhfEdgeIds);
     const rhfNode = nodes.find((n) => n.id === 'prog-rhf');
     if (rhfNode) setSelectedNode(rhfNode);
   }, [nodes]);
 
+  // Clear the selected entity and any highlighted path or chat answer
+  const hasSelection = selectedNode !== null || pathNodeIds.length > 0;
+  const handleClearSelection = useCallback(() => {
+    setSelectedNode(null);
+    setHoveredNodeId(null);
+    setPathNodeIds([]);
+    setPathEdgeIds([]);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const anyModalOpen = isPathFinderOpen || isMetricsOpen || isAddModalOpen || isOntologyOpen || isCwiModalOpen;
+      if (e.key === 'Escape' && !anyModalOpen) handleClearSelection();
+      // "/" jumps to search, unless the user is already typing somewhere
+      const typing =
+        e.target instanceof HTMLElement && (e.target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName));
+      if (e.key === '/' && !typing && !anyModalOpen) {
+        e.preventDefault();
+        document.getElementById('graph-search')?.focus();
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [handleClearSelection, isPathFinderOpen, isMetricsOpen, isAddModalOpen, isOntologyOpen, isCwiModalOpen]);
+
   return (
-    <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
-      {/* Top Header Bar */}
-      <Header
-        nodes={nodes}
-        edges={edges}
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        onOpenPathFinder={() => setIsPathFinderOpen(true)}
-        onOpenAnalytics={() => setIsMetricsOpen(true)}
-        onOpenOntology={() => setIsOntologyOpen(true)}
-        onOpenCwiModal={() => setIsCwiModalOpen(true)}
-        onOpenAddModal={() => setIsAddModalOpen(true)}
-        onExportData={handleExportData}
-      />
+    <div
+      style={{
+        display: 'flex',
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Stage: header, filters and the current view; the chat is docked to its right */}
+      <div className="stage">
+        <Header
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          onOpenPathFinder={() => setIsPathFinderOpen(true)}
+          onOpenAnalytics={() => setIsMetricsOpen(true)}
+          onOpenOntology={() => setIsOntologyOpen(true)}
+          onOpenCwiModal={() => setIsCwiModalOpen(true)}
+          onOpenAddModal={() => setIsAddModalOpen(true)}
+          onExportData={handleExportData}
+          view={view}
+          onViewChange={setView}
+        />
 
-      {/* Floating Filter Bar */}
-      <FilterBar
-        nodes={nodes}
-        activeTypes={activeTypes}
-        onToggleType={handleToggleType}
-        onSelectAllTypes={handleSelectAllTypes}
-        selectedTags={selectedTags}
-        onToggleTag={handleToggleTag}
-        minFunding={minFunding}
-        onMinFundingChange={setMinFunding}
-        onResetFilters={handleResetFilters}
-      />
+        <FilterBar
+          nodes={scopedNodes}
+          activeTypes={activeTypes}
+          onToggleType={handleToggleType}
+          onSelectAllTypes={handleSelectAllTypes}
+          selectedTags={selectedTags}
+          onToggleTag={handleToggleTag}
+          minFunding={minFunding}
+          onMinFundingChange={setMinFunding}
+          onResetFilters={handleResetFilters}
+          cwiOnly={cwiOnly}
+          onToggleCwiOnly={() => setCwiOnly((v) => !v)}
+          insightsOpen={insightsOpen && view !== 'data'}
+          onToggleInsights={view !== 'data' ? () => setInsightsOpen((v) => !v) : undefined}
+        />
 
-      {/* Interactive 60fps Network Canvas */}
-      <NetworkCanvas
-        nodes={filteredNodes}
-        edges={filteredEdges}
-        selectedNodeId={selectedNode ? selectedNode.id : null}
-        highlightedPathNodeIds={pathNodeIds}
-        highlightedPathEdgeIds={pathEdgeIds}
-        onSelectNode={setSelectedNode}
-        hoveredNodeId={hoveredNodeId}
-        onHoverNode={setHoveredNodeId}
-      />
+        <div className="stage-body">
+          {insightsOpen && view !== 'data' && (
+            <InsightsPanel
+              nodes={filteredNodes}
+              edges={filteredEdges}
+              cwiOnly={cwiOnly}
+              selectedNodeId={selectedNode ? selectedNode.id : null}
+              onSelectNode={setSelectedNode}
+              onHoverNode={setHoveredNodeId}
+              onHighlight={(ids, edgeIds) => {
+                setSelectedNode(null);
+                handleApplyPathHighlight(ids, edgeIds);
+              }}
+              onClose={() => setInsightsOpen(false)}
+            />
+          )}
+          <div className="viewport">
+            {view === 'network' ? (
+              <>
+                {/* Interactive 60fps Network Canvas */}
+                <NetworkCanvas
+                  nodes={filteredNodes}
+                  edges={filteredEdges}
+                  selectedNodeId={selectedNode ? selectedNode.id : null}
+                  highlightedPathNodeIds={pathNodeIds}
+                  highlightedPathEdgeIds={pathEdgeIds}
+                  onSelectNode={setSelectedNode}
+                  hoveredNodeId={hoveredNodeId}
+                  onHoverNode={setHoveredNodeId}
+                />
+              </>
+            ) : view === 'map' ? (
+              <Suspense fallback={null}>
+                <MapView
+                  nodes={filteredNodes}
+                  edges={filteredEdges}
+                  selectedNodeId={selectedNode ? selectedNode.id : null}
+                  highlightedPathNodeIds={pathNodeIds}
+                  onSelectNode={setSelectedNode}
+                />
+              </Suspense>
+            ) : null}
 
-      {/* Slide-out Entity Dossier Drawer */}
-      <DossierDrawer
-        node={selectedNode}
-        allNodes={nodes}
-        allEdges={edges}
-        onClose={() => setSelectedNode(null)}
-        onSelectNode={setSelectedNode}
-      />
+            {view === 'data' && (
+              <DataView
+                nodes={filteredNodes}
+                edges={filteredEdges}
+                selectedNodeId={selectedNode ? selectedNode.id : null}
+                onSelectNode={setSelectedNode}
+                searchQuery={searchQuery}
+              />
+            )}
 
-      {/* Bottom-left CWI Institutional Watermark */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 20,
-          left: 20,
-          zIndex: 25,
-          display: 'flex',
-          alignItems: 'center',
-          gap: 10,
-          padding: '6px 14px',
-          borderRadius: 'var(--radius-full)',
-          background: 'rgba(13, 19, 34, 0.88)',
-          backdropFilter: 'blur(16px)',
-          border: '1px solid rgba(246, 186, 19, 0.35)',
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(246, 186, 19, 0.2)',
-        }}
-      >
-        <CwiLogo variant="mark" size={20} glow={false} />
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '0.04em' }}>
-            Climate & Wildfire Institute
-          </span>
-          <span style={{ fontSize: '0.68rem', color: '#f6ba13' }}>·</span>
-          <span style={{ fontSize: '0.68rem', color: 'var(--text-secondary)' }}>
-            Firelines Landscape ({filteredNodes.length} mapped)
-          </span>
+            {hasSelection && (
+              <div className="selection-pill" role="status">
+                {selectedNode ? (
+                  <span>
+                    Selected <strong>{selectedNode.label}</strong>
+                  </span>
+                ) : (
+                  <span>
+                    <strong>{pathNodeIds.length}</strong> entities highlighted
+                  </span>
+                )}
+                <button onClick={handleClearSelection} title="Clear selection (Esc)">
+                  <X size={13} />
+                  Clear <kbd>Esc</kbd>
+                </button>
+              </div>
+            )}
+
+            {/* Slide-out Entity Dossier Drawer */}
+            <DossierDrawer
+              node={selectedNode}
+              allNodes={nodes}
+              allEdges={edges}
+              onClose={() => setSelectedNode(null)}
+              onSelectNode={setSelectedNode}
+            />
+          </div>
         </div>
-        <button
-          onClick={() => setIsCwiModalOpen(true)}
-          style={{
-            fontSize: '0.68rem',
-            fontWeight: 600,
-            color: '#fed7aa',
-            background: 'rgba(246, 186, 19, 0.15)',
-            padding: '2px 8px',
-            borderRadius: 'var(--radius-full)',
-            border: '1px solid rgba(246, 186, 19, 0.3)',
-            marginLeft: 4,
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.25)')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.15)')}
-        >
-          About CWI
-        </button>
+
+        {/* Status bar */}
+        <footer className="status-bar">
+          <button onClick={() => setIsCwiModalOpen(true)} title="About the Climate & Wildfire Institute" className="status-brand">
+            <CwiLogo variant="mark" size={13} glow={false} />
+            <span className="hide-xs">Climate & Wildfire Institute</span>
+          </button>
+          <span className="status-sep" />
+          <span>
+            Showing <strong>{filteredNodes.length}</strong> of {scopedNodes.length} entities ·{' '}
+            <strong>{filteredEdges.length}</strong> links
+          </span>
+          <span style={{ flex: 1 }} />
+          <span className="hide-md">
+            Source: {cwiOnly ? 'CWI Projects and Collaborators' : 'CWI Projects and Collaborators + AI wildfire landscape'}
+          </span>
+          <span className="status-sep hide-md" />
+          <span className="hide-sm">
+            <kbd>/</kbd> search · <kbd>Esc</kbd> clear
+          </span>
+        </footer>
+
+        {/* Path Finder Modal */}
+        <PathFinderModal
+          isOpen={isPathFinderOpen}
+          onClose={() => setIsPathFinderOpen(false)}
+          nodes={nodes}
+          edges={edges}
+          onApplyPathHighlight={handleApplyPathHighlight}
+          onClearPathHighlight={handleClearPathHighlight}
+        />
+
+        {/* Metrics & Analytics Modal */}
+        <MetricsModal
+          isOpen={isMetricsOpen}
+          onClose={() => setIsMetricsOpen(false)}
+          nodes={nodes}
+          edges={edges}
+          onSelectNode={setSelectedNode}
+        />
+
+        {/* Add Entity / Relationship Modal */}
+        <AddEntityModal
+          isOpen={isAddModalOpen}
+          onClose={() => setIsAddModalOpen(false)}
+          nodes={nodes}
+          onAddNode={handleAddNode}
+          onAddEdge={handleAddEdge}
+        />
+
+        {/* Firelines Graph Ontology Blueprint Modal */}
+        <OntologyModal
+          isOpen={isOntologyOpen}
+          onClose={() => setIsOntologyOpen(false)}
+          onFocusEcosystem={handleFocusEcosystem}
+          nodes={nodes}
+        />
+
+        {/* Climate & Wildfire Institute Brand & Initiatives Modal */}
+        <CwiBrandModal
+          isOpen={isCwiModalOpen}
+          onClose={() => setIsCwiModalOpen(false)}
+          onFocusCwiEcosystem={handleFocusCwiEcosystem}
+          onFocusResilientHomeFund={handleFocusResilientHomeFund}
+          nodes={nodes}
+        />
       </div>
 
-      {/* Path Finder Modal */}
-      <PathFinderModal
-        isOpen={isPathFinderOpen}
-        onClose={() => setIsPathFinderOpen(false)}
-        nodes={nodes}
-        edges={edges}
-        onApplyPathHighlight={handleApplyPathHighlight}
-        onClearPathHighlight={handleClearPathHighlight}
-      />
-
-      {/* Metrics & Analytics Modal */}
-      <MetricsModal
-        isOpen={isMetricsOpen}
-        onClose={() => setIsMetricsOpen(false)}
-        nodes={nodes}
-        edges={edges}
-        onSelectNode={setSelectedNode}
-      />
-
-      {/* Add Entity / Relationship Modal */}
-      <AddEntityModal
-        isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
-        nodes={nodes}
-        onAddNode={handleAddNode}
-        onAddEdge={handleAddEdge}
-      />
-
-      {/* Firelines Graph Ontology Blueprint Modal */}
-      <OntologyModal
-        isOpen={isOntologyOpen}
-        onClose={() => setIsOntologyOpen(false)}
-        onFocusEcosystem={handleFocusEcosystem}
-        nodes={nodes}
-      />
-
-      {/* Climate & Wildfire Institute Brand & Initiatives Modal */}
-      <CwiBrandModal
-        isOpen={isCwiModalOpen}
-        onClose={() => setIsCwiModalOpen(false)}
-        onFocusCwiEcosystem={handleFocusCwiEcosystem}
-        onFocusResilientHomeFund={handleFocusResilientHomeFund}
-        nodes={nodes}
-      />
+      {/* Chat about the network, always docked on the right */}
+      <ChatPanel nodes={nodes} edges={edges} onSelectNode={setSelectedNode} onHighlight={handleApplyPathHighlight} />
     </div>
   );
 };

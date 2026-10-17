@@ -1,3509 +1,11940 @@
 import type { NetworkDataset } from '../types/graph';
 
 /**
- * Climate & Wildfire Institute (CWI) - GraphEmber Wildfire Intelligence Landscape Dataset
- * Grounded in the AI Wildfire Landscape Data and Firelines Ontology.
+ * Climate & Wildfire Institute (CWI) - GraphEmber Wildfire Intelligence Landscape Dataset.
+ * GENERATED FILE: edit data/curated.json or sheet1.csv, then run `npm run data`.
  */
 export const INITIAL_DATASET: NetworkDataset = {
-  metadata: {
-    title: 'Climate & Wildfire Institute (CWI) - Wildfire Intelligence Landscape',
-    version: '2.0.0',
-    description: 'Comprehensive wildfire intelligence knowledge graph connecting organizations, systems, satellite constellations, grants, and topics.',
-    lastUpdated: '2026-10-16',
-  },
-  nodes: [
-  {
-    "id": "topic-fire-monitoring",
-    "type": "topic",
-    "label": "Fire Monitoring & Early Detection",
-    "domain": "Remote Sensing & Spaceborne Observation",
-    "scope": "Thermal infrared sensors, satellite detection, automated wildfire alerts within minutes of ignition.",
-    "modalities": [
-      "satellite",
-      "infrared",
-      "edge-compute",
-      "ground-sensor"
-    ],
-    "tags": [
-      "Topic",
-      "Detection",
-      "Infrared",
-      "Satellite",
-      "Early Warning"
-    ]
-  },
-  {
-    "id": "topic-firesat",
-    "type": "topic",
-    "label": "FireSat Constellation & Orbitals",
-    "domain": "Spaceborne Remote Sensing",
-    "scope": "Multi-satellite constellation dedicated to high-frequency wildfire perimeter and hotspot tracking.",
-    "modalities": [
-      "satellite",
-      "infrared",
-      "space-telemetry"
-    ],
-    "tags": [
-      "Topic",
-      "FireSat",
-      "Earth Fire Alliance",
-      "Muon Space",
-      "Google.org"
-    ]
-  },
-  {
-    "id": "topic-spread-modeling",
-    "type": "topic",
-    "label": "Wildfire Spread & Physics Modeling",
-    "domain": "Computational Fire Physics & AI",
-    "scope": "Surface fire propagation, crown runs, Rothermel physics, Albini ember spotting, level-set methods.",
-    "modalities": [
-      "simulation",
-      "physics-engine",
-      "ai-spread"
-    ],
-    "tags": [
-      "Topic",
-      "Simulation",
-      "Physics",
-      "Spread",
-      "Embers"
-    ]
-  },
-  {
-    "id": "topic-risk-mapping",
-    "type": "topic",
-    "label": "Wildfire Risk & Hazard Mapping",
-    "domain": "Geospatial Analytics & Pre-fire Assessment",
-    "scope": "Parcel-level and landscape-level fire hazard severity mapping, fuel moisture, exposure modeling.",
-    "modalities": [
-      "gis",
-      "satellite",
-      "hazard-indices"
-    ],
-    "tags": [
-      "Topic",
-      "Risk Mapping",
-      "WUI",
-      "Hazard",
-      "GIS"
-    ]
-  },
-  {
-    "id": "topic-remote-sensing",
-    "type": "topic",
-    "label": "Remote Sensing Tech & Applications",
-    "domain": "Earth Observation & Sensor Systems",
-    "scope": "Multispectral, hyperspectral, LiDAR, and SAR imaging for fuels, canopy height, and post-fire severity.",
-    "modalities": [
-      "satellite",
-      "airborne",
-      "lidar",
-      "multispectral"
-    ],
-    "tags": [
-      "Topic",
-      "Remote Sensing",
-      "Earth Observation",
-      "LiDAR"
-    ]
-  },
-  {
-    "id": "topic-home-hardening",
-    "type": "topic",
-    "label": "Home Hardening & Defensible Space",
-    "domain": "Community Resilience & Frontline Defense",
-    "scope": "Structure survival, ember-resistant vents, non-combustible zone 0, homeowner grant distribution.",
-    "modalities": [
-      "on-the-ground",
-      "grants",
-      "structural-inspection"
-    ],
-    "tags": [
-      "Topic",
-      "Home Hardening",
-      "Defensible Space",
-      "Resilient Home Fund",
-      "CWI"
-    ]
-  },
-  {
-    "id": "topic-decision-support",
-    "type": "topic",
-    "label": "Operational Decision Support & Incident Apps",
-    "domain": "Incident Command & Policy Translation",
-    "scope": "Real-time situational awareness platforms, evacuation planning, cross-agency coordination.",
-    "modalities": [
-      "web-platform",
-      "api",
-      "mobile-ops"
-    ],
-    "tags": [
-      "Topic",
-      "Decision Support",
-      "Incident Command",
-      "Operations"
-    ]
-  },
-  {
-    "id": "topic-data-commons",
-    "type": "topic",
-    "label": "Wildfire Data Stores & Commons",
-    "domain": "Open Data & Federated Infrastructure",
-    "scope": "Shared repositories of fire weather, historical fire perimeters, vegetation fuels, and benchmark datasets.",
-    "modalities": [
-      "cloud-storage",
-      "open-api",
-      "stac-catalogs"
-    ],
-    "tags": [
-      "Topic",
-      "Data Commons",
-      "Open Data",
-      "Benchmarks"
-    ]
-  },
-  {
-    "id": "inst-cwi",
-    "type": "institution",
-    "label": "Climate & Wildfire Institute",
-    "acronym": "CWI",
-    "institutionType": "NGO",
-    "location": "Berkeley & Grass Valley, CA",
-    "website": "https://climateandwildfire.org",
-    "description": "Boundary organization accelerating the translation of wildfire science into public policy and frontline practice. Creator of the Firelines Knowledge Graph and administrator of the Resilient Home Fund.",
-    "tags": [
-      "CWI",
-      "Wildfire",
-      "Policy",
-      "Community Resilience",
-      "Boundary Org",
-      "501(c)(3)"
-    ]
-  },
-  {
-    "id": "prog-rhf",
-    "type": "program",
-    "label": "Resilient Home Fund",
-    "acronym": "RHF",
-    "domain": "Community Wildfire Resilience",
-    "leadInstitutionId": "inst-cwi",
-    "launchYear": 2024,
-    "status": "Active",
-    "description": "Wildfire risk reduction grant program for California homeowners administered by the Climate & Wildfire Institute. Connects public action and funding to home hardening and defensible space.",
-    "website": "https://www.resilienthomefund.org",
-    "tags": [
-      "CWI",
-      "Resilient Home Fund",
-      "Grants",
-      "Home Hardening",
-      "Defensible Space",
-      "California"
-    ]
-  },
-  {
-    "id": "prod-firelines",
-    "type": "product",
-    "label": "Firelines Knowledge Graph & Ontology",
-    "productType": "Web Platform / SaaS",
-    "version": "v2.0",
-    "status": "Operational",
-    "repositoryUrl": "https://github.com/davidsaah/GraphEmber",
-    "website": "https://climateandwildfire.org/advance",
-    "description": "CWI boundary intelligence platform mapping cross-sector wildfire programs, satellite constellations, policy bodies, and scientific research.",
-    "tags": [
-      "CWI",
-      "Firelines",
-      "Ontology",
-      "Knowledge Graph",
-      "Wildfire Intelligence"
-    ]
-  },
-  {
-    "id": "collab-efa",
-    "type": "collaborative",
-    "label": "Earth Fire Alliance",
-    "acronym": "EFA",
-    "mission": "A global multi-stakeholder coalition accelerating early wildfire detection and tracking by developing and launching the FireSat constellation.",
-    "formationYear": 2023,
-    "governanceModel": "Consortium",
-    "focusAreas": [
-      "FireSat Constellation",
-      "Satellite Infrared",
-      "Early Detection",
-      "Wildfire Policy"
-    ],
-    "tags": [
-      "Collaborative",
-      "Coalition",
-      "San Francisco",
-      "EFA",
-      "FireSat"
-    ],
-    "description": "Alliance uniting Google.org, Muon Space, Environmental Defense Fund, CWI, Moore Foundation, and Minderoo Foundation to launch and operate FireSat."
-  },
-  {
-    "id": "prod-firesat",
-    "type": "product",
-    "label": "FireSat Constellation",
-    "productType": "Project / Hardware",
-    "version": "52-satellite constellation",
-    "status": "Active Development",
-    "location": "Low Earth Orbit (LEO)",
-    "documentationUrl": "https://earthfirealliance.org",
-    "techStack": [
-      "Custom Multispectral Infrared Sensor",
-      "Muon Space Spacecraft Bus",
-      "Google Cloud AI"
-    ],
-    "description": "Purpose-built satellite constellation tracking early-stage fires as small as 5x5 meters globally with 20-minute revisit times.",
-    "tags": [
-      "Product",
-      "Satellite",
-      "Hardware",
-      "Infrared",
-      "EFA",
-      "FireSat"
-    ]
-  },
-  {
-    "id": "inst-google-org",
-    "type": "institution",
-    "label": "Google.org & Google Research",
-    "acronym": "Google.org",
-    "institutionType": "Private Sector",
-    "location": "Mountain View, CA",
-    "website": "https://google.org",
-    "description": "Philanthropic and cutting-edge research arm of Google driving AI for social and climate impact.",
-    "tags": [
-      "AI/ML",
-      "Philanthropy",
-      "Earth Engine",
-      "Cloud Tech"
-    ]
-  },
-  {
-    "id": "inst-muon-space",
-    "type": "institution",
-    "label": "Muon Space",
-    "acronym": "Muon",
-    "institutionType": "Private Sector",
-    "location": "Mountain View, CA",
-    "website": "https://muonspace.com",
-    "description": "End-to-end satellite mission provider engineering constellation hardware, spacecraft buses, and payloads for Earth observation.",
-    "tags": [
-      "Satellites",
-      "Space Hardware",
-      "Remote Sensing",
-      "Private Sector"
-    ]
-  },
-  {
-    "id": "inst-calfire",
-    "type": "institution",
-    "label": "CAL FIRE",
-    "acronym": "CAL FIRE",
-    "institutionType": "Federal Agency",
-    "location": "Sacramento, CA",
-    "website": "https://www.fire.ca.gov",
-    "description": "California Department of Forestry and Fire Protection, leading wildland fire protection and stewardship.",
-    "tags": [
-      "Wildfire",
-      "State Agency",
-      "Fire Operations",
-      "Forest Health",
-      "California"
-    ]
-  },
-  {
-    "id": "land-89",
-    "type": "institution",
-    "label": "AD Telecom",
-    "description": "Role: Industry · Delivery: Telecommunication",
-    "website": "http://www.adtelecom.es/",
-    "location": "",
-    "tags": [
-      "Utility / telecommunication",
-      "Delivery Support",
-      "Industry",
-      "Telecommunication"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-47",
-    "type": "institution",
-    "label": "Adaptation Fund",
-    "description": "Role: Program Funders · Deliverables: Wildfire management projects",
-    "website": "https://www.adaptation-fund.org/",
-    "location": "Global",
-    "tags": [
-      "Philanthropic",
-      "Delivery Support",
-      "Program Funders",
-      "Developing Countries",
-      "AI Charter"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-54",
-    "type": "product",
-    "label": "Advanced Fire Information System (AFIS)",
-    "description": "Role: Other Partners · Delivery: Practitioners · Deliverables: Real-time fire alerts",
-    "website": "https://engineeringnews.co.za/article/wildfire-satellite-detection-system-launched-across-africa-2015-08-21",
-    "location": "South Africa",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Other Partners",
-      "Practitioners",
-      "Africa",
-      "Phase: Pre, Active",
-      "Detect + Validate"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-118",
-    "type": "institution",
-    "label": "African Centre of Meteorological Application for Development (ACMAD)",
-    "description": "Role: External · Deliverables: Weather forecasts; climate services",
-    "website": "https://acmad.org/",
-    "location": "Africa",
-    "tags": [
-      "Nonprofit",
-      "External",
-      "Africa"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-119",
-    "type": "institution",
-    "label": "African Union Commission (AUC)",
-    "description": "Role: External · Deliverables: Continental policies and programs",
-    "website": "https://au.int/en/commission",
-    "location": "Africa",
-    "tags": [
-      "Government",
-      "External",
-      "Africa"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-103",
-    "type": "product",
-    "label": "AlertCalifornia",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers · Tech: Use-Inspired Platforms",
-    "website": "https://alertcalifornia.org/about/",
-    "location": "",
-    "tags": [
-      "Academic",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-104",
-    "type": "product",
-    "label": "AlertWildfire",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers · Deliverables: Detection and evacuation planning systems · Tech: Use-Inspired Platforms",
-    "website": "https://www.alertwildfire.org/about/",
-    "location": "Western USA",
-    "tags": [
-      "Academic",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers",
-      "Western USA",
-      "Phase: Active",
-      "Detect + Validate"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-55",
-    "type": "collaborative",
-    "label": "All Partners Access Network",
-    "description": "Role: Other Partners · Delivery: Practitioners · Deliverables: Improved communication",
-    "website": "https://www.apan.org/pages/case-study-wildfires",
-    "location": "USA",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Other Partners",
-      "Practitioners",
-      "Global"
-    ],
-    "governanceModel": "Consortium",
-    "focusAreas": [
-      "Improved communication",
-      "All Stages"
-    ]
-  },
-  {
-    "id": "land-83",
-    "type": "institution",
-    "label": "American Family Insurance",
-    "description": "Role: Industry · Delivery: Insurance",
-    "website": "https://www.amfamventures.com/news/the-vast-potential-of-wildfire-tech/",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Industry",
-      "Insurance"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-15",
-    "type": "institution",
-    "label": "American Forests",
-    "description": "Role: Domain Subject Matter Experts",
-    "website": "https://www.americanforests.org/",
-    "location": "US",
-    "tags": [
-      "Nonprofit",
-      "Advisors",
-      "Domain Subject Matter Experts"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-51",
-    "type": "institution",
-    "label": "Arabella",
-    "description": "Role: Other Partners · Delivery: Consultants",
-    "website": "https://www.arabellaadvisors.com/company/",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Other Partners",
-      "Consultants"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-87",
-    "type": "institution",
-    "label": "ARAUCO",
-    "description": "Role: Industry · Delivery: Timber Companies · Deliverables: Sustainable timber products",
-    "website": "https://ororatech.com/ororatech-arauco-battling-devastating-fires-in-chile/",
-    "location": "Chile",
-    "tags": [
-      "Timber",
-      "Delivery Support",
-      "Industry",
-      "Timber Companies",
-      "Chile"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-164",
-    "type": "institution",
-    "label": "Australasian Fire and Emergency Services Council Limited (AFAC)",
-    "description": "Role: Other Partners · Intervention: 2. Enabling faster, more precise data-driven decision making",
-    "website": "https://www.afac.com.au/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Other Partners",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-3",
-    "type": "institution",
-    "label": "Bayshore Global Management",
-    "description": "Role: Anchor Funders · Deliverables: Environmental initiatives · Tech: Funding · Intervention: 3. Enabling environment",
-    "website": "https://bayshorecap.com/",
-    "location": "USA",
-    "tags": [
-      "Philanthropic",
-      "Strategic Deciders",
-      "Anchor Funders",
-      "USA",
-      "AI Charter"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-134",
-    "type": "product",
-    "label": "Behave/FlamMap/Farsite/FSIM (USFS RMRS FMI Software Suite)",
-    "description": "Role: External · Deliverables: Simulation tools for fire management",
-    "website": "https://www.firelab.org/applications",
-    "location": "USA",
-    "tags": [
-      "Government",
-      "External",
-      "USA",
-      "Phase: Pre",
-      "AI Charter",
-      "Assess Pre-fire Risks"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-120",
-    "type": "product",
-    "label": "Bellwether",
-    "description": "Role: External · Deliverables: Quick detection alerts for high-risk areas",
-    "website": "https://x.company/projects/bellwether/",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "Western USA",
-      "Phase: Pre",
-      "Pre-fire"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-5",
-    "type": "institution",
-    "label": "Bezos Earth Fund",
-    "description": "Role: Anchor Funders · Deliverables: Wildfire prevention and management projects · Tech: Funding",
-    "website": "https://www.bezosearthfund.org/",
-    "location": "USA",
-    "tags": [
-      "Philanthropic",
-      "Strategic Deciders",
-      "Anchor Funders",
-      "Global",
-      "AI Charter"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-39",
-    "type": "institution",
-    "label": "Blue Forest",
-    "description": "Role: Program Funders",
-    "website": "https://www.blueforest.org/finance/forest-resilience-bond/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Program Funders"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-121",
-    "type": "institution",
-    "label": "Bushfire Research Centre of Excellence",
-    "description": "Role: External · Deliverables: Improved bushfire management strategies",
-    "website": "https://brcoe.org/",
-    "location": "Australia",
-    "tags": [
-      "Nonprofit",
-      "External",
-      "Australia"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-40",
-    "type": "collaborative",
-    "label": "CA Organized Investment Network",
-    "description": "Role: Program Funders",
-    "website": "https://www.insurance.ca.gov/0250-insurers/0700-coin/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Program Funders"
-    ],
-    "governanceModel": "Consortium",
-    "focusAreas": []
-  },
-  {
-    "id": "land-13",
-    "type": "institution",
-    "label": "Cal-Poly Wildland-Urban Interface Fire Institute",
-    "description": "Role: Research · Deliverables: Risk mitigation strategies in urban areas",
-    "website": "https://fire.calpoly.edu/",
-    "location": "USA",
-    "tags": [
-      "Academic",
-      "Advisors",
-      "Research",
-      "USA"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-94",
-    "type": "institution",
-    "label": "CalFIRE",
-    "description": "Role: Beneficiaries · Delivery: Frontline Users of the AI solutions · Deliverables: Statewide fire management",
-    "website": "https://www.fire.ca.gov/",
-    "location": "USA",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Frontline Users of the AI solutions",
-      "California, USA"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-156",
-    "type": "institution",
-    "label": "California Governor's Office of Emergency Services (CalOES)",
-    "description": "Role: External",
-    "website": "https://www.caloes.ca.gov/",
-    "location": "",
-    "tags": [
-      "Government",
-      "External"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-31",
-    "type": "institution",
-    "label": "California Natural Resource Agency",
-    "description": "Role: Primary Delivery Partners · Delivery: Policymakers / Analysts",
-    "website": "https://resources.ca.gov/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Policymakers / Analysts"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-113",
-    "type": "collaborative",
-    "label": "California Wildfire & Forest Resilience Task Force",
-    "description": "Role: Beneficiaries · Delivery: Researchers",
-    "website": "https://wildfiretaskforce.org/",
-    "location": "",
-    "tags": [
-      "NGO / Private / Public Partnership",
-      "Delivery Support",
-      "Beneficiaries",
-      "Researchers"
-    ],
-    "governanceModel": "Consortium",
-    "focusAreas": []
-  },
-  {
-    "id": "land-172",
-    "type": "institution",
-    "label": "Canadian Interagency Forest Fire Centre",
-    "description": "Role: Domain Subject Matter Experts · Intervention: 1. Creating data, technology, & AI solutions that accelerate action",
-    "website": "",
-    "location": "",
-    "tags": [
-      "Government",
-      "Domain Subject Matter Experts"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-26",
-    "type": "institution",
-    "label": "Cary Institute",
-    "description": "Role: Primary Delivery Partners · Delivery: Research",
-    "website": "https://www.caryinstitute.org/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Research",
-      "AI Charter"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-56",
-    "type": "institution",
-    "label": "CIMA Foundation",
-    "description": "Role: Other Partners · Delivery: Practitioners · Deliverables: Prediction and prevention of wildfires",
-    "website": "https://www.cimafoundation.org/en/",
-    "location": "Italy",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Other Partners",
-      "Practitioners",
-      "Italy; Europe",
-      "AI Charter"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-111",
-    "type": "institution",
-    "label": "Climate and Wildfire Institute",
-    "description": "Role: Beneficiaries · Delivery: Other information users · Deliverables: Solutions for climate and wildfire challenges · Intervention: 2. Enabling faster, more precise data-driven decision making",
-    "website": "https://climateandwildfire.org/",
-    "location": "USA",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Beneficiaries",
-      "Other information users",
-      "USA"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-42",
-    "type": "institution",
-    "label": "Climate Resilience Fund",
-    "description": "Role: Program Funders · Intervention: 3. Enabling environment",
-    "website": "https://www.climateresiliencefund.org/initiatives/wildfire-resilience-funders/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Program Funders",
-      "AI Charter"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-73",
-    "type": "institution",
-    "label": "Colorado Forest Restoration Institute (CFRI)",
-    "description": "Role: Research · Deliverables: Forest restoration strategies",
-    "website": "https://cfri.colostate.edu/",
-    "location": "Colorado",
-    "tags": [
-      "Academic",
-      "Delivery Support",
-      "Research",
-      "Colorado, USA"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-122",
-    "type": "institution",
-    "label": "Colorado State University",
-    "description": "Role: External · Deliverables: Forest resilience strategies",
-    "website": "https://csfs.colostate.edu/wildfire-mitigation/",
-    "location": "Colorado",
-    "tags": [
-      "Academic",
-      "External",
-      "Colorado, USA"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-63",
-    "type": "institution",
-    "label": "Conservation X Labs",
-    "description": "Role: Other Partners · Delivery: Other Participants / Grantees",
-    "website": "https://conservationxlabs.com/",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Other Partners",
-      "Other Participants / Grantees"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-48",
-    "type": "institution",
-    "label": "Convective Capital",
-    "description": "Role: Program Funders",
-    "website": "https://www.convectivecapital.com/",
-    "location": "",
-    "tags": [
-      "Venture Capital",
-      "Delivery Support",
-      "Program Funders",
-      "AI Charter"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-123",
-    "type": "institution",
-    "label": "Copernicus EU",
-    "description": "Role: External · Deliverables: Data for environmental monitoring",
-    "website": "https://www.copernicus.eu/en/european-forest-fire-information-system",
-    "location": "EU",
-    "tags": [
-      "Government",
-      "External",
-      "EU"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-109",
-    "type": "institution",
-    "label": "CSIRO",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers · Intervention: 1. Creating data, technology, & AI solutions that accelerate action",
-    "website": "https://www.csiro.au/en/news/all/articles/2020/december/hazard-reduction-burning",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-124",
-    "type": "institution",
-    "label": "Data Blanket",
-    "description": "Role: External · Deliverables: Infrastructure monitoring",
-    "website": "https://www.datablanket.com/",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "USA",
-      "Phase: Active",
-      "Respond + Monitor"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-78",
-    "type": "product",
-    "label": "Delft University of Technology",
-    "description": "Role: Research",
-    "website": "https://www.tudelft.nl/en/stories/articles/fighting-wildfires-with-ai-and-simulations",
-    "location": "",
-    "tags": [
-      "Academic",
-      "Delivery Support",
-      "Research"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-125",
-    "type": "institution",
-    "label": "Descartes Labs",
-    "description": "Role: External · Deliverables: Global fire detection",
-    "website": "https://www.businessinsider.com/how-descartes-labs-leveraging-artificial-intelligence-fight-wildfires-2019-12",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "Global",
-      "Phase: Pre",
-      "Detect + Validate"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-95",
-    "type": "product",
-    "label": "Drought Informatics System of South America",
-    "description": "Role: Beneficiaries · Delivery: Frontline Users of the AI solutions · Deliverables: Regional early warning and wildfire strategies",
-    "website": "https://sissa.crc-sas.org/blog/2024/06/18/la-importancia-del-manejo-de-los-incendios-para-la-gestion-de-riesgo-en-el-sur-de-sudamerica/",
-    "location": "South America",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Frontline Users of the AI solutions",
-      "Latin America",
-      "Phase: Pre, Active",
-      "AI Charter",
-      "Detect + Validate"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-126",
-    "type": "institution",
-    "label": "Dryad",
-    "description": "Role: External · Deliverables: Early fire detection",
-    "website": "https://www.dryad.net/",
-    "location": "Germany",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "Europe",
-      "Phase: Pre",
-      "Detect + Validate"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-85",
-    "type": "institution",
-    "label": "Edison International",
-    "description": "Role: Industry · Delivery: Utilities",
-    "website": "https://www.edison.com/investors/southern-california-wildfires",
-    "location": "",
-    "tags": [
-      "Utility / telecommunication",
-      "Delivery Support",
-      "Industry",
-      "Utilities"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-127",
-    "type": "institution",
-    "label": "Ember Guard",
-    "description": "Role: External · Deliverables: Enhanced detection capabilities",
-    "website": "https://www.xprize.org/prizes/wildfire/articles/announcing-the-xprize-wildfire-space-based-qualified-teams",
-    "location": "Australia",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "Australia",
-      "Phase: Pre",
-      "Detect + Validate"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-170",
-    "type": "institution",
-    "label": "Embrace the forest",
-    "description": "Role: External",
-    "website": "https://embracetheforest.com/",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "External"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-4",
-    "type": "institution",
-    "label": "Emerson Collective",
-    "description": "Role: Anchor Funders · Tech: Funding",
-    "website": "https://www.emersoncollective.com",
-    "location": "USA",
-    "tags": [
-      "Philanthropic",
-      "Strategic Deciders",
-      "Anchor Funders",
-      "AI Charter"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-23",
-    "type": "institution",
-    "label": "Environmental Defense Fund (EDF)",
-    "description": "Role: Primary Delivery Partners · Delivery: Implementers · Deliverables: Policies for environmental protection · Intervention: 2. Enabling faster, more precise data-driven decision making",
-    "website": "https://www.edf.org/climate/heres-how-climate-change-affects-wildfires",
-    "location": "Global",
-    "tags": [
-      "Nonprofit",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Implementers",
-      "Global",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-86",
-    "type": "institution",
-    "label": "Eskom",
-    "description": "Role: Industry · Delivery: Utilities · Deliverables: Reliable energy supply",
-    "website": "https://www.eskom.co.za/",
-    "location": "South Africa",
-    "tags": [
-      "Utility / telecommunication",
-      "Delivery Support",
-      "Industry",
-      "Utilities",
-      "South Africa"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-105",
-    "type": "product",
-    "label": "EU’s Emergency Response Coordination Centre (ERCC)",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers · Deliverables: Efficient emergency responses",
-    "website": "https://civil-protection-humanitarian-aid.ec.europa.eu/what/civil-protection/emergency-response-coordination-centre-ercc_en",
-    "location": "EU",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers",
-      "EU",
-      "AI Charter"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-57",
-    "type": "product",
-    "label": "EUMETCast",
-    "description": "Role: Other Partners · Delivery: Practitioners",
-    "website": "https://user.eumetsat.int/data-access/eumetcast-europe",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Other Partners",
-      "Practitioners"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-128",
-    "type": "product",
-    "label": "European Forest Fire Information System (EFFIS)",
-    "description": "Role: External · Deliverables: Forest fire data and reports",
-    "website": "https://forest-fire.emergency.copernicus.eu/",
-    "location": "EU",
-    "tags": [
-      "Government",
-      "External",
-      "Europe"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-9",
-    "type": "institution",
-    "label": "European Space Agency",
-    "description": "Role: Domain Subject Matter Experts",
-    "website": "https://www.esa.int/",
-    "location": "EU",
-    "tags": [
-      "Government",
-      "Advisors",
-      "Domain Subject Matter Experts"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-129",
-    "type": "institution",
-    "label": "Exci",
-    "description": "Role: External · Deliverables: Comprehensive detection systems",
-    "website": "https://www.exci.ai/how-it-works/",
-    "location": "USA",
-    "tags": [
-      "Government",
-      "External",
-      "USA",
-      "Phase: Pre",
-      "Detect + Validate"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-84",
-    "type": "institution",
-    "label": "Farmers Insurance",
-    "description": "Role: Industry · Delivery: Insurance",
-    "website": "https://www.farmers.com/prepare/wildfires/",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Industry",
-      "Insurance"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-34",
-    "type": "institution",
-    "label": "Federation of American Scientists",
-    "description": "Role: Primary Delivery Partners · Delivery: Policymakers / Analysts",
-    "website": "https://fas.org/publication/wildland-fire-policy-recommendations/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Policymakers / Analysts"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-160",
-    "type": "product",
-    "label": "Fire Factor",
-    "description": "Role: External",
-    "website": "https://firststreet.org/methodology/fire?from=riskfactor.com",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "External"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-157",
-    "type": "product",
-    "label": "Fire Integrated Real-Time Intelligence System Program (FIRIS)",
-    "description": "Role: External",
-    "website": "https://wifire.ucsd.edu/firis",
-    "location": "",
-    "tags": [
-      "Government / Academic",
-      "External"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-131",
-    "type": "collaborative",
-    "label": "Fire Neural Network",
-    "description": "Role: External · Deliverables: Rapid fire detection",
-    "website": "https://fireneuralnetwork.com/",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "USA",
-      "Phase: Pre",
-      "Detect + Validate"
-    ],
-    "governanceModel": "Consortium",
-    "focusAreas": [
-      "Rapid fire detection",
-      "Detect + Validate"
-    ]
-  },
-  {
-    "id": "land-60",
-    "type": "product",
-    "label": "Fire Research and Management Exchange System (Frames)",
-    "description": "Role: Other Partners · Delivery: Practitioners",
-    "website": "https://www.frames.gov/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Other Partners",
-      "Practitioners"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-58",
-    "type": "product",
-    "label": "FIRE-RES",
-    "description": "Role: Other Partners · Delivery: Practitioners",
-    "website": "https://fire-res.eu/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Other Partners",
-      "Practitioners"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-59",
-    "type": "product",
-    "label": "fireEUrisk",
-    "description": "Role: Other Partners · Delivery: Practitioners",
-    "website": "https://fireurisk.eu/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Other Partners",
-      "Practitioners"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-64",
-    "type": "product",
-    "label": "FireLogue",
-    "description": "Role: Other Partners · Delivery: Other Participants / Grantees · Deliverables: Stakeholder coordination and ecosystem recovery",
-    "website": "https://lessonsonfire.firelogue.eu/",
-    "location": "EU",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Other Partners",
-      "Other Participants / Grantees",
-      "Southern Europe",
-      "Phase: Post",
-      "Assess Damage + Restore"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-132",
-    "type": "product",
-    "label": "FireSat",
-    "description": "Role: Primary Delivery Partners · Deliverables: Global fire detection from space",
-    "website": "https://sites.research.google/gr/wildfires/firesat/",
-    "location": "USA",
-    "tags": [
-      "NGO / Private Partnership",
-      "Primary Delivery Partners",
-      "Global",
-      "Phase: Pre",
-      "AI Charter",
-      "GWFC Funded",
-      "Detect + Validate"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-133",
-    "type": "institution",
-    "label": "FireSwarm Solutions",
-    "description": "Role: External · Deliverables: Firefighting drones",
-    "website": "https://www.xprize.org/prizes/wildfire/articles/announcing-the-xprize-wildfire-autonomous-qualified-teams",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "USA",
-      "Phase: Active",
-      "Respond + Monitor"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-65",
-    "type": "institution",
-    "label": "First Street",
-    "description": "Role: Other Partners · Delivery: Other Participants / Grantees",
-    "website": "https://firststreet.org/methodology/fire?from=riskfactor.com",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Other Partners",
-      "Other Participants / Grantees"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-82",
-    "type": "institution",
-    "label": "FM Global Property Insurance",
-    "description": "Role: Industry · Delivery: Insurance",
-    "website": "https://newsroom.fmglobal.com/releases/releases-20230911",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Industry",
-      "Insurance"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-135",
-    "type": "institution",
-    "label": "GatorX",
-    "description": "Role: External · Deliverables: Rapid detection tools",
-    "website": "https://www.xprize.org/prizes/wildfire/articles/announcing-the-xprize-wildfire-autonomous-qualified-teams",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "USA",
-      "Phase: Pre",
-      "Detect + Validate"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-106",
-    "type": "product",
-    "label": "Global Wildfire Information System (GWIS)",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers · Deliverables: Centralized global wildfire data",
-    "website": "https://gwis.jrc.ec.europa.eu/",
-    "location": "Global",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers",
-      "Global",
-      "AI Charter"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-172",
-    "type": "institution",
-    "label": "Google Research",
-    "description": "Role: Research · Intervention: 1. Creating data, technology, & AI solutions that accelerate action",
-    "website": "",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "Research",
-      "Phase: Pre, Active",
-      "AI Charter"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-2",
-    "type": "institution",
-    "label": "Gordon and Betty Moore Foundation",
-    "description": "Role: Anchor Funders · Deliverables: Wildfire resilience initiatives · Tech: Funding · Intervention: 3. Enabling environment",
-    "website": "https://www.moore.org/",
-    "location": "USA",
-    "tags": [
-      "Philanthropic",
-      "Strategic Deciders",
-      "Anchor Funders",
-      "USA",
-      "AI Charter"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-88",
-    "type": "collaborative",
-    "label": "Green Triangle Fire Alliance",
-    "description": "Role: Industry · Delivery: Timber Companies",
-    "website": "https://gtfih.com.au/wp-content/uploads/2024/03/Green-Triangle-Fire-Alliance_Overview_7-March-2024_no-date_LOW-RES.pdf",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Industry",
-      "Timber Companies"
-    ],
-    "governanceModel": "Consortium",
-    "focusAreas": []
-  },
-  {
-    "id": "land-136",
-    "type": "product",
-    "label": "gridFirm",
-    "description": "Role: External · Deliverables: Grid risk management",
-    "website": "https://www.rhizomedata.com/post/introducing-rhizomes-wildfire-intelligence-platform-gridfirm",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "USA",
-      "Phase: Pre",
-      "Assess Pre-fire Risks"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-137",
-    "type": "institution",
-    "label": "Grupo BoticÃ¡rio",
-    "description": "Role: External · Deliverables: Sustainable products",
-    "website": "www.boticario.com/",
-    "location": "Brazil",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "External",
-      "Brazil"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-90",
-    "type": "institution",
-    "label": "Huawei",
-    "description": "Role: Industry · Delivery: Telecommunication",
-    "website": "https://www.huawei.com/en/",
-    "location": "",
-    "tags": [
-      "Utility / telecommunication",
-      "Delivery Support",
-      "Industry",
-      "Telecommunication"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-169",
-    "type": "institution",
-    "label": "ID Insight",
-    "description": "Role: Other Partners · Intervention: 3. Enabling environment",
-    "website": "https://www.idinsight.org/methodology/data-science/?utm_source=google&utm_medium=ag&utm_campaign=gs23&gad_source=1&gclid=Cj0KCQiAkJO8BhCGARIsAMkswyhkGUDbP7LAz7EzAspYBF-KRTwruCS_ycYCeSXQq7FLWS0bxWg42t4aAvYKEALw_wcB",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Other Partners",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-66",
-    "type": "product",
-    "label": "Ignis",
-    "description": "Role: Other Partners · Delivery: Other Participants / Grantees · Deliverables: Unified mapping tools",
-    "website": "https://www.ignistech.io/",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Other Partners",
-      "Other Participants / Grantees",
-      "USA"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-114",
-    "type": "institution",
-    "label": "Indigenous Leadership Initiative",
-    "description": "Role: Beneficiaries · Delivery: Researchers",
-    "website": "https://www.ilinationhood.ca/guardians-fire-summary",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Researchers"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-80",
-    "type": "institution",
-    "label": "Instituto Tecnológico y de Estudios Superiores de Monterrey",
-    "description": "Role: Research",
-    "website": "Kumu connection",
-    "location": "",
-    "tags": [
-      "Academic",
-      "Delivery Support",
-      "Research"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-165",
-    "type": "institution",
-    "label": "International Association of Fire Chiefs",
-    "description": "Role: External",
-    "website": "https://www.iafc.org/about-iafc",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "External"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-96",
-    "type": "institution",
-    "label": "International Association of Fire Fighters",
-    "description": "Role: Beneficiaries · Delivery: Frontline Users of the AI solutions · Deliverables: Improved pay and conditions for firefighters",
-    "website": "https://www.iaff.org/",
-    "location": "North America",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Beneficiaries",
-      "Frontline Users of the AI solutions",
-      "North America",
-      "Phase: Active",
-      "AI Charter",
-      "Respond + Monitor"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-138",
-    "type": "institution",
-    "label": "International Association of Wildland Fire (IAWF)",
-    "description": "Role: External · Deliverables: Knowledge sharing; networking",
-    "website": "https://www.iawfonline.org/",
-    "location": "Global",
-    "tags": [
-      "Nonprofit",
-      "External",
-      "Global"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-139",
-    "type": "institution",
-    "label": "IQ FireWatch",
-    "description": "Role: External · Deliverables: Early fire detection",
-    "website": "https://www.iq-firewatch.com/",
-    "location": "Germany",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "Europe",
-      "Phase: Pre",
-      "Detect + Validate"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-49",
-    "type": "institution",
-    "label": "Jack Dangermond",
-    "description": "Role: Program Funders",
-    "website": "https://www.dangermondpreserve.org/stewardship/",
-    "location": "",
-    "tags": [
-      "Philanthropic",
-      "Delivery Support",
-      "Program Funders"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-162",
-    "type": "institution",
-    "label": "JPL / California Institute of Technology",
-    "description": "Role: Research · Intervention: 1. Creating data, technology, & AI solutions that accelerate action",
-    "website": "https://www.caltech.edu/research/jpl",
-    "location": "",
-    "tags": [
-      "Academic",
-      "Research",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-37",
-    "type": "institution",
-    "label": "Kayrros",
-    "description": "Role: Primary Delivery Partners · Delivery: Engineers",
-    "website": "https://www.kayrros.com/",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Engineers"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-77",
-    "type": "institution",
-    "label": "King’s College",
-    "description": "Role: Research · Deliverables: Policy recommendations for wildfire management",
-    "website": "https://wildfire.geog.kcl.ac.uk/",
-    "location": "UK",
-    "tags": [
-      "Academic",
-      "Delivery Support",
-      "Research",
-      "UK; Europe"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-115",
-    "type": "institution",
-    "label": "LA Times",
-    "description": "Role: Beneficiaries · Delivery: Researchers",
-    "website": "https://www.latimes.com/topic/fires",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Beneficiaries",
-      "Researchers"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-72",
-    "type": "institution",
-    "label": "Lawrence Berkeley Lab",
-    "description": "Role: Research",
-    "website": "https://wildfire.lbl.gov/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Research"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-41",
-    "type": "institution",
-    "label": "Luksic Foundation and Grupo Boticario",
-    "description": "Role: Program Funders · Deliverables: Environmental projects including wildfire management",
-    "website": "https://luksicscholars.org/en/",
-    "location": "Chile",
-    "tags": [
-      "Philanthropic",
-      "Delivery Support",
-      "Program Funders",
-      "Chile"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-67",
-    "type": "institution",
-    "label": "MAST Reforestation",
-    "description": "Role: Other Partners · Delivery: Other Participants / Grantees · Deliverables: Post-fire reforestation initiatives",
-    "website": "https://www.mastreforest.com/",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Other Partners",
-      "Other Participants / Grantees",
-      "Global",
-      "Phase: Post",
-      "Assess Damage + Restore"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-68",
-    "type": "institution",
-    "label": "Mayday",
-    "description": "Role: Other Partners · Delivery: Other Participants / Grantees",
-    "website": "https://mayday.ai/",
-    "location": "Germany",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Other Partners",
-      "Other Participants / Grantees"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-69",
-    "type": "institution",
-    "label": "Megafire Action",
-    "description": "Role: Other Partners · Delivery: Other Participants / Grantees · Deliverables: Policy change and public engagement",
-    "website": "https://www.megafire.org/",
-    "location": "USA",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Other Partners",
-      "Other Participants / Grantees",
-      "USA"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-45",
-    "type": "institution",
-    "label": "Minderoo Foundation",
-    "description": "Role: Program Funders · Deliverables: Comprehensive resilience and early detection",
-    "website": "https://cdn.minderoo.org/content/uploads/2021/05/11143758/Fire-and-Flood-Resilience-Program-Proprosal.pdf",
-    "location": "Australia",
-    "tags": [
-      "Philanthropic",
-      "Delivery Support",
-      "Program Funders",
-      "Australia",
-      "AI Charter"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-107",
-    "type": "product",
-    "label": "Monitoring of the Environment for Security in Africa (MESA)",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers · Deliverables: Environmental data and analysis",
-    "website": "http://csc.sadc.int/en/mesa",
-    "location": "Africa",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers",
-      "Africa",
-      "AI Charter"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-168",
-    "type": "institution",
-    "label": "NASA Disasters",
-    "description": "Role: Domain Subject Matter Experts",
-    "website": "Nick LaHaye",
-    "location": "",
-    "tags": [
-      "Government",
-      "Domain Subject Matter Experts",
-      "AI Charter"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-173",
-    "type": "institution",
-    "label": "NASA FireSense",
-    "description": "Role: Domain Subject Matter Experts · Intervention: 3. Enabling environment",
-    "website": "https://cce.nasa.gov/firesense/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Domain Subject Matter Experts",
-      "AI Charter"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-174",
-    "type": "institution",
-    "label": "NASA FIRMS",
-    "description": "Role: Domain Subject Matter Experts · Intervention: 1. Creating data, technology, & AI solutions that accelerate action",
-    "website": "Nick LaHaye",
-    "location": "",
-    "tags": [
-      "Government",
-      "Domain Subject Matter Experts",
-      "AI Charter"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-81",
-    "type": "institution",
-    "label": "National Association of Insurance Commissioners",
-    "description": "Role: Industry · Delivery: Insurance",
-    "website": "https://content.naic.org/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Industry",
-      "Insurance"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-116",
-    "type": "institution",
-    "label": "National Fire Safety Council",
-    "description": "Role: Beneficiaries · Delivery: Researchers · Deliverables: Fire safety materials and programs",
-    "website": "https://nationalfiresafetycouncil.org/",
-    "location": "USA",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Beneficiaries",
-      "Researchers",
-      "USA"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-97",
-    "type": "institution",
-    "label": "National Interagency Fire Center",
-    "description": "Role: Beneficiaries · Delivery: Frontline Users of the AI solutions",
-    "website": "https://www.nifc.gov/about-us/what-is-nifc",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Frontline Users of the AI solutions",
-      "AI Charter"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-11",
-    "type": "institution",
-    "label": "NOAA",
-    "description": "Role: Domain Subject Matter Experts",
-    "website": "https://www.noaa.gov/",
-    "location": "US",
-    "tags": [
-      "Government",
-      "Advisors",
-      "Domain Subject Matter Experts"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-140",
-    "type": "product",
-    "label": "NOBURN App",
-    "description": "Role: External · Deliverables: Community risk awareness · Tech: https://noburn.app/",
-    "website": "https://www.abc.net.au/news/rural/2024-01-11/ai-helps-protect-australias-forests-green-triangle-from-fires/103277424",
-    "location": "Australia",
-    "tags": [
-      "Academic",
-      "External",
-      "Australia",
-      "Phase: Pre",
-      "Assess Pre-fire Risks"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-108",
-    "type": "product",
-    "label": "North Australia Rangelands and Fire Information (NAFI)",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers · Deliverables: Fire management information",
-    "website": "https://firenorth.org.au/nafi3/",
-    "location": "Australia",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers",
-      "Australia",
-      "AI Charter"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-141",
-    "type": "institution",
-    "label": "Norwegian University of Science and Technology",
-    "description": "Role: External · Deliverables: Technological solutions for wildfire management",
-    "website": "https://www.ntnu.edu/",
-    "location": "Norway",
-    "tags": [
-      "Academic",
-      "External",
-      "Norway; Europe"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-46",
-    "type": "institution",
-    "label": "NVIDIA Inception",
-    "description": "Role: Program Funders",
-    "website": "https://www.nvidia.com/en-us/startups/",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Program Funders"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-36",
-    "type": "institution",
-    "label": "Ororatech",
-    "description": "Role: Primary Delivery Partners · Delivery: Engineers · Deliverables: Real-time fire tracking and detection networks · Intervention: 1. Creating data, technology, & AI solutions that accelerate action",
-    "website": "http://ororatech.com/",
-    "location": "Global",
-    "tags": [
-      "Startup / Private",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Engineers",
-      "Global",
-      "Phase: Pre, Active",
-      "AI Charter",
-      "Detect + Validate"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-142",
-    "type": "institution",
-    "label": "PanoAI",
-    "description": "Role: External · Deliverables: Early detection and situational awareness",
-    "website": "https://www.pano.ai/",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "USA; Australia",
-      "Phase: Pre",
-      "Detect + Validate"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-143",
-    "type": "product",
-    "label": "Pantera",
-    "description": "Role: External · Deliverables: Asset protection",
-    "website": "https://embracetheforest.com/",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "USA",
-      "Phase: Pre",
-      "Assess Pre-fire Risks"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-61",
-    "type": "institution",
-    "label": "Pau Costa Foundation",
-    "description": "Role: Other Partners · Delivery: Practitioners · Deliverables: Wildfire management education",
-    "website": "https://www.paucostafoundation.org/en/organization/",
-    "location": "Spain",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Other Partners",
-      "Practitioners",
-      "Europe",
-      "AI Charter"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-44",
-    "type": "institution",
-    "label": "PG&E",
-    "description": "Role: Program Funders",
-    "website": "https://www.pge.com/en.html",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Program Funders"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-22",
-    "type": "collaborative",
-    "label": "Planscape Cooperative",
-    "description": "Role: Primary Delivery Partners · Delivery: Implementers · Deliverables: Optimized landscape treatments, enhanced ecosystem resilience · Intervention: 1. Creating data, technology, & AI solutions that accelerate action",
-    "website": "https://www.planscape.org/",
-    "location": "USA",
-    "tags": [
-      "NGO / Private / Public Partnership",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Implementers",
-      "Western USA",
-      "Phase: Pre, Post",
-      "AI Charter",
-      "GWFC Funded",
-      "Pre-fire, Post-fire Recovery"
-    ],
-    "governanceModel": "Consortium",
-    "focusAreas": [
-      "Optimized landscape treatments, enhanced ecosystem resilience",
-      "Pre-fire, Post-fire Recovery"
-    ]
-  },
-  {
-    "id": "land-158",
-    "type": "product",
-    "label": "Planscape Platform",
-    "description": "Role: Primary Delivery Partners · Delivery: Implementers · Deliverables: Optimized landscape treatments, enhanced ecosystem resilience",
-    "website": "https://app.planscape.org/home",
-    "location": "USA",
-    "tags": [
-      "NGO / Private / Public Partnership",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Implementers",
-      "Western USA",
-      "Phase: Pre, Post",
-      "AI Charter",
-      "GWFC Funded",
-      "Pre-fire, Post-fire Recovery"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-52",
-    "type": "institution",
-    "label": "Prometheus Fire Consulting",
-    "description": "Role: Other Partners · Delivery: Consultants",
-    "website": "https://www.prometheusfireconsulting.com/",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Other Partners",
-      "Consultants"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-144",
-    "type": "product",
-    "label": "PyreCast",
-    "description": "Role: External · Deliverables: Accurate pre-fire risk maps, real-time wind-based modeling",
-    "website": "https://pyrecast.org/",
-    "location": "USA",
-    "tags": [
-      "NGO / Private / Public Partnership",
-      "External",
-      "Western USA",
-      "Phase: Pre",
-      "AI Charter",
-      "Pre-fire"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-35",
-    "type": "collaborative",
-    "label": "Pyregence",
-    "description": "Role: Primary Delivery Partners · Delivery: Engineers",
-    "website": "https://pyregence.org/",
-    "location": "",
-    "tags": [
-      "NGO / Private / Public Partnership",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Engineers",
-      "AI Charter"
-    ],
-    "governanceModel": "Consortium",
-    "focusAreas": []
-  },
-  {
-    "id": "land-24",
-    "type": "institution",
-    "label": "Rain Aero",
-    "description": "Role: Primary Delivery Partners · Delivery: Implementers",
-    "website": "https://www.rain.aero/",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Implementers"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-145",
-    "type": "product",
-    "label": "RedEYE FirePrep",
-    "description": "Role: External · Deliverables: Risk assessment reports",
-    "website": "https://knowledge.aidr.org.au/media/9041/ajem_08_2021-04.pdf",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "USA",
-      "Phase: Pre",
-      "Assess Pre-fire Risks"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-33",
-    "type": "institution",
-    "label": "Resources for the Future",
-    "description": "Role: Primary Delivery Partners · Delivery: Policymakers / Analysts",
-    "website": "https://www.rff.org/topics/climate-risks-and-resilience/wildfires/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Policymakers / Analysts"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-166",
-    "type": "institution",
-    "label": "Rhizome",
-    "description": "Role: External",
-    "website": "https://www.rhizomedata.com/post/introducing-rhizomes-wildfire-intelligence-platform-gridfirm",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "External"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-74",
-    "type": "institution",
-    "label": "RMIT University",
-    "description": "Role: Research · Deliverables: Wildfire risk assessment tools",
-    "website": "https://www.rmit.edu.au/research/centres-collaborations/disaster-research-and-response-network",
-    "location": "Australia",
-    "tags": [
-      "Academic",
-      "Delivery Support",
-      "Research",
-      "Australia"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-146",
-    "type": "institution",
-    "label": "RoboticsCats",
-    "description": "Role: External · Deliverables: Community detection tools",
-    "website": "https://www.moore.org/docs/default-source/default-document-library/the-state-of-fire-tech.pdf",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "Western USA",
-      "Phase: Pre",
-      "Detect + Validate"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-171",
-    "type": "institution",
-    "label": "RTI Exploration",
-    "description": "Role: External",
-    "website": "https://www.rtiexploration.com/fire-prevention-&-eco-forestation-mapping-w1.html",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "External"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-62",
-    "type": "product",
-    "label": "SAFERS",
-    "description": "Role: Other Partners · Delivery: Practitioners · Deliverables: Real-time wildfire response and post-fire risk assessment",
-    "website": "https://safers-project.eu/",
-    "location": "EU",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Other Partners",
-      "Practitioners",
-      "Southern Europe, Africa"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-147",
-    "type": "institution",
-    "label": "Satellites on Fire",
-    "description": "Role: External · Deliverables: Regional fire detection",
-    "website": "https://www.satellitesonfire.com/",
-    "location": "Chile",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "South America",
-      "Phase: Pre",
-      "Detect + Validate"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-50",
-    "type": "collaborative",
-    "label": "SmartSat CRC",
-    "description": "Role: Program Funders",
-    "website": "https://smartsatcrc.com/",
-    "location": "",
-    "tags": [
-      "NGO / Private / Public Partnership",
-      "Delivery Support",
-      "Program Funders"
-    ],
-    "governanceModel": "Consortium",
-    "focusAreas": []
-  },
-  {
-    "id": "land-117",
-    "type": "institution",
-    "label": "Southern African Development Community  (SADC)",
-    "description": "Role: Beneficiaries · Delivery: Researchers · Deliverables: Regional policies; development projects",
-    "website": "https://www.sadc.int/",
-    "location": "Africa",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Researchers",
-      "Southern Africa"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-19",
-    "type": "institution",
-    "label": "Spatial Informatics Group (SIG)",
-    "description": "Role: Program Management Office · Intervention: 3. Enabling environment",
-    "website": "https://sig-gis.com",
-    "location": "Global",
-    "tags": [
-      "Startup / Private",
-      "Primary Delivery",
-      "Program Management Office",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-100",
-    "type": "institution",
-    "label": "State of California",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers",
-    "website": "https://www.ca.gov/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-148",
-    "type": "institution",
-    "label": "Swansea University Centre for Wildfire Research",
-    "description": "Role: External · Deliverables: Advanced wildfire behavior models",
-    "website": "https://www.swansea.ac.uk/geography/research-and-impact/centre-for-wildfire-research/",
-    "location": "UK",
-    "tags": [
-      "Academic",
-      "External",
-      "UK; Europe"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-75",
-    "type": "institution",
-    "label": "Swinburne University of Technology",
-    "description": "Role: Research · Deliverables: Technological solutions for wildfire detection",
-    "website": "https://www.swinburne.edu.au/news/2020/02/bushfire-research-at-swinburne/",
-    "location": "Australia",
-    "tags": [
-      "Academic",
-      "Delivery Support",
-      "Research",
-      "Australia"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-149",
-    "type": "institution",
-    "label": "Technosylva",
-    "description": "Role: External · Deliverables: Operational risk assessments",
-    "website": "https://technosylva.com/",
-    "location": "USA",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "USA",
-      "Phase: Pre",
-      "Assess Pre-fire Risks"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-91",
-    "type": "institution",
-    "label": "Teleglobal Communications",
-    "description": "Role: Industry · Delivery: Telecommunication",
-    "website": "https://teleglobals.com/",
-    "location": "",
-    "tags": [
-      "Utility / telecommunication",
-      "Delivery Support",
-      "Industry",
-      "Telecommunication"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-29",
-    "type": "institution",
-    "label": "The Council for Scientific and Industrial Research (CSIR)",
-    "description": "Role: Primary Delivery Partners · Delivery: Research · Deliverables: Solutions for wildfire management and other sectors",
-    "website": "https://www.csir.co.za/",
-    "location": "South Africa",
-    "tags": [
-      "Nonprofit",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Research",
-      "South Africa"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-112",
-    "type": "institution",
-    "label": "The Institute of Foresters of Australia and Australian Forest Growers’s Forest Fire Management",
-    "description": "Role: Beneficiaries · Delivery: Other information users",
-    "website": "https://www.forestry.org.au/forest-fire-management/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Beneficiaries",
-      "Other information users"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-16",
-    "type": "institution",
-    "label": "The Nature Conservancy",
-    "description": "Role: Domain Subject Matter Experts · Deliverables: Wildfire management solutions",
-    "website": "https://www.nature.org/en-us/about-us/who-we-are/how-we-work/policy/wildfire-resilience-policy-roadmap/",
-    "location": "Global",
-    "tags": [
-      "Nonprofit",
-      "Advisors",
-      "Domain Subject Matter Experts",
-      "Global"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-38",
-    "type": "product",
-    "label": "TREEADS",
-    "description": "Role: Primary Delivery Partners · Delivery: Engineers · Deliverables: Early detection in high-risk areas",
-    "website": "https://treeads-project.eu/project-details/detection-and-response/",
-    "location": "EU",
-    "tags": [
-      "Government",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Engineers",
-      "Southern Europe",
-      "Phase: Pre, Active",
-      "AI Charter",
-      "Detect + Validate"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-14",
-    "type": "institution",
-    "label": "UC Berkeley",
-    "description": "Role: Research",
-    "website": "https://forests.berkeley.edu/the-center-for-fire-research-and-outreach",
-    "location": "US",
-    "tags": [
-      "Academic",
-      "Advisors",
-      "Research"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-171",
-    "type": "institution",
-    "label": "UC Irvine / Climate, Carbon, and Fire Dynamics Lab",
-    "description": "Role: Research · Intervention: 1. Creating data, technology, & AI solutions that accelerate action",
-    "website": "https://sites.uci.edu/randersonlab/",
-    "location": "",
-    "tags": [
-      "Academic",
-      "Research"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-12",
-    "type": "institution",
-    "label": "UC San Diego / WiFIRE Lab",
-    "description": "Role: Research · Intervention: 3. Enabling environment",
-    "website": "https://wifire.ucsd.edu/",
-    "location": "US",
-    "tags": [
-      "Academic",
-      "Advisors",
-      "Research",
-      "AI Charter"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-32",
-    "type": "institution",
-    "label": "UN FAO",
-    "description": "Role: Primary Delivery Partners · Delivery: Policymakers / Analysts · Intervention: 2. Enabling faster, more precise data-driven decision making",
-    "website": "https://www.fao.org/forestry-fao/firemanagement/101248/en/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Policymakers / Analysts",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-98",
-    "type": "institution",
-    "label": "Ungrauemeio",
-    "description": "Role: Beneficiaries · Delivery: Frontline Users of the AI solutions",
-    "website": "https://www.umgrauemeio.com/en",
-    "location": "",
-    "tags": [
-      "Startup / Private",
-      "Delivery Support",
-      "Beneficiaries",
-      "Frontline Users of the AI solutions"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-110",
-    "type": "institution",
-    "label": "United Nations Office for Disaster Risk Reduction (UNDRR)",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers · Deliverables: Global frameworks for disaster risk reduction",
-    "website": "https://www.undrr.org/news/early-warnings-all-africa",
-    "location": "Global",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers",
-      "Global"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-150",
-    "type": "institution",
-    "label": "Universidad de ConcepciÃ³n",
-    "description": "Role: External · Deliverables: Wildfire prevention and management strategies",
-    "website": "https://noticias.udec.cl/incendios-forestales-estudio-udec-concluye-que-zonas-con-plantaciones-forestales-fueron-las-mas-afectadas/",
-    "location": "Chile",
-    "tags": [
-      "Academic",
-      "External",
-      "Chile"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-79",
-    "type": "institution",
-    "label": "Università degli Studi di Bari Aldo Moro",
-    "description": "Role: Research",
-    "website": "https://www.uniba.it/it/ricerca/dipartimenti/disspa/attivita-didattica/dottorato-di-ricerca/gestione-sostenibile-del-territorio/gestione-sostenibile-del-territorio_en",
-    "location": "",
-    "tags": [
-      "Academic",
-      "Delivery Support",
-      "Research"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-30",
-    "type": "institution",
-    "label": "University of Queensland",
-    "description": "Role: Primary Delivery Partners · Delivery: Research",
-    "website": "https://www.uq.edu.au/",
-    "location": "",
-    "tags": [
-      "Academic",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Research"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-76",
-    "type": "institution",
-    "label": "University of South Australia",
-    "description": "Role: Research",
-    "website": "https://unisa.edu.au/media-centre/Releases/2024/fighting-fires-from-space-in-record-time-how-ai-could-prevent-a-repeat-of-australias-devastating-wildfires/",
-    "location": "",
-    "tags": [
-      "Academic",
-      "Delivery Support",
-      "Research"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-8",
-    "type": "institution",
-    "label": "US Department of Interior (DOI)",
-    "description": "Role: Domain Subject Matter Experts",
-    "website": "https://www.space.gov.au/",
-    "location": "Austraalia",
-    "tags": [
-      "Government",
-      "Advisors",
-      "Domain Subject Matter Experts"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-102",
-    "type": "institution",
-    "label": "US Fire Administration",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers",
-    "website": "https://www.usfa.fema.gov/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-53",
-    "type": "institution",
-    "label": "USAID",
-    "description": "Role: Other Partners · Delivery: Consultants",
-    "website": "https://www.usaid.gov/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Other Partners",
-      "Consultants"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-101",
-    "type": "institution",
-    "label": "USFS",
-    "description": "Role: Beneficiaries · Delivery: Government / Policy Makers · Deliverables: Conservation and wildfire management",
-    "website": "https://www.fs.usda.gov/",
-    "location": "USA",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Beneficiaries",
-      "Government / Policy Makers",
-      "USA",
-      "AI Charter"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-92",
-    "type": "institution",
-    "label": "Vodafone",
-    "description": "Role: Industry · Delivery: Telecommunication",
-    "website": "https://www.vodafone.com/",
-    "location": "",
-    "tags": [
-      "Utility / telecommunication",
-      "Delivery Support",
-      "Industry",
-      "Telecommunication"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-70",
-    "type": "product",
-    "label": "VOLTALARM",
-    "description": "Role: Other Partners · Delivery: Other Participants / Grantees",
-    "website": "https://abv.int/en/early-warning-systems-hold-the-key-to-disaster-management-in-west-africa/",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Other Partners",
-      "Other Participants / Grantees"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-163",
-    "type": "institution",
-    "label": "Watch Duty",
-    "description": "Role: Primary Delivery Partners · Intervention: 1. Creating data, technology, & AI solutions that accelerate action",
-    "website": "https://www.watchduty.org/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Primary Delivery Partners",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-152",
-    "type": "institution",
-    "label": "WATEX System",
-    "description": "Role: External · Deliverables: Soil moisture data",
-    "website": "https://www.rtiexploration.com/fire-prevention-&-eco-forestation-mapping-w1.html",
-    "location": "Spain",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "Europe",
-      "Phase: Pre",
-      "Assess Pre-fire Risks"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-153",
-    "type": "product",
-    "label": "WEF FireAId Pilot",
-    "description": "Role: External · Deliverables: Enhanced risk assessment",
-    "website": "https://www3.weforum.org/docs/WEF_The_Next_Frontier_Wildfire_Fighting_2023.pdf",
-    "location": "Turkey",
-    "tags": [
-      "Nonprofit",
-      "External",
-      "Turkey",
-      "Phase: Pre",
-      "AI Charter",
-      "Assess Pre-fire Risks"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-130",
-    "type": "institution",
-    "label": "Western Fire Chiefs Association",
-    "description": "Role: External · Deliverables: Advocacy; leadership; coordination · Intervention: 2. Enabling faster, more precise data-driven decision making",
-    "website": "https://wfca.com/",
-    "location": "USA",
-    "tags": [
-      "Nonprofit",
-      "External",
-      "USA",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-6",
-    "type": "product",
-    "label": "White House Summit on Building Climate Resilient Communities",
-    "description": "Role: Domain Subject Matter Experts",
-    "website": "https://www.whitehouse.gov/briefing-room/statements-releases/2023/09/28/fact-sheet-biden-harris-administration-hosts-first-ever-white-house-climate-resilience-summit-and-releases-national-climate-resilience-framework/",
-    "location": "US",
-    "tags": [
-      "Government",
-      "Strategic Deciders",
-      "Domain Subject Matter Experts"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-99",
-    "type": "institution",
-    "label": "Wildfire Industry Collective",
-    "description": "Role: Beneficiaries · Delivery: Frontline Users of the AI solutions",
-    "website": "https://www.wildfire.industries/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Beneficiaries",
-      "Frontline Users of the AI solutions",
-      "AI Charter"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-28",
-    "type": "institution",
-    "label": "Wildfire Interdisciplinary Research Center",
-    "description": "Role: Primary Delivery Partners · Delivery: Research · Deliverables: Advanced predictive tools for wildfire management",
-    "website": "https://iucrc.nsf.gov/centers/wildfire-interdisciplinary-research-center-wirc/",
-    "location": "USA",
-    "tags": [
-      "Academic",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Research",
-      "USA",
-      "AI Charter"
-    ],
-    "institutionType": "University"
-  },
-  {
-    "id": "land-167",
-    "type": "product",
-    "label": "Wildfire Science and Technology Commons",
-    "description": "Role: External",
-    "website": "https://www.wildfirecommons.org/",
-    "location": "",
-    "tags": [
-      "NGO / Private / Public Partnership",
-      "External",
-      "AI Charter"
-    ],
-    "productType": "Web Platform / SaaS",
-    "status": "Operational"
-  },
-  {
-    "id": "land-154",
-    "type": "institution",
-    "label": "Windracers Environmental",
-    "description": "Role: External · Deliverables: Autonomous firefighting drones",
-    "website": "https://windracers.com/windracers-environmental-selected-to-advance-in-the-prestigious-xprize-wildfire-competition/",
-    "location": "UK",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "UK; Europe",
-      "Phase: Active",
-      "Respond + Monitor"
-    ],
-    "institutionType": "Private Sector"
-  },
-  {
-    "id": "land-25",
-    "type": "institution",
-    "label": "Woodwell",
-    "description": "Role: Primary Delivery Partners · Delivery: Implementers · Intervention: 1. Creating data, technology, & AI solutions that accelerate action",
-    "website": "https://www.woodwellclimate.org/fire-and-climate-audio-story/",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Primary Delivery",
-      "Primary Delivery Partners",
-      "Implementers",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-93",
-    "type": "institution",
-    "label": "World Bank",
-    "description": "Role: Industry · Delivery: Telecommunication",
-    "website": "https://datacatalog.worldbank.org/search?q=global%20wildfire%20hazard",
-    "location": "",
-    "tags": [
-      "Government",
-      "Delivery Support",
-      "Industry",
-      "Telecommunication"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-7",
-    "type": "institution",
-    "label": "World Economic Forum",
-    "description": "Role: Domain Subject Matter Experts · Intervention: 3. Enabling environment",
-    "website": "https://www.weforum.org/publications/the-next-frontier-in-fighting-wildfires-fireaid-pilot-and-scaling/",
-    "location": "Global",
-    "tags": [
-      "Nonprofit",
-      "Strategic Deciders",
-      "Domain Subject Matter Experts",
-      "AI Charter",
-      "GWFC Funded"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-18",
-    "type": "institution",
-    "label": "World Meteorological Organization (WMO)",
-    "description": "Role: Domain Subject Matter Experts",
-    "website": "https://wmo.int/",
-    "location": "Global",
-    "tags": [
-      "Government",
-      "Advisors",
-      "Domain Subject Matter Experts"
-    ],
-    "institutionType": "Federal Agency"
-  },
-  {
-    "id": "land-17",
-    "type": "institution",
-    "label": "World Wildlife Fund",
-    "description": "Role: Domain Subject Matter Experts",
-    "website": "https://www.worldwildlife.org/stories/fire-management",
-    "location": "Global",
-    "tags": [
-      "Nonprofit",
-      "Advisors",
-      "Domain Subject Matter Experts"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-71",
-    "type": "institution",
-    "label": "XPRIZE Wildfires",
-    "description": "Role: Other Partners · Delivery: Other Participants / Grantees",
-    "website": "https://www.xprize.org/prizes/wildfire",
-    "location": "",
-    "tags": [
-      "Nonprofit",
-      "Delivery Support",
-      "Other Partners",
-      "Other Participants / Grantees"
-    ],
-    "institutionType": "NGO"
-  },
-  {
-    "id": "land-155",
-    "type": "institution",
-    "label": "XyloPlan",
-    "description": "Role: External · Deliverables: Risk maps and reports",
-    "website": "https://www.xyloplan.com/",
-    "location": "Canada",
-    "tags": [
-      "Startup / Private",
-      "External",
-      "Canada",
-      "Phase: Pre",
-      "Assess Pre-fire Risks"
-    ],
-    "institutionType": "Private Sector"
-  }
-],
-  edges: [
-  {
-    "id": "edge-cwi-rhf",
-    "source": "inst-cwi",
-    "target": "prog-rhf",
-    "type": "OPERATES",
-    "label": "administers",
-    "how": "administers statewide wildfire risk reduction grant program",
-    "modality": "grant funding & homeowner technical assistance"
-  },
-  {
-    "id": "edge-cwi-firelines",
-    "source": "inst-cwi",
-    "target": "prod-firelines",
-    "type": "LEADS",
-    "label": "develops",
-    "how": "leads wildfire intelligence graph architecture & decision tools",
-    "modality": "knowledge graph & data ontology"
-  },
-  {
-    "id": "edge-cwi-efa",
-    "source": "inst-cwi",
-    "target": "collab-efa",
-    "type": "PARTNERS_IN",
-    "label": "partners in",
-    "how": "boundary policy translation & science advisory",
-    "modality": "coalition leadership"
-  },
-  {
-    "id": "edge-calfire-rhf",
-    "source": "inst-calfire",
-    "target": "prog-rhf",
-    "type": "FUNDS",
-    "label": "co-funds",
-    "how": "California state wildfire defense & community grants",
-    "modality": "public finance"
-  },
-  {
-    "id": "edge-google-efa",
-    "source": "inst-google-org",
-    "target": "collab-efa",
-    "type": "PARTNERS_IN",
-    "label": "partners in",
-    "how": "AI fire detection models & cloud analytics funding",
-    "modality": "machine learning & compute"
-  },
-  {
-    "id": "edge-muon-efa",
-    "source": "inst-muon-space",
-    "target": "collab-efa",
-    "type": "PARTNERS_IN",
-    "label": "partners in",
-    "how": "makes satellites & sensor buses",
-    "modality": "satellite hardware"
-  },
-  {
-    "id": "edge-efa-firesat",
-    "source": "collab-efa",
-    "target": "prod-firesat",
-    "type": "PRODUCES",
-    "label": "produces",
-    "how": "develops & operates satellite constellation",
-    "modality": "satellite operations"
-  },
-  {
-    "id": "edge-firesat-topic-mon",
-    "source": "prod-firesat",
-    "target": "topic-fire-monitoring",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "spaceborne active fire detection",
-    "modality": "infrared imaging"
-  },
-  {
-    "id": "edge-firesat-topic-sat",
-    "source": "prod-firesat",
-    "target": "topic-firesat",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "orbital constellation",
-    "modality": "LEO telemetry"
-  },
-  {
-    "id": "edge-rhf-topic-hh",
-    "source": "prog-rhf",
-    "target": "topic-home-hardening",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "homeowner defense & structure hardening grants",
-    "modality": "parcel-level grants"
-  },
-  {
-    "id": "edge-firelines-topic-dec",
-    "source": "prod-firelines",
-    "target": "topic-decision-support",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "operational knowledge mapping",
-    "modality": "graph platform"
-  },
-  {
-    "id": "edge-land-100",
-    "source": "land-54",
-    "target": "land-29",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Real-time fire alerts",
-    "modality": "Phase: Pre, Active"
-  },
-  {
-    "id": "edge-land-101",
-    "source": "land-54",
-    "target": "land-168",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Real-time fire alerts",
-    "modality": "Phase: Pre, Active"
-  },
-  {
-    "id": "edge-land-102",
-    "source": "land-118",
-    "target": "land-119",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Weather forecasts; climate services",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-103",
-    "source": "land-118",
-    "target": "land-18",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Weather forecasts; climate services",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-topic-104",
-    "source": "land-87",
-    "target": "topic-decision-support",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Data-driven decision making and incident tools",
-    "modality": "operational apps"
-  },
-  {
-    "id": "edge-topic-105",
-    "source": "land-3",
-    "target": "topic-decision-support",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Data-driven decision making and incident tools",
-    "modality": "operational apps"
-  },
-  {
-    "id": "edge-topic-106",
-    "source": "land-134",
-    "target": "topic-decision-support",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Data-driven decision making and incident tools",
-    "modality": "operational apps"
-  },
-  {
-    "id": "edge-topic-107",
-    "source": "land-120",
-    "target": "topic-decision-support",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Data-driven decision making and incident tools",
-    "modality": "operational apps"
-  },
-  {
-    "id": "edge-topic-108",
-    "source": "land-5",
-    "target": "topic-decision-support",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Data-driven decision making and incident tools",
-    "modality": "operational apps"
-  },
-  {
-    "id": "edge-land-109",
-    "source": "land-94",
-    "target": "land-22",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Statewide fire management",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-110",
-    "source": "land-94",
-    "target": "land-144",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Statewide fire management",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-111",
-    "source": "land-56",
-    "target": "land-123",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Prediction and prevention of wildfires",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-112",
-    "source": "land-73",
-    "target": "land-122",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Forest restoration strategies",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-113",
-    "source": "land-123",
-    "target": "land-9",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Data for environmental monitoring",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-114",
-    "source": "land-95",
-    "target": "land-110",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Regional early warning and wildfire strategies",
-    "modality": "Phase: Pre, Active"
-  },
-  {
-    "id": "edge-land-115",
-    "source": "collab-efa",
-    "target": "land-132",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Near real-time wildfire detection",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-topic-116",
-    "source": "collab-efa",
-    "target": "topic-remote-sensing",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Remote sensing technology & observation",
-    "modality": "remote sensing"
-  },
-  {
-    "id": "edge-topic-117",
-    "source": "collab-efa",
-    "target": "topic-data-commons",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Wildfire data repositories and stores",
-    "modality": "data store"
-  },
-  {
-    "id": "edge-topic-118",
-    "source": "land-23",
-    "target": "topic-firesat",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "FireSat satellite data integration",
-    "modality": "satellite data pipeline"
-  },
-  {
-    "id": "edge-topic-119",
-    "source": "land-23",
-    "target": "topic-data-commons",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Wildfire data repositories and stores",
-    "modality": "data store"
-  },
-  {
-    "id": "edge-land-120",
-    "source": "land-64",
-    "target": "land-62",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Stakeholder coordination and ecosystem recovery",
-    "modality": "Phase: Post"
-  },
-  {
-    "id": "edge-land-121",
-    "source": "land-132",
-    "target": "land-168",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Global fire detection from space",
-    "modality": "Phase: Pre"
-  },
-  {
-    "id": "edge-topic-122",
-    "source": "land-132",
-    "target": "topic-remote-sensing",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Remote sensing technology & observation",
-    "modality": "remote sensing"
-  },
-  {
-    "id": "edge-topic-123",
-    "source": "land-132",
-    "target": "topic-data-commons",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Wildfire data repositories and stores",
-    "modality": "data store"
-  },
-  {
-    "id": "edge-land-124",
-    "source": "land-106",
-    "target": "land-123",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Centralized global wildfire data",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-125",
-    "source": "inst-google-org",
-    "target": "land-123",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "15-minute wildfire detection reduction, global int",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-126",
-    "source": "land-107",
-    "target": "land-119",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Environmental data and analysis",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-127",
-    "source": "land-107",
-    "target": "land-123",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Environmental data and analysis",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-128",
-    "source": "land-36",
-    "target": "inst-google-org",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Real-time fire tracking and detection networks",
-    "modality": "Phase: Pre, Active"
-  },
-  {
-    "id": "edge-topic-129",
-    "source": "land-36",
-    "target": "topic-remote-sensing",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Remote sensing technology & observation",
-    "modality": "remote sensing"
-  },
-  {
-    "id": "edge-land-130",
-    "source": "land-22",
-    "target": "land-19",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Optimized landscape treatments, enhanced ecosystem",
-    "modality": "Phase: Pre, Post"
-  },
-  {
-    "id": "edge-topic-131",
-    "source": "land-22",
-    "target": "topic-firesat",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "FireSat satellite data integration",
-    "modality": "satellite data pipeline"
-  },
-  {
-    "id": "edge-topic-132",
-    "source": "land-22",
-    "target": "topic-risk-mapping",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Wildfire hazard & vulnerability mapping",
-    "modality": "hazard analysis"
-  },
-  {
-    "id": "edge-topic-133",
-    "source": "land-22",
-    "target": "topic-decision-support",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Data-driven decision making and incident tools",
-    "modality": "operational apps"
-  },
-  {
-    "id": "edge-topic-134",
-    "source": "land-22",
-    "target": "topic-data-commons",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Wildfire data repositories and stores",
-    "modality": "data store"
-  },
-  {
-    "id": "edge-land-135",
-    "source": "land-158",
-    "target": "land-19",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Optimized landscape treatments, enhanced ecosystem",
-    "modality": "Phase: Pre, Post"
-  },
-  {
-    "id": "edge-land-136",
-    "source": "land-158",
-    "target": "land-94",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Optimized landscape treatments, enhanced ecosystem",
-    "modality": "Phase: Pre, Post"
-  },
-  {
-    "id": "edge-topic-137",
-    "source": "land-158",
-    "target": "topic-firesat",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "FireSat satellite data integration",
-    "modality": "satellite data pipeline"
-  },
-  {
-    "id": "edge-topic-138",
-    "source": "land-158",
-    "target": "topic-risk-mapping",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Wildfire hazard & vulnerability mapping",
-    "modality": "hazard analysis"
-  },
-  {
-    "id": "edge-topic-139",
-    "source": "land-158",
-    "target": "topic-decision-support",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Data-driven decision making and incident tools",
-    "modality": "operational apps"
-  },
-  {
-    "id": "edge-topic-140",
-    "source": "land-158",
-    "target": "topic-data-commons",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Wildfire data repositories and stores",
-    "modality": "data store"
-  },
-  {
-    "id": "edge-land-141",
-    "source": "land-62",
-    "target": "land-123",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Real-time wildfire response and post-fire risk ass",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-142",
-    "source": "land-62",
-    "target": "land-106",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Real-time wildfire response and post-fire risk ass",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-143",
-    "source": "land-148",
-    "target": "land-9",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Advanced wildfire behavior models",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-144",
-    "source": "land-148",
-    "target": "land-123",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Advanced wildfire behavior models",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-145",
-    "source": "land-75",
-    "target": "land-109",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Technological solutions for wildfire detection",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-146",
-    "source": "land-16",
-    "target": "inst-google-org",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Wildfire management solutions",
-    "modality": "Phase: All"
-  },
-  {
-    "id": "edge-land-147",
-    "source": "land-38",
-    "target": "land-62",
-    "type": "COLLABORATES_WITH",
-    "label": "collaborates with",
-    "how": "Early detection in high-risk areas",
-    "modality": "Phase: Pre, Active"
-  },
-  {
-    "id": "edge-topic-148",
-    "source": "land-130",
-    "target": "topic-firesat",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "FireSat satellite data integration",
-    "modality": "satellite data pipeline"
-  },
-  {
-    "id": "edge-topic-149",
-    "source": "land-130",
-    "target": "topic-risk-mapping",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Wildfire hazard & vulnerability mapping",
-    "modality": "hazard analysis"
-  },
-  {
-    "id": "edge-topic-150",
-    "source": "land-130",
-    "target": "topic-decision-support",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Data-driven decision making and incident tools",
-    "modality": "operational apps"
-  },
-  {
-    "id": "edge-topic-151",
-    "source": "land-130",
-    "target": "topic-data-commons",
-    "type": "HAS_TOPIC",
-    "label": "has topic",
-    "how": "Wildfire data repositories and stores",
-    "modality": "data store"
-  }
-],
+  "metadata": {
+    "title": "Climate & Wildfire Institute (CWI) - Wildfire Intelligence Landscape",
+    "version": "2.1.0",
+    "description": "Wildfire intelligence knowledge graph connecting organizations, systems, collaboratives, funders and topics. Generated by scripts/build-data.mjs from sheet1.csv and data/curated.json.",
+    "lastUpdated": "2026-10-16"
+  },
+  "nodes": [
+    {
+      "id": "topic-fire-monitoring",
+      "type": "topic",
+      "label": "Fire Monitoring & Early Detection",
+      "domain": "Remote Sensing & Spaceborne Observation",
+      "scope": "Thermal infrared sensors, satellite detection, automated wildfire alerts within minutes of ignition.",
+      "modalities": [
+        "satellite",
+        "infrared",
+        "edge-compute",
+        "ground-sensor"
+      ],
+      "tags": [
+        "Topic",
+        "Detection",
+        "Infrared",
+        "Satellite",
+        "Early Warning"
+      ]
+    },
+    {
+      "id": "topic-firesat",
+      "type": "topic",
+      "label": "FireSat Constellation & Orbitals",
+      "domain": "Spaceborne Remote Sensing",
+      "scope": "Multi-satellite constellation dedicated to high-frequency wildfire perimeter and hotspot tracking.",
+      "modalities": [
+        "satellite",
+        "infrared",
+        "space-telemetry"
+      ],
+      "tags": [
+        "Topic",
+        "FireSat",
+        "Earth Fire Alliance",
+        "Muon Space",
+        "Google.org"
+      ]
+    },
+    {
+      "id": "topic-spread-modeling",
+      "type": "topic",
+      "label": "Wildfire Spread & Physics Modeling",
+      "domain": "Computational Fire Physics & AI",
+      "scope": "Surface fire propagation, crown runs, Rothermel physics, Albini ember spotting, level-set methods.",
+      "modalities": [
+        "simulation",
+        "physics-engine",
+        "ai-spread"
+      ],
+      "tags": [
+        "Topic",
+        "Simulation",
+        "Physics",
+        "Spread",
+        "Embers"
+      ]
+    },
+    {
+      "id": "topic-risk-mapping",
+      "type": "topic",
+      "label": "Wildfire Risk & Hazard Mapping",
+      "domain": "Geospatial Analytics & Pre-fire Assessment",
+      "scope": "Parcel-level and landscape-level fire hazard severity mapping, fuel moisture, exposure modeling.",
+      "modalities": [
+        "gis",
+        "satellite",
+        "hazard-indices"
+      ],
+      "tags": [
+        "Topic",
+        "Risk Mapping",
+        "WUI",
+        "Hazard",
+        "GIS"
+      ]
+    },
+    {
+      "id": "topic-remote-sensing",
+      "type": "topic",
+      "label": "Remote Sensing Tech & Applications",
+      "domain": "Earth Observation & Sensor Systems",
+      "scope": "Multispectral, hyperspectral, LiDAR, and SAR imaging for fuels, canopy height, and post-fire severity.",
+      "modalities": [
+        "satellite",
+        "airborne",
+        "lidar",
+        "multispectral"
+      ],
+      "tags": [
+        "Topic",
+        "Remote Sensing",
+        "Earth Observation",
+        "LiDAR"
+      ]
+    },
+    {
+      "id": "topic-home-hardening",
+      "type": "topic",
+      "label": "Home Hardening & Defensible Space",
+      "domain": "Community Resilience & Frontline Defense",
+      "scope": "Structure survival, ember-resistant vents, non-combustible zone 0, homeowner grant distribution.",
+      "modalities": [
+        "on-the-ground",
+        "grants",
+        "structural-inspection"
+      ],
+      "tags": [
+        "Topic",
+        "Home Hardening",
+        "Defensible Space",
+        "Resilient Home Fund",
+        "CWI"
+      ]
+    },
+    {
+      "id": "topic-decision-support",
+      "type": "topic",
+      "label": "Operational Decision Support & Incident Apps",
+      "domain": "Incident Command & Policy Translation",
+      "scope": "Real-time situational awareness platforms, evacuation planning, cross-agency coordination.",
+      "modalities": [
+        "web-platform",
+        "api",
+        "mobile-ops"
+      ],
+      "tags": [
+        "Topic",
+        "Decision Support",
+        "Incident Command",
+        "Operations"
+      ]
+    },
+    {
+      "id": "topic-data-commons",
+      "type": "topic",
+      "label": "Wildfire Data Stores & Commons",
+      "domain": "Open Data & Federated Infrastructure",
+      "scope": "Shared repositories of fire weather, historical fire perimeters, vegetation fuels, and benchmark datasets.",
+      "modalities": [
+        "cloud-storage",
+        "open-api",
+        "stac-catalogs"
+      ],
+      "tags": [
+        "Topic",
+        "Data Commons",
+        "Open Data",
+        "Benchmarks"
+      ]
+    },
+    {
+      "id": "inst-cwi",
+      "type": "institution",
+      "label": "Climate & Wildfire Institute",
+      "acronym": "CWI",
+      "institutionType": "NGO",
+      "location": "Berkeley & Grass Valley, CA",
+      "website": "https://climateandwildfire.org",
+      "description": "Boundary organization accelerating the translation of wildfire science into public policy and frontline practice. Creator of the Firelines Knowledge Graph and administrator of the Resilient Home Fund.",
+      "tags": [
+        "CWI",
+        "Wildfire",
+        "Policy",
+        "Community Resilience",
+        "Boundary Org",
+        "501(c)(3)",
+        "CWI Network"
+      ],
+      "coordinates": [
+        -122.273,
+        37.872
+      ]
+    },
+    {
+      "id": "prog-rhf",
+      "type": "program",
+      "label": "Resilient Home Fund",
+      "acronym": "RHF",
+      "domain": "Community Wildfire Resilience",
+      "leadInstitutionId": "inst-cwi",
+      "launchYear": 2024,
+      "status": "Active",
+      "description": "Wildfire risk reduction grant program for California homeowners administered by the Climate & Wildfire Institute. Connects public action and funding to home hardening and defensible space.",
+      "website": "https://www.resilienthomefund.org",
+      "tags": [
+        "CWI",
+        "Resilient Home Fund",
+        "Grants",
+        "Home Hardening",
+        "Defensible Space",
+        "California"
+      ]
+    },
+    {
+      "id": "prod-firelines",
+      "type": "product",
+      "label": "Firelines Knowledge Graph & Ontology",
+      "productType": "Web Platform / SaaS",
+      "version": "v2.0",
+      "status": "Operational",
+      "repositoryUrl": "https://github.com/davidsaah/GraphEmber",
+      "website": "https://climateandwildfire.org/advance",
+      "description": "CWI boundary intelligence platform mapping cross-sector wildfire programs, satellite constellations, policy bodies, and scientific research.",
+      "tags": [
+        "CWI",
+        "Firelines",
+        "Ontology",
+        "Knowledge Graph",
+        "Wildfire Intelligence"
+      ]
+    },
+    {
+      "id": "collab-efa",
+      "type": "collaborative",
+      "label": "Earth Fire Alliance",
+      "acronym": "EFA",
+      "mission": "A global multi-stakeholder coalition accelerating early wildfire detection and tracking by developing and launching the FireSat constellation.",
+      "formationYear": 2023,
+      "governanceModel": "Consortium",
+      "focusAreas": [
+        "FireSat Constellation",
+        "Satellite Infrared",
+        "Early Detection",
+        "Wildfire Policy"
+      ],
+      "tags": [
+        "Collaborative",
+        "Coalition",
+        "San Francisco",
+        "EFA",
+        "FireSat",
+        "Nonprofit",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Implementers",
+        "Global",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "GWFC Funded",
+        "Creating data, technology, & AI solutions that accelerate action",
+        "CWI Network"
+      ],
+      "description": "Alliance uniting Google.org, Muon Space, Environmental Defense Fund, CWI, Moore Foundation, and Minderoo Foundation to launch and operate FireSat.",
+      "website": "https://www.earthfirealliance.org/"
+    },
+    {
+      "id": "prod-firesat",
+      "type": "product",
+      "label": "FireSat Constellation",
+      "productType": "Project / Hardware",
+      "version": "52-satellite constellation",
+      "status": "Active Development",
+      "location": "Low Earth Orbit (LEO)",
+      "documentationUrl": "https://earthfirealliance.org",
+      "techStack": [
+        "Custom Multispectral Infrared Sensor",
+        "Muon Space Spacecraft Bus",
+        "Google Cloud AI"
+      ],
+      "description": "Purpose-built satellite constellation tracking early-stage fires as small as 5x5 meters globally with 20-minute revisit times.",
+      "tags": [
+        "Product",
+        "Satellite",
+        "Hardware",
+        "Infrared",
+        "EFA",
+        "FireSat",
+        "NGO / Private Partnership",
+        "Primary Delivery Partners",
+        "Global",
+        "Phase: Pre",
+        "Detect + Validate",
+        "AI Charter",
+        "GWFC Funded",
+        "Works with: NASA"
+      ],
+      "website": "https://sites.research.google/gr/wildfires/firesat/"
+    },
+    {
+      "id": "inst-google-org",
+      "type": "institution",
+      "label": "Google.org & Google Research",
+      "acronym": "Google.org",
+      "institutionType": "Private Sector",
+      "location": "Mountain View, CA",
+      "website": "https://google.org",
+      "description": "Philanthropic and cutting-edge research arm of Google driving AI for social and climate impact.",
+      "tags": [
+        "AI/ML",
+        "Philanthropy",
+        "Earth Engine",
+        "Cloud Tech",
+        "Startup / Private",
+        "Research",
+        "Phase: Pre, Active",
+        "AI Charter",
+        "Creating data, technology, & AI solutions that accelerate action",
+        "Philanthropic",
+        "Strategic Deciders",
+        "Ecosystem Builder",
+        "Global",
+        "Phase: All",
+        "All Stages",
+        "Enabling environment",
+        "CWI Network"
+      ],
+      "coordinates": [
+        -122.084,
+        37.386
+      ]
+    },
+    {
+      "id": "inst-muon-space",
+      "type": "institution",
+      "label": "Muon Space",
+      "acronym": "Muon",
+      "institutionType": "Private Sector",
+      "location": "Mountain View, CA",
+      "website": "https://muonspace.com",
+      "description": "End-to-end satellite mission provider engineering constellation hardware, spacecraft buses, and payloads for Earth observation.",
+      "tags": [
+        "Satellites",
+        "Space Hardware",
+        "Remote Sensing",
+        "Private Sector",
+        "Startup / Private",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Implementers",
+        "AI Charter",
+        "GWFC Funded",
+        "Enabling faster, more precise data-driven decision making"
+      ]
+    },
+    {
+      "id": "inst-calfire",
+      "type": "institution",
+      "label": "CAL FIRE",
+      "acronym": "CAL FIRE",
+      "institutionType": "Federal Agency",
+      "location": "Sacramento, CA",
+      "website": "https://www.fire.ca.gov",
+      "description": "California Department of Forestry and Fire Protection, leading wildland fire protection and stewardship.",
+      "tags": [
+        "Wildfire",
+        "State Agency",
+        "Fire Operations",
+        "Forest Health",
+        "California",
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Frontline Users of the AI solutions",
+        "California, USA",
+        "Phase: All",
+        "All Stages",
+        "Convening",
+        "Works with: Planscape",
+        "Works with: Utility Companies",
+        "CWI Network"
+      ],
+      "coordinates": [
+        -121.494,
+        38.582
+      ]
+    },
+    {
+      "id": "land-89",
+      "type": "institution",
+      "label": "AD Telecom",
+      "description": "Industry in the AI wildfire landscape (Telecommunication).",
+      "website": "http://www.adtelecom.es/",
+      "tags": [
+        "Utility / telecommunication",
+        "Delivery Support",
+        "Industry",
+        "Telecommunication",
+        "Convening"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-47",
+      "type": "institution",
+      "label": "Adaptation Fund",
+      "description": "Wildfire management projects.",
+      "website": "https://www.adaptation-fund.org/",
+      "location": "Global",
+      "tags": [
+        "Philanthropic",
+        "Delivery Support",
+        "Program Funders",
+        "Developing Countries",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Convening",
+        "Works with: UNFCCC",
+        "Works with: Developing Nations"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-54",
+      "type": "product",
+      "label": "Advanced Fire Information System (AFIS)",
+      "description": "Real-time fire alerts.",
+      "website": "https://engineeringnews.co.za/article/wildfire-satellite-detection-system-launched-across-africa-2015-08-21",
+      "location": "South Africa",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Other Partners",
+        "Practitioners",
+        "Africa",
+        "Phase: Pre, Active",
+        "Detect + Validate",
+        "Convening",
+        "Works with: NASA"
+      ],
+      "acronym": "AFIS",
+      "status": "Operational"
+    },
+    {
+      "id": "land-118",
+      "type": "institution",
+      "label": "African Centre of Meteorological Application for Development (ACMAD)",
+      "description": "Weather forecasts; climate services.",
+      "website": "https://acmad.org/",
+      "location": "Africa",
+      "tags": [
+        "Nonprofit",
+        "External",
+        "Africa",
+        "Phase: All",
+        "All Stages",
+        "Convening"
+      ],
+      "acronym": "ACMAD",
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-119",
+      "type": "institution",
+      "label": "African Union Commission (AUC)",
+      "description": "Continental policies and programs.",
+      "website": "https://au.int/en/commission",
+      "location": "Africa",
+      "tags": [
+        "Government",
+        "External",
+        "Africa",
+        "Phase: All",
+        "All Stages",
+        "Convening",
+        "Works with: African Nations"
+      ],
+      "acronym": "AUC",
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-103",
+      "type": "product",
+      "label": "AlertCalifornia",
+      "description": "Beneficiaries in the AI wildfire landscape (Government / Policy Makers).",
+      "website": "https://alertcalifornia.org/about/",
+      "tags": [
+        "Academic",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers",
+        "Convening"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-104",
+      "type": "product",
+      "label": "AlertWildfire",
+      "description": "Detection and evacuation planning systems.",
+      "website": "https://www.alertwildfire.org/about/",
+      "location": "Western USA",
+      "tags": [
+        "Academic",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers",
+        "Western USA",
+        "Phase: Active",
+        "Detect + Validate",
+        "Convening",
+        "Works with: Universities",
+        "Works with: State Fire Services"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-55",
+      "type": "collaborative",
+      "label": "All Partners Access Network",
+      "description": "Improved communication.",
+      "website": "https://www.apan.org/pages/case-study-wildfires",
+      "location": "USA",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Other Partners",
+        "Practitioners",
+        "Global",
+        "Phase: All",
+        "All Stages",
+        "Convening",
+        "Works with: Government Agencies"
+      ],
+      "governanceModel": "Consortium",
+      "focusAreas": [
+        "Improved communication"
+      ]
+    },
+    {
+      "id": "land-83",
+      "type": "institution",
+      "label": "American Family Insurance",
+      "description": "Industry in the AI wildfire landscape (Insurance).",
+      "website": "https://www.amfamventures.com/news/the-vast-potential-of-wildfire-tech/",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Industry",
+        "Insurance",
+        "Convening"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-15",
+      "type": "institution",
+      "label": "American Forests",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "https://www.americanforests.org/",
+      "location": "US",
+      "tags": [
+        "Nonprofit",
+        "Advisors",
+        "Domain Subject Matter Experts",
+        "Convening"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-51",
+      "type": "institution",
+      "label": "Arabella",
+      "description": "Other Partners in the AI wildfire landscape (Consultants).",
+      "website": "https://www.arabellaadvisors.com/company/",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Other Partners",
+        "Consultants",
+        "Convening"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-87",
+      "type": "institution",
+      "label": "ARAUCO",
+      "description": "Sustainable timber products.",
+      "website": "https://ororatech.com/ororatech-arauco-battling-devastating-fires-in-chile/",
+      "location": "Chile",
+      "tags": [
+        "Timber",
+        "Delivery Support",
+        "Industry",
+        "Timber Companies",
+        "Chile",
+        "Phase: All",
+        "All Stages",
+        "Convening",
+        "Works with: Chilean Government"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-164",
+      "type": "collaborative",
+      "label": "Australasian Fire and Emergency Services Council Limited (AFAC)",
+      "description": "Other Partners in the AI wildfire landscape.",
+      "website": "https://www.afac.com.au/",
+      "tags": [
+        "Nonprofit",
+        "Other Partners",
+        "Phase: All",
+        "AI Charter",
+        "GWFC Funded",
+        "Convening",
+        "Enabling faster, more precise data-driven decision making"
+      ],
+      "acronym": "AFAC",
+      "governanceModel": "Consortium",
+      "focusAreas": []
+    },
+    {
+      "id": "land-3",
+      "type": "institution",
+      "label": "Bayshore Global Management",
+      "description": "Environmental initiatives.",
+      "website": "https://bayshorecap.com/",
+      "location": "US",
+      "tags": [
+        "Philanthropic",
+        "Strategic Deciders",
+        "Anchor Funders",
+        "USA",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Convening",
+        "Enabling environment",
+        "Works with: Various environmental organizations"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-134",
+      "type": "product",
+      "label": "Behave/FlamMap/Farsite/FSIM (USFS RMRS FMI Software Suite)",
+      "description": "Simulation tools for fire management.",
+      "website": "https://www.firelab.org/applications",
+      "location": "USA",
+      "tags": [
+        "Government",
+        "External",
+        "USA",
+        "Phase: Pre",
+        "Assess Pre-fire Risks",
+        "AI Charter",
+        "Convening",
+        "Works with: US Forest Service"
+      ],
+      "acronym": "USFS RMRS FMI Software Suite",
+      "status": "Operational"
+    },
+    {
+      "id": "land-120",
+      "type": "product",
+      "label": "Bellwether",
+      "description": "Quick detection alerts for high-risk areas.",
+      "website": "https://x.company/projects/bellwether/",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "Western USA",
+        "Phase: Pre",
+        "Pre-fire",
+        "Convening",
+        "Works with: Google X",
+        "Works with: Fire Managers"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-5",
+      "type": "institution",
+      "label": "Bezos Earth Fund",
+      "description": "Wildfire prevention and management projects.",
+      "website": "https://www.bezosearthfund.org/",
+      "location": "Global",
+      "tags": [
+        "Philanthropic",
+        "Strategic Deciders",
+        "Anchor Funders",
+        "Global",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Convening",
+        "Works with: Environmental NGOs"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-39",
+      "type": "institution",
+      "label": "Blue Forest",
+      "description": "Program Funders in the AI wildfire landscape.",
+      "website": "https://www.blueforest.org/finance/forest-resilience-bond/",
+      "location": "Sacramento, CA",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Program Funders",
+        "Convening",
+        "CWI Network"
+      ],
+      "institutionType": "NGO",
+      "coordinates": [
+        -121.494,
+        38.582
+      ]
+    },
+    {
+      "id": "land-121",
+      "type": "institution",
+      "label": "Bushfire Research Centre of Excellence",
+      "description": "Improved bushfire management strategies.",
+      "website": "https://brcoe.org/",
+      "location": "Australia",
+      "tags": [
+        "Nonprofit",
+        "External",
+        "Australia",
+        "Phase: All",
+        "All Stages",
+        "Convening",
+        "Works with: Australian Fire Agencies"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-40",
+      "type": "collaborative",
+      "label": "CA Organized Investment Network",
+      "description": "Program Funders in the AI wildfire landscape.",
+      "website": "https://www.insurance.ca.gov/0250-insurers/0700-coin/",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Program Funders",
+        "Convening"
+      ],
+      "governanceModel": "Consortium",
+      "focusAreas": []
+    },
+    {
+      "id": "land-13",
+      "type": "institution",
+      "label": "Cal-Poly Wildland-Urban Interface Fire Institute",
+      "description": "Risk mitigation strategies in urban areas.",
+      "website": "https://fire.calpoly.edu/",
+      "location": "US",
+      "tags": [
+        "Academic",
+        "Advisors",
+        "Research",
+        "USA",
+        "Phase: All",
+        "All Stages",
+        "Convening",
+        "Works with: Fire Departments",
+        "Works with: Urban Planners"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-156",
+      "type": "institution",
+      "label": "California Governor's Office of Emergency Services (CalOES)",
+      "description": "External in the AI wildfire landscape.",
+      "website": "https://www.caloes.ca.gov/",
+      "tags": [
+        "Government",
+        "External",
+        "Convening"
+      ],
+      "acronym": "CalOES",
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-31",
+      "type": "institution",
+      "label": "California Natural Resource Agency",
+      "description": "Primary Delivery Partners in the AI wildfire landscape (Policymakers / Analysts).",
+      "website": "https://resources.ca.gov/",
+      "tags": [
+        "Government",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Policymakers / Analysts",
+        "Convening"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-113",
+      "type": "collaborative",
+      "label": "California Wildfire & Forest Resilience Task Force",
+      "description": "Beneficiaries in the AI wildfire landscape (Researchers).",
+      "website": "https://wildfiretaskforce.org/",
+      "tags": [
+        "NGO / Private / Public Partnership",
+        "Delivery Support",
+        "Beneficiaries",
+        "Researchers",
+        "Convening"
+      ],
+      "governanceModel": "Consortium",
+      "focusAreas": []
+    },
+    {
+      "id": "land-172",
+      "type": "institution",
+      "label": "Canadian Interagency Forest Fire Centre",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "tags": [
+        "Government",
+        "Domain Subject Matter Experts",
+        "Creating data, technology, & AI solutions that accelerate action"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-26",
+      "type": "institution",
+      "label": "Cary Institute",
+      "description": "Primary Delivery Partners in the AI wildfire landscape (Research).",
+      "website": "https://www.caryinstitute.org/",
+      "tags": [
+        "Nonprofit",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Research",
+        "AI Charter"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-56",
+      "type": "institution",
+      "label": "CIMA Foundation",
+      "description": "Prediction and prevention of wildfires.",
+      "website": "https://www.cimafoundation.org/en/",
+      "location": "Italy",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Other Partners",
+        "Practitioners",
+        "Italy; Europe",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Works with: Italian Government",
+        "Works with: EU"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-111",
+      "type": "institution",
+      "label": "Climate and Wildfire Institute",
+      "description": "Solutions for climate and wildfire challenges.",
+      "website": "https://climateandwildfire.org/",
+      "location": "USA",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Beneficiaries",
+        "Other information users",
+        "USA",
+        "Phase: All",
+        "All Stages",
+        "Enabling faster, more precise data-driven decision making",
+        "Works with: Environmental Organizations"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-42",
+      "type": "institution",
+      "label": "Climate Resilience Fund",
+      "description": "Program Funders in the AI wildfire landscape.",
+      "website": "https://www.climateresiliencefund.org/initiatives/wildfire-resilience-funders/",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Program Funders",
+        "AI Charter",
+        "Enabling environment"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-73",
+      "type": "institution",
+      "label": "Colorado Forest Restoration Institute (CFRI)",
+      "description": "Forest restoration strategies.",
+      "website": "https://cfri.colostate.edu/",
+      "location": "Colorado",
+      "tags": [
+        "Academic",
+        "Delivery Support",
+        "Research",
+        "Colorado, USA",
+        "Phase: All",
+        "All Stages",
+        "Works with: US Forest Service"
+      ],
+      "acronym": "CFRI",
+      "institutionType": "University"
+    },
+    {
+      "id": "land-122",
+      "type": "institution",
+      "label": "Colorado State University",
+      "description": "Forest resilience strategies.",
+      "website": "https://csfs.colostate.edu/wildfire-mitigation/",
+      "location": "Colorado",
+      "tags": [
+        "Academic",
+        "External",
+        "Colorado, USA",
+        "Phase: All",
+        "All Stages",
+        "CWI Network"
+      ],
+      "institutionType": "University",
+      "coordinates": [
+        -105.084,
+        40.585
+      ]
+    },
+    {
+      "id": "land-63",
+      "type": "institution",
+      "label": "Conservation X Labs",
+      "description": "Other Partners in the AI wildfire landscape (Other Participants / Grantees).",
+      "website": "https://conservationxlabs.com/",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Other Partners",
+        "Other Participants / Grantees"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-48",
+      "type": "institution",
+      "label": "Convective Capital",
+      "description": "Program Funders in the AI wildfire landscape.",
+      "website": "https://www.convectivecapital.com/",
+      "tags": [
+        "Venture Capital",
+        "Delivery Support",
+        "Program Funders",
+        "AI Charter"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-123",
+      "type": "institution",
+      "label": "Copernicus EU",
+      "description": "Data for environmental monitoring.",
+      "website": "https://www.copernicus.eu/en/european-forest-fire-information-system",
+      "location": "EU",
+      "tags": [
+        "Government",
+        "External",
+        "EU",
+        "Phase: All",
+        "All Stages",
+        "Works with: EU Commission"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-109",
+      "type": "institution",
+      "label": "CSIRO",
+      "description": "Beneficiaries in the AI wildfire landscape (Government / Policy Makers).",
+      "website": "https://www.csiro.au/en/news/all/articles/2020/december/hazard-reduction-burning",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers",
+        "AI Charter",
+        "GWFC Funded",
+        "Creating data, technology, & AI solutions that accelerate action"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-124",
+      "type": "institution",
+      "label": "Data Blanket",
+      "description": "Infrastructure monitoring.",
+      "website": "https://www.datablanket.com/",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "USA",
+        "Phase: Active",
+        "Respond + Monitor",
+        "Works with: Utility Companies"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-78",
+      "type": "product",
+      "label": "Delft University of Technology",
+      "description": "Research in the AI wildfire landscape.",
+      "website": "https://www.tudelft.nl/en/stories/articles/fighting-wildfires-with-ai-and-simulations",
+      "tags": [
+        "Academic",
+        "Delivery Support",
+        "Research"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-125",
+      "type": "institution",
+      "label": "Descartes Labs",
+      "description": "Global fire detection.",
+      "website": "https://www.businessinsider.com/how-descartes-labs-leveraging-artificial-intelligence-fight-wildfires-2019-12",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "Global",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Government Agencies"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-95",
+      "type": "product",
+      "label": "Drought Informatics System of South America",
+      "description": "Regional early warning and wildfire strategies.",
+      "website": "https://sissa.crc-sas.org/blog/2024/06/18/la-importancia-del-manejo-de-los-incendios-para-la-gestion-de-riesgo-en-el-sur-de-sudamerica/",
+      "location": "South America",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Frontline Users of the AI solutions",
+        "Latin America",
+        "Phase: Pre, Active",
+        "Detect + Validate",
+        "AI Charter",
+        "Works with: South American Nations"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-126",
+      "type": "institution",
+      "label": "Dryad",
+      "description": "Early fire detection.",
+      "website": "https://www.dryad.net/",
+      "location": "Germany",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "Europe",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Forestry Companies"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-85",
+      "type": "institution",
+      "label": "Edison International",
+      "description": "Industry in the AI wildfire landscape (Utilities).",
+      "website": "https://www.edison.com/investors/southern-california-wildfires",
+      "tags": [
+        "Utility / telecommunication",
+        "Delivery Support",
+        "Industry",
+        "Utilities"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-127",
+      "type": "institution",
+      "label": "Ember Guard",
+      "description": "Enhanced detection capabilities.",
+      "website": "https://www.xprize.org/prizes/wildfire/articles/announcing-the-xprize-wildfire-space-based-qualified-teams",
+      "location": "Australia",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "Australia",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Australian Fire Services"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-170",
+      "type": "institution",
+      "label": "Embrace the forest",
+      "description": "External in the AI wildfire landscape.",
+      "website": "https://embracetheforest.com/",
+      "tags": [
+        "Startup / Private",
+        "External"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-4",
+      "type": "institution",
+      "label": "Emerson Collective",
+      "description": "Anchor Funders in the AI wildfire landscape.",
+      "website": "https://www.emersoncollective.com",
+      "location": "US",
+      "tags": [
+        "Philanthropic",
+        "Strategic Deciders",
+        "Anchor Funders",
+        "AI Charter"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-23",
+      "type": "institution",
+      "label": "Environmental Defense Fund (EDF)",
+      "description": "Policies for environmental protection.",
+      "website": "https://www.edf.org/climate/heres-how-climate-change-affects-wildfires",
+      "location": "US",
+      "tags": [
+        "Nonprofit",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Implementers",
+        "Global",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "GWFC Funded",
+        "Enabling faster, more precise data-driven decision making",
+        "Works with: Governments",
+        "Works with: NGOs",
+        "CWI Network"
+      ],
+      "acronym": "EDF",
+      "institutionType": "NGO",
+      "coordinates": [
+        -74.006,
+        40.713
+      ]
+    },
+    {
+      "id": "land-86",
+      "type": "institution",
+      "label": "Eskom",
+      "description": "Reliable energy supply.",
+      "website": "https://www.eskom.co.za/",
+      "location": "South Africa",
+      "tags": [
+        "Utility / telecommunication",
+        "Delivery Support",
+        "Industry",
+        "Utilities",
+        "South Africa",
+        "Phase: All",
+        "All Stages",
+        "Works with: Government Agencies"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-105",
+      "type": "product",
+      "label": "EU’s Emergency Response Coordination Centre (ERCC)",
+      "description": "Efficient emergency responses.",
+      "website": "https://civil-protection-humanitarian-aid.ec.europa.eu/what/civil-protection/emergency-response-coordination-centre-ercc_en",
+      "location": "EU",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers",
+        "EU",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Works with: EU Member States"
+      ],
+      "acronym": "ERCC",
+      "status": "Operational"
+    },
+    {
+      "id": "land-57",
+      "type": "product",
+      "label": "EUMETCast",
+      "description": "Other Partners in the AI wildfire landscape (Practitioners).",
+      "website": "https://user.eumetsat.int/data-access/eumetcast-europe",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Other Partners",
+        "Practitioners"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-128",
+      "type": "product",
+      "label": "European Forest Fire Information System (EFFIS)",
+      "description": "Forest fire data and reports.",
+      "website": "https://forest-fire.emergency.copernicus.eu/",
+      "location": "EU",
+      "tags": [
+        "Government",
+        "External",
+        "Europe",
+        "Phase: All",
+        "All Stages",
+        "Works with: European Commission",
+        "Works with: Member States"
+      ],
+      "acronym": "EFFIS",
+      "status": "Operational"
+    },
+    {
+      "id": "land-9",
+      "type": "institution",
+      "label": "European Space Agency",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "https://www.esa.int/",
+      "location": "EU",
+      "tags": [
+        "Government",
+        "Advisors",
+        "Domain Subject Matter Experts"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-129",
+      "type": "institution",
+      "label": "Exci",
+      "description": "Comprehensive detection systems.",
+      "website": "https://www.exci.ai/how-it-works/",
+      "location": "USA",
+      "tags": [
+        "Government",
+        "External",
+        "USA",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Utility Companies"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-84",
+      "type": "institution",
+      "label": "Farmers Insurance",
+      "description": "Industry in the AI wildfire landscape (Insurance).",
+      "website": "https://www.farmers.com/prepare/wildfires/",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Industry",
+        "Insurance"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-34",
+      "type": "institution",
+      "label": "Federation of American Scientists",
+      "description": "Primary Delivery Partners in the AI wildfire landscape (Policymakers / Analysts).",
+      "website": "https://fas.org/publication/wildland-fire-policy-recommendations/",
+      "tags": [
+        "Nonprofit",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Policymakers / Analysts"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-160",
+      "type": "product",
+      "label": "Fire Factor",
+      "description": "External in the AI wildfire landscape.",
+      "website": "https://firststreet.org/methodology/fire?from=riskfactor.com",
+      "tags": [
+        "Startup / Private",
+        "External"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-157",
+      "type": "product",
+      "label": "Fire Integrated Real-Time Intelligence System Program (FIRIS)",
+      "description": "External in the AI wildfire landscape.",
+      "website": "https://wifire.ucsd.edu/firis",
+      "tags": [
+        "Government / Academic",
+        "External"
+      ],
+      "acronym": "FIRIS",
+      "status": "Operational"
+    },
+    {
+      "id": "land-131",
+      "type": "collaborative",
+      "label": "Fire Neural Network",
+      "description": "Rapid fire detection.",
+      "website": "https://fireneuralnetwork.com/",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "USA",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Fire Departments"
+      ],
+      "governanceModel": "Consortium",
+      "focusAreas": [
+        "Rapid fire detection"
+      ]
+    },
+    {
+      "id": "land-60",
+      "type": "product",
+      "label": "Fire Research and Management Exchange System (Frames)",
+      "description": "Other Partners in the AI wildfire landscape (Practitioners).",
+      "website": "https://www.frames.gov/",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Other Partners",
+        "Practitioners"
+      ],
+      "acronym": "Frames",
+      "status": "Operational"
+    },
+    {
+      "id": "land-58",
+      "type": "product",
+      "label": "FIRE-RES",
+      "description": "Other Partners in the AI wildfire landscape (Practitioners).",
+      "website": "https://fire-res.eu/",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Other Partners",
+        "Practitioners"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-59",
+      "type": "product",
+      "label": "fireEUrisk",
+      "description": "Other Partners in the AI wildfire landscape (Practitioners).",
+      "website": "https://fireurisk.eu/",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Other Partners",
+        "Practitioners"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-64",
+      "type": "product",
+      "label": "FireLogue",
+      "description": "Stakeholder coordination and ecosystem recovery.",
+      "website": "https://lessonsonfire.firelogue.eu/",
+      "location": "EU",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Other Partners",
+        "Other Participants / Grantees",
+        "Southern Europe",
+        "Phase: Post",
+        "Assess Damage + Restore",
+        "Works with: EU Fire Programs"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-133",
+      "type": "institution",
+      "label": "FireSwarm Solutions",
+      "description": "Firefighting drones.",
+      "website": "https://www.xprize.org/prizes/wildfire/articles/announcing-the-xprize-wildfire-autonomous-qualified-teams",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "USA",
+        "Phase: Active",
+        "Respond + Monitor",
+        "Works with: Fire Departments"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-65",
+      "type": "institution",
+      "label": "First Street",
+      "description": "Other Partners in the AI wildfire landscape (Other Participants / Grantees).",
+      "website": "https://firststreet.org/methodology/fire?from=riskfactor.com",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Other Partners",
+        "Other Participants / Grantees"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-82",
+      "type": "institution",
+      "label": "FM Global Property Insurance",
+      "description": "Industry in the AI wildfire landscape (Insurance).",
+      "website": "https://newsroom.fmglobal.com/releases/releases-20230911",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Industry",
+        "Insurance"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-135",
+      "type": "institution",
+      "label": "GatorX",
+      "description": "Rapid detection tools.",
+      "website": "https://www.xprize.org/prizes/wildfire/articles/announcing-the-xprize-wildfire-autonomous-qualified-teams",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "USA",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Fire Agencies"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-106",
+      "type": "product",
+      "label": "Global Wildfire Information System (GWIS)",
+      "description": "Centralized global wildfire data.",
+      "website": "https://gwis.jrc.ec.europa.eu/",
+      "location": "Global",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers",
+        "Global",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Works with: GEO"
+      ],
+      "acronym": "GWIS",
+      "status": "Operational"
+    },
+    {
+      "id": "land-2",
+      "type": "institution",
+      "label": "Gordon and Betty Moore Foundation",
+      "description": "Wildfire resilience initiatives.",
+      "website": "https://www.moore.org/",
+      "location": "Global",
+      "tags": [
+        "Philanthropic",
+        "Strategic Deciders",
+        "Anchor Funders",
+        "USA",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Enabling environment",
+        "Works with: Various environmental organizations",
+        "CWI Network"
+      ],
+      "institutionType": "NGO",
+      "coordinates": [
+        -122.143,
+        37.442
+      ]
+    },
+    {
+      "id": "land-88",
+      "type": "collaborative",
+      "label": "Green Triangle Fire Alliance",
+      "description": "Industry in the AI wildfire landscape (Timber Companies).",
+      "website": "https://gtfih.com.au/wp-content/uploads/2024/03/Green-Triangle-Fire-Alliance_Overview_7-March-2024_no-date_LOW-RES.pdf",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Industry",
+        "Timber Companies"
+      ],
+      "governanceModel": "Consortium",
+      "focusAreas": []
+    },
+    {
+      "id": "land-136",
+      "type": "product",
+      "label": "gridFirm",
+      "description": "Grid risk management.",
+      "website": "https://www.rhizomedata.com/post/introducing-rhizomes-wildfire-intelligence-platform-gridfirm",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "USA",
+        "Phase: Pre",
+        "Assess Pre-fire Risks",
+        "Works with: Utility Companies"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-137",
+      "type": "institution",
+      "label": "Grupo Boticário",
+      "description": "Sustainable products.",
+      "website": "www.boticario.com/",
+      "location": "Brazil",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "External",
+        "Brazil",
+        "Phase: All",
+        "All Stages",
+        "Works with: Environmental NGOs"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-90",
+      "type": "institution",
+      "label": "Huawei",
+      "description": "Industry in the AI wildfire landscape (Telecommunication).",
+      "website": "https://www.huawei.com/en/",
+      "tags": [
+        "Utility / telecommunication",
+        "Delivery Support",
+        "Industry",
+        "Telecommunication"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-169",
+      "type": "institution",
+      "label": "ID Insight",
+      "description": "Other Partners in the AI wildfire landscape.",
+      "website": "https://www.idinsight.org/methodology/data-science/?utm_source=google&utm_medium=ag&utm_campaign=gs23&gad_source=1&gclid=Cj0KCQiAkJO8BhCGARIsAMkswyhkGUDbP7LAz7EzAspYBF-KRTwruCS_ycYCeSXQq7FLWS0bxWg42t4aAvYKEALw_wcB",
+      "tags": [
+        "Nonprofit",
+        "Other Partners",
+        "AI Charter",
+        "GWFC Funded",
+        "Enabling environment"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-66",
+      "type": "product",
+      "label": "Ignis",
+      "description": "Unified mapping tools.",
+      "website": "https://www.ignistech.io/",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Other Partners",
+        "Other Participants / Grantees",
+        "USA",
+        "Phase: All",
+        "All Stages",
+        "Works with: Fire Agencies"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-114",
+      "type": "collaborative",
+      "label": "Indigenous Leadership Initiative",
+      "description": "Beneficiaries in the AI wildfire landscape (Researchers).",
+      "website": "https://www.ilinationhood.ca/guardians-fire-summary",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Researchers"
+      ],
+      "governanceModel": "Consortium",
+      "focusAreas": []
+    },
+    {
+      "id": "land-80",
+      "type": "institution",
+      "label": "Instituto Tecnológico y de Estudios Superiores de Monterrey",
+      "description": "Research in the AI wildfire landscape.",
+      "website": "Kumu connection",
+      "tags": [
+        "Academic",
+        "Delivery Support",
+        "Research"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-165",
+      "type": "institution",
+      "label": "International Association of Fire Chiefs",
+      "description": "External in the AI wildfire landscape.",
+      "website": "https://www.iafc.org/about-iafc",
+      "tags": [
+        "Nonprofit",
+        "External"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-96",
+      "type": "institution",
+      "label": "International Association of Fire Fighters",
+      "description": "Improved pay and conditions for firefighters.",
+      "website": "https://www.iaff.org/",
+      "location": "North America",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Beneficiaries",
+        "Frontline Users of the AI solutions",
+        "North America",
+        "Phase: Active",
+        "Respond + Monitor",
+        "AI Charter",
+        "Works with: Canadian Fire Unions",
+        "Works with: US Fire Agencies"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-138",
+      "type": "institution",
+      "label": "International Association of Wildland Fire (IAWF)",
+      "description": "Knowledge sharing; networking.",
+      "website": "https://www.iawfonline.org/",
+      "location": "Global",
+      "tags": [
+        "Nonprofit",
+        "External",
+        "Global",
+        "Phase: All",
+        "All Stages",
+        "Works with: Fire Professionals Worldwide"
+      ],
+      "acronym": "IAWF",
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-139",
+      "type": "institution",
+      "label": "IQ FireWatch",
+      "description": "Early fire detection.",
+      "website": "https://www.iq-firewatch.com/",
+      "location": "Germany",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "Europe",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Forestry Companies",
+        "Works with: Fire Services"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-49",
+      "type": "institution",
+      "label": "Jack Dangermond",
+      "description": "Program Funders in the AI wildfire landscape.",
+      "website": "https://www.dangermondpreserve.org/stewardship/",
+      "tags": [
+        "Philanthropic",
+        "Delivery Support",
+        "Program Funders"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-162",
+      "type": "institution",
+      "label": "JPL / California Institute of Technology",
+      "description": "Research in the AI wildfire landscape.",
+      "website": "https://www.caltech.edu/research/jpl",
+      "tags": [
+        "Academic",
+        "Research",
+        "AI Charter",
+        "GWFC Funded",
+        "Creating data, technology, & AI solutions that accelerate action"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-37",
+      "type": "institution",
+      "label": "Kayrros",
+      "description": "Primary Delivery Partners in the AI wildfire landscape (Engineers).",
+      "website": "https://www.kayrros.com/",
+      "tags": [
+        "Startup / Private",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Engineers"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-77",
+      "type": "institution",
+      "label": "King’s College",
+      "description": "Policy recommendations for wildfire management.",
+      "website": "https://wildfire.geog.kcl.ac.uk/",
+      "location": "UK",
+      "tags": [
+        "Academic",
+        "Delivery Support",
+        "Research",
+        "UK; Europe",
+        "Phase: All",
+        "All Stages",
+        "Works with: European Commission"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-115",
+      "type": "institution",
+      "label": "LA Times",
+      "description": "Beneficiaries in the AI wildfire landscape (Researchers).",
+      "website": "https://www.latimes.com/topic/fires",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Beneficiaries",
+        "Researchers"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-72",
+      "type": "institution",
+      "label": "Lawrence Berkeley Lab",
+      "description": "Research in the AI wildfire landscape.",
+      "website": "https://wildfire.lbl.gov/",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Research"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-41",
+      "type": "institution",
+      "label": "Luksic Foundation and Grupo Boticario",
+      "description": "Environmental projects including wildfire management.",
+      "website": "https://luksicscholars.org/en/",
+      "location": "Chile",
+      "tags": [
+        "Philanthropic",
+        "Delivery Support",
+        "Program Funders",
+        "Chile",
+        "Phase: All",
+        "All Stages",
+        "Works with: Chilean NGOs",
+        "Works with: Government"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-67",
+      "type": "institution",
+      "label": "MAST Reforestation",
+      "description": "Post-fire reforestation initiatives.",
+      "website": "https://www.mastreforest.com/",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Other Partners",
+        "Other Participants / Grantees",
+        "Global",
+        "Phase: Post",
+        "Assess Damage + Restore",
+        "Works with: Carbon Market Companies"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-68",
+      "type": "institution",
+      "label": "Mayday",
+      "description": "Other Partners in the AI wildfire landscape (Other Participants / Grantees).",
+      "website": "https://mayday.ai/",
+      "location": "Germany",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Other Partners",
+        "Other Participants / Grantees"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-69",
+      "type": "institution",
+      "label": "Megafire Action",
+      "description": "Policy change and public engagement.",
+      "website": "https://www.megafire.org/",
+      "location": "USA",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Other Partners",
+        "Other Participants / Grantees",
+        "USA",
+        "Phase: All",
+        "All Stages",
+        "Works with: Community Organizations",
+        "CWI Network"
+      ],
+      "institutionType": "NGO",
+      "coordinates": [
+        -118.244,
+        34.052
+      ]
+    },
+    {
+      "id": "land-45",
+      "type": "institution",
+      "label": "Minderoo Foundation",
+      "description": "Comprehensive resilience and early detection.",
+      "website": "https://cdn.minderoo.org/content/uploads/2021/05/11143758/Fire-and-Flood-Resilience-Program-Proprosal.pdf",
+      "location": "Australia",
+      "tags": [
+        "Philanthropic",
+        "Delivery Support",
+        "Program Funders",
+        "Australia",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Works with: Australian Government",
+        "Works with: NGOs"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-107",
+      "type": "product",
+      "label": "Monitoring of the Environment for Security in Africa (MESA)",
+      "description": "Environmental data and analysis.",
+      "website": "http://csc.sadc.int/en/mesa",
+      "location": "Africa",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers",
+        "Africa",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Works with: EU"
+      ],
+      "acronym": "MESA",
+      "status": "Operational"
+    },
+    {
+      "id": "land-168",
+      "type": "institution",
+      "label": "NASA Disasters",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "Nick LaHaye",
+      "tags": [
+        "Government",
+        "Domain Subject Matter Experts",
+        "AI Charter"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-173",
+      "type": "institution",
+      "label": "NASA FireSense",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "https://cce.nasa.gov/firesense/",
+      "tags": [
+        "Government",
+        "Domain Subject Matter Experts",
+        "AI Charter",
+        "Enabling environment"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-174",
+      "type": "institution",
+      "label": "NASA FIRMS",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "Nick LaHaye",
+      "tags": [
+        "Government",
+        "Domain Subject Matter Experts",
+        "AI Charter",
+        "Creating data, technology, & AI solutions that accelerate action"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-81",
+      "type": "institution",
+      "label": "National Association of Insurance Commissioners",
+      "description": "Industry in the AI wildfire landscape (Insurance).",
+      "website": "https://content.naic.org/",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Industry",
+        "Insurance"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-116",
+      "type": "collaborative",
+      "label": "National Fire Safety Council",
+      "description": "Fire safety materials and programs.",
+      "website": "https://nationalfiresafetycouncil.org/",
+      "location": "USA",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Beneficiaries",
+        "Researchers",
+        "USA",
+        "Phase: All",
+        "All Stages",
+        "Works with: Schools",
+        "Works with: Fire Departments"
+      ],
+      "governanceModel": "Consortium",
+      "focusAreas": [
+        "Fire safety materials and programs"
+      ]
+    },
+    {
+      "id": "land-97",
+      "type": "institution",
+      "label": "National Interagency Fire Center",
+      "description": "Beneficiaries in the AI wildfire landscape (Frontline Users of the AI solutions).",
+      "website": "https://www.nifc.gov/about-us/what-is-nifc",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Frontline Users of the AI solutions",
+        "AI Charter"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-11",
+      "type": "institution",
+      "label": "NOAA",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "https://www.noaa.gov/",
+      "location": "US",
+      "tags": [
+        "Government",
+        "Advisors",
+        "Domain Subject Matter Experts"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-140",
+      "type": "product",
+      "label": "NOBURN App",
+      "description": "Community risk awareness.",
+      "website": "https://www.abc.net.au/news/rural/2024-01-11/ai-helps-protect-australias-forests-green-triangle-from-fires/103277424",
+      "location": "Australia",
+      "tags": [
+        "Academic",
+        "External",
+        "Australia",
+        "Phase: Pre",
+        "Assess Pre-fire Risks",
+        "Works with: Australian Fire Services"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-108",
+      "type": "product",
+      "label": "North Australia Rangelands and Fire Information (NAFI)",
+      "description": "Fire management information.",
+      "website": "https://firenorth.org.au/nafi3/",
+      "location": "Australia",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers",
+        "Australia",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Works with: Australian Government"
+      ],
+      "acronym": "NAFI",
+      "status": "Operational"
+    },
+    {
+      "id": "land-141",
+      "type": "institution",
+      "label": "Norwegian University of Science and Technology",
+      "description": "Technological solutions for wildfire management.",
+      "website": "https://www.ntnu.edu/",
+      "location": "Norway",
+      "tags": [
+        "Academic",
+        "External",
+        "Norway; Europe",
+        "Phase: All",
+        "All Stages",
+        "Works with: EU Fire Programs"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-46",
+      "type": "institution",
+      "label": "NVIDIA Inception",
+      "description": "Program Funders in the AI wildfire landscape.",
+      "website": "https://www.nvidia.com/en-us/startups/",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Program Funders"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-36",
+      "type": "institution",
+      "label": "Ororatech",
+      "description": "Real-time fire tracking and detection networks.",
+      "website": "http://ororatech.com/",
+      "location": "Global",
+      "tags": [
+        "Startup / Private",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Engineers",
+        "Global",
+        "Phase: Pre, Active",
+        "Detect + Validate",
+        "AI Charter",
+        "Creating data, technology, & AI solutions that accelerate action",
+        "Works with: National Fire Services"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-142",
+      "type": "institution",
+      "label": "PanoAI",
+      "description": "Early detection and situational awareness.",
+      "website": "https://www.pano.ai/",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "USA; Australia",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Utility Companies",
+        "Works with: Fire Agencies"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-143",
+      "type": "product",
+      "label": "Pantera",
+      "description": "Asset protection.",
+      "website": "https://embracetheforest.com/",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "USA",
+        "Phase: Pre",
+        "Assess Pre-fire Risks",
+        "Works with: Utility Companies"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-61",
+      "type": "institution",
+      "label": "Pau Costa Foundation",
+      "description": "Wildfire management education.",
+      "website": "https://www.paucostafoundation.org/en/organization/",
+      "location": "Spain",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Other Partners",
+        "Practitioners",
+        "Europe",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Works with: European Fire Services",
+        "Works with: Academic Institutions"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-44",
+      "type": "institution",
+      "label": "PG&E",
+      "description": "Program Funders in the AI wildfire landscape.",
+      "website": "https://www.pge.com/en.html",
+      "location": "Oakland, CA",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Program Funders",
+        "CWI Network"
+      ],
+      "institutionType": "Private Sector",
+      "coordinates": [
+        -122.271,
+        37.804
+      ],
+      "sheetNote": "No location"
+    },
+    {
+      "id": "land-22",
+      "type": "collaborative",
+      "label": "Planscape Cooperative",
+      "description": "Optimized landscape treatments, enhanced ecosystem resilience.",
+      "website": "https://www.planscape.org/",
+      "location": "US",
+      "tags": [
+        "NGO / Private / Public Partnership",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Implementers",
+        "Western USA",
+        "Phase: Pre, Post",
+        "Pre-fire, Post-fire Recovery",
+        "AI Charter",
+        "GWFC Funded",
+        "Creating data, technology, & AI solutions that accelerate action",
+        "Works with: SIG-NAL"
+      ],
+      "governanceModel": "Consortium",
+      "focusAreas": [
+        "Optimized landscape treatments, enhanced ecosystem resilience"
+      ]
+    },
+    {
+      "id": "land-158",
+      "type": "product",
+      "label": "Planscape Platform",
+      "description": "Optimized landscape treatments, enhanced ecosystem resilience.",
+      "website": "https://app.planscape.org/home",
+      "location": "USA",
+      "tags": [
+        "NGO / Private / Public Partnership",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Implementers",
+        "Western USA",
+        "Phase: Pre, Post",
+        "Pre-fire, Post-fire Recovery",
+        "AI Charter",
+        "GWFC Funded",
+        "Works with: SIG-NAL"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-52",
+      "type": "institution",
+      "label": "Prometheus Fire Consulting",
+      "description": "Other Partners in the AI wildfire landscape (Consultants).",
+      "website": "https://www.prometheusfireconsulting.com/",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Other Partners",
+        "Consultants"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-144",
+      "type": "product",
+      "label": "PyreCast",
+      "description": "Accurate pre-fire risk maps, real-time wind-based modeling.",
+      "website": "https://pyrecast.org/",
+      "location": "USA",
+      "tags": [
+        "NGO / Private / Public Partnership",
+        "External",
+        "Western USA",
+        "Phase: Pre",
+        "Pre-fire",
+        "AI Charter",
+        "Works with: Utility Companies"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-35",
+      "type": "institution",
+      "label": "Pyregence",
+      "description": "Primary Delivery Partners in the AI wildfire landscape (Engineers).",
+      "website": "https://pyregence.org/",
+      "tags": [
+        "NGO / Private / Public Partnership",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Engineers",
+        "AI Charter"
+      ],
+      "institutionType": "Consortium"
+    },
+    {
+      "id": "land-24",
+      "type": "institution",
+      "label": "Rain Aero",
+      "description": "Primary Delivery Partners in the AI wildfire landscape (Implementers).",
+      "website": "https://www.rain.aero/",
+      "tags": [
+        "Startup / Private",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Implementers"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-145",
+      "type": "product",
+      "label": "RedEYE FirePrep",
+      "description": "Risk assessment reports.",
+      "website": "https://knowledge.aidr.org.au/media/9041/ajem_08_2021-04.pdf",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "USA",
+        "Phase: Pre",
+        "Assess Pre-fire Risks",
+        "Works with: Utility Companies",
+        "Works with: Fire Agencies"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-33",
+      "type": "institution",
+      "label": "Resources for the Future",
+      "description": "Primary Delivery Partners in the AI wildfire landscape (Policymakers / Analysts).",
+      "website": "https://www.rff.org/topics/climate-risks-and-resilience/wildfires/",
+      "tags": [
+        "Nonprofit",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Policymakers / Analysts"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-166",
+      "type": "institution",
+      "label": "Rhizome",
+      "description": "External in the AI wildfire landscape.",
+      "website": "https://www.rhizomedata.com/post/introducing-rhizomes-wildfire-intelligence-platform-gridfirm",
+      "tags": [
+        "Startup / Private",
+        "External"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-74",
+      "type": "institution",
+      "label": "RMIT University",
+      "description": "Wildfire risk assessment tools.",
+      "website": "https://www.rmit.edu.au/research/centres-collaborations/disaster-research-and-response-network",
+      "location": "Australia",
+      "tags": [
+        "Academic",
+        "Delivery Support",
+        "Research",
+        "Australia",
+        "Phase: All",
+        "All Stages",
+        "Works with: Australian Government"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-146",
+      "type": "institution",
+      "label": "RoboticsCats",
+      "description": "Community detection tools.",
+      "website": "https://www.moore.org/docs/default-source/default-document-library/the-state-of-fire-tech.pdf",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "Western USA",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Municipal Fire Departments"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-171",
+      "type": "institution",
+      "label": "RTI Exploration",
+      "description": "External in the AI wildfire landscape.",
+      "website": "https://www.rtiexploration.com/fire-prevention-&-eco-forestation-mapping-w1.html",
+      "tags": [
+        "Startup / Private",
+        "External"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-62",
+      "type": "product",
+      "label": "SAFERS",
+      "description": "Real-time wildfire response and post-fire risk assessment.",
+      "website": "https://safers-project.eu/",
+      "location": "EU",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Other Partners",
+        "Practitioners",
+        "Southern Europe, Africa",
+        "Phase: All",
+        "All Stages"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-147",
+      "type": "institution",
+      "label": "Satellites on Fire",
+      "description": "Regional fire detection.",
+      "website": "https://www.satellitesonfire.com/",
+      "location": "Chile",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "South America",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Chilean Government"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-50",
+      "type": "institution",
+      "label": "SmartSat CRC",
+      "description": "Program Funders in the AI wildfire landscape.",
+      "website": "https://smartsatcrc.com/",
+      "tags": [
+        "NGO / Private / Public Partnership",
+        "Delivery Support",
+        "Program Funders"
+      ],
+      "institutionType": "Consortium"
+    },
+    {
+      "id": "land-117",
+      "type": "institution",
+      "label": "Southern African Development Community  (SADC)",
+      "description": "Regional policies; development projects.",
+      "website": "https://www.sadc.int/",
+      "location": "Africa",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Researchers",
+        "Southern Africa",
+        "Phase: All",
+        "All Stages",
+        "Works with: Member States",
+        "Works with: NGOs"
+      ],
+      "acronym": "SADC",
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-19",
+      "type": "institution",
+      "label": "Spatial Informatics Group (SIG)",
+      "description": "Program Management Office in the AI wildfire landscape.",
+      "website": "https://sig-gis.com",
+      "location": "Global",
+      "tags": [
+        "Startup / Private",
+        "Primary Delivery",
+        "Program Management Office",
+        "AI Charter",
+        "GWFC Funded",
+        "Enabling environment",
+        "CWI Network"
+      ],
+      "acronym": "SIG",
+      "institutionType": "Private Sector",
+      "coordinates": [
+        -121.875,
+        37.662
+      ]
+    },
+    {
+      "id": "land-100",
+      "type": "institution",
+      "label": "State of California",
+      "description": "Beneficiaries in the AI wildfire landscape (Government / Policy Makers).",
+      "website": "https://www.ca.gov/",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-148",
+      "type": "institution",
+      "label": "Swansea University Centre for Wildfire Research",
+      "description": "Advanced wildfire behavior models.",
+      "website": "https://www.swansea.ac.uk/geography/research-and-impact/centre-for-wildfire-research/",
+      "location": "UK",
+      "tags": [
+        "Academic",
+        "External",
+        "UK; Europe",
+        "Phase: All",
+        "All Stages"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-75",
+      "type": "institution",
+      "label": "Swinburne University of Technology",
+      "description": "Technological solutions for wildfire detection.",
+      "website": "https://www.swinburne.edu.au/news/2020/02/bushfire-research-at-swinburne/",
+      "location": "Australia",
+      "tags": [
+        "Academic",
+        "Delivery Support",
+        "Research",
+        "Australia",
+        "Phase: All",
+        "All Stages",
+        "Works with: Australian Space Agency"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-149",
+      "type": "institution",
+      "label": "Technosylva",
+      "description": "Operational risk assessments.",
+      "website": "https://technosylva.com/",
+      "location": "USA",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "USA",
+        "Phase: Pre",
+        "Assess Pre-fire Risks",
+        "Works with: Fire Agencies",
+        "Works with: Utility Companies",
+        "CWI Network"
+      ],
+      "institutionType": "Private Sector",
+      "coordinates": [
+        -117.271,
+        32.833
+      ]
+    },
+    {
+      "id": "land-91",
+      "type": "institution",
+      "label": "Teleglobal Communications",
+      "description": "Industry in the AI wildfire landscape (Telecommunication).",
+      "website": "https://teleglobals.com/",
+      "tags": [
+        "Utility / telecommunication",
+        "Delivery Support",
+        "Industry",
+        "Telecommunication"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-29",
+      "type": "collaborative",
+      "label": "The Council for Scientific and Industrial Research (CSIR)",
+      "description": "Solutions for wildfire management and other sectors.",
+      "website": "https://www.csir.co.za/",
+      "location": "South Africa",
+      "tags": [
+        "Nonprofit",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Research",
+        "South Africa",
+        "Phase: All",
+        "All Stages",
+        "Works with: South African Government"
+      ],
+      "acronym": "CSIR",
+      "governanceModel": "Consortium",
+      "focusAreas": [
+        "Solutions for wildfire management and other sectors"
+      ]
+    },
+    {
+      "id": "land-112",
+      "type": "institution",
+      "label": "The Institute of Foresters of Australia and Australian Forest Growers’s Forest Fire Management",
+      "description": "Beneficiaries in the AI wildfire landscape (Other information users).",
+      "website": "https://www.forestry.org.au/forest-fire-management/",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Beneficiaries",
+        "Other information users"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-16",
+      "type": "institution",
+      "label": "The Nature Conservancy",
+      "description": "Wildfire management solutions.",
+      "website": "https://www.nature.org/en-us/about-us/who-we-are/how-we-work/policy/wildfire-resilience-policy-roadmap/",
+      "location": "Global",
+      "tags": [
+        "Nonprofit",
+        "Advisors",
+        "Domain Subject Matter Experts",
+        "Global",
+        "Phase: All",
+        "All Stages",
+        "Works with: Environmental NGOs",
+        "CWI Network"
+      ],
+      "institutionType": "NGO",
+      "coordinates": [
+        -77.091,
+        38.88
+      ]
+    },
+    {
+      "id": "land-38",
+      "type": "product",
+      "label": "TREEADS",
+      "description": "Early detection in high-risk areas.",
+      "website": "https://treeads-project.eu/project-details/detection-and-response/",
+      "location": "EU",
+      "tags": [
+        "Government",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Engineers",
+        "Southern Europe",
+        "Phase: Pre, Active",
+        "Detect + Validate",
+        "AI Charter",
+        "Works with: EU Fire Programs"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-14",
+      "type": "institution",
+      "label": "UC Berkeley",
+      "description": "Research in the AI wildfire landscape.",
+      "website": "https://forests.berkeley.edu/the-center-for-fire-research-and-outreach",
+      "location": "US",
+      "tags": [
+        "Academic",
+        "Advisors",
+        "Research",
+        "CWI Network"
+      ],
+      "institutionType": "University",
+      "coordinates": [
+        -122.273,
+        37.872
+      ]
+    },
+    {
+      "id": "land-171-uc-irvine-climate-carbon-and-fire-dynamics-lab",
+      "type": "institution",
+      "label": "UC Irvine / Climate, Carbon, and Fire Dynamics Lab",
+      "description": "Research in the AI wildfire landscape.",
+      "website": "https://sites.uci.edu/randersonlab/",
+      "tags": [
+        "Academic",
+        "Research",
+        "Creating data, technology, & AI solutions that accelerate action"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-12",
+      "type": "institution",
+      "label": "UC San Diego / WiFIRE Lab",
+      "description": "Research in the AI wildfire landscape.",
+      "website": "https://wifire.ucsd.edu/",
+      "location": "US",
+      "tags": [
+        "Academic",
+        "Advisors",
+        "Research",
+        "AI Charter",
+        "Enabling environment"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-32",
+      "type": "institution",
+      "label": "UN FAO",
+      "description": "Primary Delivery Partners in the AI wildfire landscape (Policymakers / Analysts).",
+      "website": "https://www.fao.org/forestry-fao/firemanagement/101248/en/",
+      "tags": [
+        "Government",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Policymakers / Analysts",
+        "AI Charter",
+        "GWFC Funded",
+        "Enabling faster, more precise data-driven decision making"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-98",
+      "type": "institution",
+      "label": "Ungrauemeio",
+      "description": "Beneficiaries in the AI wildfire landscape (Frontline Users of the AI solutions).",
+      "website": "https://www.umgrauemeio.com/en",
+      "tags": [
+        "Startup / Private",
+        "Delivery Support",
+        "Beneficiaries",
+        "Frontline Users of the AI solutions"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-110",
+      "type": "institution",
+      "label": "United Nations Office for Disaster Risk Reduction (UNDRR)",
+      "description": "Global frameworks for disaster risk reduction.",
+      "website": "https://www.undrr.org/news/early-warnings-all-africa",
+      "location": "Global",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers",
+        "Global",
+        "Phase: All",
+        "All Stages",
+        "Works with: UN Member States"
+      ],
+      "acronym": "UNDRR",
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-150",
+      "type": "institution",
+      "label": "Universidad de Concepción",
+      "description": "Wildfire prevention and management strategies.",
+      "website": "https://noticias.udec.cl/incendios-forestales-estudio-udec-concluye-que-zonas-con-plantaciones-forestales-fueron-las-mas-afectadas/",
+      "location": "Chile",
+      "tags": [
+        "Academic",
+        "External",
+        "Chile",
+        "Phase: All",
+        "All Stages",
+        "Works with: Chilean Government"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-79",
+      "type": "institution",
+      "label": "Università degli Studi di Bari Aldo Moro",
+      "description": "Research in the AI wildfire landscape.",
+      "website": "https://www.uniba.it/it/ricerca/dipartimenti/disspa/attivita-didattica/dottorato-di-ricerca/gestione-sostenibile-del-territorio/gestione-sostenibile-del-territorio_en",
+      "tags": [
+        "Academic",
+        "Delivery Support",
+        "Research"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-30",
+      "type": "institution",
+      "label": "University of Queensland",
+      "description": "Primary Delivery Partners in the AI wildfire landscape (Research).",
+      "website": "https://www.uq.edu.au/",
+      "tags": [
+        "Academic",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Research"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-76",
+      "type": "institution",
+      "label": "University of South Australia",
+      "description": "Research in the AI wildfire landscape.",
+      "website": "https://unisa.edu.au/media-centre/Releases/2024/fighting-fires-from-space-in-record-time-how-ai-could-prevent-a-repeat-of-australias-devastating-wildfires/",
+      "tags": [
+        "Academic",
+        "Delivery Support",
+        "Research"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-8",
+      "type": "institution",
+      "label": "US Department of Interior (DOI)",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "https://www.space.gov.au/",
+      "location": "Austraalia",
+      "tags": [
+        "Government",
+        "Advisors",
+        "Domain Subject Matter Experts",
+        "Delivery Support",
+        "Program Funders",
+        "AI Charter"
+      ],
+      "acronym": "DOI",
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-102",
+      "type": "institution",
+      "label": "US Fire Administration",
+      "description": "Beneficiaries in the AI wildfire landscape (Government / Policy Makers).",
+      "website": "https://www.usfa.fema.gov/",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-53",
+      "type": "institution",
+      "label": "USAID",
+      "description": "Other Partners in the AI wildfire landscape (Consultants).",
+      "website": "https://www.usaid.gov/",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Other Partners",
+        "Consultants"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-101",
+      "type": "institution",
+      "label": "USFS",
+      "description": "Conservation and wildfire management.",
+      "website": "https://www.fs.usda.gov/",
+      "location": "USA",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Beneficiaries",
+        "Government / Policy Makers",
+        "USA",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Works with: FlamMap6"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-92",
+      "type": "institution",
+      "label": "Vodafone",
+      "description": "Industry in the AI wildfire landscape (Telecommunication).",
+      "website": "https://www.vodafone.com/",
+      "tags": [
+        "Utility / telecommunication",
+        "Delivery Support",
+        "Industry",
+        "Telecommunication"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-70",
+      "type": "product",
+      "label": "VOLTALARM",
+      "description": "Other Partners in the AI wildfire landscape (Other Participants / Grantees).",
+      "website": "https://abv.int/en/early-warning-systems-hold-the-key-to-disaster-management-in-west-africa/",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Other Partners",
+        "Other Participants / Grantees",
+        "West Africa",
+        "Phase: Pre",
+        "Detect + Validate",
+        "Works with: Local Governments"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-163",
+      "type": "institution",
+      "label": "Watch Duty",
+      "description": "Primary Delivery Partners in the AI wildfire landscape.",
+      "website": "https://www.watchduty.org/",
+      "location": "Santa Rosa, CA",
+      "tags": [
+        "Nonprofit",
+        "Primary Delivery Partners",
+        "AI Charter",
+        "GWFC Funded",
+        "Creating data, technology, & AI solutions that accelerate action",
+        "CWI Network"
+      ],
+      "institutionType": "NGO",
+      "coordinates": [
+        -122.714,
+        38.44
+      ]
+    },
+    {
+      "id": "land-152",
+      "type": "institution",
+      "label": "WATEX System",
+      "description": "Soil moisture data.",
+      "website": "https://www.rtiexploration.com/fire-prevention-&-eco-forestation-mapping-w1.html",
+      "location": "Spain",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "Europe",
+        "Phase: Pre",
+        "Assess Pre-fire Risks",
+        "Works with: Agriculture Companies",
+        "Works with: Governments"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-153",
+      "type": "product",
+      "label": "WEF FireAId Pilot",
+      "description": "Enhanced risk assessment.",
+      "website": "https://www3.weforum.org/docs/WEF_The_Next_Frontier_Wildfire_Fighting_2023.pdf",
+      "location": "Turkey",
+      "tags": [
+        "Nonprofit",
+        "External",
+        "Turkey",
+        "Phase: Pre",
+        "Assess Pre-fire Risks",
+        "AI Charter",
+        "Works with: WWF Turkey",
+        "Works with: Local Governments"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-130",
+      "type": "institution",
+      "label": "Western Fire Chiefs Association",
+      "description": "Advocacy; leadership; coordination.",
+      "website": "https://wfca.com/",
+      "location": "USA",
+      "tags": [
+        "Nonprofit",
+        "External",
+        "USA",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "GWFC Funded",
+        "Enabling faster, more precise data-driven decision making",
+        "Works with: Fire Departments"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-6",
+      "type": "product",
+      "label": "White House Summit on Building Climate Resilient Communities",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "https://www.whitehouse.gov/briefing-room/statements-releases/2023/09/28/fact-sheet-biden-harris-administration-hosts-first-ever-white-house-climate-resilience-summit-and-releases-national-climate-resilience-framework/",
+      "location": "US",
+      "tags": [
+        "Government",
+        "Strategic Deciders",
+        "Domain Subject Matter Experts"
+      ],
+      "status": "Operational"
+    },
+    {
+      "id": "land-99",
+      "type": "institution",
+      "label": "Wildfire Industry Collective",
+      "description": "Beneficiaries in the AI wildfire landscape (Frontline Users of the AI solutions).",
+      "website": "https://www.wildfire.industries/",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Beneficiaries",
+        "Frontline Users of the AI solutions",
+        "AI Charter"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-28",
+      "type": "institution",
+      "label": "Wildfire Interdisciplinary Research Center",
+      "description": "Advanced predictive tools for wildfire management.",
+      "website": "https://iucrc.nsf.gov/centers/wildfire-interdisciplinary-research-center-wirc/",
+      "location": "USA",
+      "tags": [
+        "Academic",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Research",
+        "USA",
+        "Phase: All",
+        "All Stages",
+        "AI Charter",
+        "Works with: National Science Foundation",
+        "Works with: Industry Leaders"
+      ],
+      "institutionType": "University"
+    },
+    {
+      "id": "land-167",
+      "type": "product",
+      "label": "Wildfire Science and Technology Commons",
+      "description": "External in the AI wildfire landscape.",
+      "website": "https://www.wildfirecommons.org/",
+      "location": "San Diego, CA",
+      "tags": [
+        "NGO / Private / Public Partnership",
+        "External",
+        "AI Charter",
+        "CWI Network"
+      ],
+      "status": "Operational",
+      "coordinates": [
+        -117.161,
+        32.716
+      ]
+    },
+    {
+      "id": "land-154",
+      "type": "institution",
+      "label": "Windracers Environmental",
+      "description": "Autonomous firefighting drones.",
+      "website": "https://windracers.com/windracers-environmental-selected-to-advance-in-the-prestigious-xprize-wildfire-competition/",
+      "location": "UK",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "UK; Europe",
+        "Phase: Active",
+        "Respond + Monitor",
+        "Works with: Fire Services"
+      ],
+      "institutionType": "Private Sector"
+    },
+    {
+      "id": "land-25",
+      "type": "institution",
+      "label": "Woodwell",
+      "description": "Primary Delivery Partners in the AI wildfire landscape (Implementers).",
+      "website": "https://www.woodwellclimate.org/fire-and-climate-audio-story/",
+      "tags": [
+        "Nonprofit",
+        "Primary Delivery",
+        "Primary Delivery Partners",
+        "Implementers",
+        "AI Charter",
+        "GWFC Funded",
+        "Creating data, technology, & AI solutions that accelerate action"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-93",
+      "type": "institution",
+      "label": "World Bank",
+      "description": "Industry in the AI wildfire landscape (Telecommunication).",
+      "website": "https://datacatalog.worldbank.org/search?q=global%20wildfire%20hazard",
+      "tags": [
+        "Government",
+        "Delivery Support",
+        "Industry",
+        "Telecommunication"
+      ],
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-7",
+      "type": "institution",
+      "label": "World Economic Forum",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "https://www.weforum.org/publications/the-next-frontier-in-fighting-wildfires-fireaid-pilot-and-scaling/",
+      "location": "Global",
+      "tags": [
+        "Nonprofit",
+        "Strategic Deciders",
+        "Domain Subject Matter Experts",
+        "AI Charter",
+        "GWFC Funded",
+        "Enabling environment"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-18",
+      "type": "institution",
+      "label": "World Meteorological Organization (WMO)",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "https://wmo.int/",
+      "location": "Global",
+      "tags": [
+        "Government",
+        "Advisors",
+        "Domain Subject Matter Experts"
+      ],
+      "acronym": "WMO",
+      "institutionType": "Federal Agency"
+    },
+    {
+      "id": "land-17",
+      "type": "institution",
+      "label": "World Wildlife Fund",
+      "description": "Domain Subject Matter Experts in the AI wildfire landscape.",
+      "website": "https://www.worldwildlife.org/stories/fire-management",
+      "location": "Global",
+      "tags": [
+        "Nonprofit",
+        "Advisors",
+        "Domain Subject Matter Experts"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-71",
+      "type": "institution",
+      "label": "XPRIZE Wildfires",
+      "description": "Other Partners in the AI wildfire landscape (Other Participants / Grantees).",
+      "website": "https://www.xprize.org/prizes/wildfire",
+      "tags": [
+        "Nonprofit",
+        "Delivery Support",
+        "Other Partners",
+        "Other Participants / Grantees"
+      ],
+      "institutionType": "NGO"
+    },
+    {
+      "id": "land-155",
+      "type": "institution",
+      "label": "XyloPlan",
+      "description": "Risk maps and reports.",
+      "website": "https://www.xyloplan.com/",
+      "location": "Canada",
+      "tags": [
+        "Startup / Private",
+        "External",
+        "Canada",
+        "Phase: Pre",
+        "Assess Pre-fire Risks",
+        "Convening",
+        "Works with: Forestry Companies",
+        "Works with: Governments",
+        "CWI Network"
+      ],
+      "institutionType": "Private Sector",
+      "coordinates": [
+        -122.348,
+        37.936
+      ]
+    },
+    {
+      "id": "collab-ai-wildfire",
+      "type": "collaborative",
+      "label": "AI Wildfire Collaborative",
+      "description": "The collaborative design mapped in the AI Wildfire Landscape sheet: who delivers, advises, decides and funds.",
+      "governanceModel": "Public-Private Partnership",
+      "tags": [
+        "Collaborative",
+        "AI Charter"
+      ]
+    },
+    {
+      "id": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "program",
+      "label": "PG&E Wildfire Resilience Project",
+      "location": "Nevada County, El Dorado County, Sonoma County",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project in Nevada County, El Dorado County, Sonoma County with 13 partners."
+    },
+    {
+      "id": "cwi-org-city-of-grass-valley",
+      "type": "institution",
+      "label": "City of Grass Valley",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Grass Valley, CA",
+      "coordinates": [
+        -121.061,
+        39.219
+      ],
+      "sheetNote": "Double check location",
+      "description": "Partner on 2 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-city-of-nevada-city",
+      "type": "institution",
+      "label": "City of Nevada City",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Nevada City, CA",
+      "coordinates": [
+        -121.017,
+        39.262
+      ],
+      "sheetNote": "Name issue (renaming from year to year, possibly incorrect, etc.)",
+      "description": "Partner on 2 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-you-bet-firewise",
+      "type": "institution",
+      "label": "You Bet Firewise",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "You Bet Rd, Grass Valley, CA",
+      "coordinates": [
+        -121.061,
+        39.219
+      ],
+      "description": "Partner on 1 CWI project: PG&E Wildfire Resilience Project."
+    },
+    {
+      "id": "cwi-org-wildfire-ready-coalition-of-nevada-county",
+      "type": "institution",
+      "label": "Wildfire Ready Coalition of Nevada County",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Grass Valley, CA",
+      "coordinates": [
+        -121.061,
+        39.219
+      ],
+      "description": "Partner on 1 CWI project: PG&E Wildfire Resilience Project."
+    },
+    {
+      "id": "cwi-org-american-forest-foundation",
+      "type": "institution",
+      "label": "American Forest Foundation",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Washington, DC",
+      "coordinates": [
+        -77.037,
+        38.907
+      ],
+      "description": "Partner on 1 CWI project: PG&E Wildfire Resilience Project."
+    },
+    {
+      "id": "cwi-org-fire-aside",
+      "type": "institution",
+      "label": "Fire Aside",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Anselmo, CA",
+      "coordinates": [
+        -122.562,
+        37.975
+      ],
+      "description": "Partner on 6 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund; Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2026 Convening; 2025 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-rockrose-risk",
+      "type": "institution",
+      "label": "RockRose Risk",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 4 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund; Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2025 Convening."
+    },
+    {
+      "id": "cwi-org-home-hardening-solutions-inc",
+      "type": "institution",
+      "label": "Home Hardening Solutions, Inc.",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Grass Valley, CA",
+      "coordinates": [
+        -121.061,
+        39.219
+      ],
+      "description": "Partner on 1 CWI project: PG&E Wildfire Resilience Project."
+    },
+    {
+      "id": "cwi-org-wui-fire-institute-at-cal-poly-slo",
+      "type": "institution",
+      "label": "WUI FIRE Institute at Cal Poly SLO",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Luis Obispo, CA",
+      "coordinates": [
+        -120.66,
+        35.283
+      ],
+      "description": "Partner on 1 CWI project: PG&E Wildfire Resilience Project."
+    },
+    {
+      "id": "cwi-org-nevada-county-office-of-emergency-services",
+      "type": "institution",
+      "label": "Nevada County Office of Emergency Services",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Nevada City, CA",
+      "coordinates": [
+        -121.017,
+        39.262
+      ],
+      "description": "Partner on 2 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-fire-safe-people-tv",
+      "type": "institution",
+      "label": "Fire Safe People TV",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 2 CWI projects: PG&E Wildfire Resilience Project; Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-proj-nevada-county-resilience-fund",
+      "type": "program",
+      "label": "Nevada County Resilience Fund",
+      "location": "Nevada County",
+      "coordinates": [
+        -120.77,
+        39.3
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project in Nevada County with 14 partners."
+    },
+    {
+      "id": "cwi-org-nevada-county-resource-conservation-district",
+      "type": "institution",
+      "label": "Nevada County Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Grass Valley, CA",
+      "coordinates": [
+        -121.061,
+        39.219
+      ],
+      "description": "Partner on 1 CWI project: Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-national-forest-foundation",
+      "type": "institution",
+      "label": "National Forest Foundation",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Missoula, MT",
+      "coordinates": [
+        -113.994,
+        46.872
+      ],
+      "description": "Partner on 2 CWI projects: Nevada County Resilience Fund; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-the-resiliency-company",
+      "type": "institution",
+      "label": "The Resiliency Company",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Washington, DC",
+      "coordinates": [
+        -77.037,
+        38.907
+      ],
+      "description": "Partner on 1 CWI project: Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-patrick-baylis",
+      "type": "person",
+      "label": "Patrick Baylis",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Vancouver, BC",
+      "coordinates": [
+        -123.121,
+        49.283
+      ],
+      "description": "Partner on 1 CWI project: Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-judson-boomhower",
+      "type": "person",
+      "label": "Judson Boomhower",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Diego, CA",
+      "coordinates": [
+        -117.161,
+        32.716
+      ],
+      "description": "Partner on 1 CWI project: Nevada County Resilience Fund."
+    },
+    {
+      "id": "cwi-org-burnbot",
+      "type": "institution",
+      "label": "BurnBot",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South San Francisco, CA",
+      "coordinates": [
+        -122.408,
+        37.655
+      ],
+      "description": "Partner on 5 CWI projects: Nevada County Resilience Fund; Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2026 Convening; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "program",
+      "label": "Tahoe Sierra Spark / Incline Fire Smart Community Pilot",
+      "location": "Lake Tahoe Basin",
+      "coordinates": [
+        -120.04,
+        39.09
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project in Lake Tahoe Basin with 31 partners."
+    },
+    {
+      "id": "cwi-org-tahoe-fund",
+      "type": "institution",
+      "label": "Tahoe Fund",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Incline Village, NV",
+      "coordinates": [
+        -119.952,
+        39.251
+      ],
+      "description": "Partner on 4 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2025 Convening; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-north-lake-tahoe-fire-protection-district",
+      "type": "institution",
+      "label": "North Lake Tahoe Fire Protection District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Tahoe City, CA",
+      "coordinates": [
+        -120.145,
+        39.172
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tahoe-central-sierra-initiative",
+      "type": "institution",
+      "label": "Tahoe Central Sierra Initiative",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-chris-anthony-firewerx",
+      "type": "institution",
+      "label": "Chris Anthony / FireWERX",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 3 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-vibrant-planet",
+      "type": "institution",
+      "label": "Vibrant Planet",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Truckee, CA",
+      "coordinates": [
+        -120.183,
+        39.328
+      ],
+      "description": "Partner on 5 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2026 Convening; 2025 Convening; 2023 Convening; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-nv-energy-foundation",
+      "type": "institution",
+      "label": "NV Energy Foundation",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Las Vegas, NV",
+      "coordinates": [
+        -115.14,
+        36.17
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tahoe-regional-planning-agency",
+      "type": "institution",
+      "label": "Tahoe Regional Planning Agency",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Stateline, NV",
+      "coordinates": [
+        -119.94,
+        38.962
+      ],
+      "description": "Partner on 2 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-wildfire-services",
+      "type": "institution",
+      "label": "Wildfire Services",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Windsor, CA",
+      "coordinates": [
+        -122.817,
+        38.547
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tahoe-resource-conservation-district",
+      "type": "institution",
+      "label": "Tahoe Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tahoe-douglas-fire-protection-district",
+      "type": "institution",
+      "label": "Tahoe Douglas Fire Protection District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Zephyr Cove, NV",
+      "coordinates": [
+        -119.947,
+        39.007
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-lake-valley-fire-protection-district",
+      "type": "institution",
+      "label": "Lake Valley Fire Protection District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Meyers, CA",
+      "coordinates": [
+        -120.024,
+        38.856
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-north-tahoe-fire-protection-district",
+      "type": "institution",
+      "label": "North Tahoe Fire Protection District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Tahoe City, CA",
+      "coordinates": [
+        -120.145,
+        39.172
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-south-lake-tahoe-fire-rescue",
+      "type": "institution",
+      "label": "South Lake Tahoe Fire Rescue",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-truckee-fire-protection-district",
+      "type": "institution",
+      "label": "Truckee Fire Protection District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Truckee, CA",
+      "coordinates": [
+        -120.183,
+        39.328
+      ],
+      "description": "Partner on 2 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-vanderbilt-university",
+      "type": "institution",
+      "label": "Vanderbilt University",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Nashville, TN",
+      "coordinates": [
+        -86.781,
+        36.163
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-opalai",
+      "type": "institution",
+      "label": "OpalAI",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Los Angeles, CA",
+      "coordinates": [
+        -118.244,
+        34.052
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-lake-tahoe-environmental-improvement-program",
+      "type": "institution",
+      "label": "Lake Tahoe Environmental Improvement Program",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Stateline, NV",
+      "coordinates": [
+        -119.94,
+        38.962
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-stanford-university",
+      "type": "institution",
+      "label": "Stanford University",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Stanford, CA",
+      "coordinates": [
+        -122.17,
+        37.427
+      ],
+      "description": "Partner on 4 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2026 Convening; 2025 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-carnelian-woods-hoa",
+      "type": "institution",
+      "label": "Carnelian Woods HOA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Carnelian Bay, CA",
+      "coordinates": [
+        -120.084,
+        39.228
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tyrolian-village-hoa",
+      "type": "institution",
+      "label": "Tyrolian Village HOA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Incline Village, NV",
+      "coordinates": [
+        -119.952,
+        39.251
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-martis-camp-community-association",
+      "type": "institution",
+      "label": "Martis Camp Community Association",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Truckee, CA",
+      "coordinates": [
+        -120.183,
+        39.328
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-glenbrook-hoa",
+      "type": "institution",
+      "label": "Glenbrook HOA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Glenbrook, NV",
+      "coordinates": [
+        -119.94,
+        39.088
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-tahoe-network-of-fire-adapted-communities",
+      "type": "institution",
+      "label": "Tahoe Network of Fire Adapted Communities",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 1 CWI project: Tahoe Sierra Spark / Incline Fire Smart Community Pilot."
+    },
+    {
+      "id": "cwi-org-liberty-utilities",
+      "type": "institution",
+      "label": "Liberty Utilities",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 2 CWI projects: Tahoe Sierra Spark / Incline Fire Smart Community Pilot; 2026 Convening."
+    },
+    {
+      "id": "cwi-proj-intentional-fire-fund",
+      "type": "program",
+      "label": "Intentional Fire Fund",
+      "location": "Teakettle Experimental Forest / Alder Creek Grove",
+      "coordinates": [
+        -119.024,
+        36.963
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project in Teakettle Experimental Forest / Alder Creek Grove with 10 partners."
+    },
+    {
+      "id": "cwi-org-us-forest-service-sierra-national-forest",
+      "type": "institution",
+      "label": "US Forest Service - Sierra National Forest",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Clovis, CA",
+      "coordinates": [
+        -119.703,
+        36.825
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-us-forest-service-pacific-southwest-research-station",
+      "type": "institution",
+      "label": "US Forest Service - Pacific Southwest Research Station",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Davis, CA",
+      "coordinates": [
+        -121.74,
+        38.545
+      ],
+      "description": "Partner on 3 CWI projects: Intentional Fire Fund; 2026 Convening; Regional Resource Kits."
+    },
+    {
+      "id": "cwi-org-us-forest-service-sequoia-national-forest",
+      "type": "institution",
+      "label": "US Forest Service - Sequoia National Forest",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Porterville, CA",
+      "coordinates": [
+        -119.017,
+        36.065
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-cal-fire-fku",
+      "type": "institution",
+      "label": "CAL FIRE FKU",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Friant, CA",
+      "coordinates": [
+        -119.711,
+        36.987
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-sierra-resource-conservation-district",
+      "type": "institution",
+      "label": "Sierra Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Auberry, CA",
+      "coordinates": [
+        -119.485,
+        37.081
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-sierra-sequoia-restoration-group",
+      "type": "institution",
+      "label": "Sierra-Sequoia Restoration Group",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Tollhouse, CA",
+      "coordinates": [
+        -119.398,
+        37.019
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-the-fire-restoration-group",
+      "type": "institution",
+      "label": "The Fire Restoration Group",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-krempl-consulting",
+      "type": "institution",
+      "label": "Krempl Consulting",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Twain Harte, CA",
+      "coordinates": [
+        -120.233,
+        38.04
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-applied-earthworks",
+      "type": "institution",
+      "label": "Applied Earthworks",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Fresno, CA",
+      "coordinates": [
+        -119.787,
+        36.738
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-org-cultural-resources-facility",
+      "type": "institution",
+      "label": "Cultural Resources Facility",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Arcata, CA",
+      "coordinates": [
+        -124.083,
+        40.867
+      ],
+      "description": "Partner on 1 CWI project: Intentional Fire Fund."
+    },
+    {
+      "id": "cwi-proj-epic",
+      "type": "program",
+      "label": "EPIC",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 6 partners."
+    },
+    {
+      "id": "cwi-org-environmental-policy-innovation-center",
+      "type": "institution",
+      "label": "Environmental Policy Innovation Center",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "College Park, Maryland",
+      "coordinates": [
+        -76.937,
+        38.981
+      ],
+      "description": "Partner on 1 CWI project: EPIC."
+    },
+    {
+      "id": "cwi-org-timmons-group",
+      "type": "institution",
+      "label": "Timmons Group",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Richmond, VA",
+      "coordinates": [
+        -77.436,
+        37.541
+      ],
+      "description": "Partner on 1 CWI project: EPIC."
+    },
+    {
+      "id": "cwi-org-reshape",
+      "type": "institution",
+      "label": "ReSHAPE",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Fort Collins, CO",
+      "coordinates": [
+        -105.084,
+        40.585
+      ],
+      "description": "Partner on 1 CWI project: EPIC."
+    },
+    {
+      "id": "cwi-org-pyrologix",
+      "type": "institution",
+      "label": "Pyrologix",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Missoula, MT",
+      "coordinates": [
+        -113.994,
+        46.872
+      ],
+      "description": "Partner on 1 CWI project: EPIC."
+    },
+    {
+      "id": "cwi-proj-2026-convening",
+      "type": "meeting",
+      "label": "2026 Convening",
+      "location": "Jamestown, CA",
+      "coordinates": [
+        -120.423,
+        37.953
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in Jamestown, CA with 55 partners."
+    },
+    {
+      "id": "cwi-org-3pointx",
+      "type": "institution",
+      "label": "3pointx",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-butte-county-fire-safe-council",
+      "type": "institution",
+      "label": "Butte County Fire Safe Council",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Paradise, CA",
+      "coordinates": [
+        -121.622,
+        39.76
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-ca-forward",
+      "type": "institution",
+      "label": "CA Forward",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-california-tahoe-conservancy",
+      "type": "institution",
+      "label": "California Tahoe Conservancy",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "South Lake Tahoe, CA",
+      "coordinates": [
+        -119.984,
+        38.933
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-ca-state-office-of-energy-infrastructure-safety",
+      "type": "institution",
+      "label": "CA State Office of Energy Infrastructure Safety",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "type": "institution",
+      "label": "CA Wildfire & Forest Resilience Taskforce",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 7 CWI projects: 2026 Convening; 2025 Convening; 2024 Convening; 2023 Convening; Wildfire Data Hub; Regional Resource Kits; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-california-council-on-science-and-technology",
+      "type": "institution",
+      "label": "California Council on Science & Technology",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 4 CWI projects: 2026 Convening; 2025 Convening; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-carbon-plan",
+      "type": "institution",
+      "label": "Carbon Plan",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-chico-state-big-chico-creek-ecological-reserve",
+      "type": "institution",
+      "label": "Chico State Big Chico Creek Ecological Reserve",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Chico, CA",
+      "coordinates": [
+        -121.837,
+        39.729
+      ],
+      "description": "Partner on 3 CWI projects: 2026 Convening; 2025 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-ca-natural-resources-agency",
+      "type": "institution",
+      "label": "CA Natural Resources Agency",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-planet",
+      "type": "institution",
+      "label": "Planet",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2025 Convening."
+    },
+    {
+      "id": "cwi-org-desert-research-institute",
+      "type": "institution",
+      "label": "Desert Research Institute",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Reno, NV",
+      "coordinates": [
+        -119.814,
+        39.53
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2025 Convening."
+    },
+    {
+      "id": "cwi-org-grassroots-wildland-firefighters",
+      "type": "institution",
+      "label": "Grassroots Wildland Firefighters",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Carlton, OR",
+      "coordinates": [
+        -123.177,
+        45.294
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-jbird-consulting",
+      "type": "institution",
+      "label": "JBIRD Consulting",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Marble Falls, TX",
+      "coordinates": [
+        -98.272,
+        30.578
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-marin-wildfire-prevention-authority",
+      "type": "institution",
+      "label": "Marin Wildfire Prevention Authority",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Rafael, CA",
+      "coordinates": [
+        -122.531,
+        37.974
+      ],
+      "description": "Partner on 3 CWI projects: 2026 Convening; 2025 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-milliman",
+      "type": "institution",
+      "label": "Milliman",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Seattle, WA",
+      "coordinates": [
+        -122.332,
+        47.606
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-nasa",
+      "type": "institution",
+      "label": "NASA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Washington, DC",
+      "coordinates": [
+        -77.037,
+        38.907
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-ors-impact",
+      "type": "institution",
+      "label": "ORS Impact",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Seattle, WA",
+      "coordinates": [
+        -122.332,
+        47.606
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-planscape",
+      "type": "institution",
+      "label": "Planscape",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-fullscope-consulting",
+      "type": "institution",
+      "label": "FullScope Consulting",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Missoula, MT",
+      "coordinates": [
+        -113.994,
+        46.872
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-sierra-sequoia-burn-cooperative",
+      "type": "institution",
+      "label": "Sierra-Sequoia Burn Cooperative",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-princeton-university",
+      "type": "institution",
+      "label": "Princeton University",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Nashville, TN",
+      "coordinates": [
+        -86.781,
+        36.163
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-sonoma-land-trust",
+      "type": "institution",
+      "label": "Sonoma Land Trust",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Rosa, CA",
+      "coordinates": [
+        -122.714,
+        38.44
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-tuolumne-fire-safe-council",
+      "type": "institution",
+      "label": "Tuolumne Fire Safe Council",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Tuolumne, CA",
+      "coordinates": [
+        -120.243,
+        37.962
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-tuolumne-rcd",
+      "type": "institution",
+      "label": "Tuolumne RCD",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sonora, CA",
+      "coordinates": [
+        -120.382,
+        37.984
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-uc-davis",
+      "type": "institution",
+      "label": "UC Davis",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Davis, CA",
+      "coordinates": [
+        -121.74,
+        38.545
+      ],
+      "description": "Partner on 4 CWI projects: 2026 Convening; 2024 Convening; 2023 Convening; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-uc-merced",
+      "type": "institution",
+      "label": "UC Merced",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Merced, CA",
+      "coordinates": [
+        -120.483,
+        37.302
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-uc-san-diego",
+      "type": "institution",
+      "label": "UC San Diego",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Diego, CA",
+      "coordinates": [
+        -117.161,
+        32.716
+      ],
+      "description": "Partner on 5 CWI projects: 2026 Convening; 2025 Convening; 2024 Convening; Wildfire Data Hub; BLM Fireforecasting."
+    },
+    {
+      "id": "cwi-org-us-department-of-agriculture",
+      "type": "institution",
+      "label": "US Department of Agriculture",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Washington, DC",
+      "coordinates": [
+        -77.037,
+        38.907
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-verisk",
+      "type": "institution",
+      "label": "Verisk",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Jersey City, NJ",
+      "coordinates": [
+        -74.077,
+        40.728
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2024 Convening."
+    },
+    {
+      "id": "cwi-org-vibrant-planet-data-commons",
+      "type": "institution",
+      "label": "Vibrant Planet Data Commons",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Conifer, CO",
+      "coordinates": [
+        -105.305,
+        39.522
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-washoe-environmental-protection-department",
+      "type": "institution",
+      "label": "Washoe Environmental Protection Department",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Gardnerville, NV",
+      "coordinates": [
+        -119.75,
+        38.941
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-rural-county-representatives-of-california",
+      "type": "institution",
+      "label": "Rural County Representatives of California",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-watershed-research-and-training-center",
+      "type": "institution",
+      "label": "Watershed Research and Training Center",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Hayfork, CA",
+      "coordinates": [
+        -123.183,
+        40.554
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-western-fire-and-forest-resilience-collaborative",
+      "type": "institution",
+      "label": "Western Fire and Forest Resilience Collaborative",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Millbrook, NY",
+      "coordinates": [
+        -73.694,
+        41.785
+      ],
+      "description": "Partner on 2 CWI projects: 2026 Convening; 2025 Convening."
+    },
+    {
+      "id": "cwi-org-wui-data-commons",
+      "type": "institution",
+      "label": "WUI Data Commons",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-wuuii",
+      "type": "institution",
+      "label": "WUUII",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-org-yosemite-rivers-alliance",
+      "type": "institution",
+      "label": "Yosemite Rivers Alliance",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sonora, CA",
+      "coordinates": [
+        -120.382,
+        37.984
+      ],
+      "description": "Partner on 1 CWI project: 2026 Convening."
+    },
+    {
+      "id": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "meeting",
+      "label": "2026 CAL FIRE Vintner Convening",
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in Napa, CA with 47 partners."
+    },
+    {
+      "id": "cwi-org-all-hands-ecology-fire-forward",
+      "type": "institution",
+      "label": "All Hands Ecology - Fire Forward",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Stinson Beach, CA",
+      "coordinates": [
+        -122.644,
+        37.9
+      ],
+      "description": "Partner on 2 CWI projects: 2026 CAL FIRE Vintner Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-baldacci-family-vineyards",
+      "type": "institution",
+      "label": "Baldacci Family Vineyards",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-bay-area-air-district",
+      "type": "institution",
+      "label": "Bay Area Air District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-cain-vineyard-and-winery",
+      "type": "institution",
+      "label": "Cain Vineyard & Winery",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "St Helena, CA",
+      "coordinates": [
+        -122.47,
+        38.505
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-california-air-resources-board",
+      "type": "institution",
+      "label": "California Air Resources Board",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 3 CWI projects: 2026 CAL FIRE Vintner Convening; 2023 Convening; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-cal-fire-lnu",
+      "type": "institution",
+      "label": "CAL FIRE LNU",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "St Helena, CA",
+      "coordinates": [
+        -122.47,
+        38.505
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-california-state-parks",
+      "type": "institution",
+      "label": "California State Parks",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-capcoa",
+      "type": "institution",
+      "label": "CAPCOA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-clarity-movement-co",
+      "type": "institution",
+      "label": "Clarity Movement Co.",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Berkeley, CA",
+      "coordinates": [
+        -122.273,
+        37.872
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-constellation-brands",
+      "type": "institution",
+      "label": "Constellation Brands",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Rochester, NY",
+      "coordinates": [
+        -77.611,
+        43.157
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-dyer-vineyard",
+      "type": "institution",
+      "label": "DYER Vineyard",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Calistoga, CA",
+      "coordinates": [
+        -122.58,
+        38.579
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-epic-insurance-brokers-and-consultants",
+      "type": "institution",
+      "label": "EPIC Insurance Brokers and Consultants",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "New York, NY",
+      "coordinates": [
+        -74.006,
+        40.713
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-farella-vineyards",
+      "type": "institution",
+      "label": "Farella Vineyards",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-honig-vineyard-and-winery",
+      "type": "institution",
+      "label": "Honig Vineyard & Winery",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Rutherford, CA",
+      "coordinates": [
+        -122.42,
+        38.459
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-jencap-group",
+      "type": "institution",
+      "label": "Jencap Group",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "New York, NY",
+      "coordinates": [
+        -74.006,
+        40.713
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-jones-family",
+      "type": "institution",
+      "label": "Jones Family",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Calistoga, CA",
+      "coordinates": [
+        -122.58,
+        38.579
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-land-trust-of-napa-county",
+      "type": "institution",
+      "label": "Land Trust of Napa County",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-long-meadow-ranch",
+      "type": "institution",
+      "label": "Long Meadow Ranch",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "St Helena, CA",
+      "coordinates": [
+        -122.47,
+        38.505
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-los-alamos-national-laboratory",
+      "type": "institution",
+      "label": "Los Alamos National Laboratory",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Los Alamos, NM",
+      "coordinates": [
+        -106.304,
+        35.888
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-napa-communities-firewise-foundation",
+      "type": "institution",
+      "label": "Napa Communities Firewise Foundation",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 2 CWI projects: 2026 CAL FIRE Vintner Convening; 2025 Convening."
+    },
+    {
+      "id": "cwi-org-napa-county-board-of-supervisors",
+      "type": "institution",
+      "label": "Napa County Board of Supervisors",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-bailey-vegetation-management",
+      "type": "institution",
+      "label": "Bailey Vegetation Management",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-napa-prescribed-burn-association",
+      "type": "institution",
+      "label": "Napa Prescribed Burn Association",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-napa-resource-conservation-district",
+      "type": "institution",
+      "label": "Napa Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-napa-valley-grapegrowers",
+      "type": "institution",
+      "label": "Napa Valley Grapegrowers",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-napa-valley-vintners",
+      "type": "institution",
+      "label": "Napa Valley Vintners",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "St Helena, CA",
+      "coordinates": [
+        -122.47,
+        38.505
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-opus-one-winery",
+      "type": "institution",
+      "label": "Opus One Winery",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Oakville, CA",
+      "coordinates": [
+        -122.402,
+        38.437
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-pepperwood-preserve",
+      "type": "institution",
+      "label": "Pepperwood Preserve",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Rosa, CA",
+      "coordinates": [
+        -122.714,
+        38.44
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-pina-vineyard-management",
+      "type": "institution",
+      "label": "Pina Vineyard Management",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-placer-county-air-pollution-district",
+      "type": "institution",
+      "label": "Placer County Air Pollution District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Auburn, CA",
+      "coordinates": [
+        -121.077,
+        38.897
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-santa-barbara-county-air-pollution-district",
+      "type": "institution",
+      "label": "Santa Barbara County Air Pollution District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Barbara, CA",
+      "coordinates": [
+        -119.698,
+        34.421
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-schramsberg-vineyards",
+      "type": "institution",
+      "label": "Schramsberg Vineyards",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Calistoga, CA",
+      "coordinates": [
+        -122.58,
+        38.579
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-seavey-vineyard",
+      "type": "institution",
+      "label": "Seavey Vineyard",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "St Helena, CA",
+      "coordinates": [
+        -122.47,
+        38.505
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-shute-mihaly-and-weinberger-llp",
+      "type": "institution",
+      "label": "Shute, Mihaly & Weinberger LLP",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 3 CWI projects: 2026 CAL FIRE Vintner Convening; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-silver-oak",
+      "type": "institution",
+      "label": "Silver Oak",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Oakville, CA",
+      "coordinates": [
+        -122.402,
+        38.437
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-sonoma-ag-open-space",
+      "type": "institution",
+      "label": "Sonoma Ag + Open Space",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Rosa, CA",
+      "coordinates": [
+        -122.714,
+        38.44
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-sonoma-county-regional-parks",
+      "type": "institution",
+      "label": "Sonoma County Regional Parks",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Rosa, CA",
+      "coordinates": [
+        -122.714,
+        38.44
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-sonoma-resource-conservation-district",
+      "type": "institution",
+      "label": "Sonoma Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Rosa, CA",
+      "coordinates": [
+        -122.714,
+        38.44
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-uc-cooperative-extension",
+      "type": "institution",
+      "label": "UC Cooperative Extension",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Napa, CA",
+      "coordinates": [
+        -122.287,
+        38.297
+      ],
+      "description": "Partner on 2 CWI projects: 2026 CAL FIRE Vintner Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-uc-san-diego-supercomputer-center",
+      "type": "institution",
+      "label": "UC San Diego Supercomputer Center",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Diego, CA",
+      "coordinates": [
+        -117.161,
+        32.716
+      ],
+      "description": "Partner on 3 CWI projects: 2026 CAL FIRE Vintner Convening; 2024 Convening; Wildfire Data Hub."
+    },
+    {
+      "id": "cwi-org-usda-ars",
+      "type": "institution",
+      "label": "USDA-ARS",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Albany, CA",
+      "coordinates": [
+        -122.298,
+        37.887
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-viader-vineyards-and-winery",
+      "type": "institution",
+      "label": "VIADER Vineyards & Winery",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Deer Park, CA",
+      "coordinates": [
+        -122.476,
+        38.549
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-wildland-resource-management-wrm",
+      "type": "institution",
+      "label": "Wildland Resource Management (WRM)",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Alamo, CA",
+      "coordinates": [
+        -122.032,
+        37.85
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-wildlife-conservation-board",
+      "type": "institution",
+      "label": "Wildlife Conservation Board",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-org-wine-institute",
+      "type": "institution",
+      "label": "Wine Institute",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2026 CAL FIRE Vintner Convening."
+    },
+    {
+      "id": "cwi-proj-2025-convening",
+      "type": "meeting",
+      "label": "2025 Convening",
+      "location": "San Rafael, CA",
+      "coordinates": [
+        -122.531,
+        37.974
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in San Rafael, CA with 35 partners."
+    },
+    {
+      "id": "cwi-org-ucla",
+      "type": "institution",
+      "label": "UCLA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Los Angeles, CA",
+      "coordinates": [
+        -118.244,
+        34.052
+      ],
+      "description": "Partner on 3 CWI projects: 2025 Convening; 2023 Convening; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-american-wildfire-experience",
+      "type": "institution",
+      "label": "American Wildfire Experience",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-university-of-san-francisco",
+      "type": "institution",
+      "label": "University of San Francisco",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-chico-state",
+      "type": "institution",
+      "label": "Chico State",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Chico, CA",
+      "coordinates": [
+        -121.837,
+        39.729
+      ],
+      "description": "Partner on 4 CWI projects: 2025 Convening; 2024 Convening; 2023 Convening; Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-ascent-environmental-inc",
+      "type": "institution",
+      "label": "Ascent Environmental, Inc.",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-center-for-law-energy-and-the-environment",
+      "type": "institution",
+      "label": "Center for Law, Energy & the Environment",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Berkeley, CA",
+      "coordinates": [
+        -122.273,
+        37.872
+      ],
+      "description": "Partner on 2 CWI projects: 2025 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-metrolab-network",
+      "type": "institution",
+      "label": "MetroLab Network",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Washington, DC",
+      "coordinates": [
+        -77.037,
+        38.907
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-mayday-ai",
+      "type": "institution",
+      "label": "Mayday.ai",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Irvine, CA",
+      "coordinates": [
+        -117.826,
+        33.684
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-the-triangle",
+      "type": "institution",
+      "label": "The Triangle",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-washoe-tribe",
+      "type": "institution",
+      "label": "Washoe Tribe",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Gardnerville, NV",
+      "coordinates": [
+        -119.75,
+        38.941
+      ],
+      "description": "Partner on 3 CWI projects: 2025 Convening; 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-uc-irvine",
+      "type": "institution",
+      "label": "UC Irvine",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Irvine, CA",
+      "coordinates": [
+        -117.826,
+        33.684
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-nephila-advisors-llc",
+      "type": "institution",
+      "label": "Nephila Advisors LLC",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Larkspur, CA",
+      "coordinates": [
+        -122.535,
+        37.934
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-org-willow-labs",
+      "type": "institution",
+      "label": "Willow Labs",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Francisco, CA",
+      "coordinates": [
+        -122.419,
+        37.775
+      ],
+      "description": "Partner on 1 CWI project: 2025 Convening."
+    },
+    {
+      "id": "cwi-proj-2024-convening",
+      "type": "meeting",
+      "label": "2024 Convening",
+      "location": "Olympic Valley, CA",
+      "coordinates": [
+        -120.235,
+        39.197
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in Olympic Valley, CA with 37 partners."
+    },
+    {
+      "id": "cwi-org-cal-fire-neu",
+      "type": "institution",
+      "label": "CAL FIRE NEU",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Auburn, CA",
+      "coordinates": [
+        -121.077,
+        38.897
+      ],
+      "description": "Partner on 2 CWI projects: 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-us-geological-survey",
+      "type": "institution",
+      "label": "US Geological Survey",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-us-forest-service-tahoe-national-forest",
+      "type": "institution",
+      "label": "US Forest Service - Tahoe National Forest",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Nevada City, CA",
+      "coordinates": [
+        -121.017,
+        39.262
+      ],
+      "description": "Partner on 2 CWI projects: 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-org-environmmental-defense-fund",
+      "type": "institution",
+      "label": "Environmmental Defense Fund",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "New York, NY",
+      "coordinates": [
+        -74.006,
+        40.713
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-university-of-nevada-reno",
+      "type": "institution",
+      "label": "University of Nevada, Reno",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Reno, NV",
+      "coordinates": [
+        -119.814,
+        39.53
+      ],
+      "description": "Partner on 2 CWI projects: 2024 Convening; BLM Fireforecasting."
+    },
+    {
+      "id": "cwi-org-uc-agriculture-and-natural-resources",
+      "type": "institution",
+      "label": "UC Agriculture and Natural Resources",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Davis, CA",
+      "coordinates": [
+        -121.74,
+        38.545
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-national-center-for-ecological-analysis-and-synthesis",
+      "type": "institution",
+      "label": "National Center for Ecological Analysis & Synthesis",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Barbara, CA",
+      "coordinates": [
+        -119.698,
+        34.421
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-cal-poly-slo",
+      "type": "institution",
+      "label": "Cal Poly SLO",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Luis Obispo, CA",
+      "coordinates": [
+        -120.66,
+        35.283
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-jpl-nasa",
+      "type": "institution",
+      "label": "JPL / NASA",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Mountain View, CA",
+      "coordinates": [
+        -122.084,
+        37.386
+      ],
+      "description": "Partner on 1 CWI project: 2024 Convening."
+    },
+    {
+      "id": "cwi-org-cultural-fire-management-council",
+      "type": "institution",
+      "label": "Cultural Fire Management Council",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Hoopa, CA",
+      "coordinates": [
+        -123.675,
+        41.05
+      ],
+      "description": "Partner on 2 CWI projects: 2024 Convening; 2023 Convening."
+    },
+    {
+      "id": "cwi-proj-2023-convening",
+      "type": "meeting",
+      "label": "2023 Convening",
+      "location": "Olympic Valley, CA",
+      "coordinates": [
+        -120.235,
+        39.197
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in Olympic Valley, CA with 34 partners."
+    },
+    {
+      "id": "cwi-org-dinkey-collaborative",
+      "type": "institution",
+      "label": "Dinkey Collaborative",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Fresno, CA",
+      "coordinates": [
+        -119.787,
+        36.738
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-deer-creek-resources",
+      "type": "institution",
+      "label": "Deer Creek Resources",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Chico, CA",
+      "coordinates": [
+        -121.837,
+        39.729
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-sierra-nevada-conservancy",
+      "type": "institution",
+      "label": "Sierra Nevada Conservancy",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Auburn, CA",
+      "coordinates": [
+        -121.077,
+        38.897
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-inyo-county",
+      "type": "institution",
+      "label": "Inyo County",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Independence, CA",
+      "coordinates": [
+        -118.2,
+        36.803
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-karuk-tribe",
+      "type": "institution",
+      "label": "Karuk Tribe",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Happy Camp, CA",
+      "coordinates": [
+        -123.375,
+        41.793
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-tribal-eco-restoration-alliance",
+      "type": "institution",
+      "label": "Tribal Eco-Restoration Alliance",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Lakeport, CA",
+      "coordinates": [
+        -122.915,
+        39.043
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-mono-county",
+      "type": "institution",
+      "label": "Mono County",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Mammoth Lakes, CA",
+      "coordinates": [
+        -118.972,
+        37.649
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-alaska-interagency-incident-management-team",
+      "type": "institution",
+      "label": "Alaska Interagency Incident Management Team",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Wainwright, AK",
+      "coordinates": [
+        -160.038,
+        70.637
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-org-national-park-service-pnw",
+      "type": "institution",
+      "label": "National Park Service - PNW",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Seattle, WA",
+      "coordinates": [
+        -122.332,
+        47.606
+      ],
+      "description": "Partner on 1 CWI project: 2023 Convening."
+    },
+    {
+      "id": "cwi-proj-wildfire-data-hub",
+      "type": "product",
+      "label": "Wildfire Data Hub",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 5 partners."
+    },
+    {
+      "id": "cwi-proj-regional-resource-kits",
+      "type": "product",
+      "label": "Regional Resource Kits",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 4 partners."
+    },
+    {
+      "id": "cwi-proj-chaparral-workshop",
+      "type": "meeting",
+      "label": "Chaparral Workshop",
+      "location": "Arcadia, CA",
+      "coordinates": [
+        -118.035,
+        34.14
+      ],
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening in Arcadia, CA with 24 partners."
+    },
+    {
+      "id": "cwi-org-ucsb",
+      "type": "institution",
+      "label": "UCSB",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Santa Barbara, CA",
+      "coordinates": [
+        -119.698,
+        34.421
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-us-forest-service-pacific-northwest-research-station",
+      "type": "institution",
+      "label": "US Forest Service - Pacific Northwest Research Station",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Corvallis, Oregon",
+      "coordinates": [
+        -123.262,
+        44.565
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-san-diego-state-university",
+      "type": "institution",
+      "label": "San Diego State University",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Diego, CA",
+      "coordinates": [
+        -117.161,
+        32.716
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-santa-monica-mountains-conservancy",
+      "type": "institution",
+      "label": "Santa Monica Mountains Conservancy",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Los Angeles, CA",
+      "coordinates": [
+        -118.244,
+        34.052
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-ca-state-parks-inland-empire-district",
+      "type": "institution",
+      "label": "CA State Parks - Inland Empire District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Perris, CA",
+      "coordinates": [
+        -117.229,
+        33.783
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-endangered-habitats-league",
+      "type": "institution",
+      "label": "Endangered Habitats League",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "West Hollywood, CA",
+      "coordinates": [
+        -118.362,
+        34.09
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-chaparral-institute",
+      "type": "institution",
+      "label": "Chaparral Institute",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Escondido, CA",
+      "coordinates": [
+        -117.087,
+        33.119
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-irvine-ranch-conservancy",
+      "type": "institution",
+      "label": "Irvine Ranch Conservancy",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Irvine, CA",
+      "coordinates": [
+        -117.826,
+        33.684
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-inland-empire-resource-conservation-district",
+      "type": "institution",
+      "label": "Inland Empire Resource Conservation District",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Redlands, CA",
+      "coordinates": [
+        -117.183,
+        34.056
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-usfs-cleveland-national-forest",
+      "type": "institution",
+      "label": "USFS - Cleveland National Forest",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "San Diego, CA",
+      "coordinates": [
+        -117.161,
+        32.716
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-treepeople",
+      "type": "institution",
+      "label": "TreePeople",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Los Angeles, CA",
+      "coordinates": [
+        -118.244,
+        34.052
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-usfs-los-padres-national-forest",
+      "type": "institution",
+      "label": "USFS - Los Padres National Forest",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Solvang, CA",
+      "coordinates": [
+        -120.139,
+        34.596
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-ca-dept-of-conservation",
+      "type": "institution",
+      "label": "CA Dept of Conservation",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Sacramento, CA",
+      "coordinates": [
+        -121.494,
+        38.582
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-usfs-pacific-southwest-region",
+      "type": "institution",
+      "label": "USFS Pacific Southwest Region",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Vallejo, CA",
+      "coordinates": [
+        -122.257,
+        38.104
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-conservation-biology-institute",
+      "type": "institution",
+      "label": "Conservation Biology Institute",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "Corvallis, Oregon",
+      "coordinates": [
+        -123.262,
+        44.565
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-org-indian-heritage-commission",
+      "type": "institution",
+      "label": "Indian Heritage Commission",
+      "tags": [
+        "CWI partner",
+        "CWI Network"
+      ],
+      "location": "West Sacramento, CA",
+      "coordinates": [
+        -121.53,
+        38.58
+      ],
+      "description": "Partner on 1 CWI project: Chaparral Workshop."
+    },
+    {
+      "id": "cwi-proj-blm-fireforecasting",
+      "type": "program",
+      "label": "BLM Fireforecasting",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 2 partners."
+    },
+    {
+      "id": "cwi-proj-western-foresters-outcomes-based-metrics",
+      "type": "program",
+      "label": "Western Foresters Outcomes Based Metrics",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 0 partners."
+    },
+    {
+      "id": "cwi-proj-2027-convening",
+      "type": "meeting",
+      "label": "2027 Convening",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI convening with 0 partners."
+    },
+    {
+      "id": "cwi-proj-embergraph",
+      "type": "product",
+      "label": "EmberGraph",
+      "tags": [
+        "CWI Network",
+        "CWI project"
+      ],
+      "description": "CWI project with 0 partners."
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-cwi-rhf",
+      "source": "inst-cwi",
+      "target": "prog-rhf",
+      "type": "OPERATES",
+      "label": "administers",
+      "how": "administers statewide wildfire risk reduction grant program",
+      "modality": "grant funding & homeowner technical assistance"
+    },
+    {
+      "id": "edge-cwi-firelines",
+      "source": "inst-cwi",
+      "target": "prod-firelines",
+      "type": "LEADS",
+      "label": "develops",
+      "how": "leads wildfire intelligence graph architecture & decision tools",
+      "modality": "knowledge graph & data ontology"
+    },
+    {
+      "id": "edge-cwi-efa",
+      "source": "inst-cwi",
+      "target": "collab-efa",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "boundary policy translation & science advisory",
+      "modality": "coalition leadership"
+    },
+    {
+      "id": "edge-calfire-rhf",
+      "source": "inst-calfire",
+      "target": "prog-rhf",
+      "type": "FUNDS",
+      "label": "co-funds",
+      "how": "California state wildfire defense & community grants",
+      "modality": "public finance"
+    },
+    {
+      "id": "edge-google-efa",
+      "source": "inst-google-org",
+      "target": "collab-efa",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "AI fire detection models & cloud analytics funding",
+      "modality": "machine learning & compute"
+    },
+    {
+      "id": "edge-muon-efa",
+      "source": "inst-muon-space",
+      "target": "collab-efa",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "makes satellites & sensor buses",
+      "modality": "satellite hardware"
+    },
+    {
+      "id": "edge-efa-firesat",
+      "source": "collab-efa",
+      "target": "prod-firesat",
+      "type": "PRODUCES",
+      "label": "produces",
+      "how": "develops & operates satellite constellation",
+      "modality": "satellite operations"
+    },
+    {
+      "id": "edge-firesat-topic-mon",
+      "source": "prod-firesat",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "spaceborne active fire detection",
+      "modality": "infrared imaging"
+    },
+    {
+      "id": "edge-firesat-topic-sat",
+      "source": "prod-firesat",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "orbital constellation",
+      "modality": "LEO telemetry"
+    },
+    {
+      "id": "edge-rhf-topic-hh",
+      "source": "prog-rhf",
+      "target": "topic-home-hardening",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "homeowner defense & structure hardening grants",
+      "modality": "parcel-level grants"
+    },
+    {
+      "id": "edge-firelines-topic-dec",
+      "source": "prod-firelines",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "operational knowledge mapping",
+      "modality": "graph platform"
+    },
+    {
+      "id": "edge-gcd-1",
+      "source": "land-89",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-2",
+      "source": "land-47",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-3",
+      "source": "land-47",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Wildfire management projects",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-4",
+      "source": "land-54",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-5",
+      "source": "land-54",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-collab-6",
+      "source": "land-54",
+      "target": "land-29",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Real-time fire alerts",
+      "modality": "Phase: Pre, Active"
+    },
+    {
+      "id": "edge-collab-7",
+      "source": "land-118",
+      "target": "land-119",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Weather forecasts; climate services",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-collab-8",
+      "source": "land-118",
+      "target": "land-18",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Weather forecasts; climate services",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-gcd-9",
+      "source": "land-103",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-10",
+      "source": "land-103",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "AlertCalifornia",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-11",
+      "source": "land-104",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-12",
+      "source": "land-104",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-13",
+      "source": "land-55",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-14",
+      "source": "land-55",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Improved communication",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-15",
+      "source": "land-83",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-16",
+      "source": "land-15",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Advisors · Domain Subject Matter Experts",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-17",
+      "source": "land-51",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-18",
+      "source": "land-87",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-19",
+      "source": "land-164",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Integrated Fire Management Tools",
+      "modality": "integrated fire management tools"
+    },
+    {
+      "id": "edge-topic-20",
+      "source": "land-164",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-21",
+      "source": "inst-google-org",
+      "target": "land-164",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-gcd-22",
+      "source": "land-3",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Strategic Deciders · Anchor Funders",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-23",
+      "source": "land-134",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Pre-fire Risks",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-topic-24",
+      "source": "land-134",
+      "target": "topic-spread-modeling",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Simulation tools for fire management",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-topic-25",
+      "source": "land-120",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Quick detection alerts for high-risk areas",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-26",
+      "source": "land-5",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Strategic Deciders · Anchor Funders",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-27",
+      "source": "land-5",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Wildfire prevention and management projects",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-28",
+      "source": "land-39",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-29",
+      "source": "land-121",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Improved bushfire management strategies",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-30",
+      "source": "land-40",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-31",
+      "source": "land-13",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Advisors · Research",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-32",
+      "source": "land-13",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Risk mitigation strategies in urban areas",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-33",
+      "source": "inst-calfire",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-34",
+      "source": "inst-calfire",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Statewide fire management",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-35",
+      "source": "inst-calfire",
+      "target": "land-144",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Statewide fire management",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-gcd-36",
+      "source": "land-31",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-37",
+      "source": "land-113",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-38",
+      "source": "land-172",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Integrated Fire Management Tools",
+      "modality": "integrated fire management tools"
+    },
+    {
+      "id": "edge-topic-39",
+      "source": "land-172",
+      "target": "topic-spread-modeling",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Wildfire Spread Modeling",
+      "modality": "spread modeling"
+    },
+    {
+      "id": "edge-topic-40",
+      "source": "land-172",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-gcd-41",
+      "source": "land-26",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-gcd-42",
+      "source": "land-56",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-gcd-43",
+      "source": "land-111",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-44",
+      "source": "land-42",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-gcd-45",
+      "source": "land-73",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Research",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-collab-46",
+      "source": "land-73",
+      "target": "land-122",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Forest restoration strategies",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-collab-47",
+      "source": "land-122",
+      "target": "land-73",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Forest resilience strategies",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-gcd-48",
+      "source": "land-63",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-49",
+      "source": "land-48",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-50",
+      "source": "land-123",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data for environmental monitoring",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-51",
+      "source": "land-123",
+      "target": "land-9",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Data for environmental monitoring",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-gcd-52",
+      "source": "land-109",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-53",
+      "source": "land-109",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "FireSat Data Integration",
+      "modality": "satellite data integration"
+    },
+    {
+      "id": "edge-topic-54",
+      "source": "land-109",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-55",
+      "source": "inst-google-org",
+      "target": "land-109",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-topic-56",
+      "source": "land-124",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Respond + Monitor",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-topic-57",
+      "source": "land-124",
+      "target": "topic-home-hardening",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Infrastructure monitoring",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-topic-58",
+      "source": "land-125",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-59",
+      "source": "land-95",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-60",
+      "source": "land-95",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-collab-61",
+      "source": "land-95",
+      "target": "land-110",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Regional early warning and wildfire strategies",
+      "modality": "Phase: Pre, Active"
+    },
+    {
+      "id": "edge-topic-62",
+      "source": "land-126",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-63",
+      "source": "collab-efa",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-64",
+      "source": "collab-efa",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Remote Sensing Tech Development",
+      "modality": "remote sensing development"
+    },
+    {
+      "id": "edge-topic-65",
+      "source": "collab-efa",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-66",
+      "source": "inst-google-org",
+      "target": "collab-efa",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-collab-67",
+      "source": "collab-efa",
+      "target": "inst-google-org",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Near real-time wildfire detection",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-collab-68",
+      "source": "collab-efa",
+      "target": "prod-firesat",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Near real-time wildfire detection",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-gcd-69",
+      "source": "land-85",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-70",
+      "source": "land-127",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-71",
+      "source": "land-4",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Strategic Deciders · Anchor Funders",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-gcd-72",
+      "source": "land-23",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-73",
+      "source": "land-23",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "FireSat Data Integration",
+      "modality": "satellite data integration"
+    },
+    {
+      "id": "edge-topic-74",
+      "source": "land-23",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-75",
+      "source": "inst-google-org",
+      "target": "land-23",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-gcd-76",
+      "source": "land-86",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-77",
+      "source": "land-105",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-78",
+      "source": "land-105",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Efficient emergency responses",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-79",
+      "source": "land-57",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-80",
+      "source": "land-128",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Forest fire data and reports",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-81",
+      "source": "land-9",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Advisors · Domain Subject Matter Experts",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-82",
+      "source": "land-129",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-83",
+      "source": "land-84",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-84",
+      "source": "land-34",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-85",
+      "source": "land-160",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "External",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-86",
+      "source": "land-131",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-87",
+      "source": "land-60",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-88",
+      "source": "land-60",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Fire Research and Management Exchange System (Frames)",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-89",
+      "source": "land-58",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-90",
+      "source": "land-59",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-91",
+      "source": "land-59",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "fireEUrisk",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-92",
+      "source": "land-64",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-93",
+      "source": "land-64",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Damage + Restore",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-topic-94",
+      "source": "land-64",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Stakeholder coordination and ecosystem recovery",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-95",
+      "source": "land-64",
+      "target": "land-62",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Stakeholder coordination and ecosystem recovery",
+      "modality": "Phase: Post"
+    },
+    {
+      "id": "edge-topic-96",
+      "source": "prod-firesat",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Remote Sensing Tech Development",
+      "modality": "remote sensing development"
+    },
+    {
+      "id": "edge-topic-97",
+      "source": "prod-firesat",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-98",
+      "source": "inst-google-org",
+      "target": "prod-firesat",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-collab-99",
+      "source": "prod-firesat",
+      "target": "collab-efa",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Global fire detection from space",
+      "modality": "Phase: Pre"
+    },
+    {
+      "id": "edge-topic-100",
+      "source": "land-133",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Respond + Monitor",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-101",
+      "source": "land-65",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-102",
+      "source": "land-82",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-103",
+      "source": "land-135",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-104",
+      "source": "land-106",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-105",
+      "source": "land-106",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Centralized global wildfire data",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-106",
+      "source": "land-106",
+      "target": "land-123",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Centralized global wildfire data",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-topic-107",
+      "source": "inst-google-org",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "FireSat Data Integration",
+      "modality": "satellite data integration"
+    },
+    {
+      "id": "edge-topic-108",
+      "source": "inst-google-org",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Retrieval Development",
+      "modality": "retrieval development"
+    },
+    {
+      "id": "edge-topic-109",
+      "source": "inst-google-org",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Mapping Wildfire Risk",
+      "modality": "risk mapping"
+    },
+    {
+      "id": "edge-topic-110",
+      "source": "inst-google-org",
+      "target": "topic-spread-modeling",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Wildfire Spread Modeling",
+      "modality": "spread modeling"
+    },
+    {
+      "id": "edge-topic-111",
+      "source": "inst-google-org",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-topic-112",
+      "source": "inst-google-org",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "End-User Applications",
+      "modality": "end-user applications"
+    },
+    {
+      "id": "edge-gcd-113",
+      "source": "inst-google-org",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Strategic Deciders · Ecosystem Builder",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-114",
+      "source": "inst-google-org",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "15-minute wildfire detection reduction, global interoperable AI collaborative network",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-115",
+      "source": "inst-google-org",
+      "target": "collab-efa",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "15-minute wildfire detection reduction, global interoperable AI collaborative network",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-collab-116",
+      "source": "inst-google-org",
+      "target": "land-123",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "15-minute wildfire detection reduction, global interoperable AI collaborative network",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-gcd-117",
+      "source": "land-2",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Strategic Deciders · Anchor Funders",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-gcd-118",
+      "source": "land-88",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-119",
+      "source": "land-136",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Pre-fire Risks",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-topic-120",
+      "source": "land-136",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Grid risk management",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-121",
+      "source": "land-137",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · External",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-122",
+      "source": "land-90",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-fund-123",
+      "source": "inst-google-org",
+      "target": "land-169",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-gcd-124",
+      "source": "land-66",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-125",
+      "source": "land-114",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-126",
+      "source": "land-80",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Research",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-127",
+      "source": "land-96",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-128",
+      "source": "land-96",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Respond + Monitor",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-topic-129",
+      "source": "land-139",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-130",
+      "source": "land-49",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-131",
+      "source": "land-162",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Remote Sensing Tech Development",
+      "modality": "remote sensing development"
+    },
+    {
+      "id": "edge-topic-132",
+      "source": "land-162",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-133",
+      "source": "inst-google-org",
+      "target": "land-162",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-gcd-134",
+      "source": "land-37",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-135",
+      "source": "land-77",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Research",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-136",
+      "source": "land-77",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Policy recommendations for wildfire management",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-137",
+      "source": "land-115",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-138",
+      "source": "land-72",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Research",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-139",
+      "source": "land-41",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-140",
+      "source": "land-41",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Environmental projects including wildfire management",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-141",
+      "source": "land-67",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-142",
+      "source": "land-67",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Damage + Restore",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-143",
+      "source": "land-68",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-144",
+      "source": "land-69",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-145",
+      "source": "land-45",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-146",
+      "source": "land-45",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Comprehensive resilience and early detection",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-147",
+      "source": "land-107",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-148",
+      "source": "land-107",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Environmental data and analysis",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-149",
+      "source": "land-107",
+      "target": "land-119",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Environmental data and analysis",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-gcd-150",
+      "source": "inst-muon-space",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-151",
+      "source": "inst-muon-space",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Remote Sensing Tech Development",
+      "modality": "remote sensing development"
+    },
+    {
+      "id": "edge-fund-152",
+      "source": "inst-google-org",
+      "target": "inst-muon-space",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-topic-153",
+      "source": "land-168",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Retrieval Development",
+      "modality": "retrieval development"
+    },
+    {
+      "id": "edge-topic-154",
+      "source": "land-168",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-topic-155",
+      "source": "land-173",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Remote Sensing Tech Development",
+      "modality": "remote sensing development"
+    },
+    {
+      "id": "edge-topic-156",
+      "source": "land-173",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-topic-157",
+      "source": "land-174",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Retrieval Development",
+      "modality": "retrieval development"
+    },
+    {
+      "id": "edge-topic-158",
+      "source": "land-174",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-gcd-159",
+      "source": "land-81",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-160",
+      "source": "land-116",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-161",
+      "source": "land-97",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-gcd-162",
+      "source": "land-11",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Advisors · Domain Subject Matter Experts",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-163",
+      "source": "land-140",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Pre-fire Risks",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-164",
+      "source": "land-108",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-165",
+      "source": "land-108",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Fire management information",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-topic-166",
+      "source": "land-141",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Technological solutions for wildfire management",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-167",
+      "source": "land-46",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-168",
+      "source": "land-36",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-169",
+      "source": "land-36",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Remote Sensing Tech Development",
+      "modality": "remote sensing development"
+    },
+    {
+      "id": "edge-collab-170",
+      "source": "land-36",
+      "target": "inst-google-org",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Real-time fire tracking and detection networks",
+      "modality": "Phase: Pre, Active"
+    },
+    {
+      "id": "edge-topic-171",
+      "source": "land-142",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-topic-172",
+      "source": "land-143",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Pre-fire Risks",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-173",
+      "source": "land-61",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-174",
+      "source": "land-61",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Wildfire management education",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-175",
+      "source": "land-44",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-176",
+      "source": "land-22",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-177",
+      "source": "land-22",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "FireSat Data Integration",
+      "modality": "satellite data integration"
+    },
+    {
+      "id": "edge-topic-178",
+      "source": "land-22",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Integrated Fire Management Tools",
+      "modality": "integrated fire management tools"
+    },
+    {
+      "id": "edge-topic-179",
+      "source": "land-22",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Mapping Wildfire Risk",
+      "modality": "risk mapping"
+    },
+    {
+      "id": "edge-topic-180",
+      "source": "land-22",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-181",
+      "source": "inst-google-org",
+      "target": "land-22",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-collab-182",
+      "source": "land-22",
+      "target": "inst-calfire",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Optimized landscape treatments, enhanced ecosystem resilience",
+      "modality": "Phase: Pre, Post"
+    },
+    {
+      "id": "edge-gcd-183",
+      "source": "land-158",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-184",
+      "source": "land-158",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "FireSat Data Integration",
+      "modality": "satellite data integration"
+    },
+    {
+      "id": "edge-topic-185",
+      "source": "land-158",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Integrated Fire Management Tools",
+      "modality": "integrated fire management tools"
+    },
+    {
+      "id": "edge-topic-186",
+      "source": "land-158",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Mapping Wildfire Risk",
+      "modality": "risk mapping"
+    },
+    {
+      "id": "edge-topic-187",
+      "source": "land-158",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-188",
+      "source": "inst-google-org",
+      "target": "land-158",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-collab-189",
+      "source": "land-158",
+      "target": "inst-calfire",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Optimized landscape treatments, enhanced ecosystem resilience",
+      "modality": "Phase: Pre, Post"
+    },
+    {
+      "id": "edge-gcd-190",
+      "source": "land-52",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-191",
+      "source": "land-144",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "External",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-192",
+      "source": "land-144",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Accurate pre-fire risk maps, real-time wind-based modeling",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-193",
+      "source": "land-144",
+      "target": "inst-calfire",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Accurate pre-fire risk maps, real-time wind-based modeling",
+      "modality": "Phase: Pre"
+    },
+    {
+      "id": "edge-gcd-194",
+      "source": "land-35",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-gcd-195",
+      "source": "land-24",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-196",
+      "source": "land-145",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Pre-fire Risks",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-197",
+      "source": "land-33",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-198",
+      "source": "land-74",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Research",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-199",
+      "source": "land-74",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Wildfire risk assessment tools",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-topic-200",
+      "source": "land-146",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-201",
+      "source": "land-62",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-202",
+      "source": "land-62",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Real-time wildfire response and post-fire risk assessment",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-203",
+      "source": "land-62",
+      "target": "land-123",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Real-time wildfire response and post-fire risk assessment",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-collab-204",
+      "source": "land-62",
+      "target": "land-106",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Real-time wildfire response and post-fire risk assessment",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-topic-205",
+      "source": "land-147",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-206",
+      "source": "land-50",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Program Funders",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-207",
+      "source": "land-117",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-208",
+      "source": "land-19",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "FireSat Data Integration",
+      "modality": "satellite data integration"
+    },
+    {
+      "id": "edge-topic-209",
+      "source": "land-19",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Integrated Fire Management Tools",
+      "modality": "integrated fire management tools"
+    },
+    {
+      "id": "edge-topic-210",
+      "source": "land-19",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Retrieval Development",
+      "modality": "retrieval development"
+    },
+    {
+      "id": "edge-topic-211",
+      "source": "land-19",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Mapping Wildfire Risk",
+      "modality": "risk mapping"
+    },
+    {
+      "id": "edge-topic-212",
+      "source": "land-19",
+      "target": "topic-spread-modeling",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Wildfire Spread Modeling",
+      "modality": "spread modeling"
+    },
+    {
+      "id": "edge-topic-213",
+      "source": "land-19",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-214",
+      "source": "inst-google-org",
+      "target": "land-19",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-gcd-215",
+      "source": "land-100",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-216",
+      "source": "land-148",
+      "target": "topic-spread-modeling",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Advanced wildfire behavior models",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-217",
+      "source": "land-148",
+      "target": "land-9",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Advanced wildfire behavior models",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-collab-218",
+      "source": "land-148",
+      "target": "land-123",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Advanced wildfire behavior models",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-gcd-219",
+      "source": "land-75",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Research",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-220",
+      "source": "land-75",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Technological solutions for wildfire detection",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-221",
+      "source": "land-75",
+      "target": "land-109",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Technological solutions for wildfire detection",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-topic-222",
+      "source": "land-149",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Pre-fire Risks",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-223",
+      "source": "land-91",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-224",
+      "source": "land-91",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Teleglobal Communications",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-225",
+      "source": "land-29",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-226",
+      "source": "land-29",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Solutions for wildfire management and other sectors",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-227",
+      "source": "land-112",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-228",
+      "source": "land-112",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "The Institute of Foresters of Australia and Australian Forest Growers’s Forest Fire Management",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-229",
+      "source": "land-16",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Advisors · Domain Subject Matter Experts",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-230",
+      "source": "land-16",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Wildfire management solutions",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-231",
+      "source": "land-16",
+      "target": "inst-google-org",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Wildfire management solutions",
+      "modality": "Phase: All"
+    },
+    {
+      "id": "edge-gcd-232",
+      "source": "land-38",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-233",
+      "source": "land-38",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-topic-234",
+      "source": "land-38",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Early detection in high-risk areas",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-collab-235",
+      "source": "land-38",
+      "target": "land-62",
+      "type": "COLLABORATES_WITH",
+      "label": "collaborates with",
+      "how": "Early detection in high-risk areas",
+      "modality": "Phase: Pre, Active"
+    },
+    {
+      "id": "edge-gcd-236",
+      "source": "land-14",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Advisors · Research",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-237",
+      "source": "land-14",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Integrated Fire Management Tools",
+      "modality": "integrated fire management tools"
+    },
+    {
+      "id": "edge-topic-238",
+      "source": "land-14",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Retrieval Development",
+      "modality": "retrieval development"
+    },
+    {
+      "id": "edge-topic-239",
+      "source": "land-14",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Mapping Wildfire Risk",
+      "modality": "risk mapping"
+    },
+    {
+      "id": "edge-topic-240",
+      "source": "land-14",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-topic-241",
+      "source": "land-171-uc-irvine-climate-carbon-and-fire-dynamics-lab",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Integrated Fire Management Tools",
+      "modality": "integrated fire management tools"
+    },
+    {
+      "id": "edge-topic-242",
+      "source": "land-171-uc-irvine-climate-carbon-and-fire-dynamics-lab",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Retrieval Development",
+      "modality": "retrieval development"
+    },
+    {
+      "id": "edge-topic-243",
+      "source": "land-171-uc-irvine-climate-carbon-and-fire-dynamics-lab",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Mapping Wildfire Risk",
+      "modality": "risk mapping"
+    },
+    {
+      "id": "edge-topic-244",
+      "source": "land-171-uc-irvine-climate-carbon-and-fire-dynamics-lab",
+      "target": "topic-spread-modeling",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Wildfire Spread Modeling",
+      "modality": "spread modeling"
+    },
+    {
+      "id": "edge-topic-245",
+      "source": "land-171-uc-irvine-climate-carbon-and-fire-dynamics-lab",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-gcd-246",
+      "source": "land-12",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Advisors · Research",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-247",
+      "source": "land-12",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "FireSat Data Integration",
+      "modality": "satellite data integration"
+    },
+    {
+      "id": "edge-topic-248",
+      "source": "land-12",
+      "target": "topic-remote-sensing",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Retrieval Development",
+      "modality": "retrieval development"
+    },
+    {
+      "id": "edge-topic-249",
+      "source": "land-12",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Mapping Wildfire Risk",
+      "modality": "risk mapping"
+    },
+    {
+      "id": "edge-topic-250",
+      "source": "land-12",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-topic-251",
+      "source": "land-12",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "End-User Applications",
+      "modality": "end-user applications"
+    },
+    {
+      "id": "edge-gcd-252",
+      "source": "land-32",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-253",
+      "source": "land-32",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Integrated Fire Management Tools",
+      "modality": "integrated fire management tools"
+    },
+    {
+      "id": "edge-topic-254",
+      "source": "land-32",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-255",
+      "source": "inst-google-org",
+      "target": "land-32",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-gcd-256",
+      "source": "land-98",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-257",
+      "source": "land-110",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-258",
+      "source": "land-110",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Global frameworks for disaster risk reduction",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-topic-259",
+      "source": "land-150",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Wildfire prevention and management strategies",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-260",
+      "source": "land-79",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Research",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-261",
+      "source": "land-30",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-262",
+      "source": "land-76",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Research",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-263",
+      "source": "land-8",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Advisors · Domain Subject Matter Experts",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-265",
+      "source": "land-102",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-266",
+      "source": "land-53",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-267",
+      "source": "land-101",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-268",
+      "source": "land-101",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Conservation and wildfire management",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-gcd-269",
+      "source": "land-92",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-270",
+      "source": "land-70",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-272",
+      "source": "land-70",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Detect + Validate",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-topic-273",
+      "source": "land-163",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "FireSat Data Integration",
+      "modality": "satellite data integration"
+    },
+    {
+      "id": "edge-topic-274",
+      "source": "land-163",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Integrated Fire Management Tools",
+      "modality": "integrated fire management tools"
+    },
+    {
+      "id": "edge-topic-275",
+      "source": "land-163",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Mapping Wildfire Risk",
+      "modality": "risk mapping"
+    },
+    {
+      "id": "edge-topic-276",
+      "source": "land-163",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-fund-277",
+      "source": "inst-google-org",
+      "target": "land-163",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-topic-278",
+      "source": "land-152",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Pre-fire Risks",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-topic-279",
+      "source": "land-152",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Soil moisture data",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-topic-280",
+      "source": "land-153",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Pre-fire Risks",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-topic-281",
+      "source": "land-130",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "FireSat Data Integration",
+      "modality": "satellite data integration"
+    },
+    {
+      "id": "edge-topic-282",
+      "source": "land-130",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Mapping Wildfire Risk",
+      "modality": "risk mapping"
+    },
+    {
+      "id": "edge-topic-283",
+      "source": "land-130",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-topic-284",
+      "source": "land-130",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "End-User Applications",
+      "modality": "end-user applications"
+    },
+    {
+      "id": "edge-fund-285",
+      "source": "inst-google-org",
+      "target": "land-130",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-gcd-286",
+      "source": "land-6",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Strategic Deciders · Domain Subject Matter Experts",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-287",
+      "source": "land-99",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Beneficiaries",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-gcd-288",
+      "source": "land-28",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-289",
+      "source": "land-28",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Advanced predictive tools for wildfire management",
+      "modality": "inferred from deliverables"
+    },
+    {
+      "id": "edge-topic-290",
+      "source": "land-154",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Respond + Monitor",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-gcd-291",
+      "source": "land-25",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Primary Delivery · Primary Delivery Partners",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-topic-292",
+      "source": "land-25",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "FireSat Data Integration",
+      "modality": "satellite data integration"
+    },
+    {
+      "id": "edge-topic-293",
+      "source": "land-25",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Mapping Wildfire Risk",
+      "modality": "risk mapping"
+    },
+    {
+      "id": "edge-topic-294",
+      "source": "land-25",
+      "target": "topic-data-commons",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Data Stores",
+      "modality": "data stores"
+    },
+    {
+      "id": "edge-topic-295",
+      "source": "land-25",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "End-User Applications",
+      "modality": "end-user applications"
+    },
+    {
+      "id": "edge-fund-296",
+      "source": "inst-google-org",
+      "target": "land-25",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-gcd-297",
+      "source": "land-93",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Industry",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-298",
+      "source": "land-7",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Strategic Deciders · Domain Subject Matter Experts",
+      "properties": {
+        "charterSignatory": true
+      }
+    },
+    {
+      "id": "edge-fund-299",
+      "source": "inst-google-org",
+      "target": "land-7",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "GWFC funding",
+      "properties": {
+        "link": "Y"
+      }
+    },
+    {
+      "id": "edge-gcd-300",
+      "source": "land-18",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Advisors · Domain Subject Matter Experts",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-301",
+      "source": "land-17",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Advisors · Domain Subject Matter Experts",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-gcd-302",
+      "source": "land-71",
+      "target": "collab-ai-wildfire",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "Delivery Support · Other Partners",
+      "properties": {
+        "charterSignatory": false
+      }
+    },
+    {
+      "id": "edge-topic-303",
+      "source": "land-155",
+      "target": "topic-risk-mapping",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "Assess Pre-fire Risks",
+      "modality": "fire stage"
+    },
+    {
+      "id": "edge-efa-304",
+      "source": "land-2",
+      "target": "collab-efa",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "philanthropic funding"
+    },
+    {
+      "id": "edge-efa-305",
+      "source": "land-45",
+      "target": "collab-efa",
+      "type": "FUNDS",
+      "label": "funds",
+      "how": "philanthropic funding"
+    },
+    {
+      "id": "edge-efa-307",
+      "source": "land-23",
+      "target": "collab-efa",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "policy work"
+    },
+    {
+      "id": "edge-efa-308",
+      "source": "inst-cwi",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "boundary translation",
+      "modality": "manual / boundary"
+    },
+    {
+      "id": "edge-cwi-309",
+      "source": "inst-cwi",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-310",
+      "source": "land-44",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-311",
+      "source": "cwi-org-city-of-grass-valley",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-312",
+      "source": "cwi-org-city-of-nevada-city",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-313",
+      "source": "cwi-org-you-bet-firewise",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-314",
+      "source": "cwi-org-wildfire-ready-coalition-of-nevada-county",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-315",
+      "source": "cwi-org-american-forest-foundation",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-316",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-317",
+      "source": "cwi-org-rockrose-risk",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-318",
+      "source": "cwi-org-home-hardening-solutions-inc",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-319",
+      "source": "cwi-org-wui-fire-institute-at-cal-poly-slo",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-320",
+      "source": "cwi-org-nevada-county-office-of-emergency-services",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-321",
+      "source": "cwi-org-fire-safe-people-tv",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-322",
+      "source": "land-155",
+      "target": "cwi-proj-pgande-wildfire-resilience-project",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-323",
+      "source": "inst-cwi",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-324",
+      "source": "cwi-org-nevada-county-resource-conservation-district",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-325",
+      "source": "land-44",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-326",
+      "source": "cwi-org-city-of-grass-valley",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-327",
+      "source": "cwi-org-city-of-nevada-city",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-328",
+      "source": "cwi-org-national-forest-foundation",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-329",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-330",
+      "source": "cwi-org-rockrose-risk",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-331",
+      "source": "cwi-org-nevada-county-office-of-emergency-services",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-332",
+      "source": "cwi-org-fire-safe-people-tv",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-333",
+      "source": "cwi-org-the-resiliency-company",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-334",
+      "source": "cwi-org-patrick-baylis",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-335",
+      "source": "cwi-org-judson-boomhower",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-336",
+      "source": "cwi-org-burnbot",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-337",
+      "source": "land-155",
+      "target": "cwi-proj-nevada-county-resilience-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-338",
+      "source": "inst-cwi",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-339",
+      "source": "cwi-org-burnbot",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-340",
+      "source": "land-2",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-341",
+      "source": "cwi-org-tahoe-fund",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-342",
+      "source": "cwi-org-north-lake-tahoe-fire-protection-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-343",
+      "source": "cwi-org-tahoe-central-sierra-initiative",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-344",
+      "source": "cwi-org-chris-anthony-firewerx",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-345",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-346",
+      "source": "cwi-org-vibrant-planet",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-347",
+      "source": "cwi-org-nv-energy-foundation",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-348",
+      "source": "cwi-org-tahoe-regional-planning-agency",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-349",
+      "source": "land-122",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-350",
+      "source": "cwi-org-wildfire-services",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-351",
+      "source": "cwi-org-tahoe-resource-conservation-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-352",
+      "source": "cwi-org-tahoe-douglas-fire-protection-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-353",
+      "source": "cwi-org-lake-valley-fire-protection-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-354",
+      "source": "cwi-org-north-tahoe-fire-protection-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-355",
+      "source": "cwi-org-south-lake-tahoe-fire-rescue",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-356",
+      "source": "cwi-org-truckee-fire-protection-district",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-357",
+      "source": "cwi-org-vanderbilt-university",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-358",
+      "source": "land-149",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-359",
+      "source": "cwi-org-opalai",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-360",
+      "source": "land-155",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-361",
+      "source": "cwi-org-rockrose-risk",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-362",
+      "source": "cwi-org-lake-tahoe-environmental-improvement-program",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-363",
+      "source": "cwi-org-stanford-university",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-364",
+      "source": "cwi-org-carnelian-woods-hoa",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-365",
+      "source": "cwi-org-tyrolian-village-hoa",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-366",
+      "source": "cwi-org-martis-camp-community-association",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-367",
+      "source": "cwi-org-glenbrook-hoa",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-368",
+      "source": "cwi-org-tahoe-network-of-fire-adapted-communities",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-369",
+      "source": "cwi-org-liberty-utilities",
+      "target": "cwi-proj-tahoe-sierra-spark-incline-fire-smart-community-pilot",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-370",
+      "source": "inst-cwi",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-371",
+      "source": "cwi-org-us-forest-service-sierra-national-forest",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-372",
+      "source": "cwi-org-us-forest-service-pacific-southwest-research-station",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-373",
+      "source": "cwi-org-us-forest-service-sequoia-national-forest",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-374",
+      "source": "cwi-org-cal-fire-fku",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-375",
+      "source": "cwi-org-sierra-resource-conservation-district",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-376",
+      "source": "cwi-org-sierra-sequoia-restoration-group",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-377",
+      "source": "cwi-org-the-fire-restoration-group",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-378",
+      "source": "cwi-org-krempl-consulting",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-379",
+      "source": "cwi-org-applied-earthworks",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-380",
+      "source": "cwi-org-cultural-resources-facility",
+      "target": "cwi-proj-intentional-fire-fund",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-381",
+      "source": "inst-cwi",
+      "target": "cwi-proj-epic",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-382",
+      "source": "cwi-org-environmental-policy-innovation-center",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-383",
+      "source": "cwi-org-timmons-group",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-384",
+      "source": "land-167",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-385",
+      "source": "land-122",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-386",
+      "source": "cwi-org-reshape",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-387",
+      "source": "cwi-org-pyrologix",
+      "target": "cwi-proj-epic",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-388",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2026-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-389",
+      "source": "cwi-org-3pointx",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-390",
+      "source": "land-39",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-391",
+      "source": "cwi-org-burnbot",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-392",
+      "source": "cwi-org-butte-county-fire-safe-council",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-393",
+      "source": "cwi-org-ca-forward",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-394",
+      "source": "cwi-org-california-tahoe-conservancy",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-395",
+      "source": "cwi-org-ca-state-office-of-energy-infrastructure-safety",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-396",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-397",
+      "source": "inst-calfire",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-398",
+      "source": "cwi-org-california-council-on-science-and-technology",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-399",
+      "source": "cwi-org-carbon-plan",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-400",
+      "source": "land-19",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-401",
+      "source": "cwi-org-chico-state-big-chico-creek-ecological-reserve",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-402",
+      "source": "cwi-org-ca-natural-resources-agency",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-403",
+      "source": "cwi-org-planet",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-404",
+      "source": "cwi-org-desert-research-institute",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-405",
+      "source": "cwi-org-grassroots-wildland-firefighters",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-406",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-407",
+      "source": "inst-google-org",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-408",
+      "source": "land-2",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-409",
+      "source": "cwi-org-jbird-consulting",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-410",
+      "source": "cwi-org-liberty-utilities",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-411",
+      "source": "cwi-org-marin-wildfire-prevention-authority",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-412",
+      "source": "land-69",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-413",
+      "source": "cwi-org-milliman",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-414",
+      "source": "cwi-org-nasa",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-415",
+      "source": "cwi-org-ors-impact",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-416",
+      "source": "land-44",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-417",
+      "source": "cwi-org-planscape",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-418",
+      "source": "cwi-org-fullscope-consulting",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-419",
+      "source": "cwi-org-sierra-sequoia-burn-cooperative",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-420",
+      "source": "cwi-org-princeton-university",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-421",
+      "source": "cwi-org-sonoma-land-trust",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-422",
+      "source": "cwi-org-stanford-university",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-423",
+      "source": "land-16",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-424",
+      "source": "cwi-org-tuolumne-fire-safe-council",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-425",
+      "source": "cwi-org-tuolumne-rcd",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-426",
+      "source": "land-14",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-427",
+      "source": "cwi-org-uc-davis",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-428",
+      "source": "cwi-org-uc-merced",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-429",
+      "source": "cwi-org-uc-san-diego",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-430",
+      "source": "land-167",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-431",
+      "source": "cwi-org-us-department-of-agriculture",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-432",
+      "source": "cwi-org-us-forest-service-pacific-southwest-research-station",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-433",
+      "source": "cwi-org-verisk",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-434",
+      "source": "cwi-org-vibrant-planet",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-435",
+      "source": "cwi-org-vibrant-planet-data-commons",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-436",
+      "source": "cwi-org-washoe-environmental-protection-department",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-437",
+      "source": "cwi-org-rural-county-representatives-of-california",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-438",
+      "source": "land-163",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-439",
+      "source": "cwi-org-watershed-research-and-training-center",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-440",
+      "source": "cwi-org-western-fire-and-forest-resilience-collaborative",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-441",
+      "source": "cwi-org-wui-data-commons",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-442",
+      "source": "cwi-org-wuuii",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-443",
+      "source": "cwi-org-yosemite-rivers-alliance",
+      "target": "cwi-proj-2026-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-444",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-445",
+      "source": "cwi-org-all-hands-ecology-fire-forward",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-446",
+      "source": "cwi-org-baldacci-family-vineyards",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-447",
+      "source": "cwi-org-bay-area-air-district",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-448",
+      "source": "cwi-org-cain-vineyard-and-winery",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-449",
+      "source": "cwi-org-california-air-resources-board",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-450",
+      "source": "inst-calfire",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-451",
+      "source": "cwi-org-cal-fire-lnu",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-452",
+      "source": "cwi-org-california-state-parks",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-453",
+      "source": "cwi-org-capcoa",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-454",
+      "source": "cwi-org-clarity-movement-co",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-455",
+      "source": "cwi-org-constellation-brands",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-456",
+      "source": "cwi-org-dyer-vineyard",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-457",
+      "source": "cwi-org-epic-insurance-brokers-and-consultants",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-458",
+      "source": "cwi-org-farella-vineyards",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-459",
+      "source": "cwi-org-honig-vineyard-and-winery",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-460",
+      "source": "cwi-org-jencap-group",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-461",
+      "source": "cwi-org-jones-family",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-462",
+      "source": "cwi-org-land-trust-of-napa-county",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-463",
+      "source": "cwi-org-long-meadow-ranch",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-464",
+      "source": "cwi-org-los-alamos-national-laboratory",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-465",
+      "source": "cwi-org-napa-communities-firewise-foundation",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-466",
+      "source": "cwi-org-napa-county-board-of-supervisors",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-467",
+      "source": "cwi-org-bailey-vegetation-management",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-468",
+      "source": "cwi-org-napa-prescribed-burn-association",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-469",
+      "source": "cwi-org-napa-resource-conservation-district",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-470",
+      "source": "cwi-org-napa-valley-grapegrowers",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-471",
+      "source": "cwi-org-napa-valley-vintners",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-472",
+      "source": "cwi-org-opus-one-winery",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-473",
+      "source": "cwi-org-pepperwood-preserve",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-474",
+      "source": "cwi-org-pina-vineyard-management",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-475",
+      "source": "cwi-org-placer-county-air-pollution-district",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-476",
+      "source": "cwi-org-santa-barbara-county-air-pollution-district",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-477",
+      "source": "cwi-org-schramsberg-vineyards",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-478",
+      "source": "cwi-org-seavey-vineyard",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-479",
+      "source": "cwi-org-shute-mihaly-and-weinberger-llp",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-480",
+      "source": "cwi-org-silver-oak",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-481",
+      "source": "cwi-org-sonoma-ag-open-space",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-482",
+      "source": "cwi-org-sonoma-county-regional-parks",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-483",
+      "source": "cwi-org-sonoma-land-trust",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-484",
+      "source": "cwi-org-sonoma-resource-conservation-district",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-485",
+      "source": "cwi-org-uc-cooperative-extension",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-486",
+      "source": "cwi-org-uc-san-diego-supercomputer-center",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-487",
+      "source": "cwi-org-usda-ars",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-488",
+      "source": "cwi-org-viader-vineyards-and-winery",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-489",
+      "source": "cwi-org-wildland-resource-management-wrm",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-490",
+      "source": "cwi-org-wildlife-conservation-board",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-491",
+      "source": "cwi-org-wine-institute",
+      "target": "cwi-proj-2026-cal-fire-vintner-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-492",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2025-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-493",
+      "source": "cwi-org-ucla",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-494",
+      "source": "inst-calfire",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-495",
+      "source": "cwi-org-rockrose-risk",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-496",
+      "source": "collab-efa",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-497",
+      "source": "land-39",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-498",
+      "source": "cwi-org-american-wildfire-experience",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-499",
+      "source": "land-23",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-500",
+      "source": "cwi-org-tahoe-fund",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-501",
+      "source": "land-14",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-502",
+      "source": "cwi-org-marin-wildfire-prevention-authority",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-503",
+      "source": "cwi-org-napa-communities-firewise-foundation",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-504",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-505",
+      "source": "cwi-org-western-fire-and-forest-resilience-collaborative",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-506",
+      "source": "cwi-org-university-of-san-francisco",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-507",
+      "source": "cwi-org-planet",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-508",
+      "source": "cwi-org-chico-state-big-chico-creek-ecological-reserve",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-509",
+      "source": "cwi-org-chico-state",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-510",
+      "source": "cwi-org-california-council-on-science-and-technology",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-511",
+      "source": "cwi-org-ascent-environmental-inc",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-512",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-513",
+      "source": "land-2",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-514",
+      "source": "cwi-org-uc-san-diego",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-515",
+      "source": "land-19",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-516",
+      "source": "cwi-org-stanford-university",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-517",
+      "source": "cwi-org-vibrant-planet",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-518",
+      "source": "cwi-org-center-for-law-energy-and-the-environment",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-519",
+      "source": "cwi-org-metrolab-network",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-520",
+      "source": "cwi-org-mayday-ai",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-521",
+      "source": "cwi-org-the-triangle",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-522",
+      "source": "cwi-org-washoe-tribe",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-523",
+      "source": "cwi-org-uc-irvine",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-524",
+      "source": "cwi-org-nephila-advisors-llc",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-525",
+      "source": "cwi-org-willow-labs",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-526",
+      "source": "cwi-org-desert-research-institute",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-527",
+      "source": "land-69",
+      "target": "cwi-proj-2025-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-528",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2024-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-529",
+      "source": "inst-calfire",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-530",
+      "source": "cwi-org-cal-fire-neu",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-531",
+      "source": "cwi-org-tahoe-regional-planning-agency",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-532",
+      "source": "collab-efa",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-533",
+      "source": "cwi-org-tahoe-fund",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-534",
+      "source": "cwi-org-marin-wildfire-prevention-authority",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-535",
+      "source": "cwi-org-uc-san-diego-supercomputer-center",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-536",
+      "source": "cwi-org-us-geological-survey",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-537",
+      "source": "cwi-org-chico-state",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-538",
+      "source": "cwi-org-us-forest-service-tahoe-national-forest",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-539",
+      "source": "cwi-org-environmmental-defense-fund",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-540",
+      "source": "cwi-org-university-of-nevada-reno",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-541",
+      "source": "land-2",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-542",
+      "source": "cwi-org-uc-san-diego",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-543",
+      "source": "cwi-org-shute-mihaly-and-weinberger-llp",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-544",
+      "source": "cwi-org-verisk",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-545",
+      "source": "land-14",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-546",
+      "source": "cwi-org-uc-agriculture-and-natural-resources",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-547",
+      "source": "cwi-org-california-tahoe-conservancy",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-548",
+      "source": "land-69",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-549",
+      "source": "cwi-org-fullscope-consulting",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-550",
+      "source": "cwi-org-uc-davis",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-551",
+      "source": "cwi-org-california-council-on-science-and-technology",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-552",
+      "source": "cwi-org-burnbot",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-553",
+      "source": "cwi-org-national-center-for-ecological-analysis-and-synthesis",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-554",
+      "source": "cwi-org-chris-anthony-firewerx",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-555",
+      "source": "cwi-org-truckee-fire-protection-district",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-556",
+      "source": "cwi-org-cal-poly-slo",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-557",
+      "source": "cwi-org-washoe-tribe",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-558",
+      "source": "land-122",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-559",
+      "source": "cwi-org-fire-aside",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-560",
+      "source": "cwi-org-nasa",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-561",
+      "source": "land-39",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-562",
+      "source": "cwi-org-jpl-nasa",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-563",
+      "source": "cwi-org-cultural-fire-management-council",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-564",
+      "source": "cwi-org-stanford-university",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-565",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-2024-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-566",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2023-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-567",
+      "source": "cwi-org-us-forest-service-tahoe-national-forest",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-568",
+      "source": "cwi-org-dinkey-collaborative",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-569",
+      "source": "cwi-org-california-council-on-science-and-technology",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-570",
+      "source": "cwi-org-watershed-research-and-training-center",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-571",
+      "source": "cwi-org-all-hands-ecology-fire-forward",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-572",
+      "source": "cwi-org-washoe-tribe",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-573",
+      "source": "cwi-org-grassroots-wildland-firefighters",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-574",
+      "source": "cwi-org-deer-creek-resources",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-575",
+      "source": "cwi-org-sierra-nevada-conservancy",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-576",
+      "source": "cwi-org-shute-mihaly-and-weinberger-llp",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-577",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-578",
+      "source": "cwi-org-uc-davis",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-579",
+      "source": "land-16",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-580",
+      "source": "cwi-org-chris-anthony-firewerx",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-581",
+      "source": "cwi-org-burnbot",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-582",
+      "source": "inst-calfire",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-583",
+      "source": "cwi-org-cal-fire-neu",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-584",
+      "source": "cwi-org-uc-cooperative-extension",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-585",
+      "source": "land-2",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-586",
+      "source": "cwi-org-california-air-resources-board",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-587",
+      "source": "cwi-org-cultural-fire-management-council",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-588",
+      "source": "cwi-org-inyo-county",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-589",
+      "source": "cwi-org-karuk-tribe",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-590",
+      "source": "land-69",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-591",
+      "source": "cwi-org-chico-state-big-chico-creek-ecological-reserve",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-592",
+      "source": "cwi-org-tribal-eco-restoration-alliance",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-593",
+      "source": "cwi-org-chico-state",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-594",
+      "source": "cwi-org-ucla",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-595",
+      "source": "cwi-org-center-for-law-energy-and-the-environment",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-596",
+      "source": "cwi-org-tahoe-fund",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-597",
+      "source": "cwi-org-vibrant-planet",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-598",
+      "source": "cwi-org-mono-county",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-599",
+      "source": "cwi-org-alaska-interagency-incident-management-team",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-600",
+      "source": "cwi-org-national-park-service-pnw",
+      "target": "cwi-proj-2023-convening",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-601",
+      "source": "inst-cwi",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-602",
+      "source": "land-14",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-603",
+      "source": "land-19",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-604",
+      "source": "cwi-org-uc-san-diego",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-605",
+      "source": "cwi-org-uc-san-diego-supercomputer-center",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-606",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-wildfire-data-hub",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-607",
+      "source": "inst-cwi",
+      "target": "cwi-proj-regional-resource-kits",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-608",
+      "source": "land-14",
+      "target": "cwi-proj-regional-resource-kits",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-609",
+      "source": "land-19",
+      "target": "cwi-proj-regional-resource-kits",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-610",
+      "source": "cwi-org-us-forest-service-pacific-southwest-research-station",
+      "target": "cwi-proj-regional-resource-kits",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-611",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-regional-resource-kits",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-612",
+      "source": "inst-cwi",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-613",
+      "source": "cwi-org-ucsb",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-614",
+      "source": "cwi-org-national-forest-foundation",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-615",
+      "source": "cwi-org-ca-wildfire-and-forest-resilience-taskforce",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-616",
+      "source": "cwi-org-uc-davis",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-617",
+      "source": "cwi-org-us-forest-service-pacific-northwest-research-station",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-618",
+      "source": "cwi-org-vibrant-planet",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-619",
+      "source": "cwi-org-san-diego-state-university",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-620",
+      "source": "cwi-org-santa-monica-mountains-conservancy",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-621",
+      "source": "cwi-org-ca-state-parks-inland-empire-district",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-622",
+      "source": "cwi-org-endangered-habitats-league",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-623",
+      "source": "cwi-org-chaparral-institute",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-624",
+      "source": "cwi-org-irvine-ranch-conservancy",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-625",
+      "source": "cwi-org-inland-empire-resource-conservation-district",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-626",
+      "source": "cwi-org-ucla",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-627",
+      "source": "cwi-org-usfs-cleveland-national-forest",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-628",
+      "source": "cwi-org-treepeople",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-629",
+      "source": "cwi-org-usfs-los-padres-national-forest",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-630",
+      "source": "cwi-org-ca-dept-of-conservation",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-631",
+      "source": "cwi-org-california-air-resources-board",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-632",
+      "source": "cwi-org-usfs-pacific-southwest-region",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-633",
+      "source": "cwi-org-conservation-biology-institute",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-634",
+      "source": "land-16",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-635",
+      "source": "cwi-org-chico-state",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-636",
+      "source": "cwi-org-indian-heritage-commission",
+      "target": "cwi-proj-chaparral-workshop",
+      "type": "ATTENDED",
+      "label": "attended",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-637",
+      "source": "inst-cwi",
+      "target": "cwi-proj-blm-fireforecasting",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-638",
+      "source": "cwi-org-university-of-nevada-reno",
+      "target": "cwi-proj-blm-fireforecasting",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-639",
+      "source": "cwi-org-uc-san-diego",
+      "target": "cwi-proj-blm-fireforecasting",
+      "type": "PARTICIPATES_IN",
+      "label": "partner on",
+      "how": "CWI Projects and Collaborators sheet"
+    },
+    {
+      "id": "edge-cwi-640",
+      "source": "inst-cwi",
+      "target": "cwi-proj-western-foresters-outcomes-based-metrics",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-641",
+      "source": "inst-cwi",
+      "target": "cwi-proj-2027-convening",
+      "type": "ORGANIZES",
+      "label": "convenes",
+      "how": "CWI project"
+    },
+    {
+      "id": "edge-cwi-642",
+      "source": "inst-cwi",
+      "target": "cwi-proj-embergraph",
+      "type": "LEADS",
+      "label": "leads",
+      "how": "CWI project"
+    }
+  ]
 };

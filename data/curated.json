@@ -1,0 +1,408 @@
+{
+  "nodes": [
+    {
+      "id": "topic-fire-monitoring",
+      "type": "topic",
+      "label": "Fire Monitoring & Early Detection",
+      "domain": "Remote Sensing & Spaceborne Observation",
+      "scope": "Thermal infrared sensors, satellite detection, automated wildfire alerts within minutes of ignition.",
+      "modalities": [
+        "satellite",
+        "infrared",
+        "edge-compute",
+        "ground-sensor"
+      ],
+      "tags": [
+        "Topic",
+        "Detection",
+        "Infrared",
+        "Satellite",
+        "Early Warning"
+      ]
+    },
+    {
+      "id": "topic-firesat",
+      "type": "topic",
+      "label": "FireSat Constellation & Orbitals",
+      "domain": "Spaceborne Remote Sensing",
+      "scope": "Multi-satellite constellation dedicated to high-frequency wildfire perimeter and hotspot tracking.",
+      "modalities": [
+        "satellite",
+        "infrared",
+        "space-telemetry"
+      ],
+      "tags": [
+        "Topic",
+        "FireSat",
+        "Earth Fire Alliance",
+        "Muon Space",
+        "Google.org"
+      ]
+    },
+    {
+      "id": "topic-spread-modeling",
+      "type": "topic",
+      "label": "Wildfire Spread & Physics Modeling",
+      "domain": "Computational Fire Physics & AI",
+      "scope": "Surface fire propagation, crown runs, Rothermel physics, Albini ember spotting, level-set methods.",
+      "modalities": [
+        "simulation",
+        "physics-engine",
+        "ai-spread"
+      ],
+      "tags": [
+        "Topic",
+        "Simulation",
+        "Physics",
+        "Spread",
+        "Embers"
+      ]
+    },
+    {
+      "id": "topic-risk-mapping",
+      "type": "topic",
+      "label": "Wildfire Risk & Hazard Mapping",
+      "domain": "Geospatial Analytics & Pre-fire Assessment",
+      "scope": "Parcel-level and landscape-level fire hazard severity mapping, fuel moisture, exposure modeling.",
+      "modalities": [
+        "gis",
+        "satellite",
+        "hazard-indices"
+      ],
+      "tags": [
+        "Topic",
+        "Risk Mapping",
+        "WUI",
+        "Hazard",
+        "GIS"
+      ]
+    },
+    {
+      "id": "topic-remote-sensing",
+      "type": "topic",
+      "label": "Remote Sensing Tech & Applications",
+      "domain": "Earth Observation & Sensor Systems",
+      "scope": "Multispectral, hyperspectral, LiDAR, and SAR imaging for fuels, canopy height, and post-fire severity.",
+      "modalities": [
+        "satellite",
+        "airborne",
+        "lidar",
+        "multispectral"
+      ],
+      "tags": [
+        "Topic",
+        "Remote Sensing",
+        "Earth Observation",
+        "LiDAR"
+      ]
+    },
+    {
+      "id": "topic-home-hardening",
+      "type": "topic",
+      "label": "Home Hardening & Defensible Space",
+      "domain": "Community Resilience & Frontline Defense",
+      "scope": "Structure survival, ember-resistant vents, non-combustible zone 0, homeowner grant distribution.",
+      "modalities": [
+        "on-the-ground",
+        "grants",
+        "structural-inspection"
+      ],
+      "tags": [
+        "Topic",
+        "Home Hardening",
+        "Defensible Space",
+        "Resilient Home Fund",
+        "CWI"
+      ]
+    },
+    {
+      "id": "topic-decision-support",
+      "type": "topic",
+      "label": "Operational Decision Support & Incident Apps",
+      "domain": "Incident Command & Policy Translation",
+      "scope": "Real-time situational awareness platforms, evacuation planning, cross-agency coordination.",
+      "modalities": [
+        "web-platform",
+        "api",
+        "mobile-ops"
+      ],
+      "tags": [
+        "Topic",
+        "Decision Support",
+        "Incident Command",
+        "Operations"
+      ]
+    },
+    {
+      "id": "topic-data-commons",
+      "type": "topic",
+      "label": "Wildfire Data Stores & Commons",
+      "domain": "Open Data & Federated Infrastructure",
+      "scope": "Shared repositories of fire weather, historical fire perimeters, vegetation fuels, and benchmark datasets.",
+      "modalities": [
+        "cloud-storage",
+        "open-api",
+        "stac-catalogs"
+      ],
+      "tags": [
+        "Topic",
+        "Data Commons",
+        "Open Data",
+        "Benchmarks"
+      ]
+    },
+    {
+      "id": "inst-cwi",
+      "type": "institution",
+      "label": "Climate & Wildfire Institute",
+      "acronym": "CWI",
+      "institutionType": "NGO",
+      "location": "Berkeley & Grass Valley, CA",
+      "website": "https://climateandwildfire.org",
+      "description": "Boundary organization accelerating the translation of wildfire science into public policy and frontline practice. Creator of the Firelines Knowledge Graph and administrator of the Resilient Home Fund.",
+      "tags": [
+        "CWI",
+        "Wildfire",
+        "Policy",
+        "Community Resilience",
+        "Boundary Org",
+        "501(c)(3)"
+      ]
+    },
+    {
+      "id": "prog-rhf",
+      "type": "program",
+      "label": "Resilient Home Fund",
+      "acronym": "RHF",
+      "domain": "Community Wildfire Resilience",
+      "leadInstitutionId": "inst-cwi",
+      "launchYear": 2024,
+      "status": "Active",
+      "description": "Wildfire risk reduction grant program for California homeowners administered by the Climate & Wildfire Institute. Connects public action and funding to home hardening and defensible space.",
+      "website": "https://www.resilienthomefund.org",
+      "tags": [
+        "CWI",
+        "Resilient Home Fund",
+        "Grants",
+        "Home Hardening",
+        "Defensible Space",
+        "California"
+      ]
+    },
+    {
+      "id": "prod-firelines",
+      "type": "product",
+      "label": "Firelines Knowledge Graph & Ontology",
+      "productType": "Web Platform / SaaS",
+      "version": "v2.0",
+      "status": "Operational",
+      "repositoryUrl": "https://github.com/davidsaah/GraphEmber",
+      "website": "https://climateandwildfire.org/advance",
+      "description": "CWI boundary intelligence platform mapping cross-sector wildfire programs, satellite constellations, policy bodies, and scientific research.",
+      "tags": [
+        "CWI",
+        "Firelines",
+        "Ontology",
+        "Knowledge Graph",
+        "Wildfire Intelligence"
+      ]
+    },
+    {
+      "id": "collab-efa",
+      "type": "collaborative",
+      "label": "Earth Fire Alliance",
+      "acronym": "EFA",
+      "mission": "A global multi-stakeholder coalition accelerating early wildfire detection and tracking by developing and launching the FireSat constellation.",
+      "formationYear": 2023,
+      "governanceModel": "Consortium",
+      "focusAreas": [
+        "FireSat Constellation",
+        "Satellite Infrared",
+        "Early Detection",
+        "Wildfire Policy"
+      ],
+      "tags": [
+        "Collaborative",
+        "Coalition",
+        "San Francisco",
+        "EFA",
+        "FireSat"
+      ],
+      "description": "Alliance uniting Google.org, Muon Space, Environmental Defense Fund, CWI, Moore Foundation, and Minderoo Foundation to launch and operate FireSat."
+    },
+    {
+      "id": "prod-firesat",
+      "type": "product",
+      "label": "FireSat Constellation",
+      "productType": "Project / Hardware",
+      "version": "52-satellite constellation",
+      "status": "Active Development",
+      "location": "Low Earth Orbit (LEO)",
+      "documentationUrl": "https://earthfirealliance.org",
+      "techStack": [
+        "Custom Multispectral Infrared Sensor",
+        "Muon Space Spacecraft Bus",
+        "Google Cloud AI"
+      ],
+      "description": "Purpose-built satellite constellation tracking early-stage fires as small as 5x5 meters globally with 20-minute revisit times.",
+      "tags": [
+        "Product",
+        "Satellite",
+        "Hardware",
+        "Infrared",
+        "EFA",
+        "FireSat"
+      ]
+    },
+    {
+      "id": "inst-google-org",
+      "type": "institution",
+      "label": "Google.org & Google Research",
+      "acronym": "Google.org",
+      "institutionType": "Private Sector",
+      "location": "Mountain View, CA",
+      "website": "https://google.org",
+      "description": "Philanthropic and cutting-edge research arm of Google driving AI for social and climate impact.",
+      "tags": [
+        "AI/ML",
+        "Philanthropy",
+        "Earth Engine",
+        "Cloud Tech"
+      ]
+    },
+    {
+      "id": "inst-muon-space",
+      "type": "institution",
+      "label": "Muon Space",
+      "acronym": "Muon",
+      "institutionType": "Private Sector",
+      "location": "Mountain View, CA",
+      "website": "https://muonspace.com",
+      "description": "End-to-end satellite mission provider engineering constellation hardware, spacecraft buses, and payloads for Earth observation.",
+      "tags": [
+        "Satellites",
+        "Space Hardware",
+        "Remote Sensing",
+        "Private Sector"
+      ]
+    },
+    {
+      "id": "inst-calfire",
+      "type": "institution",
+      "label": "CAL FIRE",
+      "acronym": "CAL FIRE",
+      "institutionType": "Federal Agency",
+      "location": "Sacramento, CA",
+      "website": "https://www.fire.ca.gov",
+      "description": "California Department of Forestry and Fire Protection, leading wildland fire protection and stewardship.",
+      "tags": [
+        "Wildfire",
+        "State Agency",
+        "Fire Operations",
+        "Forest Health",
+        "California"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-cwi-rhf",
+      "source": "inst-cwi",
+      "target": "prog-rhf",
+      "type": "OPERATES",
+      "label": "administers",
+      "how": "administers statewide wildfire risk reduction grant program",
+      "modality": "grant funding & homeowner technical assistance"
+    },
+    {
+      "id": "edge-cwi-firelines",
+      "source": "inst-cwi",
+      "target": "prod-firelines",
+      "type": "LEADS",
+      "label": "develops",
+      "how": "leads wildfire intelligence graph architecture & decision tools",
+      "modality": "knowledge graph & data ontology"
+    },
+    {
+      "id": "edge-cwi-efa",
+      "source": "inst-cwi",
+      "target": "collab-efa",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "boundary policy translation & science advisory",
+      "modality": "coalition leadership"
+    },
+    {
+      "id": "edge-calfire-rhf",
+      "source": "inst-calfire",
+      "target": "prog-rhf",
+      "type": "FUNDS",
+      "label": "co-funds",
+      "how": "California state wildfire defense & community grants",
+      "modality": "public finance"
+    },
+    {
+      "id": "edge-google-efa",
+      "source": "inst-google-org",
+      "target": "collab-efa",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "AI fire detection models & cloud analytics funding",
+      "modality": "machine learning & compute"
+    },
+    {
+      "id": "edge-muon-efa",
+      "source": "inst-muon-space",
+      "target": "collab-efa",
+      "type": "PARTNERS_IN",
+      "label": "partners in",
+      "how": "makes satellites & sensor buses",
+      "modality": "satellite hardware"
+    },
+    {
+      "id": "edge-efa-firesat",
+      "source": "collab-efa",
+      "target": "prod-firesat",
+      "type": "PRODUCES",
+      "label": "produces",
+      "how": "develops & operates satellite constellation",
+      "modality": "satellite operations"
+    },
+    {
+      "id": "edge-firesat-topic-mon",
+      "source": "prod-firesat",
+      "target": "topic-fire-monitoring",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "spaceborne active fire detection",
+      "modality": "infrared imaging"
+    },
+    {
+      "id": "edge-firesat-topic-sat",
+      "source": "prod-firesat",
+      "target": "topic-firesat",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "orbital constellation",
+      "modality": "LEO telemetry"
+    },
+    {
+      "id": "edge-rhf-topic-hh",
+      "source": "prog-rhf",
+      "target": "topic-home-hardening",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "homeowner defense & structure hardening grants",
+      "modality": "parcel-level grants"
+    },
+    {
+      "id": "edge-firelines-topic-dec",
+      "source": "prod-firelines",
+      "target": "topic-decision-support",
+      "type": "HAS_TOPIC",
+      "label": "has topic",
+      "how": "operational knowledge mapping",
+      "modality": "graph platform"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
+import React, { useRef, useEffect, useLayoutEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import type { GraphNode, GraphEdge, NodeType } from '../types/graph';
 import { ZoomIn, ZoomOut, Maximize2, Play, Pause } from 'lucide-react';
@@ -14,29 +14,29 @@ interface NetworkCanvasProps {
   onHoverNode: (nodeId: string | null) => void;
 }
 
+// Mirrors the --color-* tokens in index.css (canvas can't read CSS variables cheaply per frame).
 const TYPE_COLORS: Record<NodeType, string> = {
-  person: '#10b981',
-  institution: '#f59e0b',
-  collaborative: '#f97316',
-  program: '#3b82f6',
-  product: '#6366f1',
-  grant: '#ef4444',
-  research: '#a855f7',
-  meeting: '#06b6d4',
-  topic: '#e11d48',
+  person: '#a78bfa',
+  institution: '#8fa3bf',
+  collaborative: '#eb7c26',
+  program: '#34c38f',
+  product: '#4fb3d9',
+  grant: '#e23e1d',
+  research: '#c084fc',
+  meeting: '#22d3ee',
+  topic: '#f6ba13',
 };
 
-const TYPE_ICONS: Record<NodeType, string> = {
-  person: '👤',
-  institution: '🏛️',
-  collaborative: '🤝',
-  program: '🚀',
-  product: '📦',
-  grant: '💰',
-  research: '📄',
-  meeting: '📅',
-  topic: '🎯',
-};
+const HIGHLIGHT = '#f6ba13';
+const BG = '#07090e';
+// Margin kept clear around the graph when fitting it, leaving room for the legend below.
+const VIEW_PADDING = { top: 40, right: 72, bottom: 64, left: 40 };
+const GRID = 28; // background dot grid spacing in screen pixels
+
+const edgeEnds = (e: GraphEdge) => ({
+  s: typeof e.source === 'object' ? e.source.id : e.source,
+  t: typeof e.target === 'object' ? e.target.id : e.target,
+});
 
 export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
   nodes,
@@ -51,56 +51,290 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const transformRef = useRef<d3.ZoomTransform>(d3.zoomIdentity);
+  const zoomRef = useRef<d3.ZoomBehavior<HTMLCanvasElement, unknown> | null>(null);
   const simulationRef = useRef<d3.Simulation<GraphNode, GraphEdge> | null>(null);
-  const [isPhysicsRunning, setIsPhysicsRunning] = useState<boolean>(true);
+  const sizeRef = useRef({ width: 0, height: 0 });
+  const drawRef = useRef<() => void>(() => {});
+  const fitRef = useRef<() => void>(() => {});
+  // Until someone pans or zooms, the graph re-frames itself when the canvas is resized
+  const userMovedRef = useRef(false);
+  const [isPhysicsRunning, setIsPhysicsRunning] = useState<boolean>(false);
+  const runningRef = useRef(false);
+  const markRunning = useCallback((running: boolean) => {
+    if (runningRef.current === running) return;
+    runningRef.current = running;
+    setIsPhysicsRunning(running);
+  }, []);
   const [tooltip, setTooltip] = useState<{ x: number; y: number; node: GraphNode } | null>(null);
 
-  // Compute connected neighbor lookup for fast hover isolation
   const activeFocusNodeId = hoveredNodeId || selectedNodeId;
 
-  const connectedMap = useMemo(() => {
+  const { connectedMap, degree } = useMemo(() => {
     const map = new Map<string, Set<string>>();
     edges.forEach((e) => {
-      const s = typeof e.source === 'object' ? e.source.id : e.source;
-      const t = typeof e.target === 'object' ? e.target.id : e.target;
+      const { s, t } = edgeEnds(e);
       if (!map.has(s)) map.set(s, new Set());
       if (!map.has(t)) map.set(t, new Set());
       map.get(s)!.add(t);
       map.get(t)!.add(s);
     });
-    return map;
+    const deg = new Map<string, number>();
+    map.forEach((set, id) => deg.set(id, set.size));
+    return { connectedMap: map, degree: deg };
   }, [edges]);
 
-  // Determine node size based on type and importance
-  const getNodeRadius = useCallback((node: GraphNode): number => {
-    switch (node.type) {
-      case 'institution':
-      case 'collaborative':
-        return 28;
-      case 'program':
-      case 'product':
-      case 'grant':
-      case 'topic':
-        return 24;
-      case 'person':
-        return 22;
-      case 'research':
-      case 'meeting':
-      default:
-        return 19;
-    }
-  }, []);
+  // Size encodes connectedness, so hubs read first and the long tail stays small.
+  const getNodeRadius = useCallback(
+    (node: GraphNode): number => {
+      const d = degree.get(node.id) || 0;
+      const base = node.type === 'topic' || node.type === 'collaborative' ? 7 : 5;
+      return Math.min(30, base + Math.sqrt(d) * 2.4);
+    },
+    [degree]
+  );
 
-  // Initialize and run D3 force simulation
+  // Labels for hubs are always on; the rest appear on zoom or focus.
+  const labelThreshold = useMemo(() => {
+    const sorted = [...degree.values()].sort((a, b) => b - a);
+    return sorted[Math.min(sorted.length - 1, 24)] ?? 0;
+  }, [degree]);
+
+  const fitToView = useCallback((duration = 0) => {
+    const canvas = canvasRef.current;
+    const zoom = zoomRef.current;
+    const { width, height } = sizeRef.current;
+    const placed = nodes.filter((n) => n.x !== undefined && n.y !== undefined);
+    if (!canvas || !zoom || placed.length === 0 || !width) return;
+
+    const xs = placed.map((n) => n.x!);
+    const ys = placed.map((n) => n.y!);
+    const [x0, x1] = [Math.min(...xs) - 30, Math.max(...xs) + 30];
+    const [y0, y1] = [Math.min(...ys) - 30, Math.max(...ys) + 40];
+    const availW = width - VIEW_PADDING.left - VIEW_PADDING.right;
+    const availH = height - VIEW_PADDING.top - VIEW_PADDING.bottom;
+    const k = Math.min(2, availW / (x1 - x0), availH / (y1 - y0));
+    const tx = VIEW_PADDING.left + (availW - k * (x1 - x0)) / 2 - k * x0;
+    const ty = VIEW_PADDING.top + (availH - k * (y1 - y0)) / 2 - k * y0;
+    const target = d3.zoomIdentity.translate(tx, ty).scale(k);
+    const sel = d3.select(canvas);
+    if (duration > 0) sel.transition().duration(duration).call(zoom.transform, target);
+    else sel.call(zoom.transform, target);
+  }, [nodes]);
+
+  // Draw function: reads the latest props on every call, so hover/selection only redraws.
+  const draw = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext('2d');
+    if (!canvas || !ctx) return;
+    const { width, height } = sizeRef.current;
+    const dpr = window.devicePixelRatio || 1;
+    const transform = transformRef.current;
+
+    ctx.save();
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, width, height);
+
+    // Dot grid in screen space that pans with the graph, so the canvas reads as a workspace
+    ctx.fillStyle = 'rgba(148, 163, 184, 0.07)';
+    const gx = ((transform.x % GRID) + GRID) % GRID;
+    const gy = ((transform.y % GRID) + GRID) % GRID;
+    for (let x = gx; x < width; x += GRID) {
+      for (let y = gy; y < height; y += GRID) ctx.fillRect(x, y, 1.2, 1.2);
+    }
+
+    ctx.translate(transform.x, transform.y);
+    ctx.scale(transform.k, transform.k);
+
+    const pathEdgeSet = new Set(highlightedPathEdgeIds);
+    const pathNodeSet = new Set(highlightedPathNodeIds);
+    const isFiltering = activeFocusNodeId !== null || pathNodeSet.size > 0;
+    const neighbors = activeFocusNodeId ? connectedMap.get(activeFocusNodeId) || new Set<string>() : new Set<string>();
+    const px = 1 / transform.k; // one screen pixel in graph units
+
+    // --- edges ---
+    const emphasized: GraphEdge[] = [];
+    ctx.lineWidth = px;
+    ctx.strokeStyle = isFiltering ? 'rgba(143, 163, 191, 0.05)' : 'rgba(143, 163, 191, 0.16)';
+    ctx.beginPath();
+    for (const edge of edges) {
+      const s = edge.source as GraphNode;
+      const t = edge.target as GraphNode;
+      if (s.x === undefined || t.x === undefined) continue;
+      const focused = activeFocusNodeId && (s.id === activeFocusNodeId || t.id === activeFocusNodeId);
+      if (pathEdgeSet.has(edge.id) || focused) {
+        emphasized.push(edge);
+        continue;
+      }
+      ctx.moveTo(s.x, s.y!);
+      ctx.lineTo(t.x, t.y!);
+    }
+    ctx.stroke();
+
+    for (const edge of emphasized) {
+      const s = edge.source as GraphNode;
+      const t = edge.target as GraphNode;
+      const onPath = pathEdgeSet.has(edge.id);
+      ctx.strokeStyle = onPath ? HIGHLIGHT : 'rgba(246, 186, 19, 0.6)';
+      ctx.lineWidth = (onPath ? 2.5 : 1.5) * px;
+      ctx.beginPath();
+      ctx.moveTo(s.x!, s.y!);
+      ctx.lineTo(t.x!, t.y!);
+      ctx.stroke();
+
+      // Arrowhead at the target's edge to show direction
+      const dx = t.x! - s.x!;
+      const dy = t.y! - s.y!;
+      const dist = Math.hypot(dx, dy);
+      if (dist === 0) continue;
+      const r = getNodeRadius(t) + 2 * px;
+      const ax = t.x! - (dx / dist) * r;
+      const ay = t.y! - (dy / dist) * r;
+      const ang = Math.atan2(dy, dx);
+      const len = 7 * px;
+      ctx.fillStyle = ctx.strokeStyle;
+      ctx.beginPath();
+      ctx.moveTo(ax, ay);
+      ctx.lineTo(ax - len * Math.cos(ang - 0.45), ay - len * Math.sin(ang - 0.45));
+      ctx.lineTo(ax - len * Math.cos(ang + 0.45), ay - len * Math.sin(ang + 0.45));
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    // --- hub halos: a soft glow under the most connected nodes ---
+    for (const node of nodes) {
+      if (node.x === undefined || node.y === undefined) continue;
+      const d = degree.get(node.id) || 0;
+      if (d < labelThreshold || d < 8) continue;
+      const isLit = !isFiltering || node.id === activeFocusNodeId || neighbors.has(node.id) || pathNodeSet.has(node.id);
+      if (!isLit) continue;
+      const r = getNodeRadius(node);
+      const halo = ctx.createRadialGradient(node.x, node.y, r * 0.6, node.x, node.y, r * 2.6);
+      const color = TYPE_COLORS[node.type] || '#8fa3bf';
+      halo.addColorStop(0, color + '40');
+      halo.addColorStop(1, color + '00');
+      ctx.fillStyle = halo;
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, r * 2.6, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // --- nodes ---
+    for (const node of nodes) {
+      if (node.x === undefined || node.y === undefined) continue;
+      const isFocus = node.id === activeFocusNodeId;
+      const lit = isFocus || neighbors.has(node.id) || pathNodeSet.has(node.id);
+      const radius = getNodeRadius(node);
+      const color = TYPE_COLORS[node.type] || '#8fa3bf';
+
+      ctx.globalAlpha = isFiltering && !lit ? 0.18 : 1;
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.lineWidth = 1.5 * px;
+      ctx.strokeStyle = BG;
+      ctx.stroke();
+
+      if (node.id === selectedNodeId || (isFocus && node.id === hoveredNodeId)) {
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, radius + 4 * px, 0, Math.PI * 2);
+        ctx.lineWidth = 2 * px;
+        ctx.strokeStyle = '#ffffff';
+        ctx.stroke();
+      }
+    }
+    ctx.globalAlpha = 1;
+
+    // --- labels (drawn last, most important first, skipping any that would overlap) ---
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    ctx.lineJoin = 'round';
+    const candidates = nodes
+      .filter((node) => {
+        if (node.x === undefined || node.y === undefined) return false;
+        const d = degree.get(node.id) || 0;
+        const lit = node.id === activeFocusNodeId || neighbors.has(node.id) || pathNodeSet.has(node.id);
+        const isHub = d >= labelThreshold && d > 2;
+        return isFiltering ? lit : isHub || transform.k > 1.6;
+      })
+      .sort((a, b) => {
+        const rank = (n: GraphNode) =>
+          (n.id === activeFocusNodeId || n.id === selectedNodeId ? 1000 : 0) + (degree.get(n.id) || 0);
+        return rank(b) - rank(a);
+      });
+    const placed: Array<[number, number, number, number]> = [];
+    for (const node of candidates) {
+      const isFocus = node.id === activeFocusNodeId || node.id === selectedNodeId;
+      const strong = isFocus || node.type === 'topic' || node.type === 'collaborative';
+      const size = (strong ? 12 : 11) * px;
+      ctx.font = `${strong ? 600 : 500} ${size}px Inter, system-ui, sans-serif`;
+      const label = node.label.length > 32 ? node.label.slice(0, 30) + '…' : node.label;
+      const y = node.y! + getNodeRadius(node) + 4 * px;
+      const w = ctx.measureText(label).width;
+      const box: [number, number, number, number] = [node.x! - w / 2 - 2 * px, y, node.x! + w / 2 + 2 * px, y + size * 1.25];
+      const overlaps = placed.some((p) => box[0] < p[2] && box[2] > p[0] && box[1] < p[3] && box[3] > p[1]);
+      if (overlaps && !isFocus) continue;
+      placed.push(box);
+      ctx.lineWidth = 3 * px;
+      ctx.strokeStyle = BG;
+      ctx.strokeText(label, node.x!, y);
+      ctx.fillStyle = strong ? '#f1f5f9' : '#aab8cc';
+      ctx.fillText(label, node.x!, y);
+    }
+
+    ctx.restore();
+  };
+
+  // Keep the latest draw closure for the simulation and zoom callbacks, and redraw on any
+  // visual change (hover, selection, path highlight) without restarting the physics.
+  useLayoutEffect(() => {
+    drawRef.current = draw;
+    fitRef.current = fitToView;
+    draw();
+  });
+
+  // Canvas sizing + zoom behaviour (once)
   useEffect(() => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
 
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      sizeRef.current = { width, height };
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      if (!userMovedRef.current) fitRef.current();
+      drawRef.current();
+    };
+    resize();
+    const observer = new ResizeObserver(resize);
+    observer.observe(container);
 
-    // Simulation setup
+    const zoom = d3
+      .zoom<HTMLCanvasElement, unknown>()
+      .scaleExtent([0.1, 5])
+      .on('zoom', (event) => {
+        if (event.sourceEvent) userMovedRef.current = true;
+        transformRef.current = event.transform;
+        drawRef.current();
+      });
+    zoomRef.current = zoom;
+    d3.select(canvas).call(zoom).on('dblclick.zoom', null);
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Force simulation: rebuilt only when the graph itself changes
+  useEffect(() => {
+    const { width, height } = sizeRef.current;
+    const isFirstLayout = nodes.every((n) => n.x === undefined);
+
     const simulation = d3
       .forceSimulation<GraphNode, GraphEdge>(nodes)
       .force(
@@ -108,503 +342,197 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
         d3
           .forceLink<GraphNode, GraphEdge>(edges)
           .id((d) => d.id)
-          .distance((d) => {
-            const edgeType = d.type;
-            if (edgeType === 'MEMBER_OF' || edgeType === 'STEERS') return 95;
-            if (edgeType === 'DEVELOPS' || edgeType === 'POWERS') return 80;
-            if (edgeType === 'AFFILIATED_WITH') return 75;
-            if (edgeType === 'LEADS' || edgeType === 'HOSTS') return 80;
-            if (edgeType === 'FUNDS' || edgeType === 'AWARDED_TO') return 100;
-            return 85;
+          .distance((d) => (d.type === 'PARTNERS_IN' ? 110 : d.type === 'HAS_TOPIC' ? 70 : 60))
+          .strength((d) => {
+            const { s, t } = edgeEnds(d);
+            // Weaker pull on links into big hubs keeps them from collapsing into a ball
+            return 1 / Math.min(degree.get(s) || 1, degree.get(t) || 1);
           })
-          .strength(0.7)
       )
-      .force('charge', d3.forceManyBody().strength(-460).distanceMax(650))
-      .force('center', d3.forceCenter(width / 2, height / 2).strength(0.08))
-      .force(
-        'collide',
-        d3
-          .forceCollide<GraphNode>()
-          .radius((d) => getNodeRadius(d) + 16)
-          .iterations(2)
-      );
+      .force('charge', d3.forceManyBody<GraphNode>().strength((d) => -60 - getNodeRadius(d) * 8).distanceMax(500))
+      // Loosely connected nodes get a stronger pull to the centre so they don't drift to the edges
+      .force('x', d3.forceX<GraphNode>(width / 2).strength((d) => ((degree.get(d.id) || 0) <= 1 ? 0.18 : 0.05)))
+      .force('y', d3.forceY<GraphNode>(height / 2).strength((d) => ((degree.get(d.id) || 0) <= 1 ? 0.22 : 0.07)))
+      .force('collide', d3.forceCollide<GraphNode>().radius((d) => getNodeRadius(d) + 3).iterations(2));
 
     simulationRef.current = simulation;
 
-    // Main draw loop
-    const render = () => {
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
+    if (isFirstLayout) {
+      // Settle the layout before the first frame so the opening view is still and framed
+      simulation.stop();
+      simulation.tick(320);
+      fitToView();
+      drawRef.current();
+    } else {
+      simulation.alpha(0.3).restart();
+    }
 
-      const dpr = window.devicePixelRatio || 1;
-      const transform = transformRef.current;
-
-      ctx.save();
-      ctx.clearRect(0, 0, width * dpr, height * dpr);
-      ctx.scale(dpr, dpr);
-
-      // Apply zoom & pan transform
-      ctx.translate(transform.x, transform.y);
-      ctx.scale(transform.k, transform.k);
-
-      // Render subtle background grid
-      const gridSize = 40;
-      const minX = -transform.x / transform.k;
-      const minY = -transform.y / transform.k;
-      const maxX = minX + width / transform.k;
-      const maxY = minY + height / transform.k;
-
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      for (let x = Math.floor(minX / gridSize) * gridSize; x <= maxX; x += gridSize) {
-        ctx.moveTo(x, minY);
-        ctx.lineTo(x, maxY);
-      }
-      for (let y = Math.floor(minY / gridSize) * gridSize; y <= maxY; y += gridSize) {
-        ctx.moveTo(minX, y);
-        ctx.lineTo(maxX, y);
-      }
-      ctx.stroke();
-
-      const isFilteringActive = activeFocusNodeId !== null || highlightedPathNodeIds.length > 0;
-      const pathEdgeSet = new Set(highlightedPathEdgeIds);
-      const pathNodeSet = new Set(highlightedPathNodeIds);
-      const directNeighbors = activeFocusNodeId ? connectedMap.get(activeFocusNodeId) || new Set() : new Set();
-
-      // --- RENDER EDGES ---
-      edges.forEach((edge) => {
-        const source = edge.source as GraphNode;
-        const target = edge.target as GraphNode;
-        if (!source.x || !source.y || !target.x || !target.y) return;
-
-        const isPathEdge = pathEdgeSet.has(edge.id);
-        const isConnectedToFocus =
-          activeFocusNodeId && (source.id === activeFocusNodeId || target.id === activeFocusNodeId);
-
-        let alpha = 0.25;
-        let strokeColor = 'rgba(148, 163, 184, 0.35)';
-        let lineWidth = 1.5;
-
-        if (isPathEdge) {
-          alpha = 1.0;
-          strokeColor = '#f97316';
-          lineWidth = 3.5;
-        } else if (isConnectedToFocus) {
-          alpha = 0.9;
-          strokeColor = '#fbbf24';
-          lineWidth = 2.5;
-        } else if (isFilteringActive) {
-          alpha = 0.05;
-        }
-
-        ctx.strokeStyle = strokeColor;
-        ctx.globalAlpha = alpha;
-        ctx.lineWidth = lineWidth;
-
-        // Draw line with directional offset
-        const dx = target.x - source.x;
-        const dy = target.y - source.y;
-        const dist = Math.hypot(dx, dy);
-
-        if (dist === 0) return;
-
-        const targetRadius = getNodeRadius(target) + 6;
-        const arrowX = target.x - (dx / dist) * targetRadius;
-        const arrowY = target.y - (dy / dist) * targetRadius;
-
-        ctx.beginPath();
-        ctx.moveTo(source.x, source.y);
-        ctx.lineTo(arrowX, arrowY);
-        ctx.stroke();
-
-        // Directional arrow head
-        const arrowAngle = Math.atan2(dy, dx);
-        const arrowLength = isConnectedToFocus || isPathEdge ? 8 : 6;
-
-        ctx.fillStyle = strokeColor;
-        ctx.beginPath();
-        ctx.moveTo(arrowX, arrowY);
-        ctx.lineTo(
-          arrowX - arrowLength * Math.cos(arrowAngle - Math.PI / 7),
-          arrowY - arrowLength * Math.sin(arrowAngle - Math.PI / 7)
-        );
-        ctx.lineTo(
-          arrowX - arrowLength * Math.cos(arrowAngle + Math.PI / 7),
-          arrowY - arrowLength * Math.sin(arrowAngle + Math.PI / 7)
-        );
-        ctx.closePath();
-        ctx.fill();
-
-        // Render relationship label if highlighted (with how / modality attributes)
-        const rawLabel = edge.label || edge.type;
-        const displayLabel = edge.how
-          ? `${rawLabel} (${edge.how})`
-          : edge.modality
-          ? `${rawLabel} [${edge.modality}]`
-          : rawLabel;
-
-        if ((isConnectedToFocus || isPathEdge) && displayLabel) {
-          const midX = (source.x + target.x) / 2;
-          const midY = (source.y + target.y) / 2;
-
-          ctx.font = '500 10px Inter, sans-serif';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-
-          const textWidth = ctx.measureText(displayLabel).width;
-          ctx.fillStyle = 'rgba(15, 23, 42, 0.92)';
-          ctx.fillRect(midX - textWidth / 2 - 5, midY - 8, textWidth + 10, 16);
-
-          ctx.strokeStyle = isPathEdge ? 'rgba(249, 115, 22, 0.5)' : 'rgba(255, 255, 255, 0.15)';
-          ctx.lineWidth = 1;
-          ctx.strokeRect(midX - textWidth / 2 - 5, midY - 8, textWidth + 10, 16);
-
-          ctx.fillStyle = isPathEdge ? '#fb923c' : '#cbd5e1';
-          ctx.fillText(displayLabel, midX, midY);
-        }
-      });
-
-      // --- RENDER NODES ---
-      nodes.forEach((node) => {
-        if (!node.x || !node.y) return;
-
-        const isSelected = selectedNodeId === node.id;
-        const isHovered = hoveredNodeId === node.id;
-        const isPathNode = pathNodeSet.has(node.id);
-        const isNeighbor = directNeighbors.has(node.id);
-        const isFocus = node.id === activeFocusNodeId;
-
-        let alpha = 1.0;
-        if (isFilteringActive) {
-          if (!isFocus && !isNeighbor && !isPathNode) {
-            alpha = 0.15;
-          }
-        }
-
-        ctx.globalAlpha = alpha;
-        const radius = getNodeRadius(node);
-        const baseColor = TYPE_COLORS[node.type] || '#64748b';
-
-        // Outer glow halo for selected / focused nodes
-        if (isSelected || isHovered || isPathNode) {
-          ctx.save();
-          const gradient = ctx.createRadialGradient(node.x, node.y, radius * 0.8, node.x, node.y, radius * 2.2);
-          gradient.addColorStop(0, baseColor + '99');
-          gradient.addColorStop(1, baseColor + '00');
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(node.x, node.y, radius * 2.2, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.restore();
-        }
-
-        // Main node background circle
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#0f172a';
-        ctx.fill();
-
-        // Node border ring
-        ctx.lineWidth = isSelected || isHovered || isPathNode ? 3.5 : 2;
-        ctx.strokeStyle = isSelected ? '#ffffff' : baseColor;
-        ctx.stroke();
-
-        // Node inner fill
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, radius - 3, 0, Math.PI * 2);
-        ctx.fillStyle = baseColor + '28';
-        ctx.fill();
-
-        // Node Icon or Glyph
-        ctx.font = `${Math.round(radius * 0.72)}px sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(TYPE_ICONS[node.type] || '●', node.x, node.y + 1);
-
-        // Label below node
-        const showLabel = transform.k > 0.42 || isSelected || isHovered || isFocus || isNeighbor;
-        if (showLabel) {
-          ctx.font = `${isSelected || isHovered ? '600 12px Outfit, sans-serif' : '500 11px Inter, sans-serif'}`;
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'top';
-
-          const label = node.label.length > 28 ? node.label.slice(0, 26) + '...' : node.label;
-          const labelY = node.y + radius + 5;
-          const textWidth = ctx.measureText(label).width;
-
-          ctx.fillStyle = 'rgba(7, 9, 14, 0.75)';
-          ctx.fillRect(node.x - textWidth / 2 - 3, labelY - 1, textWidth + 6, 14);
-
-          ctx.fillStyle = isSelected || isHovered ? '#ffffff' : '#cbd5e1';
-          ctx.fillText(label, node.x, labelY);
-        }
-      });
-
-      ctx.restore();
-    };
-
-    simulation.on('tick', render);
+    simulation.on('tick', () => {
+      markRunning(true);
+      drawRef.current();
+    });
+    simulation.on('end', () => markRunning(false));
 
     return () => {
       simulation.stop();
     };
-  }, [nodes, edges, activeFocusNodeId, selectedNodeId, hoveredNodeId, highlightedPathNodeIds, highlightedPathEdgeIds, connectedMap, getNodeRadius]);
+  }, [nodes, edges, degree, getNodeRadius, fitToView, markRunning]);
 
-  // Zoom and Drag Handlers
+  // Pointer interactions
   useEffect(() => {
     const canvas = canvasRef.current;
-    const container = containerRef.current;
-    if (!canvas || !container) return;
+    if (!canvas) return;
 
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-    const dpr = window.devicePixelRatio || 1;
-
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-
-    const zoom = d3
-      .zoom<HTMLCanvasElement, unknown>()
-      .scaleExtent([0.15, 3.5])
-      .on('zoom', (event) => {
-        transformRef.current = event.transform;
-        if (simulationRef.current) {
-          simulationRef.current.alpha(0.01).restart();
-        }
-      });
-
-    d3.select(canvas).call(zoom);
-
-    // Hit test helper
-    const getNodeAtPosition = (px: number, py: number): GraphNode | null => {
-      const transform = transformRef.current;
-      const x = (px - transform.x) / transform.k;
-      const y = (py - transform.y) / transform.k;
-
+    const getNodeAt = (px: number, py: number): GraphNode | null => {
+      const [x, y] = transformRef.current.invert([px, py]);
+      const slack = 4 / transformRef.current.k;
       for (let i = nodes.length - 1; i >= 0; i--) {
         const n = nodes[i];
-        if (n.x && n.y) {
-          const r = getNodeRadius(n);
-          if (Math.hypot(n.x - x, n.y - y) <= r + 4) {
-            return n;
-          }
-        }
+        if (n.x === undefined || n.y === undefined) continue;
+        if (Math.hypot(n.x - x, n.y - y) <= getNodeRadius(n) + slack) return n;
       }
       return null;
     };
 
-    // Canvas click & drag interactions
-    let isDragging = false;
-    let draggedNode: GraphNode | null = null;
+    let dragged: GraphNode | null = null;
+    let moved = false;
+
+    const local = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      return [e.clientX - rect.left, e.clientY - rect.top] as const;
+    };
 
     const onMouseDown = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      const px = e.clientX - rect.left;
-      const py = e.clientY - rect.top;
-
-      const hit = getNodeAtPosition(px, py);
-      if (hit) {
-        isDragging = true;
-        draggedNode = hit;
-        hit.fx = hit.x;
-        hit.fy = hit.y;
-        if (simulationRef.current) {
-          simulationRef.current.alphaTarget(0.3).restart();
-        }
-      }
+      const hit = getNodeAt(...local(e));
+      if (!hit) return;
+      e.stopImmediatePropagation(); // don't start a pan
+      dragged = hit;
+      moved = false;
+      hit.fx = hit.x;
+      hit.fy = hit.y;
     };
 
     const onMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      const px = e.clientX - rect.left;
-      const py = e.clientY - rect.top;
-
-      if (isDragging && draggedNode) {
-        const transform = transformRef.current;
-        draggedNode.fx = (px - transform.x) / transform.k;
-        draggedNode.fy = (py - transform.y) / transform.k;
-      } else {
-        const hit = getNodeAtPosition(px, py);
-        canvas.style.cursor = hit ? 'pointer' : 'grab';
-        onHoverNode(hit ? hit.id : null);
-        if (hit) {
-          setTooltip({ x: e.clientX, y: e.clientY, node: hit });
-        } else {
-          setTooltip(null);
+      const [px, py] = local(e);
+      if (dragged) {
+        if (!moved) {
+          moved = true;
+          simulationRef.current?.alphaTarget(0.2).restart();
         }
+        const [x, y] = transformRef.current.invert([px, py]);
+        dragged.fx = x;
+        dragged.fy = y;
+        return;
       }
+      if (e.target !== canvas) return;
+      const hit = getNodeAt(px, py);
+      canvas.style.cursor = hit ? 'pointer' : 'grab';
+      onHoverNode(hit ? hit.id : null);
+      setTooltip(hit ? { x: e.clientX, y: e.clientY, node: hit } : null);
     };
 
     const onMouseUp = () => {
-      if (isDragging && draggedNode) {
-        draggedNode.fx = null;
-        draggedNode.fy = null;
-        isDragging = false;
-        draggedNode = null;
-        if (simulationRef.current) {
-          simulationRef.current.alphaTarget(0);
-        }
-      }
+      if (!dragged) return;
+      dragged.fx = null;
+      dragged.fy = null;
+      dragged = null;
+      simulationRef.current?.alphaTarget(0);
     };
 
     const onClick = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      const px = e.clientX - rect.left;
-      const py = e.clientY - rect.top;
-      const hit = getNodeAtPosition(px, py);
-      onSelectNode(hit || null);
+      if (moved) {
+        moved = false;
+        return;
+      }
+      onSelectNode(getNodeAt(...local(e)));
     };
 
-    canvas.addEventListener('mousedown', onMouseDown);
+    const onLeave = () => {
+      onHoverNode(null);
+      setTooltip(null);
+    };
+
+    canvas.addEventListener('mousedown', onMouseDown, { capture: true });
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', onMouseUp);
     canvas.addEventListener('click', onClick);
+    canvas.addEventListener('mouseleave', onLeave);
 
     return () => {
-      canvas.removeEventListener('mousedown', onMouseDown);
+      canvas.removeEventListener('mousedown', onMouseDown, { capture: true });
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseup', onMouseUp);
       canvas.removeEventListener('click', onClick);
+      canvas.removeEventListener('mouseleave', onLeave);
     };
   }, [nodes, getNodeRadius, onSelectNode, onHoverNode]);
 
-  // Controls Actions
   const handleZoom = (direction: 'in' | 'out') => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-    const factor = direction === 'in' ? 1.35 : 0.75;
+    if (!canvas || !zoomRef.current) return;
     d3.select(canvas)
       .transition()
-      .duration(280)
-      .call(d3.zoom<HTMLCanvasElement, unknown>().scaleBy, factor);
-  };
-
-  const handleReset = () => {
-    const canvas = canvasRef.current;
-    const container = containerRef.current;
-    if (!canvas || !container) return;
-    d3.select(canvas)
-      .transition()
-      .duration(450)
-      .call(d3.zoom<HTMLCanvasElement, unknown>().transform, d3.zoomIdentity);
+      .duration(250)
+      .call(zoomRef.current.scaleBy, direction === 'in' ? 1.4 : 0.7);
   };
 
   const togglePhysics = () => {
-    if (!simulationRef.current) return;
+    const sim = simulationRef.current;
+    if (!sim) return;
     if (isPhysicsRunning) {
-      simulationRef.current.stop();
-      setIsPhysicsRunning(false);
+      sim.stop();
+      markRunning(false);
     } else {
-      simulationRef.current.alpha(0.3).restart();
-      setIsPhysicsRunning(true);
+      sim.alpha(0.4).restart();
     }
   };
 
   return (
     <div
       ref={containerRef}
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: '100%',
-        overflow: 'hidden',
-        backgroundColor: 'var(--bg-canvas)',
-      }}
+      style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', backgroundColor: 'var(--bg-canvas)' }}
     >
-      <canvas
-        ref={canvasRef}
-        style={{
-          display: 'block',
-          width: '100%',
-          height: '100%',
-        }}
-      />
+      <canvas ref={canvasRef} style={{ display: 'block', width: '100%', height: '100%' }} />
 
-      {/* Floating Canvas Controls HUD */}
+      {/* Canvas controls */}
       <div
         className="glass-panel"
         style={{
           position: 'absolute',
-          bottom: 24,
-          right: 24,
+          bottom: 16,
+          right: 16,
           display: 'flex',
           flexDirection: 'column',
-          gap: 6,
-          padding: 8,
+          gap: 2,
+          padding: 4,
           zIndex: 20,
+          borderRadius: 'var(--radius-md)',
         }}
       >
-        <button
-          onClick={() => handleZoom('in')}
-          title="Zoom In"
-          style={{
-            padding: 8,
-            color: 'var(--text-secondary)',
-            borderRadius: 'var(--radius-sm)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--bg-surface-elevated)')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
-        >
-          <ZoomIn size={18} />
+        <button className="icon-btn" onClick={() => handleZoom('in')} title="Zoom in" aria-label="Zoom in">
+          <ZoomIn size={16} />
         </button>
-        <button
-          onClick={() => handleZoom('out')}
-          title="Zoom Out"
-          style={{
-            padding: 8,
-            color: 'var(--text-secondary)',
-            borderRadius: 'var(--radius-sm)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--bg-surface-elevated)')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
-        >
-          <ZoomOut size={18} />
+        <button className="icon-btn" onClick={() => handleZoom('out')} title="Zoom out" aria-label="Zoom out">
+          <ZoomOut size={16} />
         </button>
-        <button
-          onClick={handleReset}
-          title="Reset View"
-          style={{
-            padding: 8,
-            color: 'var(--text-secondary)',
-            borderRadius: 'var(--radius-sm)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--bg-surface-elevated)')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
-        >
-          <Maximize2 size={18} />
+        <button className="icon-btn" onClick={() => fitToView(450)} title="Fit graph to screen" aria-label="Fit graph to screen">
+          <Maximize2 size={16} />
         </button>
-        <div style={{ height: 1, backgroundColor: 'var(--border-subtle)', margin: '2px 0' }} />
+        <div style={{ height: 1, backgroundColor: 'var(--border-subtle)', margin: '2px 4px' }} />
         <button
+          className="icon-btn"
           onClick={togglePhysics}
-          title={isPhysicsRunning ? 'Pause Physics' : 'Resume Physics'}
-          style={{
-            padding: 8,
-            color: isPhysicsRunning ? 'var(--color-collaborative)' : 'var(--text-muted)',
-            borderRadius: 'var(--radius-sm)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--bg-surface-elevated)')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+          title={isPhysicsRunning ? 'Pause layout' : 'Re-run layout'}
+          aria-label={isPhysicsRunning ? 'Pause layout' : 'Re-run layout'}
         >
-          {isPhysicsRunning ? <Pause size={18} /> : <Play size={18} />}
+          {isPhysicsRunning ? <Pause size={16} /> : <Play size={16} />}
         </button>
       </div>
 
-      {/* Hover Tooltip */}
+      {/* Legend */}
+      <Legend nodes={nodes} />
+
+      {/* Hover tooltip */}
       {tooltip && (
         <div
           className="glass-panel"
@@ -615,15 +543,17 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
             pointerEvents: 'none',
             zIndex: 100,
             padding: '8px 12px',
-            maxWidth: 260,
-            boxShadow: 'var(--shadow-lg)',
-            border: `1px solid ${TYPE_COLORS[tooltip.node.type]}55`,
+            maxWidth: 280,
+            borderRadius: 'var(--radius-md)',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
             <span className={`badge badge-${tooltip.node.type}`}>{tooltip.node.type}</span>
+            <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+              {degree.get(tooltip.node.id) || 0} connections
+            </span>
           </div>
-          <div style={{ fontWeight: 600, fontSize: '0.85rem', color: '#f8fafc', marginBottom: 2 }}>
+          <div style={{ fontWeight: 600, fontSize: '0.85rem', color: 'var(--text-primary)', marginBottom: 2 }}>
             {tooltip.node.label}
           </div>
           {tooltip.node.description && (
@@ -631,7 +561,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
               style={{
                 fontSize: '0.75rem',
                 color: 'var(--text-secondary)',
-                lineHeight: 1.3,
+                lineHeight: 1.35,
                 display: '-webkit-box',
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: 'vertical',
@@ -643,6 +573,39 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
           )}
         </div>
       )}
+    </div>
+  );
+};
+
+const LEGEND_LABELS: Record<NodeType, string> = {
+  topic: 'Topic',
+  collaborative: 'Collaborative',
+  institution: 'Organization',
+  product: 'Tool / system',
+  program: 'Program',
+  person: 'Person',
+  grant: 'Grant',
+  research: 'Research',
+  meeting: 'Meeting',
+};
+
+const Legend: React.FC<{ nodes: GraphNode[] }> = ({ nodes }) => {
+  const present = new Set(nodes.map((n) => n.type));
+  const types = (Object.keys(LEGEND_LABELS) as NodeType[]).filter((t) => present.has(t));
+  return (
+    <div className="canvas-caption legend hide-sm" style={{ bottom: 16, left: 16 }}>
+      {types.map((t) => (
+        <span key={t} style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+          <span style={{ width: 8, height: 8, borderRadius: '50%', background: TYPE_COLORS[t] }} />
+          {LEGEND_LABELS[t]}
+        </span>
+      ))}
+      <span className="legend-size">
+        <i style={{ width: 5, height: 5 }} />
+        <i style={{ width: 9, height: 9 }} />
+        <i style={{ width: 13, height: 13 }} />
+        connections
+      </span>
     </div>
   );
 };

@@ -39,7 +39,7 @@ export const CwiLogo: React.FC<CwiLogoProps> = ({
         />
       )}
       <img
-        src="/cwi-logo.png"
+        src={`${import.meta.env.BASE_URL}cwi-logo.png`}
         alt="Climate & Wildfire Institute"
         width={size}
         height={size}
