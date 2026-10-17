@@ -7,9 +7,13 @@ import { ExplainContext } from '../reports/explain';
 import { ImpactBrief } from '../reports/ImpactBrief';
 import { CoordinationReport } from '../reports/CoordinationReport';
 import { NodeReport } from '../reports/NodeReport';
+import { NetworkVitalSigns } from '../reports/NetworkVitalSigns';
+import { NetworkStandsAlone } from '../reports/NetworkStandsAlone';
+import { BridgesAndSilos } from '../reports/BridgesAndSilos';
+import { ProgramProfiles } from '../reports/ProgramProfiles';
 import '../reports/reports.css';
 
-type ReportId = 'impact' | 'coordination' | 'node';
+type ReportId = 'vitals' | 'resilience' | 'bridges' | 'programs' | 'impact' | 'coordination' | 'node';
 
 /** A request to open the node report, from "Run report" elsewhere in the app; `n` changes on every request. */
 export interface ReportTarget {
@@ -17,11 +21,19 @@ export interface ReportTarget {
   n: number;
 }
 
-const REPORTS: { id: ReportId; code: string; title: string; audience: string }[] = [
-  { id: 'impact', code: 'R-01', title: 'State impact brief', audience: 'Legislature, CNRA, Board' },
-  { id: 'coordination', code: 'R-02', title: 'Coordination and gap report', audience: 'Research partners, Board' },
-  { id: 'node', code: 'R-03', title: 'Report on one node', audience: 'A partner, project or organisation' },
+type ReportGroup = 'network' | 'cwi';
+
+const REPORTS: { id: ReportId; code: string; title: string; audience: string; group: ReportGroup }[] = [
+  { id: 'vitals', code: 'N-01', title: 'Network vital signs', audience: 'Leadership, funders, members', group: 'network' },
+  { id: 'resilience', code: 'N-02', title: 'Does the network stand on its own?', audience: 'Leadership, funders', group: 'network' },
+  { id: 'bridges', code: 'N-03', title: 'Bridges and silos', audience: 'Program staff, members', group: 'network' },
+  { id: 'programs', code: 'N-04', title: 'Program collaboration profiles', audience: 'Program leads', group: 'network' },
+  { id: 'impact', code: 'R-01', title: 'State impact brief', audience: 'Legislature, CNRA, Board', group: 'cwi' },
+  { id: 'coordination', code: 'R-02', title: 'Coordination and gap report', audience: 'Research partners, Board', group: 'cwi' },
+  { id: 'node', code: 'R-03', title: 'Report on one node', audience: 'A partner, project or organisation', group: 'cwi' },
 ];
+
+const GROUP_TITLE: Record<ReportGroup, string> = { network: 'Network strength', cwi: 'CWI activity' };
 
 const KIND_TITLE = { partner: 'Partner report', project: 'Project report', entity: 'Entity report' } as const;
 
@@ -48,7 +60,7 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ nodes, edges, target, 
     () => [...model.projectsOf.entries()].filter(([id]) => id !== 'inst-cwi').sort((a, b) => b[1].length - a[1].length)[0]?.[0],
     [model],
   );
-  const [report, setReport] = useState<ReportId>(target ? 'node' : 'impact');
+  const [report, setReport] = useState<ReportId>(target ? 'node' : 'vitals');
   const [nodeId, setNodeId] = useState<string>(target?.id || busiestPartner);
   const [explain, setExplain] = useState(readExplain);
 
@@ -77,27 +89,29 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ nodes, edges, target, 
   return (
     <div className="reports">
       <aside className="reports-rail no-print" aria-label="Reports">
-        <span className="eyebrow" style={{ padding: '0 10px' }}>
-          Stakeholder reports
-        </span>
-        {REPORTS.map((r) => (
-          <button key={r.id} className="reports-item" aria-current={r.id === report} onClick={() => setReport(r.id)}>
-            <FileText size={14} />
-            <span>
-              <span className="reports-item-title">{r.title}</span>
-              <span className="reports-item-sub">
-                {r.code} · {r.id === 'node' && node ? node.label : r.audience}
-              </span>
-            </span>
-          </button>
+        {(['network', 'cwi'] as const).map((g) => (
+          <React.Fragment key={g}>
+            <span className="eyebrow reports-group">{GROUP_TITLE[g]}</span>
+            {REPORTS.filter((r) => r.group === g).map((r) => (
+              <button key={r.id} className="reports-item" aria-current={r.id === report} onClick={() => setReport(r.id)}>
+                <FileText size={14} />
+                <span>
+                  <span className="reports-item-title">{r.title}</span>
+                  <span className="reports-item-sub">
+                    {r.code} · {r.id === 'node' && node ? node.label : r.audience}
+                  </span>
+                </span>
+              </button>
+            ))}
+          </React.Fragment>
         ))}
         <label className="reports-toggle">
           <input type="checkbox" checked={explain} onChange={(e) => toggleExplain(e.target.checked)} />
           Show explanations
         </label>
         <p className="reports-help">
-          Reports follow a forensic reporting style: numbered findings cite exhibits, figures trace to spreadsheet rows, the sheet is reconciled to the graph, and data problems
-          are listed in an exceptions register. To report on one node, select it anywhere in GraphEmber and choose Run report.
+          Network strength reports measure how well partners are connected to each other, with and without CWI's convenings. CWI activity reports cover what CWI itself runs.
+          Every report uses numbered findings that cite exhibits. To report on one node, select it anywhere in GraphEmber and choose Run report.
         </p>
         <button className="btn reports-print" onClick={() => window.print()} title="Print, or choose Save as PDF">
           <Printer size={14} />
@@ -107,6 +121,10 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ nodes, edges, target, 
       <div className="reports-scroll">
         <ExplainContext.Provider value={explain}>
           <article className="rp-paper" aria-label={footerTitle}>
+            {report === 'vitals' && <NetworkVitalSigns m={model} nav={nav} />}
+            {report === 'resilience' && <NetworkStandsAlone m={model} nav={nav} />}
+            {report === 'bridges' && <BridgesAndSilos m={model} nav={nav} />}
+            {report === 'programs' && <ProgramProfiles m={model} nav={nav} />}
             {report === 'impact' && <ImpactBrief m={model} nav={nav} />}
             {report === 'coordination' && <CoordinationReport m={model} nav={nav} />}
             {report === 'node' && <NodeReport m={model} nav={nav} id={nodeId} onPick={setNodeId} />}

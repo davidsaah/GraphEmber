@@ -174,3 +174,29 @@
 .rp-path { margin: 0; padding-left: 22px; }
 .rp-path li { padding: 4px 0; border-bottom: 1px dashed var(--rp-rule); }
 .rp-path li::marker { font-family: var(--font-mono); color: var(--rp-gold); font-weight: 700; }
+
+/* Network-strength reports */
+.reports-group { padding: 0 10px; }
+.reports-group + .reports-item { margin-top: 2px; }
+.reports-item + .reports-group { margin-top: 14px; }
+.rp-twin .rp-twin-del { font-weight: 600; color: var(--rp-ember); }
+.rp-twin tr.twin-flag td { background: #fbf1e6; }
+.rp-inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; border: 1px dashed var(--rp-rule-strong); border-radius: 4px; background: #f7f4ec; }
+.rp-inputs > div { padding: 12px 14px; border-right: 1px dashed var(--rp-rule); }
+.rp-inputs > div:last-child { border-right: 0; }
+.rp-inputs-v { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--rp-ink-2); font-variant-numeric: tabular-nums; }
+.rp-inputs-l { display: block; margin-top: 4px; font-size: 0.66rem; color: var(--rp-ink-3); line-height: 1.3; }
+.rp-chart { display: block; width: 100%; height: auto; max-width: 760px; overflow: visible; }
+.rp-chart .rp-grid { stroke: var(--rp-rule); stroke-width: 1; }
+.rp-chart .rp-axis { font-size: 10px; fill: var(--rp-ink-3); font-family: var(--font-body); }
+.rp-chart text.rp-axis[fill] { font-weight: 600; }
+.rp-chart .rp-axis-title { font-size: 10px; fill: var(--rp-ink-2); font-weight: 600; font-family: var(--font-body); }
+.rp-dot circle { fill: rgba(194, 65, 12, 0.22); stroke: var(--rp-ember); stroke-width: 1.5; }
+.rp-dot-label { font-size: 10px; fill: var(--rp-ink); font-family: var(--font-body); }
+.rp-dot.is-link { cursor: pointer; }
+.rp-dot.is-link:hover circle { fill: rgba(194, 65, 12, 0.45); }
+.rp-heat thead th { height: 110px; font-size: 0.62rem; }
+.rp-heat td { width: 32px; height: 26px; }
+.rp-heat td.gap { outline: 1.5px dashed var(--rp-ember); outline-offset: -3px; }
+@media print { .rp-heat td, .rp-twin tr.twin-flag td, .rp-inputs { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+.rp-profiles td:first-child { min-width: 190px; }
