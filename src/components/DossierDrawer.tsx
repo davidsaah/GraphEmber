@@ -76,10 +76,10 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
       className="glass-panel"
       style={{
         position: 'absolute',
-        top: 'calc(16px + var(--header-height) + 10px)',
-        right: 16,
-        bottom: 16,
-        width: 'min(var(--dossier-width), calc(100% - 32px))',
+        top: 12,
+        right: 12,
+        bottom: 12,
+        width: 'min(var(--dossier-width), calc(100% - 24px))',
         display: 'flex',
         flexDirection: 'column',
         zIndex: 40,

@@ -109,13 +109,13 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ nodes, edges, onSelectNode
         borderLeft: '1px solid var(--border-subtle)',
       }}
     >
-      {/* Header row lines up with the floating app header */}
+      {/* Header row lines up with the app header */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
           gap: 10,
-          minHeight: 'calc(32px + var(--header-height))',
+          minHeight: 'var(--header-height)',
           padding: '0 12px 0 18px',
           borderBottom: '1px solid var(--border-subtle)',
           flexShrink: 0,

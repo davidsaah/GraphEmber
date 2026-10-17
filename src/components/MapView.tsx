@@ -228,12 +228,12 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
     // Frame everything that's mapped the first time there is data
     if (!framedRef.current && located.length > 0) {
       framedRef.current = true;
-      // Frame the bulk of the points (5th to 95th percentile) so one far-off partner doesn't zoom the map out
+      // Frame the bulk of the points (most of the points) so one far-off partner doesn't zoom the map out
       const pct = (vals: number[], q: number) => vals.sort((a, b) => a - b)[Math.floor(q * (vals.length - 1))];
       const lngs = located.map((l) => l.lngLat[0]);
       const lats = located.map((l) => l.lngLat[1]);
-      const bounds = new maplibregl.LngLatBounds([pct(lngs, 0.05), pct(lats, 0.05)], [pct(lngs, 0.95), pct(lats, 0.95)]);
-      map.fitBounds(bounds, { padding: { top: 190, bottom: 80, left: 60, right: 60 }, maxZoom: 6, duration: 0 });
+      const bounds = new maplibregl.LngLatBounds([pct(lngs, 0.02), pct(lats, 0.05)], [pct(lngs, 0.88), pct(lats, 0.95)]);
+      map.fitBounds(bounds, { padding: { top: 60, bottom: 60, left: 60, right: 60 }, maxZoom: 6, duration: 0 });
     }
   }, [ready, located, degree, selectedNodeId, highlightedPathNodeIds]);
 
@@ -302,15 +302,8 @@ export const MapView: React.FC<MapViewProps> = ({ nodes, edges, selectedNodeId, 
         </div>
       )}
       <div
-        style={{
-          position: 'absolute',
-          bottom: 44,
-          left: 20,
-          maxWidth: 'calc(100vw - 40px)',
-          fontSize: '0.72rem',
-          color: 'var(--text-muted)',
-          zIndex: 10,
-        }}
+        className="canvas-caption"
+        style={{ bottom: 16, left: 16, maxWidth: 'calc(100% - 120px)' }}
       >
         {linkNote
           ? `${linkNote.shown} of ${linkNote.total} connections shown · the rest go to topics, hubs or entities without a location`

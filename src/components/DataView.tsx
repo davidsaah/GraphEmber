@@ -141,10 +141,7 @@ export const DataView: React.FC<DataViewProps> = ({ nodes, edges, selectedNodeId
       className="glass-panel"
       style={{
         position: 'absolute',
-        top: 'calc(16px + var(--header-height) + 10px + var(--filterbar-height, 82px) + 10px)',
-        left: 16,
-        right: 16,
-        bottom: 48,
+        inset: 12,
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',

@@ -1,13 +1,10 @@
 import React from 'react';
 import { Search, Route, BarChart3, Plus, X, Download, Network, Share2, Map as MapIcon, Table2 } from 'lucide-react';
-import type { GraphNode, GraphEdge } from '../types/graph';
 import { CwiLogo } from './CwiLogo';
 
 export type AppView = 'network' | 'map' | 'data';
 
 interface HeaderProps {
-  nodes: GraphNode[];
-  edges: GraphEdge[];
   searchQuery: string;
   onSearchChange: (query: string) => void;
   onOpenPathFinder: () => void;
@@ -21,8 +18,6 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  nodes,
-  edges,
   searchQuery,
   onSearchChange,
   onOpenPathFinder,
@@ -35,21 +30,7 @@ export const Header: React.FC<HeaderProps> = ({
   onViewChange,
 }) => {
   return (
-    <header
-      className="glass-panel"
-      style={{
-        position: 'absolute',
-        top: 16,
-        left: 16,
-        right: 16,
-        height: 'var(--header-height)',
-        display: 'flex',
-        alignItems: 'center',
-        gap: 20,
-        padding: '0 10px 0 14px',
-        zIndex: 30,
-      }}
-    >
+    <header className="app-header">
       {/* Brand lockup: the mark opens the CWI panel */}
       <button
         onClick={onOpenCwiModal}
@@ -62,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({
           <h1
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '1.05rem',
+              fontSize: '1.1rem',
               fontWeight: 700,
               letterSpacing: '-0.01em',
               color: 'var(--text-primary)',
@@ -74,8 +55,35 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </button>
 
+      <span className="header-divider hide-xs" />
+
+      {/* View switch */}
+      <div className="segmented" role="group" aria-label="View">
+        <button aria-pressed={view === 'network'} onClick={() => onViewChange('network')} title="Network view">
+          <Share2 size={14} />
+          <span className="hide-sm">Network</span>
+        </button>
+        <button aria-pressed={view === 'map'} onClick={() => onViewChange('map')} title="Map view">
+          <MapIcon size={14} />
+          <span className="hide-sm">Map</span>
+        </button>
+        <button aria-pressed={view === 'data'} onClick={() => onViewChange('data')} title="Data tables">
+          <Table2 size={14} />
+          <span className="hide-sm">Data</span>
+        </button>
+      </div>
+
       {/* Search */}
-      <div style={{ position: 'relative', flex: '1 1 320px', maxWidth: 440, minWidth: 160, display: 'flex', alignItems: 'center' }}>
+      <div
+        style={{
+          position: 'relative',
+          flex: '0 1 340px',
+          minWidth: 160,
+          marginLeft: 'auto',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
         <Search size={15} style={{ position: 'absolute', left: 12, color: 'var(--text-muted)', pointerEvents: 'none' }} />
         <input
           id="graph-search"
@@ -97,6 +105,7 @@ export const Header: React.FC<HeaderProps> = ({
           onFocus={(e) => (e.target.style.borderColor = 'rgba(246, 186, 19, 0.5)')}
           onBlur={(e) => (e.target.style.borderColor = 'var(--border-subtle)')}
         />
+        {!searchQuery && <kbd className="search-kbd hide-sm">/</kbd>}
         {searchQuery && (
           <button
             onClick={() => onSearchChange('')}
@@ -108,39 +117,9 @@ export const Header: React.FC<HeaderProps> = ({
         )}
       </div>
 
-      {/* View switch */}
-      <div className="segmented" role="group" aria-label="View">
-        <button aria-pressed={view === 'network'} onClick={() => onViewChange('network')} title="Network view">
-          <Share2 size={14} />
-          <span className="hide-sm">Network</span>
-        </button>
-        <button aria-pressed={view === 'map'} onClick={() => onViewChange('map')} title="Map view">
-          <MapIcon size={14} />
-          <span className="hide-sm">Map</span>
-        </button>
-        <button aria-pressed={view === 'data'} onClick={() => onViewChange('data')} title="Data tables">
-          <Table2 size={14} />
-          <span className="hide-sm">Data</span>
-        </button>
-      </div>
-
-      {/* Network size */}
-      <span
-        className="hide-md"
-        style={{
-          fontSize: '0.75rem',
-          color: 'var(--text-muted)',
-          fontVariantNumeric: 'tabular-nums',
-          whiteSpace: 'nowrap',
-        }}
-      >
-        <strong style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>{nodes.length}</strong> entities ·{' '}
-        <strong style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>{edges.length}</strong> links
-      </span>
-
       {/* Tools */}
-      <nav style={{ display: 'flex', alignItems: 'center', gap: 2, flexShrink: 0, marginLeft: 'auto' }}>
-<button className="btn" onClick={onOpenPathFinder} title="Find the shortest connection between two entities">
+      <nav style={{ display: 'flex', alignItems: 'center', gap: 2, flexShrink: 0 }}>
+        <button className="btn" onClick={onOpenPathFinder} title="Find the shortest connection between two entities">
           <Route size={15} />
           <span className="hide-md">Path Finder</span>
         </button>
@@ -155,7 +134,7 @@ export const Header: React.FC<HeaderProps> = ({
         <button className="icon-btn" onClick={onExportData} title="Export graph as JSON" aria-label="Export graph as JSON">
           <Download size={15} />
         </button>
-        <div style={{ width: 1, height: 20, background: 'var(--border-subtle)', margin: '0 6px' }} />
+        <span className="header-divider" />
         <button className="btn btn-primary" onClick={onOpenAddModal}>
           <Plus size={15} />
           <span className="hide-xs">Add</span>

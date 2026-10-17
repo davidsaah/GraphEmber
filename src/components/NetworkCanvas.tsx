@@ -29,8 +29,9 @@ const TYPE_COLORS: Record<NodeType, string> = {
 
 const HIGHLIGHT = '#f6ba13';
 const BG = '#07090e';
-// Screen space taken by the floating header and filter bar, kept clear when fitting the graph.
-const VIEW_PADDING = { top: 170, right: 40, bottom: 40, left: 40 };
+// Margin kept clear around the graph when fitting it, leaving room for the legend below.
+const VIEW_PADDING = { top: 40, right: 72, bottom: 64, left: 40 };
+const GRID = 28; // background dot grid spacing in screen pixels
 
 const edgeEnds = (e: GraphEdge) => ({
   s: typeof e.source === 'object' ? e.source.id : e.source,
@@ -54,6 +55,9 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
   const simulationRef = useRef<d3.Simulation<GraphNode, GraphEdge> | null>(null);
   const sizeRef = useRef({ width: 0, height: 0 });
   const drawRef = useRef<() => void>(() => {});
+  const fitRef = useRef<() => void>(() => {});
+  // Until someone pans or zooms, the graph re-frames itself when the canvas is resized
+  const userMovedRef = useRef(false);
   const [isPhysicsRunning, setIsPhysicsRunning] = useState<boolean>(false);
   const runningRef = useRef(false);
   const markRunning = useCallback((running: boolean) => {
@@ -130,6 +134,15 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.fillStyle = BG;
     ctx.fillRect(0, 0, width, height);
+
+    // Dot grid in screen space that pans with the graph, so the canvas reads as a workspace
+    ctx.fillStyle = 'rgba(148, 163, 184, 0.07)';
+    const gx = ((transform.x % GRID) + GRID) % GRID;
+    const gy = ((transform.y % GRID) + GRID) % GRID;
+    for (let x = gx; x < width; x += GRID) {
+      for (let y = gy; y < height; y += GRID) ctx.fillRect(x, y, 1.2, 1.2);
+    }
+
     ctx.translate(transform.x, transform.y);
     ctx.scale(transform.k, transform.k);
 
@@ -185,6 +198,24 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
       ctx.lineTo(ax - len * Math.cos(ang - 0.45), ay - len * Math.sin(ang - 0.45));
       ctx.lineTo(ax - len * Math.cos(ang + 0.45), ay - len * Math.sin(ang + 0.45));
       ctx.closePath();
+      ctx.fill();
+    }
+
+    // --- hub halos: a soft glow under the most connected nodes ---
+    for (const node of nodes) {
+      if (node.x === undefined || node.y === undefined) continue;
+      const d = degree.get(node.id) || 0;
+      if (d < labelThreshold || d < 8) continue;
+      const isLit = !isFiltering || node.id === activeFocusNodeId || neighbors.has(node.id) || pathNodeSet.has(node.id);
+      if (!isLit) continue;
+      const r = getNodeRadius(node);
+      const halo = ctx.createRadialGradient(node.x, node.y, r * 0.6, node.x, node.y, r * 2.6);
+      const color = TYPE_COLORS[node.type] || '#8fa3bf';
+      halo.addColorStop(0, color + '40');
+      halo.addColorStop(1, color + '00');
+      ctx.fillStyle = halo;
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, r * 2.6, 0, Math.PI * 2);
       ctx.fill();
     }
 
@@ -259,6 +290,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
   // visual change (hover, selection, path highlight) without restarting the physics.
   useLayoutEffect(() => {
     drawRef.current = draw;
+    fitRef.current = fitToView;
     draw();
   });
 
@@ -277,6 +309,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
+      if (!userMovedRef.current) fitRef.current();
       drawRef.current();
     };
     resize();
@@ -287,6 +320,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
       .zoom<HTMLCanvasElement, unknown>()
       .scaleExtent([0.1, 5])
       .on('zoom', (event) => {
+        if (event.sourceEvent) userMovedRef.current = true;
         transformRef.current = event.transform;
         drawRef.current();
       });
@@ -465,8 +499,8 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
         className="glass-panel"
         style={{
           position: 'absolute',
-          bottom: 20,
-          right: 20,
+          bottom: 16,
+          right: 16,
           display: 'flex',
           flexDirection: 'column',
           gap: 2,
@@ -559,29 +593,19 @@ const Legend: React.FC<{ nodes: GraphNode[] }> = ({ nodes }) => {
   const present = new Set(nodes.map((n) => n.type));
   const types = (Object.keys(LEGEND_LABELS) as NodeType[]).filter((t) => present.has(t));
   return (
-    <div
-      className="hide-sm"
-      style={{
-        position: 'absolute',
-        bottom: 20,
-        right: 72,
-        display: 'flex',
-        alignItems: 'center',
-        gap: 14,
-        padding: '8px 12px',
-        zIndex: 20,
-        fontSize: '0.72rem',
-        color: 'var(--text-secondary)',
-        pointerEvents: 'none',
-      }}
-    >
+    <div className="canvas-caption legend hide-sm" style={{ bottom: 16, left: 16 }}>
       {types.map((t) => (
         <span key={t} style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
           <span style={{ width: 8, height: 8, borderRadius: '50%', background: TYPE_COLORS[t] }} />
           {LEGEND_LABELS[t]}
         </span>
       ))}
-      <span style={{ color: 'var(--text-muted)' }}>· size = connections</span>
+      <span className="legend-size">
+        <i style={{ width: 5, height: 5 }} />
+        <i style={{ width: 9, height: 9 }} />
+        <i style={{ width: 13, height: 13 }} />
+        connections
+      </span>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { NodeType, GraphNode } from '../types/graph';
-import { RotateCcw } from 'lucide-react';
+import { RotateCcw, PanelLeft } from 'lucide-react';
 import { CwiLogo } from './CwiLogo';
 
 interface FilterBarProps {
@@ -15,6 +15,8 @@ interface FilterBarProps {
   onResetFilters: () => void;
   cwiOnly: boolean;
   onToggleCwiOnly: () => void;
+  insightsOpen?: boolean;
+  onToggleInsights?: () => void;
 }
 
 const TYPE_CONFIG: Array<{ type: NodeType; label: string; color: string }> = [
@@ -44,6 +46,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   onResetFilters,
   cwiOnly,
   onToggleCwiOnly,
+  insightsOpen,
+  onToggleInsights,
 }) => {
   const typeCounts = React.useMemo(() => {
     const counts = new Map<NodeType, number>();
@@ -61,49 +65,44 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     return FEATURED_TAGS.filter((t) => present.has(t));
   }, [nodes, cwiOnly]);
 
-  // Publish the bar's height so panels below it (the data table) can sit underneath
-  const barRef = React.useRef<HTMLDivElement>(null);
-  React.useEffect(() => {
-    const el = barRef.current;
-    if (!el) return;
-    const root = document.documentElement;
-    const observer = new ResizeObserver(() => root.style.setProperty('--filterbar-height', `${el.offsetHeight}px`));
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   const hasGrants = (typeCounts.get('grant') || 0) > 0;
   const allTypesOn = visibleTypes.every((t) => activeTypes.has(t.type));
   const areFiltersApplied = !allTypesOn || selectedTags.size > 0 || minFunding > 0;
 
   return (
-    <div
-      ref={barRef}
-      className="glass-panel"
-      style={{
-        position: 'absolute',
-        top: 'calc(16px + var(--header-height) + 10px)',
-        left: 16,
-        padding: '10px 12px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 8,
-        zIndex: 25,
-        maxWidth: 'min(760px, calc(100% - 32px))',
-      }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+    <div className="app-toolbar">
+      {onToggleInsights && (
+        <>
+          <button
+            className="icon-btn hide-sm"
+            aria-pressed={insightsOpen}
+            onClick={onToggleInsights}
+            title={insightsOpen ? 'Hide overview' : 'Show overview'}
+            aria-label={insightsOpen ? 'Hide overview' : 'Show overview'}
+          >
+            <PanelLeft size={16} />
+          </button>
+          <span className="toolbar-divider hide-sm" />
+        </>
+      )}
+      <div className="toolbar-group">
+        <span className="toolbar-label">Scope</span>
         {/* Scope: CWI's own projects and partners, or everything including the AI landscape */}
         <button
           className="chip chip-scope"
           aria-pressed={cwiOnly}
           onClick={onToggleCwiOnly}
-          title={cwiOnly ? 'Showing CWI projects and partners. Click to include the full AI wildfire landscape.' : 'Show only CWI projects and partners'}
+          title={
+            cwiOnly
+              ? 'Showing CWI projects and partners. Click to include the full AI wildfire landscape.'
+              : 'Show only CWI projects and partners'
+          }
         >
           <CwiLogo variant="mark" size={13} glow={false} />
           <span>CWI network</span>
         </button>
-        <span style={{ width: 1, height: 18, background: 'var(--border-subtle)', margin: '0 2px' }} />
+        <span className="toolbar-divider" />
+        <span className="toolbar-label">Show</span>
         {visibleTypes.map(({ type, label, color }) => (
           <button
             key={type}
@@ -125,21 +124,25 @@ export const FilterBar: React.FC<FilterBarProps> = ({
       </div>
 
       {(tags.length > 0 || hasGrants) && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+        <div className="toolbar-group">
+          <span className="toolbar-divider" />
           {tags.map((tag) => (
-            <button
-              key={tag}
-              className="chip"
-              aria-pressed={selectedTags.has(tag)}
-              onClick={() => onToggleTag(tag)}
-              style={{ height: 24, fontSize: '0.72rem' }}
-            >
+            <button key={tag} className="chip" aria-pressed={selectedTags.has(tag)} onClick={() => onToggleTag(tag)}>
               {tag}
             </button>
           ))}
 
           {hasGrants && (
-            <label style={{ display: 'flex', alignItems: 'center', gap: 8, marginLeft: 8, fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+            <label
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                marginLeft: 8,
+                fontSize: '0.72rem',
+                color: 'var(--text-muted)',
+              }}
+            >
               Min grant
               <input
                 id="min-grant"
@@ -156,14 +159,14 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               </span>
             </label>
           )}
-
-          {areFiltersApplied && (
-            <button className="chip" onClick={onResetFilters} style={{ height: 24, fontSize: '0.72rem', marginLeft: 'auto' }}>
-              <RotateCcw size={12} />
-              Reset
-            </button>
-          )}
         </div>
+      )}
+
+      {areFiltersApplied && (
+        <button className="chip" onClick={onResetFilters} style={{ marginLeft: 'auto', flexShrink: 0 }}>
+          <RotateCcw size={12} />
+          Reset
+        </button>
       )}
     </div>
   );
