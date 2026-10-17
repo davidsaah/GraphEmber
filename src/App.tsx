@@ -19,6 +19,11 @@ import { InboxPanel } from './components/InboxPanel';
 import { applyApproved, WEB_TAG } from './research/applyApproved';
 import { decide, loadQueue } from './research/api';
 import type { DecisionInput, Proposal, ResearchRun, ReviewQueue } from './research/types';
+import { applyCuration } from './curation/applyCuration';
+import { findDuplicates } from './curation/findDuplicates';
+import { loadCuration, saveCuration, type CurationMode } from './curation/api';
+import { CurationContext, readReviewer, storeReviewer, type CurationContextValue } from './curation/CurationContext';
+import type { CurationInput, CurationLog } from './curation/types';
 
 // The map library is large, so it loads only when the map view is opened
 const MapView = lazy(() => import('./components/MapView'));
@@ -44,6 +49,7 @@ export const App: React.FC = () => {
   const [queue, setQueue] = useState<ReviewQueue | null>(null);
   const [researchAvailable, setResearchAvailable] = useState<boolean>(false);
   const [isInboxOpen, setIsInboxOpen] = useState<boolean>(false);
+  const [inboxTab, setInboxTab] = useState<{ tab: 'pending' | 'duplicates' } | null>(null);
   const [researchScope, setResearchScope] = useState<GraphNode[]>([]);
   useEffect(() => {
     loadQueue()
@@ -53,10 +59,26 @@ export const App: React.FC = () => {
       })
       .catch(() => setResearchAvailable(false));
   }, []);
-  const { nodes, edges } = useMemo(
-    () => applyApproved(baseNodes, baseEdges, queue?.proposals || []),
-    [baseNodes, baseEdges, queue],
-  );
+  // Hand edits and merges of duplicates, layered over the approved findings
+  const [curationLog, setCurationLog] = useState<CurationLog | null>(null);
+  const [curationMode, setCurationMode] = useState<CurationMode>('local');
+  const [reviewer, setReviewerState] = useState<string>(readReviewer);
+  useEffect(() => {
+    loadCuration().then(({ log, mode }) => {
+      setCurationLog(log);
+      setCurationMode(mode);
+    });
+  }, []);
+  const { nodes, edges } = useMemo(() => {
+    const web = applyApproved(baseNodes, baseEdges, queue?.proposals || []);
+    return applyCuration(web.nodes, web.edges, curationLog);
+  }, [baseNodes, baseEdges, queue, curationLog]);
+  const duplicates = useMemo(() => {
+    const dismissed = new Set(
+      (curationLog?.entries || []).flatMap((e) => (e.type === 'dismiss' && !e.undoneAt ? [e.pair] : [])),
+    );
+    return findDuplicates(nodes, edges, dismissed);
+  }, [nodes, edges, curationLog]);
   const pending = useMemo(() => (queue?.proposals || []).filter((p) => p.status === 'pending'), [queue]);
   const pendingNodeIds = useMemo(() => new Set(pending.flatMap((p) => [p.subjectId, ...(p.targetId ? [p.targetId] : [])])), [pending]);
   const ghostEdges = useMemo(
@@ -73,7 +95,16 @@ export const App: React.FC = () => {
   const [minFunding, setMinFunding] = useState<number>(0);
 
   // Selection & Hover state
-  const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
+  const [selectedEntity, setSelectedNode] = useState<GraphNode | null>(null);
+  // Always show the current version: edits replace the node, and a merged entity resolves to the one it went into
+  const selectedNode = useMemo(() => {
+    if (!selectedEntity) return null;
+    return (
+      nodes.find((n) => n.id === selectedEntity.id) ||
+      nodes.find((n) => n.mergedFrom?.some((m) => m.id === selectedEntity.id)) ||
+      null
+    );
+  }, [selectedEntity, nodes]);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
 
   // Modal states
@@ -160,7 +191,8 @@ export const App: React.FC = () => {
         const matchesDesc = node.description?.toLowerCase().includes(q);
         const matchesType = node.type.toLowerCase().includes(q);
         const matchesTags = node.tags?.some((t) => t.toLowerCase().includes(q));
-        if (!matchesLabel && !matchesDesc && !matchesType && !matchesTags) {
+        const matchesAlias = node.aliases?.some((a) => a.toLowerCase().includes(q));
+        if (!matchesLabel && !matchesDesc && !matchesType && !matchesTags && !matchesAlias) {
           return false;
         }
       }
@@ -302,6 +334,46 @@ export const App: React.FC = () => {
     setIsInboxOpen(true);
   }, []);
 
+  const setReviewer = useCallback((name: string) => {
+    setReviewerState(name);
+    storeReviewer(name);
+  }, []);
+
+  const handleSaveCuration = useCallback(
+    async (input: CurationInput) => {
+      const entry = await saveCuration(curationMode, { ...input, by: reviewer.trim() });
+      setCurationLog((log) => {
+        const entries = log?.entries || [];
+        const i = entries.findIndex((e) => e.id === entry.id);
+        return { version: 1, ...log, entries: i >= 0 ? entries.map((e) => (e.id === entry.id ? entry : e)) : [...entries, entry] };
+      });
+    },
+    [curationMode, reviewer],
+  );
+
+  const curation = useMemo<CurationContextValue>(
+    () => ({
+      reviewer,
+      setReviewer,
+      mode: curationMode,
+      log: curationLog,
+      save: handleSaveCuration,
+      research: (targets) => {
+        setResearchScope(targets);
+        setInboxTab({ tab: 'pending' });
+        setIsInboxOpen(true);
+      },
+      researchAvailable,
+      pendingFor: (id) => pending.filter((p) => p.subjectId === id || p.targetId === id).length,
+      openInbox: (tab = 'pending') => {
+        setResearchScope([]);
+        setInboxTab({ tab });
+        setIsInboxOpen(true);
+      },
+    }),
+    [reviewer, setReviewer, curationMode, curationLog, handleSaveCuration, researchAvailable, pending],
+  );
+
   const handleResearched = useCallback((run: ResearchRun, found: Proposal[]) => {
     setQueue((q) => ({ version: 1, ...q, proposals: [...(q?.proposals || []), ...found], runs: [run, ...(q?.runs || [])] }));
   }, []);
@@ -340,6 +412,7 @@ export const App: React.FC = () => {
   }, [handleClearSelection, isPathFinderOpen, isMetricsOpen, isAddModalOpen, isOntologyOpen, isCwiModalOpen, isInboxOpen]);
 
   return (
+    <CurationContext.Provider value={curation}>
     <div
       style={{
         display: 'flex',
@@ -361,7 +434,7 @@ export const App: React.FC = () => {
           onExportData={handleExportData}
           view={view}
           onViewChange={setView}
-          inboxCount={pending.length}
+          inboxCount={pending.length + duplicates.length}
           onOpenInbox={handleOpenInbox}
         />
 
@@ -479,6 +552,8 @@ export const App: React.FC = () => {
               onResearched={handleResearched}
               onDecide={handleDecide}
               onSelectNode={setSelectedNode}
+              duplicates={duplicates}
+              requestedTab={inboxTab}
             />
           </div>
         </div>
@@ -553,6 +628,7 @@ export const App: React.FC = () => {
       {/* Chat about the network, always docked on the right */}
       <ChatPanel nodes={nodes} edges={edges} onSelectNode={setSelectedNode} onHighlight={handleApplyPathHighlight} />
     </div>
+    </CurationContext.Provider>
   );
 };
 

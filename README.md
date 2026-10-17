@@ -49,6 +49,17 @@ Safeguards (full reasoning in the plan, `web-research-plan.md` in the project fi
 
 Research uses the same `ANTHROPIC_API_KEY` as the chat (`server/research.mjs`, `/api/research` and `/api/proposals`). On a static host or in the claude.ai demo the Inbox explains that research needs the server. `npm run check:research` tests the safeguards offline.
 
+## Editing dossiers and merging duplicates
+
+Every entity's dossier has **Edit**, **Research** and a history button at the top:
+
+- **Edit** changes the name, acronym, website, location, description or tags, with an optional note on why. Each change records who made it and when, shows old and new values in the dossier's history, and can be undone. The generated data is never rewritten: edits are layered on top, so `npm run data` can still refresh the sheets.
+- **Research** runs the web research above on that one entity. If findings about it are waiting, an **N new** button opens them in the Inbox.
+
+The Inbox's **duplicates** tab (the merge icon) lists pairs that look like the same entity, with a match score and the reasons: the same name once spelling, punctuation or "&"/"and" is ignored, a likely typo, an acronym matching the other's name, the same website, or shared connections. Nothing is merged automatically. A reviewer picks **Keep left**, **Keep right** or **Not the same**. Merging keeps the chosen entity, fills its empty fields from the other, adds the other's name as an alias (search finds both), and moves every connection across, dropping any that become repeats. Merges and dismissals can be undone from the same tab or from the dossier history.
+
+Edits, merges and dismissals are kept in `data/curation.json` (`/api/curation`). Without the server, as on a static host or in the claude.ai demo, they are saved in that browser only. `npm run check:curation` tests them offline.
+
 ## Data
 
 The graph is generated, not hand-edited:

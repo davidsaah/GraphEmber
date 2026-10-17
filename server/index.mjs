@@ -1,4 +1,4 @@
-// Production server: serves the built app from dist/ and the /api/chat, /api/research and /api/proposals endpoints.
+// Production server: serves the built app from dist/ and the /api/chat, /api/research, /api/proposals and /api/curation endpoints.
 // Usage: npm run build && ANTHROPIC_API_KEY=... npm start
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
@@ -6,6 +6,7 @@ import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { handleChat } from './chat.mjs';
 import { handleResearch, handleProposals } from './research.mjs';
+import { handleCuration } from './curation.mjs';
 
 const DIST = fileURLToPath(new URL('../dist', import.meta.url));
 const PORT = Number(process.env.PORT) || 3000;
@@ -25,6 +26,7 @@ createServer(async (req, res) => {
   if (path === '/api/chat') return handleChat(req, res);
   if (path === '/api/research') return handleResearch(req, res);
   if (path.startsWith('/api/proposals')) return handleProposals(req, res);
+  if (path === '/api/curation') return handleCuration(req, res);
 
   const file = normalize(join(DIST, path === '/' ? 'index.html' : path));
   if (!file.startsWith(DIST)) return res.writeHead(403).end();

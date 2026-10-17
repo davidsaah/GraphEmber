@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { CwiLogo } from './CwiLogo';
 import { WebFindings } from './WebFindings';
+import { DossierTools } from './DossierTools';
 
 interface DossierDrawerProps {
   node: GraphNode | null;
@@ -152,6 +153,8 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
           gap: 20,
         }}
       >
+        <DossierTools key={node.id} node={node} />
+
         {/* CWI Ecosystem Verified Badge */}
         {(node.id === 'inst-cwi' || node.tags?.includes('CWI') || node.id === 'prog-rhf' || node.id === 'prod-firelines') && (
           <div

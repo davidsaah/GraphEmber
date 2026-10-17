@@ -1,0 +1,46 @@
+/* Dossier edit/research tools and the duplicate review. Uses the shared tokens in index.css. */
+.dossier-tools { display: flex; flex-direction: column; gap: 8px; }
+.dossier-tools-row { display: flex; flex-wrap: wrap; gap: 4px; margin: -6px -8px 0; }
+.dossier-tools-row .btn { height: 30px; padding: 0 10px; }
+.dossier-tools-row .btn[aria-pressed='true'] { color: var(--text-primary); background: var(--bg-surface-elevated); }
+.dossier-pending { color: var(--accent-ember-light); }
+.dossier-tools-note { font-size: 0.72rem; color: var(--text-muted); line-height: 1.45; }
+.dossier-tools-note svg { vertical-align: -1px; }
+.dossier-tools-error { font-size: 0.74rem; color: #fca5a5; }
+
+.dossier-edit { display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: var(--radius-md); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
+.dossier-edit label { display: flex; flex-direction: column; gap: 3px; font-size: 0.7rem; color: var(--text-muted); }
+.dossier-edit input, .dossier-edit textarea {
+  padding: 6px 9px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.8rem;
+  outline: none;
+  resize: vertical;
+}
+.dossier-edit input:focus, .dossier-edit textarea:focus { border-color: rgba(246, 186, 19, 0.5); }
+.dossier-edit-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+
+.dossier-history { list-style: none; display: flex; flex-direction: column; gap: 8px; padding: 10px 12px; border-radius: var(--radius-md); background: var(--bg-surface); }
+.dossier-history li + li { border-top: 1px solid var(--border-subtle); padding-top: 8px; }
+.dossier-history li.undone { opacity: 0.5; }
+.dossier-history-head { display: flex; align-items: center; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); }
+.dossier-history-head .icon-btn { width: 26px; height: 26px; }
+.dossier-history-change { font-size: 0.76rem; color: var(--text-secondary); line-height: 1.45; word-break: break-word; }
+.dossier-history-change strong { color: var(--text-primary); font-weight: 600; }
+.dossier-history-change s { color: var(--text-muted); }
+
+/* Duplicate review in the Inbox */
+.dup-card { padding: 12px 14px; border-radius: var(--radius-md); background: var(--bg-surface); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 8px; }
+.dup-head { display: flex; align-items: center; gap: 8px; font-size: 0.7rem; color: var(--text-muted); }
+.dup-score { font-weight: 700; color: var(--color-cwi-gold); font-variant-numeric: tabular-nums; }
+.dup-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.dup-side { padding: 8px 10px; border-radius: var(--radius-sm); background: var(--bg-canvas); display: flex; flex-direction: column; gap: 3px; min-width: 0; font-size: 0.72rem; color: var(--text-muted); }
+.dup-side .inbox-link { text-align: left; font-size: 0.8rem; word-break: break-word; }
+.dup-reasons { margin-left: 16px; font-size: 0.74rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 2px; }
+.dup-actions { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.dup-actions .btn { height: 30px; }
+.dup-clip { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

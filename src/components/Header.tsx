@@ -139,7 +139,7 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           className="btn"
           onClick={onOpenInbox}
-          title="New learnings from web research, waiting for review"
+          title="Web findings and possible duplicates waiting for review"
           aria-label={inboxCount ? `Inbox, ${inboxCount} to review` : 'Inbox'}
         >
           <Inbox size={15} />

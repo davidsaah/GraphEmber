@@ -73,6 +73,12 @@ export interface BaseNode {
   webFacts?: WebFact[];
   // Set on entities that exist only because an approved web finding added them
   webSource?: WebProvenance;
+  // Other names this entity is known by, kept when duplicates are merged into it
+  aliases?: string[];
+  // Entities merged into this one, newest last (see src/curation)
+  mergedFrom?: { id: string; label: string; by: string; at: string }[];
+  // Number of hand edits applied to this entity
+  editCount?: number;
   // D3 force simulation coordinates
   x?: number;
   y?: number;

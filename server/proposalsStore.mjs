@@ -8,13 +8,13 @@ import { canApprove } from './researchPolicy.mjs';
 const DEFAULT_FILE = fileURLToPath(new URL('../data/research/proposals.json', import.meta.url));
 const EMPTY = () => ({ version: 1, proposals: [], runs: [] });
 
-export const createStore = (file = process.env.GRAPHEMBER_PROPOSALS_FILE || DEFAULT_FILE) => {
+export const createStore = (file = process.env.GRAPHEMBER_PROPOSALS_FILE || DEFAULT_FILE, empty = EMPTY) => {
   let queue = Promise.resolve();
   const read = async () => {
     try {
-      return { ...EMPTY(), ...JSON.parse(await readFile(file, 'utf8')) };
+      return { ...empty(), ...JSON.parse(await readFile(file, 'utf8')) };
     } catch (e) {
-      if (e.code === 'ENOENT') return EMPTY();
+      if (e.code === 'ENOENT') return empty();
       throw e;
     }
   };

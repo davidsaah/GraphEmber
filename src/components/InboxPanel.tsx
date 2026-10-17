@@ -1,12 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { X, Globe, Check, Pencil, Undo2, ExternalLink, Loader2, ShieldCheck, Ban, History, Inbox as InboxIcon } from 'lucide-react';
+import { X, Globe, Check, Pencil, Undo2, ExternalLink, Loader2, ShieldCheck, Ban, History, Inbox as InboxIcon, GitMerge } from 'lucide-react';
 import type { GraphEdge, GraphNode } from '../types/graph';
 import type { DecisionInput, Proposal, ProposalSource, ResearchRun, ReviewQueue } from '../research/types';
 import { describeResearchError, runResearch } from '../research/api';
 import { LIMITS, canApprove } from '../../server/researchPolicy.mjs';
+import { useCuration } from '../curation/CurationContext';
+import type { DuplicateCandidate } from '../curation/findDuplicates';
+import { DuplicatesList } from './DuplicatesList';
 import '../research/inbox.css';
 
-type Tab = 'pending' | 'approved' | 'rejected' | 'activity';
+type Tab = 'pending' | 'approved' | 'rejected' | 'activity' | 'duplicates';
 
 interface InboxPanelProps {
   isOpen: boolean;
@@ -20,6 +23,10 @@ interface InboxPanelProps {
   onResearched: (run: ResearchRun, proposals: Proposal[]) => void;
   onDecide: (input: DecisionInput) => Promise<void>;
   onSelectNode: (node: GraphNode) => void;
+  // Entities that may be the same, for a person to merge or dismiss
+  duplicates: DuplicateCandidate[];
+  // Set when something asks the Inbox to open on a given tab
+  requestedTab: { tab: 'pending' | 'duplicates' } | null;
 }
 
 const KIND_LABEL: Record<Proposal['kind'], string> = {
@@ -44,21 +51,26 @@ const VERIFY_LABEL: Record<ProposalSource['verification'], string> = {
   unreachable: 'Page unreachable',
 };
 
-const REVIEWER_KEY = 'graphember.reviewer';
-const readReviewer = () => {
-  try {
-    return localStorage.getItem(REVIEWER_KEY) || '';
-  } catch {
-    return '';
-  }
-};
-
 const relationText = (r?: string) => (r || '').replace(/_/g, ' ').toLowerCase();
 const when = (iso?: string) => (iso ? new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }) : '');
 
-export const InboxPanel: React.FC<InboxPanelProps> = ({ isOpen, onClose, queue, available, scope, nodes, edges, onResearched, onDecide, onSelectNode }) => {
-  const [tab, setTab] = useState<Tab>('pending');
-  const [reviewer, setReviewer] = useState(readReviewer);
+export const InboxPanel: React.FC<InboxPanelProps> = ({
+  isOpen,
+  onClose,
+  queue,
+  available,
+  scope,
+  nodes,
+  edges,
+  onResearched,
+  onDecide,
+  onSelectNode,
+  duplicates,
+  requestedTab,
+}) => {
+  const [tab, setTab] = useState<Tab>(available ? 'pending' : 'duplicates');
+  const curation = useCuration();
+  const reviewer = curation?.reviewer || '';
   const [withNeighbours, setWithNeighbours] = useState(false);
   const [running, setRunning] = useState(false);
   const [runError, setRunError] = useState('');
@@ -67,14 +79,6 @@ export const InboxPanel: React.FC<InboxPanelProps> = ({ isOpen, onClose, queue, 
 
   const byId = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes]);
 
-  useEffect(() => {
-    try {
-      localStorage.setItem(REVIEWER_KEY, reviewer);
-    } catch {
-      /* per-viewer convenience only */
-    }
-  }, [reviewer]);
-
   // A new research scope starts a fresh run panel
   const [seenScope, setSeenScope] = useState(scope);
   if (scope !== seenScope) {
@@ -82,6 +86,11 @@ export const InboxPanel: React.FC<InboxPanelProps> = ({ isOpen, onClose, queue, 
     setLastRun(null);
     setRunError('');
     if (scope.length) setTab('pending');
+  }
+  const [seenRequest, setSeenRequest] = useState(requestedTab);
+  if (requestedTab !== seenRequest) {
+    setSeenRequest(requestedTab);
+    if (requestedTab) setTab(requestedTab.tab);
   }
 
   useEffect(() => () => abortRef.current?.abort(), []);
@@ -126,7 +135,7 @@ export const InboxPanel: React.FC<InboxPanelProps> = ({ isOpen, onClose, queue, 
     approved: proposals.filter((p) => p.status === 'approved').reverse(),
     rejected: proposals.filter((p) => p.status === 'rejected').reverse(),
   };
-  const shown = tab === 'activity' ? [] : lists[tab];
+  const shown = tab === 'activity' || tab === 'duplicates' ? [] : lists[tab];
   // Strongest findings first
   const rank = { high: 0, medium: 1, low: 2 };
   if (tab === 'pending') shown.sort((a, b) => rank[a.confidence] - rank[b.confidence]);
@@ -135,7 +144,7 @@ export const InboxPanel: React.FC<InboxPanelProps> = ({ isOpen, onClose, queue, 
     <aside className="glass-panel inbox" aria-label="Research inbox">
       <div className="inbox-head">
         <div>
-          <span className="eyebrow">Web research</span>
+          <span className="eyebrow">Review</span>
           <h2>Inbox</h2>
         </div>
         <button className="icon-btn" onClick={onClose} aria-label="Close inbox">
@@ -143,7 +152,7 @@ export const InboxPanel: React.FC<InboxPanelProps> = ({ isOpen, onClose, queue, 
         </button>
       </div>
 
-      {!available && (
+      {!available && tab !== 'duplicates' && (
         <p className="inbox-note">
           Web research and review need the GraphEmber server. Run <code>npm run dev</code> (or <code>npm start</code>) with <code>ANTHROPIC_API_KEY</code> set.
         </p>
@@ -189,24 +198,29 @@ export const InboxPanel: React.FC<InboxPanelProps> = ({ isOpen, onClose, queue, 
         </section>
       )}
 
-      {available && (
-        <>
-          <label className="inbox-reviewer">
-            Reviewing as
-            <input value={reviewer} onChange={(e) => setReviewer(e.target.value)} placeholder="Your name" maxLength={80} />
-          </label>
+      <label className="inbox-reviewer">
+        Reviewing as
+        <input value={reviewer} onChange={(e) => curation?.setReviewer(e.target.value)} placeholder="Your name" maxLength={80} />
+      </label>
 
-          <div className="segmented inbox-tabs" role="tablist">
-            {(['pending', 'approved', 'rejected'] as const).map((t) => (
-              <button key={t} role="tab" aria-pressed={tab === t} onClick={() => setTab(t)}>
-                {t === 'pending' ? 'To review' : t === 'approved' ? 'Approved' : 'Rejected'} <span className="count">{lists[t].length}</span>
-              </button>
-            ))}
-            <button role="tab" aria-pressed={tab === 'activity'} onClick={() => setTab('activity')} title="Research runs and searches made">
-              <History size={13} />
-            </button>
-          </div>
+      <div className="segmented inbox-tabs" role="tablist">
+        {(['pending', 'approved', 'rejected'] as const).map((t) => (
+          <button key={t} role="tab" aria-pressed={tab === t} onClick={() => setTab(t)}>
+            {t === 'pending' ? 'To review' : t === 'approved' ? 'Approved' : 'Rejected'} <span className="count">{lists[t].length}</span>
+          </button>
+        ))}
+        <button role="tab" aria-pressed={tab === 'duplicates'} onClick={() => setTab('duplicates')} title="Entities that may be the same">
+          <GitMerge size={13} /> <span className="count">{duplicates.length}</span>
+        </button>
+        <button role="tab" aria-pressed={tab === 'activity'} onClick={() => setTab('activity')} title="Research runs and searches made">
+          <History size={13} />
+        </button>
+      </div>
 
+      {tab === 'duplicates' ? (
+        <DuplicatesList duplicates={duplicates} edges={edges} onSelectNode={onSelectNode} />
+      ) : (
+        available && (
           <div className="inbox-list">
             {tab === 'activity' ? (
               (queue?.runs || []).length ? (
@@ -226,7 +240,7 @@ export const InboxPanel: React.FC<InboxPanelProps> = ({ isOpen, onClose, queue, 
               />
             )}
           </div>
-        </>
+        )
       )}
     </aside>
   );
