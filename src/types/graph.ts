@@ -49,6 +49,8 @@ export interface BaseNode {
   tags?: string[];
   // [lng, lat] when the source gives a precise place (city level)
   coordinates?: [number, number];
+  // Row in the CWI Projects and Collaborators sheet where a project starts
+  sheetRow?: number;
   // Reviewer note carried over from the source sheet
   sheetNote?: string;
   // D3 force simulation coordinates

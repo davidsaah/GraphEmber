@@ -18,6 +18,7 @@ import { InsightsPanel } from './components/InsightsPanel';
 
 // The map library is large, so it loads only when the map view is opened
 const MapView = lazy(() => import('./components/MapView'));
+const ReportsView = lazy(() => import('./components/ReportsView'));
 
 const ALL_TYPES: NodeType[] = [
   'person',
@@ -186,6 +187,19 @@ export const App: React.FC = () => {
     setPathEdgeIds(pEdges);
   }, []);
 
+  // From a report exhibit: show its entities on the network, widening the scope if any sit outside the CWI network
+  const handleShowInNetwork = useCallback(
+    (ids: string[]) => {
+      const byId = new Map(nodes.map((n) => [n.id, n]));
+      if (ids.some((id) => !byId.get(id)?.tags?.includes('CWI Network'))) setCwiOnly(false);
+      setSelectedNode(null);
+      setPathNodeIds(ids);
+      setPathEdgeIds([]);
+      setView('network');
+    },
+    [nodes],
+  );
+
   const handleClearPathHighlight = useCallback(() => {
     setPathNodeIds([]);
     setPathEdgeIds([]);
@@ -261,6 +275,8 @@ export const App: React.FC = () => {
 
   // Clear the selected entity and any highlighted path or chat answer
   const hasSelection = selectedNode !== null || pathNodeIds.length > 0;
+  // Data and Reports use the full width, without the insights rail
+  const wideView = view === 'data' || view === 'reports';
   const handleClearSelection = useCallback(() => {
     setSelectedNode(null);
     setHoveredNodeId(null);
@@ -286,6 +302,7 @@ export const App: React.FC = () => {
 
   return (
     <div
+      className="app-root"
       style={{
         display: 'flex',
         width: '100vw',
@@ -308,24 +325,26 @@ export const App: React.FC = () => {
           onViewChange={setView}
         />
 
-        <FilterBar
-          nodes={scopedNodes}
-          activeTypes={activeTypes}
-          onToggleType={handleToggleType}
-          onSelectAllTypes={handleSelectAllTypes}
-          selectedTags={selectedTags}
-          onToggleTag={handleToggleTag}
-          minFunding={minFunding}
-          onMinFundingChange={setMinFunding}
-          onResetFilters={handleResetFilters}
-          cwiOnly={cwiOnly}
-          onToggleCwiOnly={() => setCwiOnly((v) => !v)}
-          insightsOpen={insightsOpen && view !== 'data'}
-          onToggleInsights={view !== 'data' ? () => setInsightsOpen((v) => !v) : undefined}
-        />
+        {view !== 'reports' && (
+          <FilterBar
+            nodes={scopedNodes}
+            activeTypes={activeTypes}
+            onToggleType={handleToggleType}
+            onSelectAllTypes={handleSelectAllTypes}
+            selectedTags={selectedTags}
+            onToggleTag={handleToggleTag}
+            minFunding={minFunding}
+            onMinFundingChange={setMinFunding}
+            onResetFilters={handleResetFilters}
+            cwiOnly={cwiOnly}
+            onToggleCwiOnly={() => setCwiOnly((v) => !v)}
+            insightsOpen={insightsOpen && !wideView}
+            onToggleInsights={!wideView ? () => setInsightsOpen((v) => !v) : undefined}
+          />
+        )}
 
         <div className="stage-body">
-          {insightsOpen && view !== 'data' && (
+          {insightsOpen && !wideView && (
             <InsightsPanel
               nodes={filteredNodes}
               edges={filteredEdges}
@@ -367,6 +386,18 @@ export const App: React.FC = () => {
               </Suspense>
             ) : null}
 
+            {view === 'reports' && (
+              <Suspense fallback={null}>
+                <ReportsView
+                  nodes={nodes}
+                  edges={edges}
+                  selectedNodeId={selectedNode ? selectedNode.id : null}
+                  onSelectNode={setSelectedNode}
+                  onShowInNetwork={handleShowInNetwork}
+                />
+              </Suspense>
+            )}
+
             {view === 'data' && (
               <DataView
                 nodes={filteredNodes}
@@ -377,7 +408,7 @@ export const App: React.FC = () => {
               />
             )}
 
-            {hasSelection && (
+            {hasSelection && view !== 'reports' && (
               <div className="selection-pill" role="status">
                 {selectedNode ? (
                   <span>

@@ -336,14 +336,16 @@ tagNode(nodes.get('inst-cwi'));
 nodes.get('inst-cwi').coordinates = places['berkeley, ca'];
 
 const projectPartners = new Map(); // project id -> Set(partner id)
+const partnerEdges = new Map(); // "project|partner" -> edge, so repeat rows add their row number
 let project = null;
-for (const r of cwiRows.slice(1)) {
+for (const [i, r] of cwiRows.slice(1).entries()) {
+  const sheetRow = i + 2; // spreadsheet row number (row 1 is the header)
   const projectName = clean(r[0]);
   if (projectName) {
     const id = `cwi-proj-${slug(projectName)}`;
     const type = MEETING_PROJECTS.test(projectName) ? 'meeting' : PRODUCT_PROJECTS.test(projectName) ? 'product' : 'program';
     const location = clean(r[1]) || undefined;
-    project = { id, type, label: projectName, location, coordinates: location ? coordsFor(location) : undefined, tags: [CWI_TAG, 'CWI project'] };
+    project = { id, type, label: projectName, location, coordinates: location ? coordsFor(location) : undefined, tags: [CWI_TAG, 'CWI project'], sheetRow };
     nodes.set(id, project);
     projectPartners.set(id, new Set());
     cwiStats.projects++;
@@ -372,10 +374,20 @@ for (const r of cwiRows.slice(1)) {
   const note = clean(r[6]);
   if (note) node.sheetNote = note;
 
-  if (projectPartners.get(project.id).has(id)) continue;
+  // Source evidence for reports: the sheet row(s) and the name as written there
+  const pairKey = `${project.id}|${id}`;
+  if (partnerEdges.has(pairKey)) {
+    partnerEdges.get(pairKey).properties.sheetRows.push(sheetRow);
+    continue;
+  }
   projectPartners.get(project.id).add(id);
   const isMeeting = project.type === 'meeting';
-  addEdge({ id: nextId('cwi'), source: id, target: project.id, type: isMeeting ? 'ATTENDED' : 'PARTICIPATES_IN', label: isMeeting ? 'attended' : 'partner on', how: 'CWI Projects and Collaborators sheet' });
+  const edge = {
+    id: nextId('cwi'), source: id, target: project.id, type: isMeeting ? 'ATTENDED' : 'PARTICIPATES_IN', label: isMeeting ? 'attended' : 'partner on', how: 'CWI Projects and Collaborators sheet',
+    properties: { sheetRows: [sheetRow], ...(rawName !== nodes.get(id).label ? { sheetName: rawName } : {}) },
+  };
+  partnerEdges.set(pairKey, edge);
+  addEdge(edge);
 }
 
 // Descriptions from the sheet's structure

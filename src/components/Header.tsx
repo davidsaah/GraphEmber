@@ -1,8 +1,8 @@
 import React from 'react';
-import { Search, Route, BarChart3, Plus, X, Download, Network, Share2, Map as MapIcon, Table2 } from 'lucide-react';
+import { Search, Route, BarChart3, Plus, X, Download, Network, Share2, Map as MapIcon, Table2, FileText } from 'lucide-react';
 import { CwiLogo } from './CwiLogo';
 
-export type AppView = 'network' | 'map' | 'data';
+export type AppView = 'network' | 'map' | 'data' | 'reports';
 
 interface HeaderProps {
   searchQuery: string;
@@ -70,6 +70,10 @@ export const Header: React.FC<HeaderProps> = ({
         <button aria-pressed={view === 'data'} onClick={() => onViewChange('data')} title="Data tables">
           <Table2 size={14} />
           <span className="hide-sm">Data</span>
+        </button>
+        <button aria-pressed={view === 'reports'} onClick={() => onViewChange('reports')} title="Stakeholder reports">
+          <FileText size={14} />
+          <span className="hide-sm">Reports</span>
         </button>
       </div>
 
