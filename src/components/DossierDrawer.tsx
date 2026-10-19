@@ -13,6 +13,7 @@ import {
   ArrowRight,
   Shield,
   Layers,
+  FileText,
 } from 'lucide-react';
 import { CwiLogo } from './CwiLogo';
 
@@ -22,6 +23,7 @@ interface DossierDrawerProps {
   allEdges: GraphEdge[];
   onClose: () => void;
   onSelectNode: (node: GraphNode) => void;
+  onRunReport?: (node: GraphNode) => void;
 }
 
 const TYPE_ICONS: Record<NodeType, string> = {
@@ -42,6 +44,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
   allEdges,
   onClose,
   onSelectNode,
+  onRunReport,
 }) => {
   if (!node) return null;
 
@@ -116,6 +119,12 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
             >
               {node.label}
             </h2>
+            {onRunReport && (
+              <button className="btn btn-primary dossier-report" onClick={() => onRunReport(node)} title="Open a stakeholder report on this node">
+                <FileText size={13} />
+                Run report
+              </button>
+            )}
           </div>
         </div>
 

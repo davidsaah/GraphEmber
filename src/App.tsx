@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback, useEffect, Suspense, lazy } from 'react';
-import { X } from 'lucide-react';
+import { X, FileText } from 'lucide-react';
+import type { ReportTarget } from './components/ReportsView';
 import type { GraphNode, GraphEdge, NodeType } from './types/graph';
 import { INITIAL_DATASET } from './data/initialData';
 import { Header, type AppView } from './components/Header';
@@ -18,6 +19,7 @@ import { InsightsPanel } from './components/InsightsPanel';
 
 // The map library is large, so it loads only when the map view is opened
 const MapView = lazy(() => import('./components/MapView'));
+const ReportsView = lazy(() => import('./components/ReportsView'));
 
 const ALL_TYPES: NodeType[] = [
   'person',
@@ -56,6 +58,7 @@ export const App: React.FC = () => {
   const [isCwiModalOpen, setIsCwiModalOpen] = useState<boolean>(false);
   const [view, setView] = useState<AppView>('network');
   const [insightsOpen, setInsightsOpen] = useState<boolean>(true);
+  const [reportTarget, setReportTarget] = useState<ReportTarget | null>(null);
 
   // Path finder highlight state
   const [pathNodeIds, setPathNodeIds] = useState<string[]>([]);
@@ -186,6 +189,28 @@ export const App: React.FC = () => {
     setPathEdgeIds(pEdges);
   }, []);
 
+  // "Run report" on a selected node opens its report in the Reports view
+  const handleRunReport = useCallback((node: GraphNode) => {
+    setReportTarget((prev) => ({ id: node.id, n: (prev?.n || 0) + 1 }));
+    setSelectedNode(null);
+    setPathNodeIds([]);
+    setPathEdgeIds([]);
+    setView('reports');
+  }, []);
+
+  // From a report exhibit: show its entities on the network, widening the scope if any sit outside the CWI network
+  const handleShowInNetwork = useCallback(
+    (ids: string[]) => {
+      const byId = new Map(nodes.map((n) => [n.id, n]));
+      if (ids.some((id) => !byId.get(id)?.tags?.includes('CWI Network'))) setCwiOnly(false);
+      setSelectedNode(null);
+      setPathNodeIds(ids);
+      setPathEdgeIds([]);
+      setView('network');
+    },
+    [nodes],
+  );
+
   const handleClearPathHighlight = useCallback(() => {
     setPathNodeIds([]);
     setPathEdgeIds([]);
@@ -261,6 +286,8 @@ export const App: React.FC = () => {
 
   // Clear the selected entity and any highlighted path or chat answer
   const hasSelection = selectedNode !== null || pathNodeIds.length > 0;
+  // Data and Reports use the full width, without the insights rail
+  const wideView = view === 'data' || view === 'reports';
   const handleClearSelection = useCallback(() => {
     setSelectedNode(null);
     setHoveredNodeId(null);
@@ -286,6 +313,7 @@ export const App: React.FC = () => {
 
   return (
     <div
+      className="app-root"
       style={{
         display: 'flex',
         width: '100vw',
@@ -308,24 +336,26 @@ export const App: React.FC = () => {
           onViewChange={setView}
         />
 
-        <FilterBar
-          nodes={scopedNodes}
-          activeTypes={activeTypes}
-          onToggleType={handleToggleType}
-          onSelectAllTypes={handleSelectAllTypes}
-          selectedTags={selectedTags}
-          onToggleTag={handleToggleTag}
-          minFunding={minFunding}
-          onMinFundingChange={setMinFunding}
-          onResetFilters={handleResetFilters}
-          cwiOnly={cwiOnly}
-          onToggleCwiOnly={() => setCwiOnly((v) => !v)}
-          insightsOpen={insightsOpen && view !== 'data'}
-          onToggleInsights={view !== 'data' ? () => setInsightsOpen((v) => !v) : undefined}
-        />
+        {view !== 'reports' && (
+          <FilterBar
+            nodes={scopedNodes}
+            activeTypes={activeTypes}
+            onToggleType={handleToggleType}
+            onSelectAllTypes={handleSelectAllTypes}
+            selectedTags={selectedTags}
+            onToggleTag={handleToggleTag}
+            minFunding={minFunding}
+            onMinFundingChange={setMinFunding}
+            onResetFilters={handleResetFilters}
+            cwiOnly={cwiOnly}
+            onToggleCwiOnly={() => setCwiOnly((v) => !v)}
+            insightsOpen={insightsOpen && !wideView}
+            onToggleInsights={!wideView ? () => setInsightsOpen((v) => !v) : undefined}
+          />
+        )}
 
         <div className="stage-body">
-          {insightsOpen && view !== 'data' && (
+          {insightsOpen && !wideView && (
             <InsightsPanel
               nodes={filteredNodes}
               edges={filteredEdges}
@@ -367,6 +397,18 @@ export const App: React.FC = () => {
               </Suspense>
             ) : null}
 
+            {view === 'reports' && (
+              <Suspense fallback={null}>
+                <ReportsView
+                  nodes={nodes}
+                  edges={edges}
+                  target={reportTarget}
+                  onSelectNode={setSelectedNode}
+                  onShowInNetwork={handleShowInNetwork}
+                />
+              </Suspense>
+            )}
+
             {view === 'data' && (
               <DataView
                 nodes={filteredNodes}
@@ -377,7 +419,7 @@ export const App: React.FC = () => {
               />
             )}
 
-            {hasSelection && (
+            {hasSelection && view !== 'reports' && (
               <div className="selection-pill" role="status">
                 {selectedNode ? (
                   <span>
@@ -387,6 +429,12 @@ export const App: React.FC = () => {
                   <span>
                     <strong>{pathNodeIds.length}</strong> entities highlighted
                   </span>
+                )}
+                {selectedNode && (
+                  <button onClick={() => handleRunReport(selectedNode)} title="Open a report on this node">
+                    <FileText size={13} />
+                    Run report
+                  </button>
                 )}
                 <button onClick={handleClearSelection} title="Clear selection (Esc)">
                   <X size={13} />
@@ -402,6 +450,7 @@ export const App: React.FC = () => {
               allEdges={edges}
               onClose={() => setSelectedNode(null)}
               onSelectNode={setSelectedNode}
+              onRunReport={handleRunReport}
             />
           </div>
         </div>

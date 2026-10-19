@@ -571,3 +571,5 @@ button {
 .insight-more:hover { color: var(--color-cwi-gold); }
 .insights-body > * { flex-shrink: 0; }
 @container stage (max-width: 1180px) { .toolbar-label { display: none; } }
+.dossier-report { margin-top: 10px; height: 28px; padding: 0 10px; font-size: 0.74rem; }
+.selection-pill button:first-of-type:not(:last-of-type) { background: rgba(246, 186, 19, 0.16); color: var(--color-cwi-gold); }
