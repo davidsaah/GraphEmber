@@ -40,7 +40,7 @@ export const AicwAboutModal: React.FC<AicwAboutModalProps> = ({ isOpen, onClose,
         style={{ width: 'min(620px, 100%)', maxHeight: '90vh', overflowY: 'auto', borderRadius: 'var(--radius-lg)', padding: 24, border: '1px solid rgba(255,159,64,0.35)' }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <img src="/aicw-logo-white.png" alt="AI Collaborative: Wildfires" style={{ height: 56 }} />
+          <img src={`${import.meta.env.BASE_URL}aicw-logo-white.png`} alt="AI Collaborative: Wildfires" style={{ height: 56 }} />
           <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'var(--text-secondary)' }} aria-label="Close">
             <X size={18} />
           </button>

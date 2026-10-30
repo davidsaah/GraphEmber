@@ -73,7 +73,7 @@ export const Header: React.FC<HeaderProps> = ({
             cursor: 'pointer',
           }}
         >
-          <img src="/aicw-logo-white.png" alt="AI Collaborative: Wildfires" style={{ height: 44, width: 'auto', display: 'block' }} />
+          <img src={`${import.meta.env.BASE_URL}aicw-logo-white.png`} alt="AI Collaborative: Wildfires" style={{ height: 44, width: 'auto', display: 'block' }} />
         </button>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -201,7 +201,7 @@ export const Header: React.FC<HeaderProps> = ({
             e.currentTarget.style.borderColor = 'rgba(255, 190, 95, 0.35)';
           }}
         >
-          <img src="/aicw-flame.svg" alt="" style={{ height: 15, width: 'auto' }} />
+          <img src={`${import.meta.env.BASE_URL}aicw-flame.svg`} alt="" style={{ height: 15, width: 'auto' }} />
           <span>About AIC:W</span>
         </button>
 

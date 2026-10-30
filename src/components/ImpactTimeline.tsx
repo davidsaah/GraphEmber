@@ -48,7 +48,7 @@ export const ImpactTimeline: React.FC<ImpactTimelineProps> = ({ period, onChange
       maxWidth: 'calc(100vw - 40px)',
     }}
   >
-    <img src="/aicw-flame.svg" alt="" style={{ height: 22, width: 'auto' }} />
+    <img src={`${import.meta.env.BASE_URL}aicw-flame.svg`} alt="" style={{ height: 22, width: 'auto' }} />
     <span style={{ fontFamily: 'var(--font-label)', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#FFBE5F' }}>
       Impact over time
     </span>
