@@ -9,8 +9,9 @@ import { PathFinderModal } from './components/PathFinderModal';
 import { MetricsModal } from './components/MetricsModal';
 import { AddEntityModal } from './components/AddEntityModal';
 import { OntologyModal } from './components/OntologyModal';
-import { CwiBrandModal } from './components/CwiBrandModal';
-import { CwiLogo } from './components/CwiLogo';
+import { AicwAboutModal } from './components/AicwAboutModal';
+import { ImpactTimeline, PERIODS, IMPACT_INDICATORS } from './components/ImpactTimeline';
+import type { PeriodKey } from './components/ImpactTimeline';
 
 const ALL_TYPES: NodeType[] = [
   'person',
@@ -34,6 +35,7 @@ export const App: React.FC = () => {
   const [activeTypes, setActiveTypes] = useState<Set<NodeType>>(new Set(ALL_TYPES));
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
   const [minFunding, setMinFunding] = useState<number>(0);
+  const [period, setPeriod] = useState<PeriodKey>('all');
 
   // Selection & Hover state
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
@@ -44,7 +46,7 @@ export const App: React.FC = () => {
   const [isMetricsOpen, setIsMetricsOpen] = useState<boolean>(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   const [isOntologyOpen, setIsOntologyOpen] = useState<boolean>(false);
-  const [isCwiModalOpen, setIsCwiModalOpen] = useState<boolean>(false);
+  const [isAboutOpen, setIsAboutOpen] = useState<boolean>(false);
 
   // Path finder highlight state
   const [pathNodeIds, setPathNodeIds] = useState<string[]>([]);
@@ -87,11 +89,38 @@ export const App: React.FC = () => {
     setPathEdgeIds([]);
   }, []);
 
+  // Impact over time: keep what existed by the chosen date and show that date's ratings.
+  // Ratings are written onto the node objects so the force layout keeps their positions.
+  const periodNodes = useMemo(() => {
+    const p = PERIODS.find((x) => x.key === period)!;
+    return nodes.filter((node) => {
+      if (node.impact) {
+        const keys = Object.keys(node.impact).sort();
+        const key = period === 'all' ? keys[keys.length - 1] : period;
+        node.activeImpact = node.impact[key];
+      }
+      return !node.startDate || node.startDate <= p.cutoff;
+    });
+  }, [nodes, period]);
+
+  const ratingCounts = useMemo(() => {
+    let live = 0;
+    let rated = 0;
+    periodNodes.forEach((n) => {
+      if (n.type !== 'product' || !n.activeImpact) return;
+      IMPACT_INDICATORS.forEach((i) => {
+        rated += 1;
+        if (n.activeImpact![i] === 'live') live += 1;
+      });
+    });
+    return { live, rated };
+  }, [periodNodes]);
+
   // Filtered nodes and edges
   const filteredNodes = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
 
-    return nodes.filter((node) => {
+    return periodNodes.filter((node) => {
       // 1. Type filter
       if (!activeTypes.has(node.type)) return false;
 
@@ -123,17 +152,24 @@ export const App: React.FC = () => {
 
       return true;
     });
-  }, [nodes, activeTypes, minFunding, selectedTags, searchQuery]);
+  }, [periodNodes, activeTypes, minFunding, selectedTags, searchQuery]);
 
   const filteredNodeIds = useMemo(() => new Set(filteredNodes.map((n) => n.id)), [filteredNodes]);
 
   const filteredEdges = useMemo(() => {
+    const cutoff = PERIODS.find((x) => x.key === period)!.cutoff;
     return edges.filter((edge) => {
+      if (edge.startDate && edge.startDate > cutoff) return false;
+      const linkImpact = edge.properties?.impact as Record<string, string> | undefined;
+      if (linkImpact) {
+        const keys = Object.keys(linkImpact).sort();
+        edge.label = `${edge.properties!.linkage}: ${linkImpact[period === 'all' ? keys[keys.length - 1] : period]}`;
+      }
       const s = typeof edge.source === 'object' ? edge.source.id : edge.source;
       const t = typeof edge.target === 'object' ? edge.target.id : edge.target;
       return filteredNodeIds.has(s) && filteredNodeIds.has(t);
     });
-  }, [edges, filteredNodeIds]);
+  }, [edges, filteredNodeIds, period]);
 
   // Node & Edge Creation Handlers
   const handleAddNode = useCallback((newNode: GraphNode) => {
@@ -203,57 +239,21 @@ export const App: React.FC = () => {
     if (efaNode) setSelectedNode(efaNode);
   }, [nodes]);
 
-  // Focus Climate & Wildfire Institute (CWI) core initiatives
-  const handleFocusCwiEcosystem = useCallback(() => {
-    const cwiNodeIds = [
-      'inst-cwi',
-      'prog-rhf',
-      'prod-firelines',
-      'collab-efa',
-      'prod-firesat',
-      'inst-calfire',
-      'inst-google-org',
-      'inst-muon-space',
-      'topic-fire-monitoring',
-      'topic-home-hardening',
-      'topic-decision-support',
-    ];
-    const cwiEdgeIds = [
-      'edge-cwi-rhf',
-      'edge-cwi-firelines',
-      'edge-cwi-efa',
-      'edge-calfire-rhf',
-      'edge-google-efa',
-      'edge-muon-efa',
-      'edge-efa-firesat',
-      'edge-firesat-topic-mon',
-      'edge-rhf-topic-hh',
-      'edge-firelines-topic-dec',
-    ];
-    setPathNodeIds(cwiNodeIds);
-    setPathEdgeIds(cwiEdgeIds);
-    const cwiNode = nodes.find((n) => n.id === 'inst-cwi');
-    if (cwiNode) setSelectedNode(cwiNode);
-  }, [nodes]);
-
-  // Focus Resilient Home Fund (RHF) specifically
-  const handleFocusResilientHomeFund = useCallback(() => {
-    const rhfNodeIds = [
-      'prog-rhf',
-      'inst-cwi',
-      'inst-calfire',
-      'topic-home-hardening',
-    ];
-    const rhfEdgeIds = [
-      'edge-cwi-rhf',
-      'edge-calfire-rhf',
-      'edge-rhf-topic-hh',
-    ];
-    setPathNodeIds(rhfNodeIds);
-    setPathEdgeIds(rhfEdgeIds);
-    const rhfNode = nodes.find((n) => n.id === 'prog-rhf');
-    if (rhfNode) setSelectedNode(rhfNode);
-  }, [nodes]);
+  // Highlight every AIC:W node and the links between them
+  const handleFocusAicw = useCallback(() => {
+    const ids = new Set(nodes.filter((n) => n.tags?.some((t) => t.startsWith('AIC:W'))).map((n) => n.id));
+    const edgeIds = edges
+      .filter((e) => {
+        const s = typeof e.source === 'object' ? e.source.id : e.source;
+        const t = typeof e.target === 'object' ? e.target.id : e.target;
+        return ids.has(s) && ids.has(t);
+      })
+      .map((e) => e.id);
+    setPathNodeIds(Array.from(ids));
+    setPathEdgeIds(edgeIds);
+    const core = nodes.find((n) => n.id === 'aicw');
+    if (core) setSelectedNode(core);
+  }, [nodes, edges]);
 
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
@@ -266,7 +266,7 @@ export const App: React.FC = () => {
         onOpenPathFinder={() => setIsPathFinderOpen(true)}
         onOpenAnalytics={() => setIsMetricsOpen(true)}
         onOpenOntology={() => setIsOntologyOpen(true)}
-        onOpenCwiModal={() => setIsCwiModalOpen(true)}
+        onOpenAbout={() => setIsAboutOpen(true)}
         onOpenAddModal={() => setIsAddModalOpen(true)}
         onExportData={handleExportData}
       />
@@ -305,52 +305,14 @@ export const App: React.FC = () => {
         onSelectNode={setSelectedNode}
       />
 
-      {/* Bottom-left CWI Institutional Watermark */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 20,
-          left: 20,
-          zIndex: 25,
-          display: 'flex',
-          alignItems: 'center',
-          gap: 10,
-          padding: '6px 14px',
-          borderRadius: 'var(--radius-full)',
-          background: 'rgba(13, 19, 34, 0.88)',
-          backdropFilter: 'blur(16px)',
-          border: '1px solid rgba(246, 186, 19, 0.35)',
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(246, 186, 19, 0.2)',
-        }}
-      >
-        <CwiLogo variant="mark" size={20} glow={false} />
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '0.04em' }}>
-            Climate & Wildfire Institute
-          </span>
-          <span style={{ fontSize: '0.68rem', color: '#f6ba13' }}>·</span>
-          <span style={{ fontSize: '0.68rem', color: 'var(--text-secondary)' }}>
-            Firelines Landscape ({filteredNodes.length} mapped)
-          </span>
-        </div>
-        <button
-          onClick={() => setIsCwiModalOpen(true)}
-          style={{
-            fontSize: '0.68rem',
-            fontWeight: 600,
-            color: '#fed7aa',
-            background: 'rgba(246, 186, 19, 0.15)',
-            padding: '2px 8px',
-            borderRadius: 'var(--radius-full)',
-            border: '1px solid rgba(246, 186, 19, 0.3)',
-            marginLeft: 4,
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.25)')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.15)')}
-        >
-          About CWI
-        </button>
-      </div>
+      {/* Bottom-left AIC:W impact-over-time selector */}
+      <ImpactTimeline
+        period={period}
+        onChange={setPeriod}
+        shownCount={filteredNodes.length}
+        liveCells={ratingCounts.live}
+        ratedCells={ratingCounts.rated}
+      />
 
       {/* Path Finder Modal */}
       <PathFinderModal
@@ -388,12 +350,11 @@ export const App: React.FC = () => {
         nodes={nodes}
       />
 
-      {/* Climate & Wildfire Institute Brand & Initiatives Modal */}
-      <CwiBrandModal
-        isOpen={isCwiModalOpen}
-        onClose={() => setIsCwiModalOpen(false)}
-        onFocusCwiEcosystem={handleFocusCwiEcosystem}
-        onFocusResilientHomeFund={handleFocusResilientHomeFund}
+      {/* AIC:W North Star, workstreams and rating scale */}
+      <AicwAboutModal
+        isOpen={isAboutOpen}
+        onClose={() => setIsAboutOpen(false)}
+        onFocusAicw={handleFocusAicw}
         nodes={nodes}
       />
     </div>

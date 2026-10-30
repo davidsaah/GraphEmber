@@ -83,7 +83,7 @@ export const PathFinderModal: React.FC<PathFinderModalProps> = ({
                 width: 32,
                 height: 32,
                 borderRadius: 'var(--radius-md)',
-                backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -168,7 +168,7 @@ export const PathFinderModal: React.FC<PathFinderModalProps> = ({
             style={{
               flex: 1,
               height: 40,
-              background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+              background: 'linear-gradient(135deg, #FF9F40 0%, #ea580c 100%)',
               border: 'none',
               borderRadius: 'var(--radius-md)',
               color: '#ffffff',
@@ -241,7 +241,7 @@ export const PathFinderModal: React.FC<PathFinderModalProps> = ({
                         </div>
 
                         {!isLast && nextEdge && (
-                          <div style={{ display: 'flex', alignItems: 'center', gap: 8, paddingLeft: 18, color: '#fb923c', fontSize: '0.75rem' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8, paddingLeft: 18, color: '#FFBE5F', fontSize: '0.75rem' }}>
                             <ArrowRight size={13} />
                             <span>
                               {nextEdge.label || nextEdge.type.replace(/_/g, ' ')}

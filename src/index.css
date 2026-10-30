@@ -1,7 +1,8 @@
 :root {
   /* Typography */
-  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-label: 'Antonio', 'Roboto Condensed', sans-serif;
+  --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Theme Backgrounds */
@@ -15,7 +16,7 @@
   /* Border & Dividers */
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.16);
-  --border-accent: rgba(249, 115, 22, 0.4);
+  --border-accent: rgba(255, 159, 64, 0.4);
 
   /* Text Colors */
   --text-primary: #f8fafc;
@@ -28,8 +29,8 @@
   --color-person-glow: rgba(16, 185, 129, 0.35);
   --color-institution: #f59e0b;
   --color-institution-glow: rgba(245, 158, 11, 0.35);
-  --color-collaborative: #f97316;
-  --color-collaborative-glow: rgba(249, 115, 22, 0.45);
+  --color-collaborative: #FF9F40;
+  --color-collaborative-glow: rgba(255, 159, 64, 0.45);
   --color-program: #3b82f6;
   --color-program-glow: rgba(59, 130, 246, 0.35);
   --color-product: #6366f1;
@@ -44,26 +45,26 @@
   --color-topic-glow: rgba(225, 29, 72, 0.45);
 
   /* UI Accent Palette */
-  --accent-ember: #f97316;
-  --accent-ember-light: #fb923c;
+  --accent-ember: #FF9F40;
+  --accent-ember-light: #FFBE5F;
   --accent-ember-dark: #c2410c;
 
   /* Climate & Wildfire Institute (CWI) Brand Tokens */
-  --font-brand: 'Poppins', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --color-cwi-gold: #f6ba13;
-  --color-cwi-amber: #eb7c26;
-  --color-cwi-flame: #e23e1d;
+  --font-brand: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-cwi-gold: #FFBE5F;
+  --color-cwi-amber: #FF9F40;
+  --color-cwi-flame: #FF7A1A;
   --color-cwi-pine: #10b981;
   --color-cwi-navy: #0d1322;
-  --cwi-gradient-flame: linear-gradient(135deg, #f6ba13 0%, #eb7c26 50%, #e23e1d 100%);
-  --cwi-gradient-badge: linear-gradient(135deg, rgba(246, 186, 19, 0.15) 0%, rgba(235, 124, 38, 0.22) 100%);
+  --cwi-gradient-flame: linear-gradient(135deg, #FFBE5F 0%, #FF9F40 50%, #FF7A1A 100%);
+  --cwi-gradient-badge: linear-gradient(135deg, rgba(255, 190, 95, 0.15) 0%, rgba(255, 159, 64, 0.22) 100%);
 
   /* Shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65);
-  --shadow-glow: 0 0 24px rgba(249, 115, 22, 0.25);
-  --shadow-cwi: 0 0 24px rgba(246, 186, 19, 0.35);
+  --shadow-glow: 0 0 24px rgba(255, 159, 64, 0.25);
+  --shadow-cwi: 0 0 24px rgba(255, 190, 95, 0.35);
 
   /* Layout Constants */
   --header-height: 64px;
@@ -76,10 +77,10 @@
 
 @keyframes cwiGlowPulse {
   0%, 100% {
-    filter: drop-shadow(0 0 8px rgba(246, 186, 19, 0.4)) drop-shadow(0 0 16px rgba(235, 124, 38, 0.25));
+    filter: drop-shadow(0 0 8px rgba(255, 190, 95, 0.4)) drop-shadow(0 0 16px rgba(255, 159, 64, 0.25));
   }
   50% {
-    filter: drop-shadow(0 0 16px rgba(246, 186, 19, 0.75)) drop-shadow(0 0 24px rgba(226, 62, 29, 0.45));
+    filter: drop-shadow(0 0 16px rgba(255, 190, 95, 0.75)) drop-shadow(0 0 24px rgba(226, 62, 29, 0.45));
   }
 }
 
@@ -89,8 +90,8 @@
 
 .badge-cwi {
   background: var(--cwi-gradient-badge);
-  color: #fed7aa;
-  border: 1px solid rgba(246, 186, 19, 0.45);
+  color: #FFE8A5;
+  border: 1px solid rgba(255, 190, 95, 0.45);
 }
 
 * {
@@ -175,9 +176,9 @@ button {
 }
 
 .badge-collaborative {
-  background: rgba(249, 115, 22, 0.18);
-  color: #fb923c;
-  border: 1px solid rgba(249, 115, 22, 0.4);
+  background: rgba(255, 159, 64, 0.18);
+  color: #FFBE5F;
+  border: 1px solid rgba(255, 159, 64, 0.4);
 }
 
 .badge-program {

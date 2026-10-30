@@ -450,7 +450,7 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
               style={{
                 marginTop: 10,
                 height: 40,
-                background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+                background: 'linear-gradient(135deg, #FF9F40 0%, #ea580c 100%)',
                 border: 'none',
                 borderRadius: 'var(--radius-md)',
                 color: '#ffffff',
@@ -630,7 +630,7 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
               style={{
                 marginTop: 10,
                 height: 40,
-                background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+                background: 'linear-gradient(135deg, #FF9F40 0%, #ea580c 100%)',
                 border: 'none',
                 borderRadius: 'var(--radius-md)',
                 color: '#ffffff',

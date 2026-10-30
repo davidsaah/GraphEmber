@@ -157,8 +157,8 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
             style={{
               padding: '12px 14px',
               borderRadius: 'var(--radius-md)',
-              background: 'linear-gradient(135deg, rgba(246, 186, 19, 0.12) 0%, rgba(235, 124, 38, 0.18) 100%)',
-              border: '1px solid rgba(246, 186, 19, 0.35)',
+              background: 'linear-gradient(135deg, rgba(255, 190, 95, 0.12) 0%, rgba(255, 159, 64, 0.18) 100%)',
+              border: '1px solid rgba(255, 190, 95, 0.35)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -168,10 +168,10 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <CwiLogo variant="mark" size={28} glow={false} />
               <div>
-                <span style={{ fontSize: '0.68rem', fontWeight: 700, color: '#f6ba13', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                <span style={{ fontSize: '0.68rem', fontWeight: 700, color: '#FFBE5F', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   Climate & Wildfire Institute
                 </span>
-                <p style={{ fontSize: '0.75rem', fontWeight: 600, color: '#fed7aa', margin: 0 }}>
+                <p style={{ fontSize: '0.75rem', fontWeight: 600, color: '#FFE8A5', margin: 0 }}>
                   Boundary Organization Initiative
                 </p>
               </div>
@@ -188,8 +188,8 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                 gap: 4,
                 padding: '4px 8px',
                 borderRadius: 'var(--radius-sm)',
-                backgroundColor: 'rgba(246, 186, 19, 0.2)',
-                color: '#fed7aa',
+                backgroundColor: 'rgba(255, 190, 95, 0.2)',
+                color: '#FFE8A5',
                 fontSize: '0.7rem',
                 fontWeight: 600,
                 textDecoration: 'none',
@@ -272,7 +272,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
           {node.type === 'collaborative' && (
             <>
               {node.mission && (
-                <div style={{ fontSize: '0.85rem', color: '#fed7aa', fontStyle: 'italic', lineHeight: 1.45 }}>
+                <div style={{ fontSize: '0.85rem', color: '#FFE8A5', fontStyle: 'italic', lineHeight: 1.45 }}>
                   "{node.mission}"
                 </div>
               )}
@@ -303,8 +303,8 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                           fontSize: '0.72rem',
                           padding: '2px 6px',
                           borderRadius: 4,
-                          backgroundColor: 'rgba(249, 115, 22, 0.18)',
-                          color: '#fb923c',
+                          backgroundColor: 'rgba(255, 159, 64, 0.18)',
+                          color: '#FFBE5F',
                         }}
                       >
                         {area}
@@ -632,7 +632,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                       {otherNode.label}
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap', marginTop: 2 }}>
-                      <span style={{ fontSize: '0.72rem', color: '#fb923c', textTransform: 'capitalize' }}>
+                      <span style={{ fontSize: '0.72rem', color: '#FFBE5F', textTransform: 'capitalize' }}>
                         {relationLabel}
                       </span>
                       {edge.how && (
@@ -641,9 +641,9 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                             fontSize: '0.68rem',
                             padding: '1px 6px',
                             borderRadius: 'var(--radius-sm)',
-                            backgroundColor: 'rgba(249, 115, 22, 0.15)',
+                            backgroundColor: 'rgba(255, 159, 64, 0.15)',
                             color: '#fdba74',
-                            border: '1px solid rgba(249, 115, 22, 0.3)',
+                            border: '1px solid rgba(255, 159, 64, 0.3)',
                           }}
                         >
                           how: {edge.how}

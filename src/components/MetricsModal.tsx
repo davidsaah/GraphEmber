@@ -141,7 +141,7 @@ export const MetricsModal: React.FC<MetricsModalProps> = ({
             }}
           >
             <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Collaboratives & Prods</div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#fb923c', marginTop: 4 }}>
+            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#FFBE5F', marginTop: 4 }}>
               {(typeCounts.collaborative || 0) + (typeCounts.product || 0)}
             </div>
             <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: 2 }}>alliances and open tools</div>

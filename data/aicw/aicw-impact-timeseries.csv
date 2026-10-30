@@ -1,0 +1,367 @@
+entity_id,entity,kind,workstream,indicator,lens,period,period_label,level,level_num,evidence
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,capability,own goal,2026-10,Oct 2026 (now),emerging,2,"3 satellites in orbit Jul 2026, calibrating; early-adopter data by end 2026; FIRMS and Deep Fire feeds summer 2027"
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,used,own goal,2026-10,Oct 2026 (now),planned,1,"3 satellites in orbit Jul 2026, calibrating; early-adopter data by end 2026; FIRMS and Deep Fire feeds summer 2027"
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,"3 satellites in orbit Jul 2026, calibrating; early-adopter data by end 2026; FIRMS and Deep Fire feeds summer 2027"
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,capability,North Star,2026-10,Oct 2026 (now),emerging,2,"3 satellites in orbit Jul 2026, calibrating; early-adopter data by end 2026; FIRMS and Deep Fire feeds summer 2027"
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,used,North Star,2026-10,Oct 2026 (now),planned,1,"3 satellites in orbit Jul 2026, calibrating; early-adopter data by end 2026; FIRMS and Deep Fire feeds summer 2027"
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,"3 satellites in orbit Jul 2026, calibrating; early-adopter data by end 2026; FIRMS and Deep Fire feeds summer 2027"
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,15,
+aicw-proj-efa-firesat,EFA: FireSat,project,WS1,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,65,"3 satellites in orbit Jul 2026, calibrating; early-adopter data by end 2026; FIRMS and Deep Fire feeds summer 2027"
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,capability,own goal,2026-10,Oct 2026 (now),live,3,System live per David 30 Oct 2026; API shared May 2026; catalog; 20 unique repository users in 2025
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,used,own goal,2026-10,Oct 2026 (now),live,3,System live per David 30 Oct 2026; API shared May 2026; catalog; 20 unique repository users in 2025
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,System live per David 30 Oct 2026; API shared May 2026; catalog; 20 unique repository users in 2025
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,capability,North Star,2026-10,Oct 2026 (now),live,3,System live per David 30 Oct 2026; API shared May 2026; catalog; 20 unique repository users in 2025
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,used,North Star,2026-10,Oct 2026 (now),live,3,System live per David 30 Oct 2026; API shared May 2026; catalog; 20 unique repository users in 2025
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,System live per David 30 Oct 2026; API shared May 2026; catalog; 20 unique repository users in 2025
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,20,
+aicw-proj-ucsd-node,UCSD: Wildfire Commons node,project,WS1,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,70,System live per David 30 Oct 2026; API shared May 2026; catalog; 20 unique repository users in 2025
+aicw-proj-firms,NASA FIRMS,project,WS1,capability,own goal,2025-03,Mar 2025 (launch),live,3,
+aicw-proj-firms,NASA FIRMS,project,WS1,used,own goal,2025-03,Mar 2025 (launch),live,3,
+aicw-proj-firms,NASA FIRMS,project,WS1,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-firms,NASA FIRMS,project,WS1,capability,own goal,2026-05,May 2026 (Tahoe),live,3,
+aicw-proj-firms,NASA FIRMS,project,WS1,used,own goal,2026-05,May 2026 (Tahoe),live,3,
+aicw-proj-firms,NASA FIRMS,project,WS1,collaboration,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-firms,NASA FIRMS,project,WS1,capability,own goal,2026-10,Oct 2026 (now),live,3,Operational system of record; handshake only on the virtual-constellation role
+aicw-proj-firms,NASA FIRMS,project,WS1,used,own goal,2026-10,Oct 2026 (now),live,3,Operational system of record; handshake only on the virtual-constellation role
+aicw-proj-firms,NASA FIRMS,project,WS1,collaboration,own goal,2026-10,Oct 2026 (now),planned,1,Operational system of record; handshake only on the virtual-constellation role
+aicw-proj-firms,NASA FIRMS,project,WS1,capability,North Star,2026-10,Oct 2026 (now),live,3,Operational system of record; handshake only on the virtual-constellation role
+aicw-proj-firms,NASA FIRMS,project,WS1,used,North Star,2026-10,Oct 2026 (now),live,3,Operational system of record; handshake only on the virtual-constellation role
+aicw-proj-firms,NASA FIRMS,project,WS1,collaboration,North Star,2026-10,Oct 2026 (now),planned,1,Operational system of record; handshake only on the virtual-constellation role
+aicw-proj-firms,NASA FIRMS,project,WS1,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,50,
+aicw-proj-firms,NASA FIRMS,project,WS1,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,60,Operational system of record; handshake only on the virtual-constellation role
+aicw-proj-ororatech,OroraTech,project,WS1,capability,own goal,2025-03,Mar 2025 (launch),emerging,2,
+aicw-proj-ororatech,OroraTech,project,WS1,used,own goal,2025-03,Mar 2025 (launch),emerging,2,
+aicw-proj-ororatech,OroraTech,project,WS1,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-ororatech,OroraTech,project,WS1,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-ororatech,OroraTech,project,WS1,used,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-ororatech,OroraTech,project,WS1,collaboration,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-ororatech,OroraTech,project,WS1,capability,own goal,2026-10,Oct 2026 (now),live,3,System live per David 30 Oct 2026; partnered with EFA on detection feeds
+aicw-proj-ororatech,OroraTech,project,WS1,used,own goal,2026-10,Oct 2026 (now),live,3,System live per David 30 Oct 2026; partnered with EFA on detection feeds
+aicw-proj-ororatech,OroraTech,project,WS1,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,System live per David 30 Oct 2026; partnered with EFA on detection feeds
+aicw-proj-ororatech,OroraTech,project,WS1,capability,North Star,2026-10,Oct 2026 (now),live,3,System live per David 30 Oct 2026; partnered with EFA on detection feeds
+aicw-proj-ororatech,OroraTech,project,WS1,used,North Star,2026-10,Oct 2026 (now),live,3,System live per David 30 Oct 2026; partnered with EFA on detection feeds
+aicw-proj-ororatech,OroraTech,project,WS1,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,System live per David 30 Oct 2026; partnered with EFA on detection feeds
+aicw-proj-ororatech,OroraTech,project,WS1,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,20,
+aicw-proj-ororatech,OroraTech,project,WS1,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,70,System live per David 30 Oct 2026; partnered with EFA on detection feeds
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,capability,own goal,2026-10,Oct 2026 (now),live,3,"10 m CONUS fuels v1 done, validating vs LANDFIRE"
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,used,own goal,2026-10,Oct 2026 (now),emerging,2,"10 m CONUS fuels v1 done, validating vs LANDFIRE"
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,"10 m CONUS fuels v1 done, validating vs LANDFIRE"
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,capability,North Star,2026-10,Oct 2026 (now),live,3,"10 m CONUS fuels v1 done, validating vs LANDFIRE"
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,used,North Star,2026-10,Oct 2026 (now),planned,1,"10 m CONUS fuels v1 done, validating vs LANDFIRE"
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,"10 m CONUS fuels v1 done, validating vs LANDFIRE"
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,10,
+aicw-proj-sig-fuels,SIG: AlphaEarth fuels,project,WS2,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,60,"10 m CONUS fuels v1 done, validating vs LANDFIRE"
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,capability,own goal,2026-10,Oct 2026 (now),live,3,"Datasets on Earth Engine, Zenodo, Commons (104 downloads); NISAR workflow; 3 papers"
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,used,own goal,2026-10,Oct 2026 (now),emerging,2,"Datasets on Earth Engine, Zenodo, Commons (104 downloads); NISAR workflow; 3 papers"
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,collaboration,own goal,2026-10,Oct 2026 (now),live,3,"Datasets on Earth Engine, Zenodo, Commons (104 downloads); NISAR workflow; 3 papers"
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,capability,North Star,2026-10,Oct 2026 (now),live,3,"Datasets on Earth Engine, Zenodo, Commons (104 downloads); NISAR workflow; 3 papers"
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,used,North Star,2026-10,Oct 2026 (now),planned,1,"Datasets on Earth Engine, Zenodo, Commons (104 downloads); NISAR workflow; 3 papers"
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,collaboration,North Star,2026-10,Oct 2026 (now),live,3,"Datasets on Earth Engine, Zenodo, Commons (104 downloads); NISAR workflow; 3 papers"
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,10,
+aicw-proj-fire-maps,Caltech/JPL: FIRE-MAPS,project,WS2,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,55,"Datasets on Earth Engine, Zenodo, Commons (104 downloads); NISAR workflow; 3 papers"
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,capability,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,collaboration,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,capability,own goal,2026-10,Oct 2026 (now),emerging,2,"Coordinates the benchmark; fuel-moisture model on JPL data; nine-organisation initiative, NSF proposal 4 Nov"
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,used,own goal,2026-10,Oct 2026 (now),emerging,2,"Coordinates the benchmark; fuel-moisture model on JPL data; nine-organisation initiative, NSF proposal 4 Nov"
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,collaboration,own goal,2026-10,Oct 2026 (now),live,3,"Coordinates the benchmark; fuel-moisture model on JPL data; nine-organisation initiative, NSF proposal 4 Nov"
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,capability,North Star,2026-10,Oct 2026 (now),emerging,2,"Coordinates the benchmark; fuel-moisture model on JPL data; nine-organisation initiative, NSF proposal 4 Nov"
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,used,North Star,2026-10,Oct 2026 (now),planned,1,"Coordinates the benchmark; fuel-moisture model on JPL data; nine-organisation initiative, NSF proposal 4 Nov"
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,collaboration,North Star,2026-10,Oct 2026 (now),live,3,"Coordinates the benchmark; fuel-moisture model on JPL data; nine-organisation initiative, NSF proposal 4 Nov"
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,0,
+aicw-proj-ai2-olmo,Ai2: OlmoEarth and benchmark,project,WS2,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,50,"Coordinates the benchmark; fuel-moisture model on JPL data; nine-organisation initiative, NSF proposal 4 Nov"
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,capability,own goal,2026-10,Oct 2026 (now),emerging,2,Carbon-vulnerability map Alaska/Canada; Amazon fire-probability model; FireSat early adopter
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,used,own goal,2026-10,Oct 2026 (now),emerging,2,Carbon-vulnerability map Alaska/Canada; Amazon fire-probability model; FireSat early adopter
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,Carbon-vulnerability map Alaska/Canada; Amazon fire-probability model; FireSat early adopter
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,capability,North Star,2026-10,Oct 2026 (now),emerging,2,Carbon-vulnerability map Alaska/Canada; Amazon fire-probability model; FireSat early adopter
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,used,North Star,2026-10,Oct 2026 (now),emerging,2,Carbon-vulnerability map Alaska/Canada; Amazon fire-probability model; FireSat early adopter
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,Carbon-vulnerability map Alaska/Canada; Amazon fire-probability model; FireSat early adopter
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,20,
+aicw-proj-woodwell-models,Woodwell: boreal and Amazon models,project,WS2,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,60,Carbon-vulnerability map Alaska/Canada; Amazon fire-probability model; FireSat early adopter
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,capability,own goal,2026-10,Oct 2026 (now),emerging,2,"Science roadmap 2026-2030 from ~100 experts; emissions comparison with Climate TRACE, SLU, Woodwell"
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,used,own goal,2026-10,Oct 2026 (now),planned,1,"Science roadmap 2026-2030 from ~100 experts; emissions comparison with Climate TRACE, SLU, Woodwell"
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,collaboration,own goal,2026-10,Oct 2026 (now),live,3,"Science roadmap 2026-2030 from ~100 experts; emissions comparison with Climate TRACE, SLU, Woodwell"
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,capability,North Star,2026-10,Oct 2026 (now),emerging,2,"Science roadmap 2026-2030 from ~100 experts; emissions comparison with Climate TRACE, SLU, Woodwell"
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,used,North Star,2026-10,Oct 2026 (now),planned,1,"Science roadmap 2026-2030 from ~100 experts; emissions comparison with Climate TRACE, SLU, Woodwell"
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,collaboration,North Star,2026-10,Oct 2026 (now),live,3,"Science roadmap 2026-2030 from ~100 experts; emissions comparison with Climate TRACE, SLU, Woodwell"
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,10,
+aicw-proj-edf-science,EDF: FireSat science and emissions,project,WS2,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,55,"Science roadmap 2026-2030 from ~100 experts; emissions comparison with Climate TRACE, SLU, Woodwell"
+aicw-proj-spark,CSIRO: SPARK,project,WS2,capability,own goal,2025-03,Mar 2025 (launch),live,3,
+aicw-proj-spark,CSIRO: SPARK,project,WS2,used,own goal,2025-03,Mar 2025 (launch),live,3,
+aicw-proj-spark,CSIRO: SPARK,project,WS2,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-spark,CSIRO: SPARK,project,WS2,capability,own goal,2026-05,May 2026 (Tahoe),live,3,
+aicw-proj-spark,CSIRO: SPARK,project,WS2,used,own goal,2026-05,May 2026 (Tahoe),live,3,
+aicw-proj-spark,CSIRO: SPARK,project,WS2,collaboration,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-spark,CSIRO: SPARK,project,WS2,capability,own goal,2026-10,Oct 2026 (now),live,3,36 experimental burns; Spark integration in progress; joint Sandbox bid with AFAC
+aicw-proj-spark,CSIRO: SPARK,project,WS2,used,own goal,2026-10,Oct 2026 (now),live,3,36 experimental burns; Spark integration in progress; joint Sandbox bid with AFAC
+aicw-proj-spark,CSIRO: SPARK,project,WS2,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,36 experimental burns; Spark integration in progress; joint Sandbox bid with AFAC
+aicw-proj-spark,CSIRO: SPARK,project,WS2,capability,North Star,2026-10,Oct 2026 (now),live,3,36 experimental burns; Spark integration in progress; joint Sandbox bid with AFAC
+aicw-proj-spark,CSIRO: SPARK,project,WS2,used,North Star,2026-10,Oct 2026 (now),live,3,36 experimental burns; Spark integration in progress; joint Sandbox bid with AFAC
+aicw-proj-spark,CSIRO: SPARK,project,WS2,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,36 experimental burns; Spark integration in progress; joint Sandbox bid with AFAC
+aicw-proj-spark,CSIRO: SPARK,project,WS2,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,25,
+aicw-proj-spark,CSIRO: SPARK,project,WS2,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,45,36 experimental burns; Spark integration in progress; joint Sandbox bid with AFAC
+aicw-proj-planet,Planet,project,WS2,capability,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-planet,Planet,project,WS2,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-planet,Planet,project,WS2,collaboration,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-planet,Planet,project,WS2,capability,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-planet,Planet,project,WS2,used,own goal,2026-05,May 2026 (Tahoe),none,0,
+aicw-proj-planet,Planet,project,WS2,collaboration,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-planet,Planet,project,WS2,capability,own goal,2026-10,Oct 2026 (now),planned,1,Benchmark subgroup member; no AIC:W product of its own yet
+aicw-proj-planet,Planet,project,WS2,used,own goal,2026-10,Oct 2026 (now),none,0,Benchmark subgroup member; no AIC:W product of its own yet
+aicw-proj-planet,Planet,project,WS2,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,Benchmark subgroup member; no AIC:W product of its own yet
+aicw-proj-planet,Planet,project,WS2,capability,North Star,2026-10,Oct 2026 (now),planned,1,Benchmark subgroup member; no AIC:W product of its own yet
+aicw-proj-planet,Planet,project,WS2,used,North Star,2026-10,Oct 2026 (now),none,0,Benchmark subgroup member; no AIC:W product of its own yet
+aicw-proj-planet,Planet,project,WS2,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,Benchmark subgroup member; no AIC:W product of its own yet
+aicw-proj-watchduty,Watch Duty,project,WS3,capability,own goal,2025-03,Mar 2025 (launch),live,3,
+aicw-proj-watchduty,Watch Duty,project,WS3,used,own goal,2025-03,Mar 2025 (launch),live,3,
+aicw-proj-watchduty,Watch Duty,project,WS3,collaboration,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-watchduty,Watch Duty,project,WS3,capability,own goal,2026-05,May 2026 (Tahoe),live,3,
+aicw-proj-watchduty,Watch Duty,project,WS3,used,own goal,2026-05,May 2026 (Tahoe),live,3,
+aicw-proj-watchduty,Watch Duty,project,WS3,collaboration,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-watchduty,Watch Duty,project,WS3,capability,own goal,2026-10,Oct 2026 (now),live,3,"16M+ users, 3,000+ counties; Pyregence and WIFIRE models live; NGFS feed"
+aicw-proj-watchduty,Watch Duty,project,WS3,used,own goal,2026-10,Oct 2026 (now),live,3,"16M+ users, 3,000+ counties; Pyregence and WIFIRE models live; NGFS feed"
+aicw-proj-watchduty,Watch Duty,project,WS3,collaboration,own goal,2026-10,Oct 2026 (now),live,3,"16M+ users, 3,000+ counties; Pyregence and WIFIRE models live; NGFS feed"
+aicw-proj-watchduty,Watch Duty,project,WS3,capability,North Star,2026-10,Oct 2026 (now),live,3,"16M+ users, 3,000+ counties; Pyregence and WIFIRE models live; NGFS feed"
+aicw-proj-watchduty,Watch Duty,project,WS3,used,North Star,2026-10,Oct 2026 (now),live,3,"16M+ users, 3,000+ counties; Pyregence and WIFIRE models live; NGFS feed"
+aicw-proj-watchduty,Watch Duty,project,WS3,collaboration,North Star,2026-10,Oct 2026 (now),live,3,"16M+ users, 3,000+ counties; Pyregence and WIFIRE models live; NGFS feed"
+aicw-proj-watchduty,Watch Duty,project,WS3,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,40,
+aicw-proj-watchduty,Watch Duty,project,WS3,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,75,"16M+ users, 3,000+ counties; Pyregence and WIFIRE models live; NGFS feed"
+aicw-proj-planscape,SIG: Planscape,project,WS3,capability,own goal,2025-03,Mar 2025 (launch),live,3,
+aicw-proj-planscape,SIG: Planscape,project,WS3,used,own goal,2025-03,Mar 2025 (launch),live,3,
+aicw-proj-planscape,SIG: Planscape,project,WS3,collaboration,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-planscape,SIG: Planscape,project,WS3,capability,own goal,2026-05,May 2026 (Tahoe),live,3,
+aicw-proj-planscape,SIG: Planscape,project,WS3,used,own goal,2026-05,May 2026 (Tahoe),live,3,
+aicw-proj-planscape,SIG: Planscape,project,WS3,collaboration,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-planscape,SIG: Planscape,project,WS3,capability,own goal,2026-10,Oct 2026 (now),live,3,"CONUS; 1,300+ plans; Placerville 80,000 acres, burn probability down 25%+"
+aicw-proj-planscape,SIG: Planscape,project,WS3,used,own goal,2026-10,Oct 2026 (now),live,3,"CONUS; 1,300+ plans; Placerville 80,000 acres, burn probability down 25%+"
+aicw-proj-planscape,SIG: Planscape,project,WS3,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,"CONUS; 1,300+ plans; Placerville 80,000 acres, burn probability down 25%+"
+aicw-proj-planscape,SIG: Planscape,project,WS3,capability,North Star,2026-10,Oct 2026 (now),live,3,"CONUS; 1,300+ plans; Placerville 80,000 acres, burn probability down 25%+"
+aicw-proj-planscape,SIG: Planscape,project,WS3,used,North Star,2026-10,Oct 2026 (now),live,3,"CONUS; 1,300+ plans; Placerville 80,000 acres, burn probability down 25%+"
+aicw-proj-planscape,SIG: Planscape,project,WS3,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,"CONUS; 1,300+ plans; Placerville 80,000 acres, burn probability down 25%+"
+aicw-proj-planscape,SIG: Planscape,project,WS3,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,35,
+aicw-proj-planscape,SIG: Planscape,project,WS3,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,70,"CONUS; 1,300+ plans; Placerville 80,000 acres, burn probability down 25%+"
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,capability,own goal,2026-10,Oct 2026 (now),live,3,User Needs and Gaps report; 500+ page Global Fire Data Inventory nearly done
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,used,own goal,2026-10,Oct 2026 (now),emerging,2,User Needs and Gaps report; 500+ page Global Fire Data Inventory nearly done
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,User Needs and Gaps report; 500+ page Global Fire Data Inventory nearly done
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,capability,North Star,2026-10,Oct 2026 (now),live,3,User Needs and Gaps report; 500+ page Global Fire Data Inventory nearly done
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,used,North Star,2026-10,Oct 2026 (now),emerging,2,User Needs and Gaps report; 500+ page Global Fire Data Inventory nearly done
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,User Needs and Gaps report; 500+ page Global Fire Data Inventory nearly done
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,15,
+aicw-proj-fao-hub,FAO: Fire Hub and WGFD,project,WS3,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,55,User Needs and Gaps report; 500+ page Global Fire Data Inventory nearly done
+aicw-proj-firewerx,FireWERX,project,WS3,capability,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-firewerx,FireWERX,project,WS3,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-firewerx,FireWERX,project,WS3,collaboration,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-firewerx,FireWERX,project,WS3,capability,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-firewerx,FireWERX,project,WS3,used,own goal,2026-05,May 2026 (Tahoe),none,0,
+aicw-proj-firewerx,FireWERX,project,WS3,collaboration,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-firewerx,FireWERX,project,WS3,capability,own goal,2026-10,Oct 2026 (now),emerging,2,"FIUs at OCFA, CAL FIRE, DoW, CONAF; CAL FIRE drone trial Jul 2026"
+aicw-proj-firewerx,FireWERX,project,WS3,used,own goal,2026-10,Oct 2026 (now),emerging,2,"FIUs at OCFA, CAL FIRE, DoW, CONAF; CAL FIRE drone trial Jul 2026"
+aicw-proj-firewerx,FireWERX,project,WS3,collaboration,own goal,2026-10,Oct 2026 (now),live,3,"FIUs at OCFA, CAL FIRE, DoW, CONAF; CAL FIRE drone trial Jul 2026"
+aicw-proj-firewerx,FireWERX,project,WS3,capability,North Star,2026-10,Oct 2026 (now),emerging,2,"FIUs at OCFA, CAL FIRE, DoW, CONAF; CAL FIRE drone trial Jul 2026"
+aicw-proj-firewerx,FireWERX,project,WS3,used,North Star,2026-10,Oct 2026 (now),emerging,2,"FIUs at OCFA, CAL FIRE, DoW, CONAF; CAL FIRE drone trial Jul 2026"
+aicw-proj-firewerx,FireWERX,project,WS3,collaboration,North Star,2026-10,Oct 2026 (now),live,3,"FIUs at OCFA, CAL FIRE, DoW, CONAF; CAL FIRE drone trial Jul 2026"
+aicw-proj-firewerx,FireWERX,project,WS3,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,0,
+aicw-proj-firewerx,FireWERX,project,WS3,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,50,"FIUs at OCFA, CAL FIRE, DoW, CONAF; CAL FIRE drone trial Jul 2026"
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,capability,own goal,2026-10,Oct 2026 (now),emerging,2,Ignite exercise; vendor interoperability pledge; reach not reported
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,used,own goal,2026-10,Oct 2026 (now),emerging,2,Ignite exercise; vendor interoperability pledge; reach not reported
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,Ignite exercise; vendor interoperability pledge; reach not reported
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,capability,North Star,2026-10,Oct 2026 (now),emerging,2,Ignite exercise; vendor interoperability pledge; reach not reported
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,used,North Star,2026-10,Oct 2026 (now),emerging,2,Ignite exercise; vendor interoperability pledge; reach not reported
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,Ignite exercise; vendor interoperability pledge; reach not reported
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,10,
+aicw-proj-wfca-ftu,WFCA: Fire Tech U,project,WS3,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,30,Ignite exercise; vendor interoperability pledge; reach not reported
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,capability,own goal,2026-10,Oct 2026 (now),emerging,2,5 GIS and participatory-mapping workshops; Pataxibas brigade workshop Oct 2026
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,used,own goal,2026-10,Oct 2026 (now),emerging,2,5 GIS and participatory-mapping workshops; Pataxibas brigade workshop Oct 2026
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,5 GIS and participatory-mapping workshops; Pataxibas brigade workshop Oct 2026
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,capability,North Star,2026-10,Oct 2026 (now),emerging,2,5 GIS and participatory-mapping workshops; Pataxibas brigade workshop Oct 2026
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,used,North Star,2026-10,Oct 2026 (now),emerging,2,5 GIS and participatory-mapping workshops; Pataxibas brigade workshop Oct 2026
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,5 GIS and participatory-mapping workshops; Pataxibas brigade workshop Oct 2026
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,10,
+aicw-proj-woodwell-brigades,Woodwell: Amazon brigades,project,WS3,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,50,5 GIS and participatory-mapping workshops; Pataxibas brigade workshop Oct 2026
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,collaboration,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,capability,own goal,2026-10,Oct 2026 (now),emerging,2,White paper with PwC Jan 2026; Solutions Labs incl. one co-led with SIG
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,used,own goal,2026-10,Oct 2026 (now),emerging,2,White paper with PwC Jan 2026; Solutions Labs incl. one co-led with SIG
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,White paper with PwC Jan 2026; Solutions Labs incl. one co-led with SIG
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,capability,North Star,2026-10,Oct 2026 (now),emerging,2,White paper with PwC Jan 2026; Solutions Labs incl. one co-led with SIG
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,used,North Star,2026-10,Oct 2026 (now),emerging,2,White paper with PwC Jan 2026; Solutions Labs incl. one co-led with SIG
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,White paper with PwC Jan 2026; Solutions Labs incl. one co-led with SIG
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,15,
+aicw-proj-wef-gwln,WEF: GWLN and investment case,project,WS4,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,60,White paper with PwC Jan 2026; Solutions Labs incl. one co-led with SIG
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,capability,own goal,2026-10,Oct 2026 (now),emerging,2,Grass-curing AI app with Country Fire Service; AFAC26 showcase
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,used,own goal,2026-10,Oct 2026 (now),emerging,2,Grass-curing AI app with Country Fire Service; AFAC26 showcase
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,Grass-curing AI app with Country Fire Service; AFAC26 showcase
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,capability,North Star,2026-10,Oct 2026 (now),emerging,2,Grass-curing AI app with Country Fire Service; AFAC26 showcase
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,used,North Star,2026-10,Oct 2026 (now),emerging,2,Grass-curing AI app with Country Fire Service; AFAC26 showcase
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,Grass-curing AI app with Country Fire Service; AFAC26 showcase
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,10,
+aicw-proj-afac-hub,AFAC: Emerging Technologies Hub,project,WS4,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,50,Grass-curing AI app with Country Fire Service; AFAC26 showcase
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,capability,own goal,2026-10,Oct 2026 (now),emerging,2,"Sandbox open, Round 1 closes 16 Nov; SAFF formed by a member"
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,used,own goal,2026-10,Oct 2026 (now),emerging,2,"Sandbox open, Round 1 closes 16 Nov; SAFF formed by a member"
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,"Sandbox open, Round 1 closes 16 Nov; SAFF formed by a member"
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,capability,North Star,2026-10,Oct 2026 (now),emerging,2,"Sandbox open, Round 1 closes 16 Nov; SAFF formed by a member"
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,used,North Star,2026-10,Oct 2026 (now),emerging,2,"Sandbox open, Round 1 closes 16 Nov; SAFF formed by a member"
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,"Sandbox open, Round 1 closes 16 Nov; SAFF formed by a member"
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,launch-to-now score (0-100),own goal,2025-03,Mar 2025 (launch),,20,
+aicw-proj-signal-pmo,SIG-NAL: PMO and Sandbox Fund,project,WS4,launch-to-now score (0-100),own goal,2026-10,Oct 2026 (now),,55,"Sandbox open, Round 1 closes 16 Nov; SAFF formed by a member"
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,capability,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,collaboration,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,capability,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,used,own goal,2026-05,May 2026 (Tahoe),none,0,
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,capability,own goal,2026-10,Oct 2026 (now),emerging,2,"Avoided-emissions draft (32 Mt CO2/yr, draft only); no financing secured yet"
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,used,own goal,2026-10,Oct 2026 (now),planned,1,"Avoided-emissions draft (32 Mt CO2/yr, draft only); no financing secured yet"
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,"Avoided-emissions draft (32 Mt CO2/yr, draft only); no financing secured yet"
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,capability,North Star,2026-10,Oct 2026 (now),emerging,2,"Avoided-emissions draft (32 Mt CO2/yr, draft only); no financing secured yet"
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,used,North Star,2026-10,Oct 2026 (now),planned,1,"Avoided-emissions draft (32 Mt CO2/yr, draft only); no financing secured yet"
+aicw-proj-carbon-finance,EDF and Woodwell: carbon finance case,project,WS4,collaboration,North Star,2026-10,Oct 2026 (now),emerging,2,"Avoided-emissions draft (32 Mt CO2/yr, draft only); no financing secured yet"
+aicw-ws1,WS1 Earth observation,workstream,WS1,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-ws1,WS1 Earth observation,workstream,WS1,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-ws1,WS1 Earth observation,workstream,WS1,capability,own goal,2026-10,Oct 2026 (now),emerging,2,
+aicw-ws1,WS1 Earth observation,workstream,WS1,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-ws1,WS1 Earth observation,workstream,WS1,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-ws1,WS1 Earth observation,workstream,WS1,used,own goal,2026-10,Oct 2026 (now),emerging,2,
+aicw-ws1,WS1 Earth observation,workstream,WS1,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-ws1,WS1 Earth observation,workstream,WS1,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-ws1,WS1 Earth observation,workstream,WS1,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,
+aicw-ws2,"WS2 Fuels, weather and fire behaviour",workstream,WS2,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-ws2,"WS2 Fuels, weather and fire behaviour",workstream,WS2,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-ws2,"WS2 Fuels, weather and fire behaviour",workstream,WS2,capability,own goal,2026-10,Oct 2026 (now),live,3,
+aicw-ws2,"WS2 Fuels, weather and fire behaviour",workstream,WS2,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-ws2,"WS2 Fuels, weather and fire behaviour",workstream,WS2,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-ws2,"WS2 Fuels, weather and fire behaviour",workstream,WS2,used,own goal,2026-10,Oct 2026 (now),emerging,2,
+aicw-ws2,"WS2 Fuels, weather and fire behaviour",workstream,WS2,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-ws2,"WS2 Fuels, weather and fire behaviour",workstream,WS2,collaboration,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-ws2,"WS2 Fuels, weather and fire behaviour",workstream,WS2,collaboration,own goal,2026-10,Oct 2026 (now),live,3,
+aicw-ws3,WS3 Decision support and adoption,workstream,WS3,capability,own goal,2025-03,Mar 2025 (launch),emerging,2,
+aicw-ws3,WS3 Decision support and adoption,workstream,WS3,capability,own goal,2026-05,May 2026 (Tahoe),live,3,
+aicw-ws3,WS3 Decision support and adoption,workstream,WS3,capability,own goal,2026-10,Oct 2026 (now),live,3,
+aicw-ws3,WS3 Decision support and adoption,workstream,WS3,used,own goal,2025-03,Mar 2025 (launch),emerging,2,
+aicw-ws3,WS3 Decision support and adoption,workstream,WS3,used,own goal,2026-05,May 2026 (Tahoe),live,3,
+aicw-ws3,WS3 Decision support and adoption,workstream,WS3,used,own goal,2026-10,Oct 2026 (now),live,3,
+aicw-ws3,WS3 Decision support and adoption,workstream,WS3,collaboration,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-ws3,WS3 Decision support and adoption,workstream,WS3,collaboration,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-ws3,WS3 Decision support and adoption,workstream,WS3,collaboration,own goal,2026-10,Oct 2026 (now),emerging,2,
+aicw-ws4,WS4 Ecosystem and financing,workstream,WS4,capability,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-ws4,WS4 Ecosystem and financing,workstream,WS4,capability,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-ws4,WS4 Ecosystem and financing,workstream,WS4,capability,own goal,2026-10,Oct 2026 (now),emerging,2,
+aicw-ws4,WS4 Ecosystem and financing,workstream,WS4,used,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-ws4,WS4 Ecosystem and financing,workstream,WS4,used,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-ws4,WS4 Ecosystem and financing,workstream,WS4,used,own goal,2026-10,Oct 2026 (now),emerging,2,
+aicw-ws4,WS4 Ecosystem and financing,workstream,WS4,collaboration,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-ws4,WS4 Ecosystem and financing,workstream,WS4,collaboration,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-ws4,WS4 Ecosystem and financing,workstream,WS4,collaboration,own goal,2026-10,Oct 2026 (now),planned,1,
+aicw-ws1>ws2,L1: WS1 observations into WS2 models,linkage,WS1→WS2,linkage,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-ws1>ws2,L1: WS1 observations into WS2 models,linkage,WS1→WS2,linkage,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-ws1>ws2,L1: WS1 observations into WS2 models,linkage,WS1→WS2,linkage,own goal,2026-10,Oct 2026 (now),emerging,2,Ai2 satellite-pass interpolation models on benchmark fires; early-adopter data due end 2026
+aicw-ws1>ws3,L2: WS1 observations into WS3 platforms,linkage,WS1→WS3,linkage,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-ws1>ws3,L2: WS1 observations into WS3 platforms,linkage,WS1→WS3,linkage,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-ws1>ws3,L2: WS1 observations into WS3 platforms,linkage,WS1→WS3,linkage,own goal,2026-10,Oct 2026 (now),planned,1,Still planned; Watch Duty runs on NOAA NGFS; FireSat to FIRMS not live
+aicw-ws2>ws3,L3: WS2 models into WS3 platforms,linkage,WS2→WS3,linkage,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-ws2>ws3,L3: WS2 models into WS3 platforms,linkage,WS2→WS3,linkage,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-ws2>ws3,L3: WS2 models into WS3 platforms,linkage,WS2→WS3,linkage,own goal,2026-10,Oct 2026 (now),live,3,"Pyregence and WIFIRE models live inside Watch Duty, reaching 16-17M people"
+aicw-ws3>ws2,L4: WS3 user needs back to WS1 and WS2,linkage,WS3→WS2,linkage,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-ws3>ws2,L4: WS3 user needs back to WS1 and WS2,linkage,WS3→WS2,linkage,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-ws3>ws2,L4: WS3 user needs back to WS1 and WS2,linkage,WS3→WS2,linkage,own goal,2026-10,Oct 2026 (now),planned,1,No mechanism carries FAO user-needs findings into WS1/WS2 workplans
+aicw-ws3>ws4,L5: WS1-WS3 evidence into the WS4 investment case,linkage,WS3→WS4,linkage,own goal,2025-03,Mar 2025 (launch),none,0,
+aicw-ws3>ws4,L5: WS1-WS3 evidence into the WS4 investment case,linkage,WS3→WS4,linkage,own goal,2026-05,May 2026 (Tahoe),planned,1,
+aicw-ws3>ws4,L5: WS1-WS3 evidence into the WS4 investment case,linkage,WS3→WS4,linkage,own goal,2026-10,Oct 2026 (now),emerging,2,"EDF economics (qualitative), Watch Duty and Planscape reach, Impact Index draft"
+aicw-ws4>ws1,L6: WS4 money and partners back to WS1-WS3,linkage,WS4→WS1,linkage,own goal,2025-03,Mar 2025 (launch),planned,1,
+aicw-ws4>ws1,L6: WS4 money and partners back to WS1-WS3,linkage,WS4→WS1,linkage,own goal,2026-05,May 2026 (Tahoe),emerging,2,
+aicw-ws4>ws1,L6: WS4 money and partners back to WS1-WS3,linkage,WS4→WS1,linkage,own goal,2026-10,Oct 2026 (now),emerging,2,"Sandbox open, awards early 2027; SAFF; Phase II ask pending"
+collab-efa~land-12,Earth Fire Alliance (EFA) ↔ UC San Diego / WIFIRE Lab (Wildfire Commons),member link,,collaboration link exists,own goal,2026-05,first seen 2026-05-05,present,1,data access tiers defined together; FireSat ingestion adapter waiting on data
+land-12~land-174,UC San Diego / WIFIRE Lab (Wildfire Commons) ↔ NASA FIRMS,member link,,collaboration link exists,own goal,2026-05,first seen 2026-05-05,present,1,UCSD ingestion built for FIRMS data; FIRMS-aligned handoff planned
+collab-efa~land-36,Earth Fire Alliance (EFA) ↔ OroraTech,member link,,collaboration link exists,own goal,2026-05,first seen 2026-05-05,present,1,partnered directly on WS1 detection feeds
+collab-efa~land-174,Earth Fire Alliance (EFA) ↔ NASA FIRMS,member link,,collaboration link exists,own goal,2026-10,first seen 2026-10-28,present,1,FireSat and OroraTech L2 feeds to be piloted in FIRMS staging
+land-162~aicw-org-ai2,JPL / Caltech ↔ Ai2 (Allen Institute for AI),member link,,collaboration link exists,own goal,2026-05,first seen 2026-05-05,present,1,FIRE-MAPS fuel products run in OlmoEarth
+land-162~land-19,JPL / Caltech ↔ Spatial Informatics Group (SIG),member link,,collaboration link exists,own goal,2026-05,first seen 2026-05-05,present,1,fuel products tested with SIG alongside AlphaEarth
+aicw-org-ai2~land-19,Ai2 (Allen Institute for AI) ↔ Spatial Informatics Group (SIG),member link,,collaboration link exists,own goal,2026-03,first seen 2026-03-01,present,1,"benchmarking subgroup, then the nine-org initiative and NSF proposal"
+aicw-org-ai2~land-23,Ai2 (Allen Institute for AI) ↔ Environmental Defense Fund (EDF),member link,,collaboration link exists,own goal,2026-03,first seen 2026-03-01,present,1,EDF in the benchmark subgroup agreeing fires and metrics
+land-23~land-25,Environmental Defense Fund (EDF) ↔ Woodwell Climate Research Center,member link,,collaboration link exists,own goal,2026-01,first seen 2026-01-15,present,1,"joint emissions-management convening, Jan 2026, ~40 experts"
+land-109~land-164,CSIRO ↔ AFAC (Australasian Fire and Emergency Service Authorities Council),member link,,collaboration link exists,own goal,2026-10,first seen 2026-10-16,present,1,joint Sandbox proposal: live ignitions into SPARK
+land-19~land-164,Spatial Informatics Group (SIG) ↔ AFAC (Australasian Fire and Emergency Service Authorities Council),member link,,collaboration link exists,own goal,2026-10,first seen 2026-10-01,present,1,early talks on smoke vulnerability with AFAC and CSIRO
+land-163~land-22,Watch Duty ↔ Planscape,member link,,collaboration link exists,own goal,2025-03,first seen 2025-03-24,present,1,both built with SIG; PyreCast forecasts in Watch Duty
+land-163~aicw-org-firewerx,Watch Duty ↔ FireWERX,member link,,collaboration link exists,own goal,2026-05,first seen 2026-05-05,present,1,two channels to agencies; FireSat data planned into both
+land-32~land-163,UN FAO ↔ Watch Duty,member link,,collaboration link exists,own goal,2026-10,first seen 2026-10-01,present,1,FAO Phase 2 names Watch Duty and Wildfire Commons as WS3 partners
+land-22~land-25,Planscape ↔ Woodwell Climate Research Center,member link,,collaboration link exists,own goal,2026-10,first seen 2026-10-01,present,1,Planscape Canada and Alaska expansion with Woodwell and EDF
+aicw-org-firewerx~land-130,FireWERX ↔ Western Fire Chiefs Association (WFCA),member link,,collaboration link exists,own goal,2026-05,first seen 2026-05-05,present,1,both translate FireSat for fire services
+land-7~land-32,World Economic Forum (WEF) ↔ UN FAO,member link,,collaboration link exists,own goal,2026-05,first seen 2026-05-05,present,1,"WEF, FAO and SIG aligning global fire initiatives"
+land-7~aicw-org-signal,World Economic Forum (WEF) ↔ SIG-NAL,member link,,collaboration link exists,own goal,2026-01,first seen 2026-01-01,present,1,GWLN highlights AIC:W tools and FireSat to industry and finance
+land-169~aicw-org-signal,IDinsight ↔ SIG-NAL,member link,,collaboration link exists,own goal,2026-04,first seen 2026-04-22,present,1,midterm finding that joint work needs its own budget shaped the Sandbox Fund
+land-23~land-7,Environmental Defense Fund (EDF) ↔ World Economic Forum (WEF),member link,,collaboration link exists,own goal,2026-10,first seen 2026-10-01,present,1,economics of early detection feeds the investment case
+collab-efa~inst-google-org,Earth Fire Alliance (EFA) ↔ Google.org & Google Research,member link,,collaboration link exists,own goal,2026-10,first seen 2026-10-28,present,1,Google Research adapting its fire-boundaries model to FireSat
+land-12~land-163,UC San Diego / WIFIRE Lab (Wildfire Commons) ↔ Watch Duty,member link,,collaboration link exists,own goal,2026-10,first seen 2026-10-01,present,1,WIFIRE models displayed in Watch Duty

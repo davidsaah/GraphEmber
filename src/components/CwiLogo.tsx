@@ -31,7 +31,7 @@ export const CwiLogo: React.FC<CwiLogoProps> = ({
             position: 'absolute',
             inset: -4,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(246, 186, 19, 0.4) 0%, rgba(235, 124, 38, 0.25) 50%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(255, 190, 95, 0.4) 0%, rgba(255, 159, 64, 0.25) 50%, transparent 70%)',
             filter: 'blur(8px)',
             pointerEvents: 'none',
             zIndex: 0,
@@ -50,7 +50,7 @@ export const CwiLogo: React.FC<CwiLogoProps> = ({
           position: 'relative',
           zIndex: 1,
           filter: glow
-            ? 'drop-shadow(0 2px 8px rgba(249, 115, 22, 0.45))'
+            ? 'drop-shadow(0 2px 8px rgba(255, 159, 64, 0.45))'
             : 'none',
           transition: 'transform 0.25s ease, filter 0.25s ease',
         }}
@@ -98,7 +98,7 @@ export const CwiLogo: React.FC<CwiLogoProps> = ({
               fontWeight: 500,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: '#f6ba13',
+              color: '#FFBE5F',
               lineHeight: 1.2,
             }}
           >
@@ -119,8 +119,8 @@ export const CwiLogo: React.FC<CwiLogoProps> = ({
         gap: 8,
         padding: '4px 10px',
         borderRadius: 'var(--radius-full)',
-        background: 'rgba(235, 124, 38, 0.12)',
-        border: '1px solid rgba(246, 186, 19, 0.35)',
+        background: 'rgba(255, 159, 64, 0.12)',
+        border: '1px solid rgba(255, 190, 95, 0.35)',
         backdropFilter: 'blur(8px)',
       }}
     >
@@ -138,7 +138,7 @@ export const CwiLogo: React.FC<CwiLogoProps> = ({
         >
           Climate & Wildfire Institute
         </span>
-        <span style={{ fontSize: '0.6rem', color: '#f6ba13' }}>
+        <span style={{ fontSize: '0.6rem', color: '#FFBE5F' }}>
           Boundary Innovation Tool
         </span>
       </div>

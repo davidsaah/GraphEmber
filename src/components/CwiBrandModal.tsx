@@ -61,8 +61,8 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
           display: 'flex',
           flexDirection: 'column',
           backgroundColor: '#0d1322',
-          border: '1px solid rgba(246, 186, 19, 0.35)',
-          boxShadow: '0 24px 64px rgba(0, 0, 0, 0.8), 0 0 32px rgba(235, 124, 38, 0.25)',
+          border: '1px solid rgba(255, 190, 95, 0.35)',
+          boxShadow: '0 24px 64px rgba(0, 0, 0, 0.8), 0 0 32px rgba(255, 159, 64, 0.25)',
           overflow: 'hidden',
           animation: 'scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
@@ -73,7 +73,7 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
           style={{
             position: 'relative',
             padding: '28px 32px 24px',
-            background: 'linear-gradient(135deg, rgba(246, 186, 19, 0.12) 0%, rgba(235, 124, 38, 0.18) 50%, rgba(226, 62, 29, 0.12) 100%)',
+            background: 'linear-gradient(135deg, rgba(255, 190, 95, 0.12) 0%, rgba(255, 159, 64, 0.18) 50%, rgba(226, 62, 29, 0.12) 100%)',
             borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
             display: 'flex',
             alignItems: 'flex-start',
@@ -90,7 +90,7 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
               width: 220,
               height: 220,
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(246, 186, 19, 0.25) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(255, 190, 95, 0.25) 0%, transparent 70%)',
               filter: 'blur(30px)',
               pointerEvents: 'none',
             }}
@@ -107,7 +107,7 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
                     fontWeight: 700,
                     letterSpacing: '0.14em',
                     textTransform: 'uppercase',
-                    color: '#f6ba13',
+                    color: '#FFBE5F',
                   }}
                 >
                   Climate & Wildfire Institute
@@ -118,9 +118,9 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
                     fontWeight: 600,
                     padding: '2px 8px',
                     borderRadius: 'var(--radius-full)',
-                    background: 'rgba(246, 186, 19, 0.15)',
-                    color: '#fed7aa',
-                    border: '1px solid rgba(246, 186, 19, 0.35)',
+                    background: 'rgba(255, 190, 95, 0.15)',
+                    color: '#FFE8A5',
+                    border: '1px solid rgba(255, 190, 95, 0.35)',
                   }}
                 >
                   501(c)(3) Boundary Organization
@@ -199,8 +199,8 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
               style={{
                 padding: '20px',
                 borderRadius: 'var(--radius-lg)',
-                backgroundColor: 'rgba(246, 186, 19, 0.04)',
-                border: '1px solid rgba(246, 186, 19, 0.25)',
+                backgroundColor: 'rgba(255, 190, 95, 0.04)',
+                border: '1px solid rgba(255, 190, 95, 0.25)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -217,15 +217,15 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
                         width: 32,
                         height: 32,
                         borderRadius: 'var(--radius-md)',
-                        backgroundColor: 'rgba(246, 186, 19, 0.15)',
+                        backgroundColor: 'rgba(255, 190, 95, 0.15)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                       }}
                     >
-                      <Flame size={18} color="#f6ba13" />
+                      <Flame size={18} color="#FFBE5F" />
                     </div>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#f6ba13', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#FFBE5F', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                       Official Portal
                     </span>
                   </div>
@@ -254,21 +254,21 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
                     gap: 6,
                     padding: '8px 14px',
                     borderRadius: 'var(--radius-md)',
-                    backgroundColor: 'rgba(246, 186, 19, 0.15)',
-                    border: '1px solid rgba(246, 186, 19, 0.4)',
-                    color: '#fed7aa',
+                    backgroundColor: 'rgba(255, 190, 95, 0.15)',
+                    border: '1px solid rgba(255, 190, 95, 0.4)',
+                    color: '#FFE8A5',
                     fontSize: '0.8rem',
                     fontWeight: 600,
                     textDecoration: 'none',
                     transition: 'all 0.2s',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.25)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 190, 95, 0.25)';
                     e.currentTarget.style.color = '#ffffff';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.15)';
-                    e.currentTarget.style.color = '#fed7aa';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 190, 95, 0.15)';
+                    e.currentTarget.style.color = '#FFE8A5';
                   }}
                 >
                   <span>Visit CWI Website</span>
@@ -293,13 +293,13 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
                     fontWeight: 600,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = '#f6ba13';
+                    e.currentTarget.style.borderColor = '#FFBE5F';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.borderColor = 'var(--border-subtle)';
                   }}
                 >
-                  <Network size={14} color="#f6ba13" />
+                  <Network size={14} color="#FFBE5F" />
                   <span>Highlight in Canvas</span>
                 </button>
               </div>
@@ -449,7 +449,7 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                  <Sparkles size={16} color="#fb923c" />
+                  <Sparkles size={16} color="#FFBE5F" />
                   <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f8fafc' }}>
                     Data & Innovation
                   </span>
@@ -511,7 +511,7 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#fed7aa', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#FFE8A5', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 Key CWI Entities In GraphEmber
               </span>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
@@ -528,14 +528,14 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
                     gap: 6,
                     padding: '4px 10px',
                     borderRadius: 'var(--radius-full)',
-                    background: 'rgba(246, 186, 19, 0.15)',
-                    border: '1px solid rgba(246, 186, 19, 0.35)',
-                    color: '#fed7aa',
+                    background: 'rgba(255, 190, 95, 0.15)',
+                    border: '1px solid rgba(255, 190, 95, 0.35)',
+                    color: '#FFE8A5',
                     fontSize: '0.75rem',
                     fontWeight: 600,
                   }}
                 >
-                  <Flame size={12} color="#f6ba13" />
+                  <Flame size={12} color="#FFBE5F" />
                   {cwiNode.label}
                 </span>
               )}
@@ -566,14 +566,14 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
                     gap: 6,
                     padding: '4px 10px',
                     borderRadius: 'var(--radius-full)',
-                    background: 'rgba(249, 115, 22, 0.15)',
-                    border: '1px solid rgba(249, 115, 22, 0.35)',
-                    color: '#fb923c',
+                    background: 'rgba(255, 159, 64, 0.15)',
+                    border: '1px solid rgba(255, 159, 64, 0.35)',
+                    color: '#FFBE5F',
                     fontSize: '0.75rem',
                     fontWeight: 600,
                   }}
                 >
-                  <Network size={12} color="#fb923c" />
+                  <Network size={12} color="#FFBE5F" />
                   {efaNode.label} (FireSat)
                 </span>
               )}
@@ -670,11 +670,11 @@ export const CwiBrandModal: React.FC<CwiBrandModalProps> = ({
                 gap: 8,
                 padding: '8px 18px',
                 borderRadius: 'var(--radius-md)',
-                background: 'linear-gradient(135deg, #f6ba13 0%, #eb7c26 100%)',
+                background: 'linear-gradient(135deg, #FFBE5F 0%, #FF9F40 100%)',
                 color: '#0f172a',
                 fontSize: '0.85rem',
                 fontWeight: 700,
-                boxShadow: '0 4px 12px rgba(246, 186, 19, 0.3)',
+                boxShadow: '0 4px 12px rgba(255, 190, 95, 0.3)',
               }}
             >
               <span>Explore CWI Ecosystem</span>

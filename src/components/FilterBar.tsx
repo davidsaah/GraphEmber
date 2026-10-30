@@ -58,7 +58,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     return counts;
   }, [nodes]);
 
-  // Extract top tags, prioritizing key CWI initiatives
+  // Extract top tags, prioritizing the AIC:W views
   const topTags = React.useMemo(() => {
     const tagMap = new Map<string, number>();
     nodes.forEach((n) => {
@@ -67,7 +67,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     const sorted = Array.from(tagMap.entries())
       .sort((a, b) => b[1] - a[1])
       .map(([tag]) => tag);
-    const priority = ['CWI', 'Resilient Home Fund', 'FireSat', 'AI Charter', 'California'];
+    const priority = ['AIC:W', 'Rated project', 'Live now', 'AIC:W partner network', 'Sandbox Round 1', 'AIC:W logo board', 'Workstream', 'North Star'];
     const result: string[] = [];
     priority.forEach((p) => {
       if (sorted.includes(p)) result.push(p);
@@ -183,9 +183,9 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                   fontSize: '0.7rem',
                   padding: '2px 8px',
                   borderRadius: 'var(--radius-sm)',
-                  backgroundColor: isSelected ? 'rgba(249, 115, 22, 0.2)' : 'var(--bg-surface)',
+                  backgroundColor: isSelected ? 'rgba(255, 159, 64, 0.2)' : 'var(--bg-surface)',
                   border: `1px solid ${isSelected ? 'var(--color-collaborative)' : 'var(--border-subtle)'}`,
-                  color: isSelected ? '#fb923c' : 'var(--text-secondary)',
+                  color: isSelected ? '#FFBE5F' : 'var(--text-secondary)',
                 }}
               >
                 #{tag}

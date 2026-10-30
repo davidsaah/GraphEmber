@@ -41,8 +41,8 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
           flexDirection: 'column',
           overflow: 'hidden',
           backgroundColor: '#0c101d',
-          border: '1px solid rgba(249, 115, 22, 0.3)',
-          boxShadow: '0 24px 64px rgba(0, 0, 0, 0.75), 0 0 40px rgba(249, 115, 22, 0.15)',
+          border: '1px solid rgba(255, 159, 64, 0.3)',
+          boxShadow: '0 24px 64px rgba(0, 0, 0, 0.75), 0 0 40px rgba(255, 159, 64, 0.15)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -54,7 +54,7 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            background: 'linear-gradient(180deg, rgba(249, 115, 22, 0.08) 0%, transparent 100%)',
+            background: 'linear-gradient(180deg, rgba(255, 159, 64, 0.08) 0%, transparent 100%)',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -63,11 +63,11 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
                 width: 38,
                 height: 38,
                 borderRadius: 'var(--radius-md)',
-                background: 'linear-gradient(135deg, #f97316 0%, #ef4444 100%)',
+                background: 'linear-gradient(135deg, #FF9F40 0%, #ef4444 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 0 16px rgba(249, 115, 22, 0.4)',
+                boxShadow: '0 0 16px rgba(255, 159, 64, 0.4)',
               }}
             >
               <Network size={20} color="#ffffff" />
@@ -91,9 +91,9 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
                     fontWeight: 600,
                     padding: '2px 8px',
                     borderRadius: 'var(--radius-full)',
-                    background: 'rgba(249, 115, 22, 0.2)',
-                    color: '#fb923c',
-                    border: '1px solid rgba(249, 115, 22, 0.35)',
+                    background: 'rgba(255, 159, 64, 0.2)',
+                    color: '#FFBE5F',
+                    border: '1px solid rgba(255, 159, 64, 0.35)',
                   }}
                 >
                   Schema Blueprint
@@ -136,7 +136,7 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
               gap: 8,
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#fb923c', fontSize: '0.8rem', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#FFBE5F', fontSize: '0.8rem', fontWeight: 600 }}>
               <Sparkles size={16} />
               <span>Ontological Foundation</span>
             </div>
@@ -146,7 +146,7 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
             <ul style={{ paddingLeft: 20, fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
               <li><strong>Entities (Boxes)</strong>: Primary domain objects including Organizations, Consortia/Coalitions, Products, and Topics.</li>
               <li><strong>Relationships (Arrows)</strong>: Typed directional links describing interactions (<code style={{ color: '#cbd5e1' }}>PartnersIn</code>, <code style={{ color: '#cbd5e1' }}>Produces</code>, <code style={{ color: '#cbd5e1' }}>HasTopic</code>, <code style={{ color: '#cbd5e1' }}>Funds</code>).</li>
-              <li><strong>Properties (Metadata)</strong>: Rich attributes attached both to entities (e.g., location, status) and to relationships (e.g., <code style={{ color: '#fb923c' }}>how</code>, <code style={{ color: '#fb923c' }}>modality</code>).</li>
+              <li><strong>Properties (Metadata)</strong>: Rich attributes attached both to entities (e.g., location, status) and to relationships (e.g., <code style={{ color: '#FFBE5F' }}>how</code>, <code style={{ color: '#FFBE5F' }}>modality</code>).</li>
             </ul>
           </div>
 
@@ -192,8 +192,8 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
               {/* Box 2: Consortium / Coalition */}
               <div
                 style={{
-                  backgroundColor: 'rgba(249, 115, 22, 0.1)',
-                  border: '1px solid rgba(249, 115, 22, 0.35)',
+                  backgroundColor: 'rgba(255, 159, 64, 0.1)',
+                  border: '1px solid rgba(255, 159, 64, 0.35)',
                   borderRadius: 'var(--radius-md)',
                   padding: 14,
                   display: 'flex',
@@ -202,8 +202,8 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <ShieldCheck size={16} color="#fb923c" />
-                  <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#fb923c' }}>Consortium</span>
+                  <ShieldCheck size={16} color="#FFBE5F" />
+                  <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#FFBE5F' }}>Consortium</span>
                 </div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Properties:</div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
@@ -285,8 +285,8 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
                   color: '#94a3b8',
                 }}
               >
-                <ArrowRight size={13} color="#f97316" />
-                <span><strong>PartnersIn</strong> [property: <span style={{ color: '#fb923c' }}>how</span>]</span>
+                <ArrowRight size={13} color="#FF9F40" />
+                <span><strong>PartnersIn</strong> [property: <span style={{ color: '#FFBE5F' }}>how</span>]</span>
               </div>
 
               <div
@@ -303,7 +303,7 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
                   color: '#94a3b8',
                 }}
               >
-                <ArrowRight size={13} color="#f97316" />
+                <ArrowRight size={13} color="#FF9F40" />
                 <span><strong>Produces / HasProject</strong></span>
               </div>
 
@@ -321,7 +321,7 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
                   color: '#94a3b8',
                 }}
               >
-                <ArrowRight size={13} color="#f97316" />
+                <ArrowRight size={13} color="#FF9F40" />
                 <span><strong>HasTopic</strong> [property: <span style={{ color: '#fb7185' }}>modality</span>]</span>
               </div>
             </div>
@@ -343,7 +343,7 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
                     width: 24,
                     height: 24,
                     borderRadius: '50%',
-                    backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -368,14 +368,14 @@ export const OntologyModal: React.FC<OntologyModalProps> = ({
                     gap: 6,
                     padding: '6px 12px',
                     borderRadius: 'var(--radius-sm)',
-                    backgroundColor: 'rgba(249, 115, 22, 0.15)',
-                    border: '1px solid rgba(249, 115, 22, 0.35)',
-                    color: '#fb923c',
+                    backgroundColor: 'rgba(255, 159, 64, 0.15)',
+                    border: '1px solid rgba(255, 159, 64, 0.35)',
+                    color: '#FFBE5F',
                     fontSize: '0.75rem',
                     fontWeight: 600,
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.25)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.15)')}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 159, 64, 0.25)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 159, 64, 0.15)')}
                 >
                   <span>Highlight EFA Network in Canvas</span>
                   <ArrowRight size={13} />

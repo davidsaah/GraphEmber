@@ -1,3 +1,4 @@
+import { LEVEL_COLORS, IMPACT_INDICATORS } from './ImpactTimeline';
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import type { GraphNode, GraphEdge, NodeType } from '../types/graph';
@@ -17,7 +18,7 @@ interface NetworkCanvasProps {
 const TYPE_COLORS: Record<NodeType, string> = {
   person: '#10b981',
   institution: '#f59e0b',
-  collaborative: '#f97316',
+  collaborative: '#FF9F40',
   program: '#3b82f6',
   product: '#6366f1',
   grant: '#ef4444',
@@ -188,7 +189,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
 
         if (isPathEdge) {
           alpha = 1.0;
-          strokeColor = '#f97316';
+          strokeColor = '#FF9F40';
           lineWidth = 3.5;
         } else if (isConnectedToFocus) {
           alpha = 0.9;
@@ -248,7 +249,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
           const midX = (source.x + target.x) / 2;
           const midY = (source.y + target.y) / 2;
 
-          ctx.font = '500 10px Inter, sans-serif';
+          ctx.font = '500 10px Roboto, sans-serif';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
 
@@ -256,11 +257,11 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
           ctx.fillStyle = 'rgba(15, 23, 42, 0.92)';
           ctx.fillRect(midX - textWidth / 2 - 5, midY - 8, textWidth + 10, 16);
 
-          ctx.strokeStyle = isPathEdge ? 'rgba(249, 115, 22, 0.5)' : 'rgba(255, 255, 255, 0.15)';
+          ctx.strokeStyle = isPathEdge ? 'rgba(255, 159, 64, 0.5)' : 'rgba(255, 255, 255, 0.15)';
           ctx.lineWidth = 1;
           ctx.strokeRect(midX - textWidth / 2 - 5, midY - 8, textWidth + 10, 16);
 
-          ctx.fillStyle = isPathEdge ? '#fb923c' : '#cbd5e1';
+          ctx.fillStyle = isPathEdge ? '#FFBE5F' : '#cbd5e1';
           ctx.fillText(displayLabel, midX, midY);
         }
       });
@@ -284,7 +285,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
 
         ctx.globalAlpha = alpha;
         const radius = getNodeRadius(node);
-        const baseColor = TYPE_COLORS[node.type] || '#64748b';
+        const baseColor = node.color || TYPE_COLORS[node.type] || '#64748b';
 
         // Outer glow halo for selected / focused nodes
         if (isSelected || isHovered || isPathNode) {
@@ -316,6 +317,19 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
         ctx.fillStyle = baseColor + '28';
         ctx.fill();
 
+        // Impact ring: three arcs for capability, used and collaboration at the chosen date
+        if (node.activeImpact) {
+          IMPACT_INDICATORS.forEach((indicator, i) => {
+            const level = node.activeImpact![indicator];
+            const start = -Math.PI / 2 + (i * 2 * Math.PI) / 3 + 0.08;
+            ctx.beginPath();
+            ctx.arc(node.x!, node.y!, radius + 5, start, start + (2 * Math.PI) / 3 - 0.16);
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = LEVEL_COLORS[level] || '#5F6368';
+            ctx.stroke();
+          });
+        }
+
         // Node Icon or Glyph
         ctx.font = `${Math.round(radius * 0.72)}px sans-serif`;
         ctx.textAlign = 'center';
@@ -325,7 +339,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
         // Label below node
         const showLabel = transform.k > 0.42 || isSelected || isHovered || isFocus || isNeighbor;
         if (showLabel) {
-          ctx.font = `${isSelected || isHovered ? '600 12px Outfit, sans-serif' : '500 11px Inter, sans-serif'}`;
+          ctx.font = `${isSelected || isHovered ? '600 12px "Roboto Condensed", sans-serif' : '500 11px Roboto, sans-serif'}`;
           ctx.textAlign = 'center';
           ctx.textBaseline = 'top';
 
