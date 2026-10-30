@@ -1,7 +1,6 @@
 import React from 'react';
 import { Search, Route, BarChart3, Plus, X, Download, Network, ExternalLink } from 'lucide-react';
 import type { GraphNode, GraphEdge } from '../types/graph';
-import { CwiLogo } from './CwiLogo';
 
 interface HeaderProps {
   nodes: GraphNode[];
@@ -11,7 +10,7 @@ interface HeaderProps {
   onOpenPathFinder: () => void;
   onOpenAnalytics: () => void;
   onOpenOntology: () => void;
-  onOpenCwiModal: () => void;
+  onOpenAbout: () => void;
   onOpenAddModal: () => void;
   onExportData: () => void;
 }
@@ -24,115 +23,42 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenPathFinder,
   onOpenAnalytics,
   onOpenOntology,
-  onOpenCwiModal,
+  onOpenAbout,
   onOpenAddModal,
   onExportData,
 }) => {
-  // Aggregate summary statistics
-  const totalFunding = nodes
-    .filter((n) => n.type === 'grant')
-    .reduce((sum, n) => sum + ((n as any).amount || 0), 0);
-
-  const totalCollaboratives = nodes.filter((n) => n.type === 'collaborative').length;
-  const totalProducts = nodes.filter((n) => n.type === 'product').length;
-
-  const formattedFunding = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    notation: 'compact',
-    maximumFractionDigits: 1,
-  }).format(totalFunding);
-
   return (
     <header
       className="glass-panel"
       style={{
         position: 'absolute',
-        top: 16,
-        left: 16,
-        right: 16,
+        top: 0,
+        left: 0,
+        right: 0,
         height: 'var(--header-height)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '0 20px',
         zIndex: 30,
-        borderRadius: 'var(--radius-lg)',
+        borderRadius: 0,
+        border: 'none',
+        borderBottom: '1px solid #E6E2DA',
+        boxShadow: 'none',
       }}
     >
-      {/* CWI Brand & App Lockup */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-        <button
-          onClick={onOpenCwiModal}
-          title="Learn about Climate & Wildfire Institute (CWI) and Initiatives"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            background: 'none',
-            border: 'none',
-            padding: 0,
-            cursor: 'pointer',
-          }}
-        >
-          <CwiLogo variant="mark" size={40} glow={true} className="cwi-flame-pulse" />
+      {/* AIC:W lockup: logo, then the deck-style kicker and title */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <button onClick={onOpenAbout} title="About AI Collaborative: Wildfires (AIC:W)" style={{ display: 'flex', alignItems: 'center', padding: 0 }}>
+          <img src={`${import.meta.env.BASE_URL}aicw-logo.png`} alt="AI Collaborative: Wildfires" style={{ height: 38, width: 'auto', display: 'block' }} />
         </button>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span
-              style={{
-                fontFamily: 'var(--font-brand, "Poppins", sans-serif)',
-                fontSize: '0.68rem',
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: '#f6ba13',
-              }}
-            >
-              Climate & Wildfire Institute
-            </span>
-            <span
-              style={{
-                fontSize: '0.62rem',
-                fontWeight: 600,
-                padding: '1px 6px',
-                borderRadius: 'var(--radius-full)',
-                background: 'rgba(246, 186, 19, 0.15)',
-                color: '#fed7aa',
-                border: '1px solid rgba(246, 186, 19, 0.35)',
-              }}
-            >
-              501(c)(3)
-            </span>
+        <div style={{ borderLeft: '3px solid #FF9F40', paddingLeft: 10 }}>
+          <div style={{ fontFamily: 'var(--font-label)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', color: '#5F6368', textTransform: 'uppercase' }}>
+            Network · GraphEmber
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 1 }}>
-            <h1
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '1.25rem',
-                fontWeight: 800,
-                letterSpacing: '-0.02em',
-                background: 'linear-gradient(to right, #ffffff, #fed7aa)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                lineHeight: 1.1,
-              }}
-            >
-              GraphEmber
-            </h1>
-            <span
-              style={{
-                fontSize: '0.65rem',
-                fontWeight: 600,
-                padding: '2px 7px',
-                borderRadius: 'var(--radius-full)',
-                background: 'rgba(235, 124, 38, 0.18)',
-                color: '#fb923c',
-                border: '1px solid rgba(249, 115, 22, 0.4)',
-              }}
-            >
-              Firelines Landscape
-            </span>
-          </div>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 700, color: '#202124', lineHeight: 1.15, whiteSpace: 'nowrap' }}>
+            AIC:W network over time
+          </h1>
         </div>
       </div>
 
@@ -140,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div
         style={{
           position: 'relative',
-          width: 340,
+          width: 260,
           display: 'flex',
           alignItems: 'center',
         }}
@@ -188,41 +114,39 @@ export const Header: React.FC<HeaderProps> = ({
         )}
       </div>
 
-      {/* CWI Ecosystem Quick Actions */}
+      {/* AIC:W Quick Actions */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
         <button
-          onClick={onOpenCwiModal}
-          title="Learn about Climate & Wildfire Institute boundary initiatives"
+          onClick={onOpenAbout}
+          title="North Star, workstreams and how impact is rated"
           style={{
             display: 'flex',
             alignItems: 'center',
             gap: 6,
             padding: '6px 12px',
-            borderRadius: 'var(--radius-full)',
-            background: 'linear-gradient(135deg, rgba(246, 186, 19, 0.15) 0%, rgba(235, 124, 38, 0.15) 100%)',
-            border: '1px solid rgba(246, 186, 19, 0.35)',
-            color: '#fed7aa',
+            borderRadius: 4,
+            background: '#FFFFFF',
+            border: '1px solid #E6E2DA',
+            color: '#202124',
             fontSize: '0.75rem',
             fontWeight: 600,
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.25)';
-            e.currentTarget.style.borderColor = '#f6ba13';
+            e.currentTarget.style.borderColor = '#FF9F40';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(246, 186, 19, 0.15)';
-            e.currentTarget.style.borderColor = 'rgba(246, 186, 19, 0.35)';
+            e.currentTarget.style.borderColor = '#E6E2DA';
           }}
         >
-          <CwiLogo variant="mark" size={15} glow={false} />
-          <span>About CWI</span>
+          <img src={`${import.meta.env.BASE_URL}aicw-flame.svg`} alt="" style={{ height: 15, width: 'auto' }} />
+          <span style={{ whiteSpace: 'nowrap' }}>About AIC:W</span>
         </button>
 
         <a
-          href="https://www.climateandwildfire.org/"
+          href="https://aicw.wildfirecommons.org/"
           target="_blank"
           rel="noopener noreferrer"
-          title="Open Climate & Wildfire Institute official website"
+          title="Open the AIC:W website"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -238,59 +162,17 @@ export const Header: React.FC<HeaderProps> = ({
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = 'var(--bg-surface-elevated)';
-            e.currentTarget.style.color = '#ffffff';
+            e.currentTarget.style.color = '#202124';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = 'var(--bg-surface)';
             e.currentTarget.style.color = 'var(--text-secondary)';
           }}
         >
-          <span>climateandwildfire.org</span>
+          <span>aicw.wildfirecommons.org</span>
           <ExternalLink size={12} />
         </a>
 
-        <a
-          href="https://www.resilienthomefund.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Explore Resilient Home Fund - Wildfire Risk Reduction Grants for Homeowners"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 6,
-            padding: '6px 12px',
-            borderRadius: 'var(--radius-full)',
-            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.16) 100%)',
-            border: '1px solid rgba(16, 185, 129, 0.35)',
-            color: '#a7f3d0',
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            textDecoration: 'none',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(16, 185, 129, 0.22)';
-            e.currentTarget.style.borderColor = '#10b981';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(16, 185, 129, 0.12)';
-            e.currentTarget.style.borderColor = 'rgba(16, 185, 129, 0.35)';
-          }}
-        >
-          <span>Resilient Home Fund</span>
-          <span
-            style={{
-              fontSize: '0.62rem',
-              fontWeight: 700,
-              padding: '1px 5px',
-              borderRadius: 'var(--radius-sm)',
-              background: '#10b981',
-              color: '#064e3b',
-            }}
-          >
-            Grants
-          </span>
-          <ExternalLink size={12} />
-        </a>
       </div>
 
       {/* Network Stats & Action Buttons */}
@@ -302,49 +184,17 @@ export const Header: React.FC<HeaderProps> = ({
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-end',
-              paddingRight: 10,
-              borderRight: '1px solid var(--border-subtle)',
+              paddingRight: 4,
             }}
           >
-            <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <span style={{ fontFamily: 'var(--font-label)', fontSize: '0.66rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               Network
             </span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#f8fafc' }}>
-              {nodes.length} Nodes · {edges.length} Edges
+            <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#202124', whiteSpace: 'nowrap' }}>
+              {nodes.length} nodes · {edges.length} links
             </span>
           </div>
 
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-end',
-              paddingRight: 10,
-              borderRight: '1px solid var(--border-subtle)',
-            }}
-          >
-            <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Funding Active
-            </span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#34d399' }}>
-              {formattedFunding}
-            </span>
-          </div>
-
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-end',
-            }}
-          >
-            <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Alliances & Products
-            </span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fb923c' }}>
-              {totalCollaboratives} Collabs · {totalProducts} Prods
-            </span>
-          </div>
         </div>
 
         {/* Action Buttons */}
@@ -414,7 +264,7 @@ export const Header: React.FC<HeaderProps> = ({
               gap: 6,
               padding: '8px 12px',
               backgroundColor: 'var(--bg-surface)',
-              border: '1px solid rgba(249, 115, 22, 0.3)',
+              border: '1px solid rgba(255, 159, 64, 0.3)',
               borderRadius: 'var(--radius-md)',
               color: 'var(--text-primary)',
               fontSize: '0.8rem',
@@ -426,11 +276,11 @@ export const Header: React.FC<HeaderProps> = ({
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = 'var(--bg-surface)';
-              e.currentTarget.style.borderColor = 'rgba(249, 115, 22, 0.3)';
+              e.currentTarget.style.borderColor = 'rgba(255, 159, 64, 0.3)';
             }}
           >
-            <Network size={15} color="#fb923c" />
-            <span style={{ color: '#fed7aa', fontWeight: 600 }}>Ontology</span>
+            <Network size={15} color="#B85C00" />
+            <span style={{ color: '#202124', fontWeight: 600 }}>Ontology</span>
           </button>
 
           <button
@@ -460,19 +310,18 @@ export const Header: React.FC<HeaderProps> = ({
               alignItems: 'center',
               gap: 6,
               padding: '8px 14px',
-              background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+              background: '#202124',
               border: 'none',
-              borderRadius: 'var(--radius-md)',
-              color: '#ffffff',
+              borderRadius: 4,
+              color: '#FFFFFF',
               fontSize: '0.8rem',
-              fontWeight: 600,
-              boxShadow: '0 2px 10px rgba(249, 115, 22, 0.35)',
+              fontWeight: 500,
             }}
             onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-1px)')}
             onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
           >
             <Plus size={16} />
-            <span>Add Entity</span>
+            <span>Add</span>
           </button>
         </div>
       </div>

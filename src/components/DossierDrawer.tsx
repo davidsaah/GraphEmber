@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GraphNode, GraphEdge, NodeType } from '../types/graph';
+import type { GraphNode, GraphEdge } from '../types/graph';
 import {
   X,
   ExternalLink,
@@ -15,6 +15,7 @@ import {
   Layers,
 } from 'lucide-react';
 import { CwiLogo } from './CwiLogo';
+import { TypeMarker } from './TypeMarker';
 
 interface DossierDrawerProps {
   node: GraphNode | null;
@@ -24,17 +25,7 @@ interface DossierDrawerProps {
   onSelectNode: (node: GraphNode) => void;
 }
 
-const TYPE_ICONS: Record<NodeType, string> = {
-  person: '👤',
-  institution: '🏛️',
-  collaborative: '🤝',
-  program: '🚀',
-  product: '📦',
-  grant: '💰',
-  research: '📄',
-  meeting: '📅',
-  topic: '🎯',
-};
+// Entity type markers come from the shared theme
 
 export const DossierDrawer: React.FC<DossierDrawerProps> = ({
   node,
@@ -76,9 +67,9 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
       className="glass-panel"
       style={{
         position: 'absolute',
-        top: 16,
+        top: 76,
         right: 16,
-        bottom: 16,
+        bottom: 44,
         width: 'var(--dossier-width)',
         display: 'flex',
         flexDirection: 'column',
@@ -97,11 +88,11 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
           display: 'flex',
           alignItems: 'flex-start',
           justifyContent: 'space-between',
-          background: 'rgba(15, 23, 42, 0.5)',
+          background: 'rgba(255, 255, 255, 0.96)',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <span style={{ fontSize: '1.6rem' }}>{TYPE_ICONS[node.type]}</span>
+          <TypeMarker type={node.type} size={22} color={node.color} />
           <div>
             <span className={`badge badge-${node.type}`}>{node.type}</span>
             <h2
@@ -109,7 +100,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                 fontFamily: 'var(--font-display)',
                 fontSize: '1.15rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: '#202124',
                 marginTop: 4,
                 lineHeight: 1.3,
               }}
@@ -129,7 +120,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = 'var(--bg-surface-elevated)';
-            e.currentTarget.style.color = '#ffffff';
+            e.currentTarget.style.color = '#202124';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = 'transparent';
@@ -157,8 +148,8 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
             style={{
               padding: '12px 14px',
               borderRadius: 'var(--radius-md)',
-              background: 'linear-gradient(135deg, rgba(246, 186, 19, 0.12) 0%, rgba(235, 124, 38, 0.18) 100%)',
-              border: '1px solid rgba(246, 186, 19, 0.35)',
+              background: 'linear-gradient(135deg, rgba(255, 190, 95, 0.12) 0%, rgba(255, 159, 64, 0.18) 100%)',
+              border: '1px solid rgba(255, 190, 95, 0.35)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -168,10 +159,10 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <CwiLogo variant="mark" size={28} glow={false} />
               <div>
-                <span style={{ fontSize: '0.68rem', fontWeight: 700, color: '#f6ba13', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                <span style={{ fontSize: '0.68rem', fontWeight: 700, color: '#B85C00', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   Climate & Wildfire Institute
                 </span>
-                <p style={{ fontSize: '0.75rem', fontWeight: 600, color: '#fed7aa', margin: 0 }}>
+                <p style={{ fontSize: '0.75rem', fontWeight: 600, color: '#202124', margin: 0 }}>
                   Boundary Organization Initiative
                 </p>
               </div>
@@ -188,8 +179,8 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                 gap: 4,
                 padding: '4px 8px',
                 borderRadius: 'var(--radius-sm)',
-                backgroundColor: 'rgba(246, 186, 19, 0.2)',
-                color: '#fed7aa',
+                backgroundColor: 'rgba(255, 190, 95, 0.2)',
+                color: '#202124',
                 fontSize: '0.7rem',
                 fontWeight: 600,
                 textDecoration: 'none',
@@ -235,7 +226,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                 </div>
               )}
               {node.email && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.8rem', color: '#60a5fa' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.8rem', color: '#3C4043' }}>
                   <Mail size={15} />
                   <a href={`mailto:${node.email}`} style={{ color: 'inherit', textDecoration: 'none' }}>
                     {node.email}
@@ -255,8 +246,8 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                           fontSize: '0.72rem',
                           padding: '2px 6px',
                           borderRadius: 4,
-                          backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                          color: '#34d399',
+                          backgroundColor: 'rgba(106, 168, 79, 0.15)',
+                          color: '#38761D',
                         }}
                       >
                         {interest}
@@ -272,7 +263,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
           {node.type === 'collaborative' && (
             <>
               {node.mission && (
-                <div style={{ fontSize: '0.85rem', color: '#fed7aa', fontStyle: 'italic', lineHeight: 1.45 }}>
+                <div style={{ fontSize: '0.85rem', color: '#202124', fontStyle: 'italic', lineHeight: 1.45 }}>
                   "{node.mission}"
                 </div>
               )}
@@ -303,8 +294,8 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                           fontSize: '0.72rem',
                           padding: '2px 6px',
                           borderRadius: 4,
-                          backgroundColor: 'rgba(249, 115, 22, 0.18)',
-                          color: '#fb923c',
+                          backgroundColor: 'rgba(255, 159, 64, 0.18)',
+                          color: '#B85C00',
                         }}
                       >
                         {area}
@@ -343,8 +334,8 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                           fontSize: '0.72rem',
                           padding: '2px 6px',
                           borderRadius: 4,
-                          backgroundColor: 'rgba(99, 102, 241, 0.18)',
-                          color: '#a5b4fc',
+                          backgroundColor: 'rgba(95, 99, 104, 0.18)',
+                          color: '#3C4043',
                         }}
                       >
                         {tech}
@@ -363,7 +354,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                     alignItems: 'center',
                     gap: 6,
                     fontSize: '0.8rem',
-                    color: '#818cf8',
+                    color: '#3C4043',
                     textDecoration: 'none',
                     marginTop: 4,
                   }}
@@ -382,7 +373,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
               {node.amount !== undefined && (
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <DollarSign size={20} color="var(--color-grant)" />
-                  <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f87171' }}>
+                  <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#A61C00' }}>
                     {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(node.amount)}
                   </span>
                 </div>
@@ -410,7 +401,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
           {node.type === 'research' && (
             <>
               {node.venue && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.85rem', color: '#c084fc' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.85rem', color: '#3C4043' }}>
                   <BookOpen size={16} />
                   <span><strong>Venue:</strong> {node.venue} ({node.year})</span>
                 </div>
@@ -430,7 +421,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                     alignItems: 'center',
                     gap: 6,
                     fontSize: '0.8rem',
-                    color: '#c084fc',
+                    color: '#3C4043',
                     textDecoration: 'none',
                   }}
                 >
@@ -500,7 +491,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                     alignItems: 'center',
                     gap: 6,
                     fontSize: '0.8rem',
-                    color: '#fbbf24',
+                    color: '#B85C00',
                     textDecoration: 'none',
                   }}
                 >
@@ -516,7 +507,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
             <>
               {node.domain && (
                 <div style={{ fontSize: '0.85rem' }}>
-                  <strong>Domain:</strong> <span style={{ color: '#fb7185' }}>{node.domain}</span>
+                  <strong>Domain:</strong> <span style={{ color: '#A61C00' }}>{node.domain}</span>
                 </div>
               )}
               {node.scope && (
@@ -537,13 +528,13 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                           fontSize: '0.74rem',
                           padding: '3px 8px',
                           borderRadius: 'var(--radius-full)',
-                          backgroundColor: 'rgba(225, 29, 72, 0.15)',
-                          color: '#fb7185',
-                          border: '1px solid rgba(225, 29, 72, 0.35)',
+                          backgroundColor: 'rgba(224, 102, 102, 0.15)',
+                          color: '#A61C00',
+                          border: '1px solid rgba(224, 102, 102, 0.35)',
                           fontWeight: 500,
                         }}
                       >
-                        📡 {mod}
+                        {mod}
                       </span>
                     ))}
                   </div>
@@ -617,7 +608,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-                  <span style={{ fontSize: '1.2rem' }}>{TYPE_ICONS[otherNode.type]}</span>
+                  <TypeMarker type={otherNode.type} size={14} color={otherNode.color} />
                   <div style={{ minWidth: 0 }}>
                     <div
                       style={{
@@ -632,7 +623,7 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                       {otherNode.label}
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap', marginTop: 2 }}>
-                      <span style={{ fontSize: '0.72rem', color: '#fb923c', textTransform: 'capitalize' }}>
+                      <span style={{ fontSize: '0.72rem', color: '#B85C00', textTransform: 'capitalize' }}>
                         {relationLabel}
                       </span>
                       {edge.how && (
@@ -641,9 +632,9 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                             fontSize: '0.68rem',
                             padding: '1px 6px',
                             borderRadius: 'var(--radius-sm)',
-                            backgroundColor: 'rgba(249, 115, 22, 0.15)',
-                            color: '#fdba74',
-                            border: '1px solid rgba(249, 115, 22, 0.3)',
+                            backgroundColor: 'rgba(255, 159, 64, 0.15)',
+                            color: '#B85C00',
+                            border: '1px solid rgba(255, 159, 64, 0.3)',
                           }}
                         >
                           how: {edge.how}
@@ -655,9 +646,9 @@ export const DossierDrawer: React.FC<DossierDrawerProps> = ({
                             fontSize: '0.68rem',
                             padding: '1px 6px',
                             borderRadius: 'var(--radius-sm)',
-                            backgroundColor: 'rgba(225, 29, 72, 0.15)',
-                            color: '#fda4af',
-                            border: '1px solid rgba(225, 29, 72, 0.3)',
+                            backgroundColor: 'rgba(224, 102, 102, 0.15)',
+                            color: '#A61C00',
+                            border: '1px solid rgba(224, 102, 102, 0.3)',
                           }}
                         >
                           modality: {edge.modality}

@@ -103,7 +103,7 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.65)',
+        backgroundColor: 'rgba(32, 33, 36, 0.14)',
         backdropFilter: 'blur(8px)',
         display: 'flex',
         alignItems: 'center',
@@ -137,7 +137,7 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
                 padding: '6px 14px',
                 borderRadius: 'var(--radius-full)',
                 backgroundColor: tab === 'node' ? 'var(--color-collaborative)' : 'var(--bg-surface)',
-                color: tab === 'node' ? '#ffffff' : 'var(--text-secondary)',
+                color: tab === 'node' ? '#202124' : 'var(--text-secondary)',
                 fontWeight: 600,
                 fontSize: '0.85rem',
               }}
@@ -154,7 +154,7 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
                 padding: '6px 14px',
                 borderRadius: 'var(--radius-full)',
                 backgroundColor: tab === 'edge' ? 'var(--color-collaborative)' : 'var(--bg-surface)',
-                color: tab === 'edge' ? '#ffffff' : 'var(--text-secondary)',
+                color: tab === 'edge' ? '#202124' : 'var(--text-secondary)',
                 fontWeight: 600,
                 fontSize: '0.85rem',
               }}
@@ -189,15 +189,15 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
                   color: 'var(--text-primary)',
                 }}
               >
-                <option value="person">👤 Person</option>
-                <option value="institution">🏛️ Institution</option>
-                <option value="collaborative">🤝 Collaborative</option>
-                <option value="program">🚀 Program</option>
-                <option value="product">📦 Product</option>
-                <option value="grant">💰 Grant</option>
-                <option value="research">📄 Research</option>
-                <option value="meeting">📅 Meeting</option>
-                <option value="topic">🎯 Topic</option>
+                <option value="person">Person</option>
+                <option value="institution">Institution</option>
+                <option value="collaborative">Collaborative</option>
+                <option value="program">Program</option>
+                <option value="product">Product</option>
+                <option value="grant">Grant</option>
+                <option value="research">Research</option>
+                <option value="meeting">Meeting</option>
+                <option value="topic">Topic</option>
               </select>
             </div>
 
@@ -450,10 +450,10 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
               style={{
                 marginTop: 10,
                 height: 40,
-                background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+                background: 'linear-gradient(135deg, #FF9F40 0%, #B85C00 100%)',
                 border: 'none',
                 borderRadius: 'var(--radius-md)',
-                color: '#ffffff',
+                color: '#202124',
                 fontWeight: 600,
                 cursor: 'pointer',
               }}
@@ -630,10 +630,10 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
               style={{
                 marginTop: 10,
                 height: 40,
-                background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+                background: 'linear-gradient(135deg, #FF9F40 0%, #B85C00 100%)',
                 border: 'none',
                 borderRadius: 'var(--radius-md)',
-                color: '#ffffff',
+                color: '#202124',
                 fontWeight: 600,
                 cursor: 'pointer',
                 opacity: !sourceId || !targetId || sourceId === targetId ? 0.5 : 1,

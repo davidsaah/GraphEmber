@@ -1,0 +1,6213 @@
+{
+ "metadata": {
+  "title": "AIC:W network at Oct 2026 (now)",
+  "version": "1.0.0",
+  "description": "AIC:W members, workstreams, leads, partner networks, funding, Sandbox Round 1, rated projects and linkages, dated for change over time. PMO draft ratings (none/planned/emerging/live) at Mar 2025, May 2026 and Oct 2026.",
+  "lastUpdated": "2026-10-30"
+ },
+ "nodes": [
+  {
+   "id": "aicw",
+   "type": "collaborative",
+   "label": "AI Collaborative: Wildfires (AIC:W)",
+   "acronym": "AIC:W",
+   "mission": "Google.org-catalysed cross-sector collaborative using AI and data to reduce catastrophic wildfire damage and enable more beneficial fire.",
+   "description": "North Star (as adjusted at Tahoe, May 2026): more good fire, less bad fire. Shift acreage to beneficial fire and reduce catastrophic wildfire damage. First call 6 Aug 2024; launch convening 24 Mar 2025. Members: 35 (23 on logo boards + 12 confirmed by David).",
+   "formationYear": 2024,
+   "governanceModel": "Public-Private Partnership",
+   "website": "https://aicw.wildfirecommons.org/",
+   "focusAreas": [
+    "Earth observation",
+    "Fuels, weather and fire behaviour",
+    "Decision support",
+    "Ecosystem and financing"
+   ],
+   "startDate": "2024-08-06",
+   "color": "#FF9F40",
+   "tags": [
+    "AIC:W",
+    "North Star"
+   ]
+  },
+  {
+   "id": "aicw-ws1",
+   "type": "program",
+   "label": "WS1 Earth observation",
+   "color": "#FFE066",
+   "domain": "Earth observation",
+   "status": "Active",
+   "launchYear": 2025,
+   "description": "Satellite detection, the virtual constellation, the Wildfire Commons node and data harmonisation. Workstream colour: yellow. Workstream ratings (Capability / Used / Collaboration): Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 emerging/emerging/emerging.",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Workstream",
+    "WS colour yellow"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "emerging"
+    }
+   }
+  },
+  {
+   "id": "aicw-ws2",
+   "type": "program",
+   "label": "WS2 Fuels, weather and fire behaviour",
+   "color": "#CBE2AF",
+   "domain": "Fuels, weather and fire behaviour",
+   "status": "Active",
+   "launchYear": 2025,
+   "description": "Fuels, fuel moisture, fire behaviour models, emissions and the benchmarking effort. Workstream colour: green. Workstream ratings (Capability / Used / Collaboration): Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 live/emerging/live.",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Workstream",
+    "WS colour green"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "emerging",
+     "collaboration": "live"
+    }
+   }
+  },
+  {
+   "id": "aicw-ws3",
+   "type": "program",
+   "label": "WS3 Decision support and adoption",
+   "color": "#F8CBA0",
+   "domain": "Decision support and adoption",
+   "status": "Active",
+   "launchYear": 2025,
+   "description": "Platforms that put data in front of decision makers: Watch Duty, Planscape, FAO Fire Hub, Fire Tech U. Workstream colour: red. Workstream ratings (Capability / Used / Collaboration): Mar 2025 emerging/emerging/none; May 2026 live/live/planned; Oct 2026 live/live/emerging.",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Workstream",
+    "WS colour red"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "none"
+    },
+    "2026-05": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "planned"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "emerging"
+    }
+   }
+  },
+  {
+   "id": "aicw-ws4",
+   "type": "program",
+   "label": "WS4 Ecosystem and financing",
+   "color": "#C3D3DC",
+   "domain": "Ecosystem and financing",
+   "status": "Active",
+   "launchYear": 2025,
+   "description": "Investment case, funders, networks and the Finance & Funding role. Workstream colour: blue. Workstream ratings (Capability / Used / Collaboration): Mar 2025 planned/none/planned; May 2026 emerging/planned/planned; Oct 2026 emerging/emerging/planned.",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Workstream",
+    "WS colour blue"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "planned"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "planned"
+    }
+   }
+  },
+  {
+   "id": "aicw-pmo",
+   "type": "program",
+   "label": "AIC:W PMO (SIG / SIG-NAL)",
+   "status": "Active",
+   "launchYear": 2024,
+   "startDate": "2024-11-01",
+   "description": "Programme management office run by SIG and SIG-NAL. SIG-NAL PMO and M&E annex $1.64M Jul 2026 to Dec 2027.",
+   "tags": [
+    "AIC:W",
+    "Cross-cutting"
+   ]
+  },
+  {
+   "id": "aicw-me",
+   "type": "program",
+   "label": "AIC:W Monitoring & Evaluation",
+   "status": "Active",
+   "launchYear": 2025,
+   "startDate": "2025-03-24",
+   "description": "M&E partner IDinsight: midterm report Apr/Jun 2026, end-of-year interviews 2026.",
+   "tags": [
+    "AIC:W",
+    "Cross-cutting"
+   ]
+  },
+  {
+   "id": "aicw-sandbox",
+   "type": "program",
+   "label": "AIC:W Sandbox Fund",
+   "status": "Active",
+   "launchYear": 2026,
+   "startDate": "2026-10-16",
+   "description": "$8M pooled fund ($4M Google.org, $4M anonymous co-funder). Round 1 opened 16 Oct 2026, closes 16 Nov; Investment Committee Dec 2026; awards early 2027. Exploration $100-300K (2+ members); Implementation $300K-1M (1+ member lead).",
+   "tags": [
+    "AIC:W",
+    "Sandbox Fund",
+    "Cross-cutting"
+   ]
+  },
+  {
+   "id": "aicw-benchmark",
+   "type": "collaborative",
+   "label": "Wildfire spread model benchmarking initiative",
+   "startDate": "2026-03-01",
+   "description": "Grew from a 5-org WS2 subgroup (Mar 2026) to nine organisations plus Janice Coen (Oct 2026). NSF proposal due 4 Nov 2026; working session 5 Nov 2026. Coordinated by Ai2.",
+   "governanceModel": "Academic Network",
+   "tags": [
+    "AIC:W",
+    "WS2",
+    "Benchmarking"
+   ]
+  },
+  {
+   "id": "aicw-ns-prevention",
+   "type": "topic",
+   "label": "North Star: Prevention",
+   "domain": "AIC:W North Star",
+   "tags": [
+    "AIC:W",
+    "North Star"
+   ]
+  },
+  {
+   "id": "aicw-ns-detection",
+   "type": "topic",
+   "label": "North Star: Detection",
+   "domain": "AIC:W North Star",
+   "tags": [
+    "AIC:W",
+    "North Star"
+   ]
+  },
+  {
+   "id": "aicw-ns-response",
+   "type": "topic",
+   "label": "North Star: Response",
+   "domain": "AIC:W North Star",
+   "tags": [
+    "AIC:W",
+    "North Star"
+   ]
+  },
+  {
+   "id": "aicw-ns-enabler",
+   "type": "topic",
+   "label": "North Star: Enablers (finance, policy, coordination)",
+   "domain": "AIC:W North Star",
+   "tags": [
+    "AIC:W",
+    "North Star"
+   ]
+  },
+  {
+   "id": "aicw-ns-damage",
+   "type": "topic",
+   "label": "North Star: Outcome: less catastrophic damage",
+   "domain": "AIC:W North Star",
+   "tags": [
+    "AIC:W",
+    "North Star"
+   ]
+  },
+  {
+   "id": "aicw-ns-goodfire",
+   "type": "topic",
+   "label": "North Star: Outcome: more beneficial fire",
+   "domain": "AIC:W North Star",
+   "tags": [
+    "AIC:W",
+    "North Star"
+   ]
+  },
+  {
+   "id": "inst-google-org",
+   "type": "institution",
+   "label": "Google.org & Google Research",
+   "institutionType": "Private Sector",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Executive Team",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: Executive Team; funder. Joined: 2025-03-24 (founder).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-19",
+   "type": "institution",
+   "label": "Spatial Informatics Group (SIG)",
+   "institutionType": "Private Sector",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Executive Team",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: Executive Team (PMO); WG Contributor. Joined: 2025-03-24 (founder).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-org-signal",
+   "type": "institution",
+   "label": "SIG-NAL",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Executive Team",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: Executive Team (PMO). Joined: 2025-03-24 (founder).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-169",
+   "type": "institution",
+   "label": "IDinsight",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Executive Team",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: Executive Team (M&E). Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-164",
+   "type": "institution",
+   "label": "AFAC (Australasian Fire and Emergency Service Authorities Council)",
+   "institutionType": "Consortium",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-162",
+   "type": "institution",
+   "label": "JPL / Caltech",
+   "institutionType": "Research Institute",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-109",
+   "type": "institution",
+   "label": "CSIRO",
+   "institutionType": "Federal Agency",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "collab-efa",
+   "type": "institution",
+   "label": "Earth Fire Alliance (EFA)",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-23",
+   "type": "institution",
+   "label": "Environmental Defense Fund (EDF)",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-32",
+   "type": "institution",
+   "label": "UN FAO",
+   "institutionType": "Federal Agency",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-22",
+   "type": "institution",
+   "label": "Planscape",
+   "institutionType": "Consortium",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-12",
+   "type": "institution",
+   "label": "UC San Diego / WIFIRE Lab (Wildfire Commons)",
+   "institutionType": "University",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Lead",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Lead (WS1); WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-163",
+   "type": "institution",
+   "label": "Watch Duty",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Lead",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Lead (WS3, tentative); WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-130",
+   "type": "institution",
+   "label": "Western Fire Chiefs Association (WFCA)",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-25",
+   "type": "institution",
+   "label": "Woodwell Climate Research Center",
+   "institutionType": "Research Institute",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-7",
+   "type": "institution",
+   "label": "World Economic Forum (WEF)",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Lead"
+   ],
+   "description": "AIC:W tier: WG Lead (WS4, tentative); Finance & Funding. Joined: 2025-03-24 (launch presenter).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-org-ai2",
+   "type": "institution",
+   "label": "Ai2 (Allen Institute for AI)",
+   "institutionType": "Research Institute",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2026-03-01 (joined after launch; benchmark subgroup Mar 2026).",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-org-firewerx",
+   "type": "institution",
+   "label": "FireWERX",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2026-05-05 (joined after launch; rated at Tahoe).",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "land-174",
+   "type": "institution",
+   "label": "NASA FIRMS",
+   "institutionType": "Federal Agency",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2025-03-24 (operational at launch; WS1 handshake planned).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-36",
+   "type": "institution",
+   "label": "OroraTech",
+   "institutionType": "Private Sector",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2026-05-05 (WS1 update at Tahoe).",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-org-planet",
+   "type": "institution",
+   "label": "Planet",
+   "institutionType": "Private Sector",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2026-03-01 (benchmark subgroup member).",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-org-jrc",
+   "type": "institution",
+   "label": "EC Joint Research Centre (JRC)",
+   "institutionType": "Federal Agency",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor"
+   ],
+   "description": "AIC:W tier: WG Contributor. Joined: 2026-10-01 (date unknown; on WS2 list by Oct 2026).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "land-63",
+   "type": "institution",
+   "label": "Conservation X Labs",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor"
+   ],
+   "description": "AIC:W tier: WG Contributor (replaced by SAFF in listings). Joined: 2026-10-01 (date unknown).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-org-cfa",
+   "type": "institution",
+   "label": "CFA Victoria",
+   "institutionType": "Federal Agency",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: WG Contributor"
+   ],
+   "description": "AIC:W tier: WG Contributor (through AFAC). Joined: 2026-10-01 (date unknown).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "land-2",
+   "type": "institution",
+   "label": "Gordon and Betty Moore Foundation",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: Strategic Partner (funder). Joined: 2025-03-24 (co-funder).",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-5",
+   "type": "institution",
+   "label": "Bezos Earth Fund",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner"
+   ],
+   "description": "AIC:W tier: Strategic Partner (funder). Joined: 2026-10-01 (date unknown).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-org-nsf",
+   "type": "institution",
+   "label": "US National Science Foundation (NSF)",
+   "institutionType": "Federal Agency",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner"
+   ],
+   "description": "AIC:W tier: Strategic Partner (funder). Joined: 2025-01-01 (2025 grant).",
+   "startDate": "2025-01-01"
+  },
+  {
+   "id": "land-3",
+   "type": "institution",
+   "label": "Anonymous Sandbox co-funder",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner"
+   ],
+   "description": "AIC:W tier: Strategic Partner (funder; keep anonymous externally). Joined: 2026-05-01 (committed May 2026).",
+   "startDate": "2026-05-01"
+  },
+  {
+   "id": "aicw-org-avf",
+   "type": "institution",
+   "label": "Alaska Venture Fund",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: Strategic Partner (funder). Joined: 2026-10-01 (date unknown; logo board).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-org-dbl",
+   "type": "institution",
+   "label": "DBL Partners",
+   "institutionType": "Private Sector",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: Strategic Partner (investor). Joined: 2026-10-01 (date unknown; logo board).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "land-42",
+   "type": "institution",
+   "label": "Climate Resilience Fund",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner"
+   ],
+   "description": "AIC:W tier: Strategic Partner (funder). Joined: 2026-10-01 (date unknown).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "land-101",
+   "type": "institution",
+   "label": "USFS",
+   "institutionType": "Federal Agency",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner"
+   ],
+   "description": "AIC:W tier: Strategic Partner (funder and adopter). Joined: 2026-10-01 (date unknown).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "inst-muon-space",
+   "type": "institution",
+   "label": "Muon Space",
+   "institutionType": "Private Sector",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner"
+   ],
+   "description": "AIC:W tier: Strategic Partner (builds FireSat; not shown as member). Joined: 2026-10-01 (date unknown).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "inst-cwi",
+   "type": "institution",
+   "label": "Climate & Wildfire Institute (CWI)",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: Strategic Partner (expertise). Joined: 2026-10-01 (date unknown; logo board).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "land-15",
+   "type": "institution",
+   "label": "American Forests",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Strategic Partner"
+   ],
+   "description": "AIC:W tier: Strategic Partner (expertise). Joined: 2026-10-01 (added by David).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-org-saff",
+   "type": "institution",
+   "label": "South America Fire Fund (SAFF)",
+   "institutionType": "Consortium",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Member"
+   ],
+   "description": "AIC:W tier: Member (replaces Conservation X Labs entry). Joined: 2026-09-01 (formed Sep 2026).",
+   "startDate": "2026-09-01"
+  },
+  {
+   "id": "land-14",
+   "type": "institution",
+   "label": "UC Berkeley Fire Research Lab",
+   "institutionType": "University",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Member",
+    "AIC:W logo board"
+   ],
+   "description": "AIC:W tier: Member (WG Contributor, WS2); seeking formal onboarding. Joined: 2026-03-01 (benchmarking).",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-org-uci",
+   "type": "institution",
+   "label": "UC Irvine (Randerson lab)",
+   "institutionType": "University",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Extended Contributor"
+   ],
+   "description": "AIC:W tier: Extended Contributor (not a member). Joined: 2026-03-01 (benchmarking).",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-org-deepfire",
+   "type": "institution",
+   "label": "Deep Fire",
+   "institutionType": "Private Sector",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Extended Contributor"
+   ],
+   "description": "AIC:W tier: Extended Contributor; seeking formal partnership. Joined: 2026-05-01 (attends WS1 since May 2026).",
+   "startDate": "2026-05-01"
+  },
+  {
+   "id": "aicw-org-cloudfire",
+   "type": "institution",
+   "label": "CloudFire",
+   "institutionType": "Private Sector",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Extended Contributor"
+   ],
+   "description": "AIC:W tier: Extended Contributor; seeking formal partnership. Joined: 2026-10-01 (benchmarking).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "land-26",
+   "type": "institution",
+   "label": "Cary Institute / WFFRC",
+   "institutionType": "Research Institute",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Extended Contributor"
+   ],
+   "description": "AIC:W tier: Extended Contributor; seeking formal partnership. Joined: 2026-10-01 (Fire.OS Sandbox bid).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-org-ctrees",
+   "type": "institution",
+   "label": "CTrees",
+   "institutionType": "NGO",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Extended Contributor"
+   ],
+   "description": "AIC:W tier: Extended Contributor; seeking formal partnership. Joined: 2026-10-01 (date unknown).",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-org-riscognition",
+   "type": "institution",
+   "label": "Riscognition",
+   "institutionType": "Private Sector",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Extended Contributor"
+   ],
+   "description": "AIC:W tier: Extended Contributor; seeking formal partnership. Joined: 2026-10-29 (first PMO call 29 Oct 2026).",
+   "startDate": "2026-10-29"
+  },
+  {
+   "id": "aicw-org-sjsu",
+   "type": "institution",
+   "label": "SJSU FireBench",
+   "institutionType": "University",
+   "tags": [
+    "AIC:W",
+    "AIC:W tier: Extended Contributor"
+   ],
+   "description": "AIC:W tier: Extended Contributor. Joined: 2026-10-24 (benchmarking initiative).",
+   "startDate": "2026-10-24"
+  },
+  {
+   "id": "aicw-p-david-saah",
+   "type": "person",
+   "label": "David Saah",
+   "role": "AIC:W lead (SIG / SIG-NAL)",
+   "primaryAffiliationId": "land-19",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-karis-tenneson",
+   "type": "person",
+   "label": "Karis Tenneson",
+   "role": "PMO",
+   "primaryAffiliationId": "aicw-org-signal",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-tate-luoma",
+   "type": "person",
+   "label": "Tate Luoma",
+   "role": "PMO; runs workstream calls",
+   "primaryAffiliationId": "aicw-org-signal",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-ioana-bouvier",
+   "type": "person",
+   "label": "Ioana Bouvier",
+   "role": "Programme manager; MEL data steward",
+   "primaryAffiliationId": "aicw-org-signal",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-rob-lawson",
+   "type": "person",
+   "label": "Rob Lawson",
+   "role": "SIG / Planscape",
+   "primaryAffiliationId": "land-19",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-ryan-demilt",
+   "type": "person",
+   "label": "Ryan Demilt",
+   "role": "WS2 fuels (proposed effort lead)",
+   "primaryAffiliationId": "land-19",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-brian-lee",
+   "type": "person",
+   "label": "Brian Lee",
+   "role": "Google lead",
+   "primaryAffiliationId": "inst-google-org",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-erin-hattersley",
+   "type": "person",
+   "label": "Erin Hattersley",
+   "role": "Google.org",
+   "primaryAffiliationId": "inst-google-org",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-katherine-hecht",
+   "type": "person",
+   "label": "Katherine Hecht",
+   "role": "Google 20%: Sandbox Fund",
+   "primaryAffiliationId": "inst-google-org",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-mandy-albanese",
+   "type": "person",
+   "label": "Mandy Albanese",
+   "role": "Google 20%: Red Sky, Googler engagement",
+   "primaryAffiliationId": "inst-google-org",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-ilkay-altintas",
+   "type": "person",
+   "label": "Ilkay Altintas",
+   "role": "WS1 lead; Sandbox IC",
+   "primaryAffiliationId": "land-12",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-john-mills",
+   "type": "person",
+   "label": "John Mills",
+   "role": "WS3 lead (tentative); Sandbox IC",
+   "primaryAffiliationId": "land-163",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-natalie-cilem",
+   "type": "person",
+   "label": "Natalie Çilem",
+   "role": "WS4 lead (tentative); Sandbox IC",
+   "primaryAffiliationId": "land-7",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-duarte-oom",
+   "type": "person",
+   "label": "Duarte Oom",
+   "role": "WS2/WS3/WS4 contributor",
+   "primaryAffiliationId": "land-32",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-andrew-howe",
+   "type": "person",
+   "label": "Andrew Howe",
+   "role": "Benchmarking coordinator",
+   "primaryAffiliationId": "aicw-org-ai2",
+   "startDate": "2026-03-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-kimberley-miner",
+   "type": "person",
+   "label": "Kimberley Miner",
+   "role": "WS2 fuel moisture (proposed effort lead)",
+   "primaryAffiliationId": "land-162",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-ian-mccubbin",
+   "type": "person",
+   "label": "Ian McCubbin",
+   "role": "WS1",
+   "primaryAffiliationId": "land-162",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-jackie-shuman",
+   "type": "person",
+   "label": "Jackie Shuman",
+   "role": "WS2 emissions",
+   "primaryAffiliationId": "land-23",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-brian-buma",
+   "type": "person",
+   "label": "Brian Buma",
+   "role": "WS3; named WS2 lead in Oct notes (not confirmed)",
+   "primaryAffiliationId": "land-23",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-brendan-rogers",
+   "type": "person",
+   "label": "Brendan Rogers",
+   "role": "WS2 emissions",
+   "primaryAffiliationId": "land-25",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-brian-collins",
+   "type": "person",
+   "label": "Brian Collins",
+   "role": "EFA",
+   "primaryAffiliationId": "collab-efa",
+   "startDate": "2025-03-24",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-alex-dehgan",
+   "type": "person",
+   "label": "Alex Dehgan",
+   "role": "WS4; SAFF",
+   "primaryAffiliationId": "land-63",
+   "startDate": "2026-10-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-chris-anthony",
+   "type": "person",
+   "label": "Chris Anthony",
+   "role": "Proposed Advisory Board",
+   "primaryAffiliationId": "aicw-org-firewerx",
+   "startDate": "2026-05-05",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-michael-gollner",
+   "type": "person",
+   "label": "Michael Gollner",
+   "role": "UC Berkeley Fire Lab",
+   "primaryAffiliationId": "land-14",
+   "startDate": "2026-03-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-jim-randerson",
+   "type": "person",
+   "label": "Jim Randerson",
+   "role": "Benchmarking",
+   "primaryAffiliationId": "aicw-org-uci",
+   "startDate": "2026-03-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-fernando-sedano",
+   "type": "person",
+   "label": "Fernando Sedano",
+   "role": "WS2",
+   "primaryAffiliationId": "aicw-org-jrc",
+   "startDate": "2026-10-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-dave-marvin",
+   "type": "person",
+   "label": "Dave Marvin",
+   "role": "Benchmark subgroup",
+   "primaryAffiliationId": "aicw-org-planet",
+   "startDate": "2026-03-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-sassan-saatchi",
+   "type": "person",
+   "label": "Sassan Saatchi",
+   "role": "CTrees",
+   "primaryAffiliationId": "aicw-org-ctrees",
+   "startDate": "2026-10-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-maria-theodori",
+   "type": "person",
+   "label": "Maria Theodori",
+   "role": "CloudFire",
+   "primaryAffiliationId": "aicw-org-cloudfire",
+   "startDate": "2026-10-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-conrad-bielski",
+   "type": "person",
+   "label": "Conrad Bielski",
+   "role": "Riscognition",
+   "primaryAffiliationId": "aicw-org-riscognition",
+   "startDate": "2026-10-29",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-gunter-zeug",
+   "type": "person",
+   "label": "Gunter Zeug",
+   "role": "Riscognition",
+   "primaryAffiliationId": "aicw-org-riscognition",
+   "startDate": "2026-10-29",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-winslow-hansen",
+   "type": "person",
+   "label": "Winslow Hansen",
+   "role": "Fire.OS",
+   "primaryAffiliationId": "land-26",
+   "startDate": "2026-10-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-sebastien-floodpage",
+   "type": "person",
+   "label": "Sebastien Floodpage",
+   "role": "Deep Fire",
+   "primaryAffiliationId": "aicw-org-deepfire",
+   "startDate": "2026-05-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "aicw-p-janice-coen",
+   "type": "person",
+   "label": "Janice Coen",
+   "role": "Independent; benchmarking initiative",
+   "startDate": "2026-10-01",
+   "tags": [
+    "AIC:W",
+    "Person"
+   ]
+  },
+  {
+   "id": "land-167",
+   "type": "product",
+   "label": "Wildfire Commons (UCSD)",
+   "tags": [
+    "AIC:W partner network"
+   ],
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-net-fao-hub",
+   "type": "collaborative",
+   "label": "FAO Global Fire Management Hub",
+   "tags": [
+    "AIC:W partner network"
+   ],
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-net-wgfd",
+   "type": "collaborative",
+   "label": "FAO Working Group on Fire Data (WGFD)",
+   "tags": [
+    "AIC:W partner network"
+   ],
+   "startDate": "2025-06-01"
+  },
+  {
+   "id": "aicw-net-gwln",
+   "type": "collaborative",
+   "label": "WEF Global Wildfire Leaders Network (GWLN)",
+   "tags": [
+    "AIC:W partner network"
+   ],
+   "startDate": "2026-01-01"
+  },
+  {
+   "id": "land-35",
+   "type": "collaborative",
+   "label": "Pyregence / PyreCast",
+   "tags": [
+    "AIC:W partner network"
+   ],
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-net-fire-adapt",
+   "type": "program",
+   "label": "FIRE ADAPT / Fire Tech U",
+   "tags": [
+    "AIC:W partner network"
+   ],
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-net-red-sky",
+   "type": "collaborative",
+   "label": "Red Sky (wildfire innovation summit)",
+   "tags": [
+    "AIC:W partner network"
+   ],
+   "startDate": "2025-11-01"
+  },
+  {
+   "id": "prod-firesat",
+   "type": "product",
+   "label": "FireSat Constellation",
+   "tags": [
+    "AIC:W partner network"
+   ],
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "land-128",
+   "type": "product",
+   "label": "European Forest Fire Information System (EFFIS)",
+   "tags": [
+    "AIC:W partner network"
+   ]
+  },
+  {
+   "id": "aicw-m-first-call",
+   "type": "meeting",
+   "label": "AIC:W first call",
+   "meetingType": "Working Group",
+   "date": "2024-08-06",
+   "organizerId": "aicw",
+   "tags": [
+    "AIC:W",
+    "Convening"
+   ]
+  },
+  {
+   "id": "aicw-m-launch",
+   "type": "meeting",
+   "label": "AIC:W launch convening (Q1 2025)",
+   "meetingType": "Symposium",
+   "date": "2025-03-24",
+   "summary": "14 lightning talks; 19 orgs in intro slides",
+   "organizerId": "aicw",
+   "tags": [
+    "AIC:W",
+    "Convening"
+   ]
+  },
+  {
+   "id": "aicw-m-red-sky-2025",
+   "type": "meeting",
+   "label": "Red Sky 2025",
+   "meetingType": "Symposium",
+   "date": "2025-11-01",
+   "organizerId": "aicw",
+   "tags": [
+    "AIC:W",
+    "Convening"
+   ]
+  },
+  {
+   "id": "aicw-m-tahoe",
+   "type": "meeting",
+   "label": "Tahoe convening (with Moore)",
+   "meetingType": "Workshop",
+   "date": "2026-05-05",
+   "summary": "North Star adjusted to include good fire; WS breakouts",
+   "organizerId": "aicw",
+   "tags": [
+    "AIC:W",
+    "Convening"
+   ]
+  },
+  {
+   "id": "aicw-m-aicw-day",
+   "type": "meeting",
+   "label": "AIC:W Day (Google, San Francisco)",
+   "meetingType": "Symposium",
+   "date": "2026-11-03",
+   "summary": "Ratings corrected live by each group",
+   "organizerId": "aicw",
+   "tags": [
+    "AIC:W",
+    "Convening"
+   ]
+  },
+  {
+   "id": "aicw-m-red-sky-2026",
+   "type": "meeting",
+   "label": "Red Sky Summit 2026",
+   "meetingType": "Symposium",
+   "date": "2026-11-04",
+   "summary": "AIC:W silver sponsor",
+   "organizerId": "aicw",
+   "tags": [
+    "AIC:W",
+    "Convening"
+   ]
+  },
+  {
+   "id": "aicw-m-bench-session",
+   "type": "meeting",
+   "label": "Benchmarking working session",
+   "meetingType": "Working Group",
+   "date": "2026-11-05",
+   "organizerId": "aicw",
+   "tags": [
+    "AIC:W",
+    "Convening"
+   ]
+  },
+  {
+   "id": "aicw-g-core",
+   "type": "grant",
+   "label": "Google.org AIC:W grants (all programmes)",
+   "funderInstitutionId": "inst-google-org",
+   "amount": 38200000,
+   "startDate": "2024-10-01",
+   "endDate": "2027-12-31",
+   "status": "Active",
+   "abstract": "SIG copy of the funding tracker; public figures $27M (Mar 2025), $40M+ (Sep 2026).",
+   "tags": [
+    "AIC:W",
+    "Funding"
+   ]
+  },
+  {
+   "id": "aicw-g-sandbox-google",
+   "type": "grant",
+   "label": "Google.org Sandbox contribution",
+   "funderInstitutionId": "inst-google-org",
+   "recipientInstitutionId": "aicw-sandbox",
+   "amount": 4000000,
+   "startDate": "2026-09-08",
+   "endDate": "2027-12-31",
+   "status": "Awarded",
+   "abstract": "$3M 2026, $1M 2027 (collaboration agreement).",
+   "tags": [
+    "AIC:W",
+    "Funding"
+   ]
+  },
+  {
+   "id": "aicw-g-sandbox-cofunder",
+   "type": "grant",
+   "label": "Anonymous co-funder Sandbox grant",
+   "funderInstitutionId": "land-3",
+   "recipientInstitutionId": "aicw-sandbox",
+   "amount": 4000000,
+   "startDate": "2026-10-22",
+   "endDate": "2027-06-30",
+   "status": "Awarded",
+   "abstract": "$2M 2026, $2M Q2 2027; agreement executed 22 Oct 2026. Never name the funder outside the PMO.",
+   "tags": [
+    "AIC:W",
+    "Funding",
+    "Confidential funder"
+   ]
+  },
+  {
+   "id": "aicw-g-pmo",
+   "type": "grant",
+   "label": "SIG-NAL PMO and M&E annex",
+   "funderInstitutionId": "inst-google-org",
+   "recipientInstitutionId": "aicw-pmo",
+   "amount": 1640000,
+   "startDate": "2026-07-01",
+   "endDate": "2027-12-31",
+   "status": "Active",
+   "abstract": "PMO and M&E annex.",
+   "tags": [
+    "AIC:W",
+    "Funding"
+   ]
+  },
+  {
+   "id": "aicw-g-nsf",
+   "type": "grant",
+   "label": "NSF award",
+   "funderInstitutionId": "aicw-org-nsf",
+   "amount": 1050000,
+   "startDate": "2025-01-01",
+   "status": "Active",
+   "abstract": "Funding tracker, 2025.",
+   "tags": [
+    "AIC:W",
+    "Funding"
+   ]
+  },
+  {
+   "id": "aicw-g-usfs-planscape",
+   "type": "grant",
+   "label": "USFS co-funding for Planscape",
+   "funderInstitutionId": "land-101",
+   "recipientInstitutionId": "land-22",
+   "amount": 2000000,
+   "status": "Active",
+   "abstract": "Tier placement notes.",
+   "tags": [
+    "AIC:W",
+    "Funding"
+   ]
+  },
+  {
+   "id": "aicw-g-bezos-efa",
+   "type": "grant",
+   "label": "Bezos Earth Fund grant to EFA",
+   "funderInstitutionId": "land-5",
+   "recipientInstitutionId": "collab-efa",
+   "amount": 26000000,
+   "status": "Awarded",
+   "abstract": "Completed EFA's philanthropic goal.",
+   "tags": [
+    "AIC:W",
+    "Funding"
+   ]
+  },
+  {
+   "id": "aicw-g-saff",
+   "type": "grant",
+   "label": "SAFF anchor funding",
+   "funderInstitutionId": "land-2",
+   "recipientInstitutionId": "aicw-org-saff",
+   "amount": 35000000,
+   "startDate": "2026-09-01",
+   "status": "Active",
+   "abstract": "Moore $30M + Packard $5M toward a $100M target.",
+   "tags": [
+    "AIC:W",
+    "Funding"
+   ]
+  },
+  {
+   "id": "aicw-bid-fire-maps",
+   "type": "grant",
+   "label": "Sandbox bid: FIRE-MAPS",
+   "amount": 800000,
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, Received. Track: Implementation. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: Implementation",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-bid-spark-op",
+   "type": "grant",
+   "label": "Sandbox bid: Spark Operational",
+   "amount": 995000,
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, Received (draft). Track: Implementation. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: Implementation",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-bid-woodwell-sig",
+   "type": "grant",
+   "label": "Sandbox bid: Woodwell-SIG Exploration",
+   "amount": 599724,
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, Received. Track: Exploration. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: Exploration",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-bid-amazon-cerrado",
+   "type": "grant",
+   "label": "Sandbox bid: Woodwell Amazon-Cerrado",
+   "amount": 934098,
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, Received. Track: Implementation. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: Implementation",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-bid-wfca-efa",
+   "type": "grant",
+   "label": "Sandbox bid: WFCA + EFA",
+   "amount": 720000,
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, Received. Track: Implementation. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: Implementation",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-bid-edf",
+   "type": "grant",
+   "label": "Sandbox bid: EDF",
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, Received. Track: TBC. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: TBC",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-bid-fire-os",
+   "type": "grant",
+   "label": "Sandbox bid in development: Fire.OS",
+   "amount": 1000000,
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, In development. Track: Implementation. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: Implementation",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-bid-jpl-vc",
+   "type": "grant",
+   "label": "Sandbox bid in development: JPL virtual constellation",
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, In development. Track: TBC. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: TBC",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-bid-deepfire",
+   "type": "grant",
+   "label": "Sandbox bid in development: Deep Fire",
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, In development. Track: TBC. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: TBC",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-bid-edf-sig-boreal",
+   "type": "grant",
+   "label": "Sandbox bid in development: EDF + SIG boreal",
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, In development. Track: TBC. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: TBC",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-bid-saff",
+   "type": "grant",
+   "label": "Sandbox bid in development: SAFF",
+   "status": "Pending",
+   "startDate": "2026-10-16",
+   "abstract": "Round 1, In development. Track: TBC. Internal only: slides show themes, not names or amounts.",
+   "tags": [
+    "AIC:W",
+    "Sandbox Round 1",
+    "Sandbox track: TBC",
+    "Internal only"
+   ]
+  },
+  {
+   "id": "aicw-proj-efa-firesat",
+   "type": "product",
+   "label": "EFA: FireSat",
+   "startDate": "2025-03-24",
+   "color": "#FFE066",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used planned, Collaboration emerging. WS1 Earth observation project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 emerging/planned/emerging. Launch-to-now score 15 to 65 of 100. Evidence: 3 satellites in orbit Jul 2026, calibrating; early-adopter data by end 2026; FIRMS and Deep Fire feeds summer 2027. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS1",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: planned",
+    "Oct 2026 collaboration: emerging"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "planned",
+    "collaboration": "emerging"
+   },
+   "launchScore": 15,
+   "nowScore": 65,
+   "northStarLevers": [
+    "detection"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-ucsd-node",
+   "type": "product",
+   "label": "UCSD: Wildfire Commons node",
+   "startDate": "2025-03-24",
+   "color": "#FFE066",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability live, Used live, Collaboration emerging. WS1 Earth observation project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 live/live/emerging. Launch-to-now score 20 to 70 of 100. Evidence: System live per David 30 Oct 2026; API shared May 2026; catalog; 20 unique repository users in 2025. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS1",
+    "Oct 2026 capability: live",
+    "Oct 2026 used: live",
+    "Oct 2026 collaboration: emerging",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "live",
+    "used": "live",
+    "collaboration": "emerging"
+   },
+   "launchScore": 20,
+   "nowScore": 70,
+   "northStarLevers": [
+    "detection",
+    "response"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-firms",
+   "type": "product",
+   "label": "NASA FIRMS",
+   "startDate": "2025-03-24",
+   "color": "#FFE066",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability live, Used live, Collaboration planned. WS1 Earth observation project. Capability / Used / Collaboration: Mar 2025 live/live/planned; May 2026 live/live/planned; Oct 2026 live/live/planned. Launch-to-now score 50 to 60 of 100. Evidence: Operational system of record; handshake only on the virtual-constellation role. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS1",
+    "Oct 2026 capability: live",
+    "Oct 2026 used: live",
+    "Oct 2026 collaboration: planned",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "planned"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "planned"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "live",
+    "used": "live",
+    "collaboration": "planned"
+   },
+   "launchScore": 50,
+   "nowScore": 60,
+   "northStarLevers": [
+    "detection"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-ororatech",
+   "type": "product",
+   "label": "OroraTech",
+   "startDate": "2026-05-05",
+   "color": "#FFE066",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability live, Used live, Collaboration emerging. WS1 Earth observation project. Capability / Used / Collaboration: Mar 2025 emerging/emerging/planned; May 2026 emerging/emerging/planned; Oct 2026 live/live/emerging. Launch-to-now score 20 to 70 of 100. Evidence: System live per David 30 Oct 2026; partnered with EFA on detection feeds. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS1",
+    "Oct 2026 capability: live",
+    "Oct 2026 used: live",
+    "Oct 2026 collaboration: emerging",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "planned"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "live",
+    "used": "live",
+    "collaboration": "emerging"
+   },
+   "launchScore": 20,
+   "nowScore": 70,
+   "northStarLevers": [
+    "detection"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-sig-fuels",
+   "type": "product",
+   "label": "SIG: AlphaEarth fuels",
+   "startDate": "2025-03-24",
+   "color": "#CBE2AF",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability live, Used emerging, Collaboration emerging. WS2 Fuels, weather and fire behaviour project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 live/emerging/emerging (North Star test: live/planned/emerging). Launch-to-now score 10 to 60 of 100. Evidence: 10 m CONUS fuels v1 done, validating vs LANDFIRE. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS2",
+    "Oct 2026 capability: live",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: emerging",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "emerging",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "live",
+    "used": "planned",
+    "collaboration": "emerging"
+   },
+   "launchScore": 10,
+   "nowScore": 60,
+   "northStarLevers": [
+    "prevention"
+   ],
+   "northStarOutcomes": [
+    "damage",
+    "goodfire"
+   ]
+  },
+  {
+   "id": "aicw-proj-fire-maps",
+   "type": "product",
+   "label": "Caltech/JPL: FIRE-MAPS",
+   "startDate": "2025-03-24",
+   "color": "#CBE2AF",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability live, Used emerging, Collaboration live. WS2 Fuels, weather and fire behaviour project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 live/emerging/live (North Star test: live/planned/live). Launch-to-now score 10 to 55 of 100. Evidence: Datasets on Earth Engine, Zenodo, Commons (104 downloads); NISAR workflow; 3 papers. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS2",
+    "Oct 2026 capability: live",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: live",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "emerging",
+     "collaboration": "live"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "live",
+    "used": "planned",
+    "collaboration": "live"
+   },
+   "launchScore": 10,
+   "nowScore": 55,
+   "northStarLevers": [
+    "prevention"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-ai2-olmo",
+   "type": "product",
+   "label": "Ai2: OlmoEarth and benchmark",
+   "startDate": "2026-03-01",
+   "color": "#CBE2AF",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used emerging, Collaboration live. WS2 Fuels, weather and fire behaviour project. Capability / Used / Collaboration: Mar 2025 none/none/none; May 2026 emerging/planned/emerging; Oct 2026 emerging/emerging/live (North Star test: emerging/planned/live). Launch-to-now score 0 to 50 of 100. Evidence: Coordinates the benchmark; fuel-moisture model on JPL data; nine-organisation initiative, NSF proposal 4 Nov. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS2",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: live",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "none",
+     "used": "none",
+     "collaboration": "none"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "live"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "planned",
+    "collaboration": "live"
+   },
+   "launchScore": 0,
+   "nowScore": 50,
+   "northStarLevers": [
+    "prevention",
+    "detection"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-woodwell-models",
+   "type": "product",
+   "label": "Woodwell: boreal and Amazon models",
+   "startDate": "2025-03-24",
+   "color": "#CBE2AF",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used emerging, Collaboration emerging. WS2 Fuels, weather and fire behaviour project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 emerging/emerging/emerging. Launch-to-now score 20 to 60 of 100. Evidence: Carbon-vulnerability map Alaska/Canada; Amazon fire-probability model; FireSat early adopter. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS2",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: emerging"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "emerging",
+    "collaboration": "emerging"
+   },
+   "launchScore": 20,
+   "nowScore": 60,
+   "northStarLevers": [
+    "prevention"
+   ],
+   "northStarOutcomes": [
+    "damage",
+    "goodfire"
+   ]
+  },
+  {
+   "id": "aicw-proj-edf-science",
+   "type": "product",
+   "label": "EDF: FireSat science and emissions",
+   "startDate": "2025-03-24",
+   "color": "#CBE2AF",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used planned, Collaboration live. WS2 Fuels, weather and fire behaviour project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 emerging/planned/live. Launch-to-now score 10 to 55 of 100. Evidence: Science roadmap 2026-2030 from ~100 experts; emissions comparison with Climate TRACE, SLU, Woodwell. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS2",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: planned",
+    "Oct 2026 collaboration: live",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "live"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "planned",
+    "collaboration": "live"
+   },
+   "launchScore": 10,
+   "nowScore": 55,
+   "northStarLevers": [
+    "detection"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-spark",
+   "type": "product",
+   "label": "CSIRO: SPARK",
+   "startDate": "2025-03-24",
+   "color": "#CBE2AF",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability live, Used live, Collaboration emerging. WS2 Fuels, weather and fire behaviour project. Capability / Used / Collaboration: Mar 2025 live/live/planned; May 2026 live/live/planned; Oct 2026 live/live/emerging. Launch-to-now score 25 to 45 of 100. Evidence: 36 experimental burns; Spark integration in progress; joint Sandbox bid with AFAC. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS2",
+    "Oct 2026 capability: live",
+    "Oct 2026 used: live",
+    "Oct 2026 collaboration: emerging",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "planned"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "live",
+    "used": "live",
+    "collaboration": "emerging"
+   },
+   "launchScore": 25,
+   "nowScore": 45,
+   "northStarLevers": [
+    "response"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-planet",
+   "type": "product",
+   "label": "Planet",
+   "startDate": "2026-03-01",
+   "color": "#CBE2AF",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability planned, Used none, Collaboration emerging. WS2 Fuels, weather and fire behaviour project. Capability / Used / Collaboration: Mar 2025 none/none/none; May 2026 planned/none/planned; Oct 2026 planned/none/emerging. Evidence: Benchmark subgroup member; no AIC:W product of its own yet. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS2",
+    "Oct 2026 capability: planned",
+    "Oct 2026 used: none",
+    "Oct 2026 collaboration: emerging"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "none",
+     "used": "none",
+     "collaboration": "none"
+    },
+    "2026-05": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-10": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "planned",
+    "used": "none",
+    "collaboration": "emerging"
+   },
+   "northStarLevers": [
+    "detection"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-watchduty",
+   "type": "product",
+   "label": "Watch Duty",
+   "startDate": "2025-03-24",
+   "color": "#F8CBA0",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability live, Used live, Collaboration live. WS3 Decision support and adoption project. Capability / Used / Collaboration: Mar 2025 live/live/none; May 2026 live/live/planned; Oct 2026 live/live/live. Launch-to-now score 40 to 75 of 100. Evidence: 16M+ users, 3,000+ counties; Pyregence and WIFIRE models live; NGFS feed. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS3",
+    "Oct 2026 capability: live",
+    "Oct 2026 used: live",
+    "Oct 2026 collaboration: live",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "none"
+    },
+    "2026-05": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "planned"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "live"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "live",
+    "used": "live",
+    "collaboration": "live"
+   },
+   "launchScore": 40,
+   "nowScore": 75,
+   "northStarLevers": [
+    "response"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-planscape",
+   "type": "product",
+   "label": "SIG: Planscape",
+   "startDate": "2025-03-24",
+   "color": "#F8CBA0",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability live, Used live, Collaboration emerging. WS3 Decision support and adoption project. Capability / Used / Collaboration: Mar 2025 live/live/none; May 2026 live/live/planned; Oct 2026 live/live/emerging. Launch-to-now score 35 to 70 of 100. Evidence: CONUS; 1,300+ plans; Placerville 80,000 acres, burn probability down 25%+. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS3",
+    "Oct 2026 capability: live",
+    "Oct 2026 used: live",
+    "Oct 2026 collaboration: emerging",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "none"
+    },
+    "2026-05": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "planned"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "live",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "live",
+    "used": "live",
+    "collaboration": "emerging"
+   },
+   "launchScore": 35,
+   "nowScore": 70,
+   "northStarLevers": [
+    "prevention"
+   ],
+   "northStarOutcomes": [
+    "damage",
+    "goodfire"
+   ]
+  },
+  {
+   "id": "aicw-proj-fao-hub",
+   "type": "product",
+   "label": "FAO: Fire Hub and WGFD",
+   "startDate": "2025-03-24",
+   "color": "#F8CBA0",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability live, Used emerging, Collaboration emerging. WS3 Decision support and adoption project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 live/emerging/emerging. Launch-to-now score 15 to 55 of 100. Evidence: User Needs and Gaps report; 500+ page Global Fire Data Inventory nearly done. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS3",
+    "Oct 2026 capability: live",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: emerging",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "live",
+     "used": "emerging",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "live",
+    "used": "emerging",
+    "collaboration": "emerging"
+   },
+   "launchScore": 15,
+   "nowScore": 55,
+   "northStarLevers": [
+    "prevention",
+    "response"
+   ],
+   "northStarOutcomes": [
+    "damage",
+    "goodfire"
+   ]
+  },
+  {
+   "id": "aicw-proj-firewerx",
+   "type": "product",
+   "label": "FireWERX",
+   "startDate": "2026-05-05",
+   "color": "#F8CBA0",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used emerging, Collaboration live. WS3 Decision support and adoption project. Capability / Used / Collaboration: Mar 2025 none/none/none; May 2026 planned/none/planned; Oct 2026 emerging/emerging/live. Launch-to-now score 0 to 50 of 100. Evidence: FIUs at OCFA, CAL FIRE, DoW, CONAF; CAL FIRE drone trial Jul 2026. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS3",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: live",
+    "Live at this date"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "none",
+     "used": "none",
+     "collaboration": "none"
+    },
+    "2026-05": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "live"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "emerging",
+    "collaboration": "live"
+   },
+   "launchScore": 0,
+   "nowScore": 50,
+   "northStarLevers": [
+    "response"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-wfca-ftu",
+   "type": "product",
+   "label": "WFCA: Fire Tech U",
+   "startDate": "2025-03-24",
+   "color": "#F8CBA0",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used emerging, Collaboration emerging. WS3 Decision support and adoption project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 emerging/emerging/emerging. Launch-to-now score 10 to 30 of 100. Evidence: Ignite exercise; vendor interoperability pledge; reach not reported. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS3",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: emerging"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "emerging",
+    "collaboration": "emerging"
+   },
+   "launchScore": 10,
+   "nowScore": 30,
+   "northStarLevers": [
+    "response"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-woodwell-brigades",
+   "type": "product",
+   "label": "Woodwell: Amazon brigades",
+   "startDate": "2025-03-24",
+   "color": "#F8CBA0",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used emerging, Collaboration emerging. WS3 Decision support and adoption project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 emerging/emerging/emerging. Launch-to-now score 10 to 50 of 100. Evidence: 5 GIS and participatory-mapping workshops; Pataxibas brigade workshop Oct 2026. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS3",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: emerging"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "emerging",
+    "collaboration": "emerging"
+   },
+   "launchScore": 10,
+   "nowScore": 50,
+   "northStarLevers": [
+    "prevention",
+    "response"
+   ],
+   "northStarOutcomes": [
+    "goodfire"
+   ]
+  },
+  {
+   "id": "aicw-proj-wef-gwln",
+   "type": "product",
+   "label": "WEF: GWLN and investment case",
+   "startDate": "2025-03-24",
+   "color": "#C3D3DC",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used emerging, Collaboration emerging. WS4 Ecosystem and financing project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/planned; Oct 2026 emerging/emerging/emerging. Launch-to-now score 15 to 60 of 100. Evidence: White paper with PwC Jan 2026; Solutions Labs incl. one co-led with SIG. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS4",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: emerging"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "planned"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "emerging",
+    "collaboration": "emerging"
+   },
+   "launchScore": 15,
+   "nowScore": 60,
+   "northStarLevers": [
+    "enabler"
+   ],
+   "northStarOutcomes": [
+    "damage",
+    "goodfire"
+   ]
+  },
+  {
+   "id": "aicw-proj-afac-hub",
+   "type": "product",
+   "label": "AFAC: Emerging Technologies Hub",
+   "startDate": "2025-03-24",
+   "color": "#C3D3DC",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used emerging, Collaboration emerging. WS4 Ecosystem and financing project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 emerging/emerging/emerging. Launch-to-now score 10 to 50 of 100. Evidence: Grass-curing AI app with Country Fire Service; AFAC26 showcase. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS4",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: emerging"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "emerging",
+    "collaboration": "emerging"
+   },
+   "launchScore": 10,
+   "nowScore": 50,
+   "northStarLevers": [
+    "detection",
+    "response"
+   ],
+   "northStarOutcomes": [
+    "damage"
+   ]
+  },
+  {
+   "id": "aicw-proj-signal-pmo",
+   "type": "product",
+   "label": "SIG-NAL: PMO and Sandbox Fund",
+   "startDate": "2025-03-24",
+   "color": "#C3D3DC",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used emerging, Collaboration emerging. WS4 Ecosystem and financing project. Capability / Used / Collaboration: Mar 2025 planned/none/planned; May 2026 emerging/planned/emerging; Oct 2026 emerging/emerging/emerging. Launch-to-now score 20 to 55 of 100. Evidence: Sandbox open, Round 1 closes 16 Nov; SAFF formed by a member. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS4",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: emerging",
+    "Oct 2026 collaboration: emerging"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "planned"
+    },
+    "2026-05": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "emerging",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "emerging",
+    "collaboration": "emerging"
+   },
+   "launchScore": 20,
+   "nowScore": 55,
+   "northStarLevers": [
+    "enabler"
+   ],
+   "northStarOutcomes": [
+    "damage",
+    "goodfire"
+   ]
+  },
+  {
+   "id": "aicw-proj-carbon-finance",
+   "type": "product",
+   "label": "EDF and Woodwell: carbon finance case",
+   "startDate": "2025-03-24",
+   "color": "#C3D3DC",
+   "productType": "Project / Hardware",
+   "status": "Ongoing",
+   "description": "Ratings at Oct 2026 (now): Capability emerging, Used planned, Collaboration emerging. WS4 Ecosystem and financing project. Capability / Used / Collaboration: Mar 2025 none/none/none; May 2026 planned/none/emerging; Oct 2026 emerging/planned/emerging. Evidence: Avoided-emissions draft (32 Mt CO2/yr, draft only); no financing secured yet. PMO draft, to be corrected by each group on 3 Nov 2026.",
+   "tags": [
+    "AIC:W",
+    "Rated project",
+    "WS4",
+    "Oct 2026 capability: emerging",
+    "Oct 2026 used: planned",
+    "Oct 2026 collaboration: emerging"
+   ],
+   "impact": {
+    "2025-03": {
+     "capability": "none",
+     "used": "none",
+     "collaboration": "none"
+    },
+    "2026-05": {
+     "capability": "planned",
+     "used": "none",
+     "collaboration": "emerging"
+    },
+    "2026-10": {
+     "capability": "emerging",
+     "used": "planned",
+     "collaboration": "emerging"
+    }
+   },
+   "impactNorthStar2026_10": {
+    "capability": "emerging",
+    "used": "planned",
+    "collaboration": "emerging"
+   },
+   "northStarLevers": [
+    "enabler"
+   ],
+   "northStarOutcomes": [
+    "goodfire"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "id": "aicw-e-001",
+   "source": "aicw",
+   "target": "aicw-ws1",
+   "type": "HAS_PROJECT",
+   "label": "workstream",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-002",
+   "source": "aicw",
+   "target": "aicw-ws2",
+   "type": "HAS_PROJECT",
+   "label": "workstream",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-003",
+   "source": "aicw",
+   "target": "aicw-ws3",
+   "type": "HAS_PROJECT",
+   "label": "workstream",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-004",
+   "source": "aicw",
+   "target": "aicw-ws4",
+   "type": "HAS_PROJECT",
+   "label": "workstream",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-005",
+   "source": "aicw",
+   "target": "aicw-pmo",
+   "type": "HAS_PROJECT",
+   "label": "pmo",
+   "startDate": "2024-11-01"
+  },
+  {
+   "id": "aicw-e-006",
+   "source": "aicw",
+   "target": "aicw-me",
+   "type": "HAS_PROJECT",
+   "label": "me",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-007",
+   "source": "aicw",
+   "target": "aicw-sandbox",
+   "type": "HAS_PROJECT",
+   "label": "sandbox",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-008",
+   "source": "aicw-ws2",
+   "target": "aicw-benchmark",
+   "type": "HAS_PROJECT",
+   "label": "benchmarking",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-009",
+   "source": "aicw",
+   "target": "aicw-ns-prevention",
+   "type": "HAS_TOPIC",
+   "label": "North Star"
+  },
+  {
+   "id": "aicw-e-010",
+   "source": "aicw",
+   "target": "aicw-ns-detection",
+   "type": "HAS_TOPIC",
+   "label": "North Star"
+  },
+  {
+   "id": "aicw-e-011",
+   "source": "aicw",
+   "target": "aicw-ns-response",
+   "type": "HAS_TOPIC",
+   "label": "North Star"
+  },
+  {
+   "id": "aicw-e-012",
+   "source": "aicw",
+   "target": "aicw-ns-enabler",
+   "type": "HAS_TOPIC",
+   "label": "North Star"
+  },
+  {
+   "id": "aicw-e-013",
+   "source": "aicw",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star"
+  },
+  {
+   "id": "aicw-e-014",
+   "source": "aicw",
+   "target": "aicw-ns-goodfire",
+   "type": "HAS_TOPIC",
+   "label": "North Star"
+  },
+  {
+   "id": "aicw-e-015",
+   "source": "inst-google-org",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Executive Team; funder",
+   "modality": "joined 2025-03-24: founder",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "Executive Team; funder",
+    "joinBasis": "founder",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-016",
+   "source": "land-19",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Executive Team (PMO); WG Contributor",
+   "modality": "joined 2025-03-24: founder",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "Executive Team (PMO); WG Contributor",
+    "joinBasis": "founder",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-017",
+   "source": "aicw-org-signal",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Executive Team (PMO)",
+   "modality": "joined 2025-03-24: founder",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "Executive Team (PMO)",
+    "joinBasis": "founder",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-018",
+   "source": "land-169",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Executive Team (M&E)",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "Executive Team (M&E)",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-019",
+   "source": "land-164",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-020",
+   "source": "land-162",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-021",
+   "source": "land-109",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-022",
+   "source": "collab-efa",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-023",
+   "source": "land-23",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-024",
+   "source": "land-32",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-025",
+   "source": "land-22",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-026",
+   "source": "land-12",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Lead (WS1); WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Lead (WS1); WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-027",
+   "source": "land-163",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Lead (WS3, tentative); WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Lead (WS3, tentative); WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-028",
+   "source": "land-130",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-029",
+   "source": "land-25",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-030",
+   "source": "land-7",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Lead (WS4, tentative); Finance & Funding",
+   "modality": "joined 2025-03-24: launch presenter",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Lead (WS4, tentative); Finance & Funding",
+    "joinBasis": "launch presenter",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-031",
+   "source": "aicw-org-ai2",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2026-03-01: joined after launch; benchmark subgroup Mar 2026",
+   "startDate": "2026-03-01",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "joined after launch; benchmark subgroup Mar 2026",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-032",
+   "source": "aicw-org-firewerx",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2026-05-05: joined after launch; rated at Tahoe",
+   "startDate": "2026-05-05",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "joined after launch; rated at Tahoe",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-033",
+   "source": "land-174",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2025-03-24: operational at launch; WS1 handshake planned",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "operational at launch; WS1 handshake planned",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-034",
+   "source": "land-36",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2026-05-05: WS1 update at Tahoe",
+   "startDate": "2026-05-05",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "WS1 update at Tahoe",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-035",
+   "source": "aicw-org-planet",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2026-03-01: benchmark subgroup member",
+   "startDate": "2026-03-01",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "benchmark subgroup member",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-036",
+   "source": "aicw-org-jrc",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor",
+   "modality": "joined 2026-10-01: date unknown; on WS2 list by Oct 2026",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "WG Contributor",
+    "joinBasis": "date unknown; on WS2 list by Oct 2026",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-037",
+   "source": "land-63",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor (replaced by SAFF in listings)",
+   "modality": "joined 2026-10-01: date unknown",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "WG Contributor (replaced by SAFF in listings)",
+    "joinBasis": "date unknown",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-038",
+   "source": "aicw-org-cfa",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "WG Contributor (through AFAC)",
+   "modality": "joined 2026-10-01: date unknown",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "WG Contributor (through AFAC)",
+    "joinBasis": "date unknown",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-039",
+   "source": "land-2",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Strategic Partner (funder)",
+   "modality": "joined 2025-03-24: co-funder",
+   "startDate": "2025-03-24",
+   "properties": {
+    "tier": "Strategic Partner (funder)",
+    "joinBasis": "co-funder",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-040",
+   "source": "land-5",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Strategic Partner (funder)",
+   "modality": "joined 2026-10-01: date unknown",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Strategic Partner (funder)",
+    "joinBasis": "date unknown",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-041",
+   "source": "aicw-org-nsf",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "funded, not on a board",
+   "how": "Strategic Partner (funder)",
+   "modality": "joined 2025-01-01: 2025 grant",
+   "startDate": "2025-01-01",
+   "properties": {
+    "tier": "Strategic Partner (funder)",
+    "joinBasis": "2025 grant",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-042",
+   "source": "land-3",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Strategic Partner (funder; keep anonymous externally)",
+   "modality": "joined 2026-05-01: committed May 2026",
+   "startDate": "2026-05-01",
+   "properties": {
+    "tier": "Strategic Partner (funder; keep anonymous externally)",
+    "joinBasis": "committed May 2026",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-043",
+   "source": "aicw-org-avf",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Strategic Partner (funder)",
+   "modality": "joined 2026-10-01: date unknown; logo board",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Strategic Partner (funder)",
+    "joinBasis": "date unknown; logo board",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-044",
+   "source": "aicw-org-dbl",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Strategic Partner (investor)",
+   "modality": "joined 2026-10-01: date unknown; logo board",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Strategic Partner (investor)",
+    "joinBasis": "date unknown; logo board",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-045",
+   "source": "land-42",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Strategic Partner (funder)",
+   "modality": "joined 2026-10-01: date unknown",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Strategic Partner (funder)",
+    "joinBasis": "date unknown",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-046",
+   "source": "land-101",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Strategic Partner (funder and adopter)",
+   "modality": "joined 2026-10-01: date unknown",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Strategic Partner (funder and adopter)",
+    "joinBasis": "date unknown",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-047",
+   "source": "inst-muon-space",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Strategic Partner (builds FireSat; not shown as member)",
+   "modality": "joined 2026-10-01: date unknown",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Strategic Partner (builds FireSat; not shown as member)",
+    "joinBasis": "date unknown",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-048",
+   "source": "inst-cwi",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Strategic Partner (expertise)",
+   "modality": "joined 2026-10-01: date unknown; logo board",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Strategic Partner (expertise)",
+    "joinBasis": "date unknown; logo board",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-049",
+   "source": "land-15",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Strategic Partner (expertise)",
+   "modality": "joined 2026-10-01: added by David",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Strategic Partner (expertise)",
+    "joinBasis": "added by David",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-050",
+   "source": "aicw-org-saff",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Member (replaces Conservation X Labs entry)",
+   "modality": "joined 2026-09-01: formed Sep 2026",
+   "startDate": "2026-09-01",
+   "properties": {
+    "tier": "Member (replaces Conservation X Labs entry)",
+    "joinBasis": "formed Sep 2026",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-051",
+   "source": "land-14",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "member",
+   "how": "Member (WG Contributor, WS2); seeking formal onboarding",
+   "modality": "joined 2026-03-01: benchmarking",
+   "startDate": "2026-03-01",
+   "properties": {
+    "tier": "Member (WG Contributor, WS2); seeking formal onboarding",
+    "joinBasis": "benchmarking",
+    "onLogoBoard": true
+   }
+  },
+  {
+   "id": "aicw-e-052",
+   "source": "aicw-org-uci",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "extended contributor",
+   "how": "Extended Contributor (not a member)",
+   "modality": "joined 2026-03-01: benchmarking",
+   "startDate": "2026-03-01",
+   "properties": {
+    "tier": "Extended Contributor (not a member)",
+    "joinBasis": "benchmarking",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-053",
+   "source": "aicw-org-deepfire",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "extended contributor",
+   "how": "Extended Contributor; seeking formal partnership",
+   "modality": "joined 2026-05-01: attends WS1 since May 2026",
+   "startDate": "2026-05-01",
+   "properties": {
+    "tier": "Extended Contributor; seeking formal partnership",
+    "joinBasis": "attends WS1 since May 2026",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-054",
+   "source": "aicw-org-cloudfire",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "extended contributor",
+   "how": "Extended Contributor; seeking formal partnership",
+   "modality": "joined 2026-10-01: benchmarking",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Extended Contributor; seeking formal partnership",
+    "joinBasis": "benchmarking",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-055",
+   "source": "land-26",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "extended contributor",
+   "how": "Extended Contributor; seeking formal partnership",
+   "modality": "joined 2026-10-01: Fire.OS Sandbox bid",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Extended Contributor; seeking formal partnership",
+    "joinBasis": "Fire.OS Sandbox bid",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-056",
+   "source": "aicw-org-ctrees",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "extended contributor",
+   "how": "Extended Contributor; seeking formal partnership",
+   "modality": "joined 2026-10-01: date unknown",
+   "startDate": "2026-10-01",
+   "properties": {
+    "tier": "Extended Contributor; seeking formal partnership",
+    "joinBasis": "date unknown",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-057",
+   "source": "aicw-org-riscognition",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "extended contributor",
+   "how": "Extended Contributor; seeking formal partnership",
+   "modality": "joined 2026-10-29: first PMO call 29 Oct 2026",
+   "startDate": "2026-10-29",
+   "properties": {
+    "tier": "Extended Contributor; seeking formal partnership",
+    "joinBasis": "first PMO call 29 Oct 2026",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-058",
+   "source": "aicw-org-sjsu",
+   "target": "aicw",
+   "type": "MEMBER_OF",
+   "label": "extended contributor",
+   "how": "Extended Contributor",
+   "modality": "joined 2026-10-24: benchmarking initiative",
+   "startDate": "2026-10-24",
+   "properties": {
+    "tier": "Extended Contributor",
+    "joinBasis": "benchmarking initiative",
+    "onLogoBoard": false
+   }
+  },
+  {
+   "id": "aicw-e-060",
+   "source": "collab-efa",
+   "target": "aicw-ws1",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-061",
+   "source": "land-162",
+   "target": "aicw-ws1",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-062",
+   "source": "land-174",
+   "target": "aicw-ws1",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-063",
+   "source": "land-36",
+   "target": "aicw-ws1",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-064",
+   "source": "land-12",
+   "target": "aicw-ws1",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-065",
+   "source": "inst-google-org",
+   "target": "aicw-ws1",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-066",
+   "source": "aicw-org-deepfire",
+   "target": "aicw-ws1",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-05-01"
+  },
+  {
+   "id": "aicw-e-067",
+   "source": "aicw-org-ai2",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-068",
+   "source": "land-164",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-069",
+   "source": "land-162",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-070",
+   "source": "land-109",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-071",
+   "source": "land-23",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-072",
+   "source": "land-32",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-073",
+   "source": "aicw-org-jrc",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-074",
+   "source": "land-36",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-075",
+   "source": "aicw-org-planet",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-076",
+   "source": "land-19",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-077",
+   "source": "land-12",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-078",
+   "source": "land-25",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-079",
+   "source": "inst-google-org",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-080",
+   "source": "land-14",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-081",
+   "source": "aicw-org-uci",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-082",
+   "source": "aicw-org-cloudfire",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-083",
+   "source": "land-26",
+   "target": "aicw-ws2",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-084",
+   "source": "land-164",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-085",
+   "source": "land-109",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-086",
+   "source": "land-23",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-087",
+   "source": "land-32",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-088",
+   "source": "land-22",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-089",
+   "source": "land-12",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-090",
+   "source": "land-163",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-091",
+   "source": "land-130",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-092",
+   "source": "land-25",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-093",
+   "source": "aicw-org-cfa",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-094",
+   "source": "aicw-org-firewerx",
+   "target": "aicw-ws3",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-095",
+   "source": "aicw-org-ai2",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-096",
+   "source": "land-164",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-097",
+   "source": "land-63",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-098",
+   "source": "collab-efa",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-099",
+   "source": "land-23",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-100",
+   "source": "land-32",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-101",
+   "source": "aicw-org-firewerx",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-102",
+   "source": "land-25",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-103",
+   "source": "land-7",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-104",
+   "source": "inst-google-org",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-105",
+   "source": "aicw-org-saff",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2026-09-01"
+  },
+  {
+   "id": "aicw-e-106",
+   "source": "land-19",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "contributor",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-107",
+   "source": "land-19",
+   "target": "aicw-pmo",
+   "type": "ADMINISTERS",
+   "label": "runs PMO",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-108",
+   "source": "aicw-org-signal",
+   "target": "aicw-pmo",
+   "type": "ADMINISTERS",
+   "label": "runs PMO",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-109",
+   "source": "land-169",
+   "target": "aicw-me",
+   "type": "ADMINISTERS",
+   "label": "runs M&E",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-110",
+   "source": "aicw-org-signal",
+   "target": "aicw-sandbox",
+   "type": "ADMINISTERS",
+   "label": "runs Sandbox Fund",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-111",
+   "source": "land-19",
+   "target": "aicw-org-signal",
+   "type": "AFFILIATED_WITH",
+   "label": "sister organisation"
+  },
+  {
+   "id": "aicw-e-112",
+   "source": "aicw-org-ai2",
+   "target": "aicw-benchmark",
+   "type": "LEADS",
+   "label": "coordinates",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-113",
+   "source": "aicw-org-planet",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-114",
+   "source": "land-12",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-115",
+   "source": "land-162",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-116",
+   "source": "land-19",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-117",
+   "source": "aicw-org-uci",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-118",
+   "source": "land-14",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-119",
+   "source": "aicw-org-cloudfire",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-120",
+   "source": "aicw-org-jrc",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-121",
+   "source": "land-23",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-122",
+   "source": "aicw-org-sjsu",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-10-24"
+  },
+  {
+   "id": "aicw-e-123",
+   "source": "aicw-p-david-saah",
+   "target": "land-19",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-124",
+   "source": "aicw-p-karis-tenneson",
+   "target": "aicw-org-signal",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-125",
+   "source": "aicw-p-tate-luoma",
+   "target": "aicw-org-signal",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-126",
+   "source": "aicw-p-ioana-bouvier",
+   "target": "aicw-org-signal",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-127",
+   "source": "aicw-p-rob-lawson",
+   "target": "land-19",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-128",
+   "source": "aicw-p-ryan-demilt",
+   "target": "land-19",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-129",
+   "source": "aicw-p-brian-lee",
+   "target": "inst-google-org",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-130",
+   "source": "aicw-p-erin-hattersley",
+   "target": "inst-google-org",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-131",
+   "source": "aicw-p-katherine-hecht",
+   "target": "inst-google-org",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-132",
+   "source": "aicw-p-mandy-albanese",
+   "target": "inst-google-org",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-133",
+   "source": "aicw-p-ilkay-altintas",
+   "target": "land-12",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-134",
+   "source": "aicw-p-john-mills",
+   "target": "land-163",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-135",
+   "source": "aicw-p-natalie-cilem",
+   "target": "land-7",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-136",
+   "source": "aicw-p-duarte-oom",
+   "target": "land-32",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-137",
+   "source": "aicw-p-andrew-howe",
+   "target": "aicw-org-ai2",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-138",
+   "source": "aicw-p-kimberley-miner",
+   "target": "land-162",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-139",
+   "source": "aicw-p-ian-mccubbin",
+   "target": "land-162",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-140",
+   "source": "aicw-p-jackie-shuman",
+   "target": "land-23",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-141",
+   "source": "aicw-p-brian-buma",
+   "target": "land-23",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-142",
+   "source": "aicw-p-brendan-rogers",
+   "target": "land-25",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-143",
+   "source": "aicw-p-brian-collins",
+   "target": "collab-efa",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-144",
+   "source": "aicw-p-alex-dehgan",
+   "target": "land-63",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-145",
+   "source": "aicw-p-chris-anthony",
+   "target": "aicw-org-firewerx",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-146",
+   "source": "aicw-p-michael-gollner",
+   "target": "land-14",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-147",
+   "source": "aicw-p-jim-randerson",
+   "target": "aicw-org-uci",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-148",
+   "source": "aicw-p-fernando-sedano",
+   "target": "aicw-org-jrc",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-149",
+   "source": "aicw-p-dave-marvin",
+   "target": "aicw-org-planet",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-150",
+   "source": "aicw-p-sassan-saatchi",
+   "target": "aicw-org-ctrees",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-151",
+   "source": "aicw-p-maria-theodori",
+   "target": "aicw-org-cloudfire",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-152",
+   "source": "aicw-p-conrad-bielski",
+   "target": "aicw-org-riscognition",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-153",
+   "source": "aicw-p-gunter-zeug",
+   "target": "aicw-org-riscognition",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-154",
+   "source": "aicw-p-winslow-hansen",
+   "target": "land-26",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-155",
+   "source": "aicw-p-sebastien-floodpage",
+   "target": "aicw-org-deepfire",
+   "type": "AFFILIATED_WITH",
+   "label": "works at"
+  },
+  {
+   "id": "aicw-e-156",
+   "source": "aicw-p-janice-coen",
+   "target": "aicw-benchmark",
+   "type": "PARTICIPATES_IN",
+   "label": "benchmark",
+   "startDate": "2026-10-24"
+  },
+  {
+   "id": "aicw-e-157",
+   "source": "aicw-p-ilkay-altintas",
+   "target": "aicw-ws1",
+   "type": "LEADS",
+   "label": "WS1 lead",
+   "how": "Named by David 29 Oct 2026",
+   "startDate": "2026-10-29"
+  },
+  {
+   "id": "aicw-e-158",
+   "source": "aicw-p-john-mills",
+   "target": "aicw-ws3",
+   "type": "LEADS",
+   "label": "WS3 lead (tentative)",
+   "how": "Tentative, David 29 Oct 2026",
+   "startDate": "2026-10-29"
+  },
+  {
+   "id": "aicw-e-159",
+   "source": "aicw-p-natalie-cilem",
+   "target": "aicw-ws4",
+   "type": "LEADS",
+   "label": "WS4 lead (tentative)",
+   "how": "Tentative, David 29 Oct 2026; WS4 co-lead since Aug 2025",
+   "startDate": "2026-10-29"
+  },
+  {
+   "id": "aicw-e-160",
+   "source": "aicw-p-duarte-oom",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "WS4 co-lead 2025, now contributor",
+   "startDate": "2025-08-06"
+  },
+  {
+   "id": "aicw-e-161",
+   "source": "aicw-p-andrew-howe",
+   "target": "aicw-benchmark",
+   "type": "LEADS",
+   "label": "coordinator",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-162",
+   "source": "aicw-p-david-saah",
+   "target": "aicw",
+   "type": "LEADS",
+   "label": "leads AIC:W",
+   "startDate": "2024-08-06"
+  },
+  {
+   "id": "aicw-e-163",
+   "source": "aicw-p-ilkay-altintas",
+   "target": "aicw-sandbox",
+   "type": "STEERS",
+   "label": "Investment Committee (invited 28 Oct 2026)",
+   "startDate": "2026-10-28"
+  },
+  {
+   "id": "aicw-e-164",
+   "source": "aicw-p-john-mills",
+   "target": "aicw-sandbox",
+   "type": "STEERS",
+   "label": "Investment Committee (invited 28 Oct 2026)",
+   "startDate": "2026-10-28"
+  },
+  {
+   "id": "aicw-e-165",
+   "source": "aicw-p-natalie-cilem",
+   "target": "aicw-sandbox",
+   "type": "STEERS",
+   "label": "Investment Committee (invited 28 Oct 2026)",
+   "startDate": "2026-10-28"
+  },
+  {
+   "id": "aicw-e-166",
+   "source": "aicw-p-ioana-bouvier",
+   "target": "aicw-me",
+   "type": "PARTICIPATES_IN",
+   "label": "MEL data steward",
+   "startDate": "2026-10-30"
+  },
+  {
+   "id": "aicw-e-167",
+   "source": "land-12",
+   "target": "land-167",
+   "type": "OPERATES",
+   "label": "runs",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-168",
+   "source": "land-167",
+   "target": "aicw",
+   "type": "HOSTS",
+   "label": "linked network",
+   "how": "hosts the AIC:W node and website",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-169",
+   "source": "land-32",
+   "target": "aicw-net-fao-hub",
+   "type": "OPERATES",
+   "label": "runs",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-170",
+   "source": "aicw-net-fao-hub",
+   "target": "aicw",
+   "type": "PARTNERS_IN",
+   "label": "linked network",
+   "how": "Fire Hub Phase 2 names Watch Duty and Wildfire Commons as WS3 partners",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-171",
+   "source": "land-32",
+   "target": "aicw-net-wgfd",
+   "type": "OPERATES",
+   "label": "runs",
+   "startDate": "2025-06-01"
+  },
+  {
+   "id": "aicw-e-172",
+   "source": "aicw-net-wgfd",
+   "target": "aicw",
+   "type": "PARTNERS_IN",
+   "label": "linked network",
+   "how": "Global Fire Data Inventory; User Needs and Gaps report",
+   "startDate": "2025-06-01"
+  },
+  {
+   "id": "aicw-e-173",
+   "source": "land-7",
+   "target": "aicw-net-gwln",
+   "type": "OPERATES",
+   "label": "runs",
+   "startDate": "2026-01-01"
+  },
+  {
+   "id": "aicw-e-174",
+   "source": "aicw-net-gwln",
+   "target": "aicw",
+   "type": "PARTNERS_IN",
+   "label": "linked network",
+   "how": "highlights AIC:W tools and FireSat to industry and finance",
+   "startDate": "2026-01-01"
+  },
+  {
+   "id": "aicw-e-175",
+   "source": "land-19",
+   "target": "land-35",
+   "type": "OPERATES",
+   "label": "runs",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-176",
+   "source": "land-35",
+   "target": "aicw",
+   "type": "INTEGRATES_WITH",
+   "label": "linked network",
+   "how": "PyreCast forecasts shown in Watch Duty",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-177",
+   "source": "land-130",
+   "target": "aicw-net-fire-adapt",
+   "type": "OPERATES",
+   "label": "runs",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-178",
+   "source": "aicw-net-fire-adapt",
+   "target": "aicw",
+   "type": "PARTNERS_IN",
+   "label": "linked network",
+   "how": "WFCA training programme for fire services",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-179",
+   "source": "aicw-net-red-sky",
+   "target": "aicw",
+   "type": "PARTNERS_IN",
+   "label": "linked network",
+   "how": "AIC:W silver sponsor; Firetech Showcase",
+   "startDate": "2025-11-01"
+  },
+  {
+   "id": "aicw-e-180",
+   "source": "collab-efa",
+   "target": "prod-firesat",
+   "type": "OPERATES",
+   "label": "runs",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-181",
+   "source": "prod-firesat",
+   "target": "aicw",
+   "type": "INTEGRATES_WITH",
+   "label": "linked network",
+   "how": "FireSat data is the WS1 backbone",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-182",
+   "source": "aicw-org-saff",
+   "target": "aicw-ws4",
+   "type": "PARTICIPATES_IN",
+   "label": "member fund",
+   "startDate": "2026-09-01"
+  },
+  {
+   "id": "aicw-e-183",
+   "source": "inst-muon-space",
+   "target": "prod-firesat",
+   "type": "DEVELOPS",
+   "label": "builds FireSat"
+  },
+  {
+   "id": "aicw-e-184",
+   "source": "land-63",
+   "target": "aicw-org-saff",
+   "type": "PARTNERS_IN",
+   "label": "designed and launched SAFF",
+   "startDate": "2026-09-01"
+  },
+  {
+   "id": "aicw-e-185",
+   "source": "aicw-org-jrc",
+   "target": "land-128",
+   "type": "OPERATES",
+   "label": "runs EFFIS"
+  },
+  {
+   "id": "aicw-e-186",
+   "source": "aicw-org-riscognition",
+   "target": "land-128",
+   "type": "OPERATES",
+   "label": "runs EFFIS services"
+  },
+  {
+   "id": "aicw-e-189",
+   "source": "aicw",
+   "target": "aicw-m-first-call",
+   "type": "ORGANIZES",
+   "label": "convenes",
+   "startDate": "2024-08-06"
+  },
+  {
+   "id": "aicw-e-190",
+   "source": "aicw",
+   "target": "aicw-m-launch",
+   "type": "ORGANIZES",
+   "label": "convenes",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-191",
+   "source": "aicw",
+   "target": "aicw-m-red-sky-2025",
+   "type": "ORGANIZES",
+   "label": "convenes",
+   "startDate": "2025-11-01"
+  },
+  {
+   "id": "aicw-e-192",
+   "source": "aicw",
+   "target": "aicw-m-tahoe",
+   "type": "ORGANIZES",
+   "label": "convenes",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-196",
+   "source": "aicw-m-red-sky-2025",
+   "target": "aicw-net-red-sky",
+   "type": "RELATED_TO",
+   "label": "Red Sky"
+  },
+  {
+   "id": "aicw-e-197",
+   "source": "aicw-m-red-sky-2026",
+   "target": "aicw-net-red-sky",
+   "type": "RELATED_TO",
+   "label": "Red Sky"
+  },
+  {
+   "id": "aicw-e-198",
+   "source": "aicw-m-bench-session",
+   "target": "aicw-benchmark",
+   "type": "RELATED_TO",
+   "label": "session"
+  },
+  {
+   "id": "aicw-e-199",
+   "source": "land-164",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-200",
+   "source": "land-162",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-201",
+   "source": "land-109",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-202",
+   "source": "collab-efa",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-203",
+   "source": "land-23",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-204",
+   "source": "land-32",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-205",
+   "source": "land-169",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-206",
+   "source": "land-22",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-207",
+   "source": "land-19",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-208",
+   "source": "land-12",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-209",
+   "source": "land-163",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-210",
+   "source": "land-130",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-211",
+   "source": "land-25",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-212",
+   "source": "land-7",
+   "target": "aicw-m-launch",
+   "type": "ATTENDED",
+   "label": "lightning talk",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-213",
+   "source": "land-25",
+   "target": "aicw-m-tahoe",
+   "type": "ATTENDED",
+   "label": "led a segment",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-214",
+   "source": "land-23",
+   "target": "aicw-m-tahoe",
+   "type": "ATTENDED",
+   "label": "led a segment",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-215",
+   "source": "land-32",
+   "target": "aicw-m-tahoe",
+   "type": "ATTENDED",
+   "label": "led a segment",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-216",
+   "source": "land-36",
+   "target": "aicw-m-tahoe",
+   "type": "ATTENDED",
+   "label": "led a segment",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-217",
+   "source": "land-2",
+   "target": "aicw-m-tahoe",
+   "type": "ATTENDED",
+   "label": "co-host",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-218",
+   "source": "inst-google-org",
+   "target": "aicw-g-core",
+   "type": "FUNDS",
+   "label": "funds",
+   "weight": 38200000,
+   "startDate": "2024-10-01",
+   "endDate": "2027-12-31"
+  },
+  {
+   "id": "aicw-e-219",
+   "source": "inst-google-org",
+   "target": "aicw-g-sandbox-google",
+   "type": "FUNDS",
+   "label": "funds",
+   "weight": 4000000,
+   "startDate": "2026-09-08",
+   "endDate": "2027-12-31"
+  },
+  {
+   "id": "aicw-e-220",
+   "source": "aicw-g-sandbox-google",
+   "target": "aicw-sandbox",
+   "type": "AWARDED_TO",
+   "label": "awarded to",
+   "startDate": "2026-09-08",
+   "endDate": "2027-12-31"
+  },
+  {
+   "id": "aicw-e-221",
+   "source": "land-3",
+   "target": "aicw-g-sandbox-cofunder",
+   "type": "FUNDS",
+   "label": "funds",
+   "weight": 4000000,
+   "startDate": "2026-10-22",
+   "endDate": "2027-06-30"
+  },
+  {
+   "id": "aicw-e-222",
+   "source": "aicw-g-sandbox-cofunder",
+   "target": "aicw-sandbox",
+   "type": "AWARDED_TO",
+   "label": "awarded to",
+   "startDate": "2026-10-22",
+   "endDate": "2027-06-30"
+  },
+  {
+   "id": "aicw-e-223",
+   "source": "inst-google-org",
+   "target": "aicw-g-pmo",
+   "type": "FUNDS",
+   "label": "funds",
+   "weight": 1640000,
+   "startDate": "2026-07-01",
+   "endDate": "2027-12-31"
+  },
+  {
+   "id": "aicw-e-224",
+   "source": "aicw-g-pmo",
+   "target": "aicw-pmo",
+   "type": "AWARDED_TO",
+   "label": "awarded to",
+   "startDate": "2026-07-01",
+   "endDate": "2027-12-31"
+  },
+  {
+   "id": "aicw-e-225",
+   "source": "aicw-org-nsf",
+   "target": "aicw-g-nsf",
+   "type": "FUNDS",
+   "label": "funds",
+   "weight": 1050000,
+   "startDate": "2025-01-01"
+  },
+  {
+   "id": "aicw-e-226",
+   "source": "land-101",
+   "target": "aicw-g-usfs-planscape",
+   "type": "FUNDS",
+   "label": "funds",
+   "weight": 2000000
+  },
+  {
+   "id": "aicw-e-227",
+   "source": "aicw-g-usfs-planscape",
+   "target": "land-22",
+   "type": "AWARDED_TO",
+   "label": "awarded to"
+  },
+  {
+   "id": "aicw-e-228",
+   "source": "land-5",
+   "target": "aicw-g-bezos-efa",
+   "type": "FUNDS",
+   "label": "funds",
+   "weight": 26000000
+  },
+  {
+   "id": "aicw-e-229",
+   "source": "aicw-g-bezos-efa",
+   "target": "collab-efa",
+   "type": "AWARDED_TO",
+   "label": "awarded to"
+  },
+  {
+   "id": "aicw-e-230",
+   "source": "land-2",
+   "target": "aicw-g-saff",
+   "type": "FUNDS",
+   "label": "funds",
+   "weight": 35000000,
+   "startDate": "2026-09-01"
+  },
+  {
+   "id": "aicw-e-231",
+   "source": "aicw-g-saff",
+   "target": "aicw-org-saff",
+   "type": "AWARDED_TO",
+   "label": "awarded to",
+   "startDate": "2026-09-01"
+  },
+  {
+   "id": "aicw-e-232",
+   "source": "land-2",
+   "target": "aicw",
+   "type": "FUNDS",
+   "label": "co-funds",
+   "how": "Co-funding tab: EFA, EDF, FireWERX, UCSD, Woodwell, WEF; co-hosted Tahoe"
+  },
+  {
+   "id": "aicw-e-233",
+   "source": "aicw-bid-fire-maps",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-234",
+   "source": "aicw-bid-fire-maps",
+   "target": "aicw-ws2",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-235",
+   "source": "land-162",
+   "target": "aicw-bid-fire-maps",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-236",
+   "source": "aicw-bid-spark-op",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-237",
+   "source": "aicw-bid-spark-op",
+   "target": "aicw-ws2",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-238",
+   "source": "land-109",
+   "target": "aicw-bid-spark-op",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-239",
+   "source": "land-164",
+   "target": "aicw-bid-spark-op",
+   "type": "CO_INVESTIGATOR",
+   "label": "partner",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-240",
+   "source": "aicw-bid-woodwell-sig",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-241",
+   "source": "aicw-bid-woodwell-sig",
+   "target": "aicw-ws2",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-242",
+   "source": "land-25",
+   "target": "aicw-bid-woodwell-sig",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-243",
+   "source": "land-19",
+   "target": "aicw-bid-woodwell-sig",
+   "type": "CO_INVESTIGATOR",
+   "label": "partner",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-244",
+   "source": "aicw-bid-amazon-cerrado",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-245",
+   "source": "aicw-bid-amazon-cerrado",
+   "target": "aicw-ws3",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-246",
+   "source": "land-25",
+   "target": "aicw-bid-amazon-cerrado",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-247",
+   "source": "aicw-bid-wfca-efa",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-248",
+   "source": "aicw-bid-wfca-efa",
+   "target": "aicw-ws3",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-249",
+   "source": "land-130",
+   "target": "aicw-bid-wfca-efa",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-250",
+   "source": "collab-efa",
+   "target": "aicw-bid-wfca-efa",
+   "type": "CO_INVESTIGATOR",
+   "label": "partner",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-251",
+   "source": "aicw-bid-edf",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-252",
+   "source": "aicw-bid-edf",
+   "target": "aicw-ws2",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-253",
+   "source": "land-23",
+   "target": "aicw-bid-edf",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-254",
+   "source": "aicw-bid-fire-os",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-255",
+   "source": "aicw-bid-fire-os",
+   "target": "aicw-ws2",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-256",
+   "source": "land-26",
+   "target": "aicw-bid-fire-os",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-257",
+   "source": "land-19",
+   "target": "aicw-bid-fire-os",
+   "type": "CO_INVESTIGATOR",
+   "label": "partner",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-258",
+   "source": "aicw-bid-jpl-vc",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-259",
+   "source": "aicw-bid-jpl-vc",
+   "target": "aicw-ws1",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-260",
+   "source": "land-162",
+   "target": "aicw-bid-jpl-vc",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-261",
+   "source": "aicw-bid-deepfire",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-262",
+   "source": "aicw-bid-deepfire",
+   "target": "aicw-ws1",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-263",
+   "source": "aicw-org-deepfire",
+   "target": "aicw-bid-deepfire",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-264",
+   "source": "aicw-bid-edf-sig-boreal",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-265",
+   "source": "aicw-bid-edf-sig-boreal",
+   "target": "aicw-ws2",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-266",
+   "source": "land-23",
+   "target": "aicw-bid-edf-sig-boreal",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-267",
+   "source": "land-19",
+   "target": "aicw-bid-edf-sig-boreal",
+   "type": "CO_INVESTIGATOR",
+   "label": "partner",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-268",
+   "source": "aicw-bid-saff",
+   "target": "aicw-sandbox",
+   "type": "RELATED_TO",
+   "label": "Round 1 bid",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-269",
+   "source": "aicw-bid-saff",
+   "target": "aicw-ws4",
+   "type": "RELATED_TO",
+   "label": "targets",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-270",
+   "source": "aicw-org-saff",
+   "target": "aicw-bid-saff",
+   "type": "LEADS",
+   "label": "lead",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-271",
+   "source": "aicw-ws1",
+   "target": "aicw-proj-efa-firesat",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-272",
+   "source": "collab-efa",
+   "target": "aicw-proj-efa-firesat",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-273",
+   "source": "aicw-proj-efa-firesat",
+   "target": "aicw-ns-detection",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-274",
+   "source": "aicw-proj-efa-firesat",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-275",
+   "source": "aicw-ws1",
+   "target": "aicw-proj-ucsd-node",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-276",
+   "source": "land-12",
+   "target": "aicw-proj-ucsd-node",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → live",
+   "weight": 3,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-277",
+   "source": "aicw-proj-ucsd-node",
+   "target": "aicw-ns-detection",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-278",
+   "source": "aicw-proj-ucsd-node",
+   "target": "aicw-ns-response",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-279",
+   "source": "aicw-proj-ucsd-node",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-280",
+   "source": "aicw-ws1",
+   "target": "aicw-proj-firms",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-281",
+   "source": "land-174",
+   "target": "aicw-proj-firms",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability live → live → live",
+   "weight": 3,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-282",
+   "source": "aicw-proj-firms",
+   "target": "aicw-ns-detection",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-283",
+   "source": "aicw-proj-firms",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-284",
+   "source": "aicw-ws1",
+   "target": "aicw-proj-ororatech",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-285",
+   "source": "land-36",
+   "target": "aicw-proj-ororatech",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability emerging → emerging → live",
+   "weight": 3,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-286",
+   "source": "aicw-proj-ororatech",
+   "target": "aicw-ns-detection",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-287",
+   "source": "aicw-proj-ororatech",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-288",
+   "source": "aicw-ws2",
+   "target": "aicw-proj-sig-fuels",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-289",
+   "source": "land-19",
+   "target": "aicw-proj-sig-fuels",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → live",
+   "weight": 3,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-290",
+   "source": "aicw-proj-sig-fuels",
+   "target": "aicw-ns-prevention",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-291",
+   "source": "aicw-proj-sig-fuels",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-292",
+   "source": "aicw-proj-sig-fuels",
+   "target": "aicw-ns-goodfire",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-293",
+   "source": "aicw-ws2",
+   "target": "aicw-proj-fire-maps",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-294",
+   "source": "land-162",
+   "target": "aicw-proj-fire-maps",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → live",
+   "weight": 3,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-295",
+   "source": "aicw-proj-fire-maps",
+   "target": "aicw-ns-prevention",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-296",
+   "source": "aicw-proj-fire-maps",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-297",
+   "source": "aicw-ws2",
+   "target": "aicw-proj-ai2-olmo",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-298",
+   "source": "aicw-org-ai2",
+   "target": "aicw-proj-ai2-olmo",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability none → emerging → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-299",
+   "source": "aicw-proj-ai2-olmo",
+   "target": "aicw-ns-prevention",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-300",
+   "source": "aicw-proj-ai2-olmo",
+   "target": "aicw-ns-detection",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-301",
+   "source": "aicw-proj-ai2-olmo",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-302",
+   "source": "aicw-ws2",
+   "target": "aicw-proj-woodwell-models",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-303",
+   "source": "land-25",
+   "target": "aicw-proj-woodwell-models",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-304",
+   "source": "aicw-proj-woodwell-models",
+   "target": "aicw-ns-prevention",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-305",
+   "source": "aicw-proj-woodwell-models",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-306",
+   "source": "aicw-proj-woodwell-models",
+   "target": "aicw-ns-goodfire",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-307",
+   "source": "aicw-ws2",
+   "target": "aicw-proj-edf-science",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-308",
+   "source": "land-23",
+   "target": "aicw-proj-edf-science",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-309",
+   "source": "aicw-proj-edf-science",
+   "target": "aicw-ns-detection",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-310",
+   "source": "aicw-proj-edf-science",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-311",
+   "source": "aicw-ws2",
+   "target": "aicw-proj-spark",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-312",
+   "source": "land-109",
+   "target": "aicw-proj-spark",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability live → live → live",
+   "weight": 3,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-313",
+   "source": "aicw-proj-spark",
+   "target": "aicw-ns-response",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-314",
+   "source": "aicw-proj-spark",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-315",
+   "source": "aicw-ws2",
+   "target": "aicw-proj-planet",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-316",
+   "source": "aicw-org-planet",
+   "target": "aicw-proj-planet",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability none → planned → planned",
+   "weight": 1,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-317",
+   "source": "aicw-proj-planet",
+   "target": "aicw-ns-detection",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-318",
+   "source": "aicw-proj-planet",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-319",
+   "source": "aicw-ws3",
+   "target": "aicw-proj-watchduty",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-320",
+   "source": "land-163",
+   "target": "aicw-proj-watchduty",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability live → live → live",
+   "weight": 3,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-321",
+   "source": "aicw-proj-watchduty",
+   "target": "aicw-ns-response",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-322",
+   "source": "aicw-proj-watchduty",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-323",
+   "source": "aicw-ws3",
+   "target": "aicw-proj-planscape",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-324",
+   "source": "land-22",
+   "target": "aicw-proj-planscape",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability live → live → live",
+   "weight": 3,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-325",
+   "source": "land-19",
+   "target": "aicw-proj-planscape",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability live → live → live",
+   "weight": 3,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-326",
+   "source": "aicw-proj-planscape",
+   "target": "aicw-ns-prevention",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-327",
+   "source": "aicw-proj-planscape",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-328",
+   "source": "aicw-proj-planscape",
+   "target": "aicw-ns-goodfire",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-329",
+   "source": "aicw-ws3",
+   "target": "aicw-proj-fao-hub",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-330",
+   "source": "land-32",
+   "target": "aicw-proj-fao-hub",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → live",
+   "weight": 3,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-331",
+   "source": "aicw-proj-fao-hub",
+   "target": "aicw-ns-prevention",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-332",
+   "source": "aicw-proj-fao-hub",
+   "target": "aicw-ns-response",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-333",
+   "source": "aicw-proj-fao-hub",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-334",
+   "source": "aicw-proj-fao-hub",
+   "target": "aicw-ns-goodfire",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-335",
+   "source": "aicw-ws3",
+   "target": "aicw-proj-firewerx",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-336",
+   "source": "aicw-org-firewerx",
+   "target": "aicw-proj-firewerx",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability none → planned → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-337",
+   "source": "aicw-proj-firewerx",
+   "target": "aicw-ns-response",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-338",
+   "source": "aicw-proj-firewerx",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-339",
+   "source": "aicw-ws3",
+   "target": "aicw-proj-wfca-ftu",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-340",
+   "source": "land-130",
+   "target": "aicw-proj-wfca-ftu",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-341",
+   "source": "aicw-proj-wfca-ftu",
+   "target": "aicw-ns-response",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-342",
+   "source": "aicw-proj-wfca-ftu",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-343",
+   "source": "aicw-ws3",
+   "target": "aicw-proj-woodwell-brigades",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-344",
+   "source": "land-25",
+   "target": "aicw-proj-woodwell-brigades",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-345",
+   "source": "aicw-proj-woodwell-brigades",
+   "target": "aicw-ns-prevention",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-346",
+   "source": "aicw-proj-woodwell-brigades",
+   "target": "aicw-ns-response",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-347",
+   "source": "aicw-proj-woodwell-brigades",
+   "target": "aicw-ns-goodfire",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-348",
+   "source": "aicw-ws4",
+   "target": "aicw-proj-wef-gwln",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-349",
+   "source": "land-7",
+   "target": "aicw-proj-wef-gwln",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-350",
+   "source": "aicw-proj-wef-gwln",
+   "target": "aicw-ns-enabler",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-351",
+   "source": "aicw-proj-wef-gwln",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-352",
+   "source": "aicw-proj-wef-gwln",
+   "target": "aicw-ns-goodfire",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-353",
+   "source": "aicw-ws4",
+   "target": "aicw-proj-afac-hub",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-354",
+   "source": "land-164",
+   "target": "aicw-proj-afac-hub",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-355",
+   "source": "aicw-proj-afac-hub",
+   "target": "aicw-ns-detection",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-356",
+   "source": "aicw-proj-afac-hub",
+   "target": "aicw-ns-response",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-357",
+   "source": "aicw-proj-afac-hub",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-358",
+   "source": "aicw-ws4",
+   "target": "aicw-proj-signal-pmo",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-359",
+   "source": "aicw-org-signal",
+   "target": "aicw-proj-signal-pmo",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability planned → emerging → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-360",
+   "source": "aicw-proj-signal-pmo",
+   "target": "aicw-ns-enabler",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-361",
+   "source": "aicw-proj-signal-pmo",
+   "target": "aicw-ns-damage",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-362",
+   "source": "aicw-proj-signal-pmo",
+   "target": "aicw-ns-goodfire",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-363",
+   "source": "aicw-ws4",
+   "target": "aicw-proj-carbon-finance",
+   "type": "HAS_PROJECT",
+   "label": "project",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-364",
+   "source": "land-23",
+   "target": "aicw-proj-carbon-finance",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability none → planned → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-365",
+   "source": "land-25",
+   "target": "aicw-proj-carbon-finance",
+   "type": "DEVELOPS",
+   "label": "builds",
+   "how": "Capability none → planned → emerging",
+   "weight": 2,
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-366",
+   "source": "aicw-proj-carbon-finance",
+   "target": "aicw-ns-enabler",
+   "type": "HAS_TOPIC",
+   "label": "North Star lever"
+  },
+  {
+   "id": "aicw-e-367",
+   "source": "aicw-proj-carbon-finance",
+   "target": "aicw-ns-goodfire",
+   "type": "HAS_TOPIC",
+   "label": "North Star outcome"
+  },
+  {
+   "id": "aicw-e-368",
+   "source": "aicw-ws1",
+   "target": "aicw-ws2",
+   "type": "INTEGRATES_WITH",
+   "label": "L1: emerging",
+   "how": "L1 none → planned → emerging",
+   "modality": "Ai2 satellite-pass interpolation models on benchmark fires; early-adopter data due end 2026",
+   "weight": 2,
+   "startDate": "2025-03-24",
+   "properties": {
+    "linkage": "L1",
+    "impact": {
+     "2025-03": "none",
+     "2026-05": "planned",
+     "2026-10": "emerging"
+    }
+   }
+  },
+  {
+   "id": "aicw-e-369",
+   "source": "aicw-ws1",
+   "target": "aicw-ws3",
+   "type": "INTEGRATES_WITH",
+   "label": "L2: planned",
+   "how": "L2 none → planned → planned",
+   "modality": "Still planned; Watch Duty runs on NOAA NGFS; FireSat to FIRMS not live",
+   "weight": 1,
+   "startDate": "2025-03-24",
+   "properties": {
+    "linkage": "L2",
+    "impact": {
+     "2025-03": "none",
+     "2026-05": "planned",
+     "2026-10": "planned"
+    }
+   }
+  },
+  {
+   "id": "aicw-e-370",
+   "source": "aicw-ws2",
+   "target": "aicw-ws3",
+   "type": "INTEGRATES_WITH",
+   "label": "L3: live",
+   "how": "L3 planned → emerging → live",
+   "modality": "Pyregence and WIFIRE models live inside Watch Duty, reaching 16-17M people",
+   "weight": 3,
+   "startDate": "2025-03-24",
+   "properties": {
+    "linkage": "L3",
+    "impact": {
+     "2025-03": "planned",
+     "2026-05": "emerging",
+     "2026-10": "live"
+    }
+   }
+  },
+  {
+   "id": "aicw-e-371",
+   "source": "aicw-ws3",
+   "target": "aicw-ws2",
+   "type": "INTEGRATES_WITH",
+   "label": "L4: planned",
+   "how": "L4 none → planned → planned",
+   "modality": "No mechanism carries FAO user-needs findings into WS1/WS2 workplans",
+   "weight": 1,
+   "startDate": "2025-03-24",
+   "properties": {
+    "linkage": "L4",
+    "impact": {
+     "2025-03": "none",
+     "2026-05": "planned",
+     "2026-10": "planned"
+    }
+   }
+  },
+  {
+   "id": "aicw-e-372",
+   "source": "aicw-ws3",
+   "target": "aicw-ws4",
+   "type": "INTEGRATES_WITH",
+   "label": "L5: emerging",
+   "how": "L5 none → planned → emerging",
+   "modality": "EDF economics (qualitative), Watch Duty and Planscape reach, Impact Index draft",
+   "weight": 2,
+   "startDate": "2025-03-24",
+   "properties": {
+    "linkage": "L5",
+    "impact": {
+     "2025-03": "none",
+     "2026-05": "planned",
+     "2026-10": "emerging"
+    }
+   }
+  },
+  {
+   "id": "aicw-e-373",
+   "source": "aicw-ws4",
+   "target": "aicw-ws1",
+   "type": "INTEGRATES_WITH",
+   "label": "L6: emerging",
+   "how": "L6 planned → emerging → emerging",
+   "modality": "Sandbox open, awards early 2027; SAFF; Phase II ask pending",
+   "weight": 2,
+   "startDate": "2025-03-24",
+   "properties": {
+    "linkage": "L6",
+    "impact": {
+     "2025-03": "planned",
+     "2026-05": "emerging",
+     "2026-10": "emerging"
+    }
+   }
+  },
+  {
+   "id": "aicw-e-374",
+   "source": "collab-efa",
+   "target": "land-12",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "data access tiers defined together; FireSat ingestion adapter waiting on data",
+   "modality": "first seen 2026-05-05",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-375",
+   "source": "land-12",
+   "target": "land-174",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "UCSD ingestion built for FIRMS data; FIRMS-aligned handoff planned",
+   "modality": "first seen 2026-05-05",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-376",
+   "source": "collab-efa",
+   "target": "land-36",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "partnered directly on WS1 detection feeds",
+   "modality": "first seen 2026-05-05",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-377",
+   "source": "collab-efa",
+   "target": "land-174",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "FireSat and OroraTech L2 feeds to be piloted in FIRMS staging",
+   "modality": "first seen 2026-10-28",
+   "startDate": "2026-10-28"
+  },
+  {
+   "id": "aicw-e-378",
+   "source": "land-162",
+   "target": "aicw-org-ai2",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "FIRE-MAPS fuel products run in OlmoEarth",
+   "modality": "first seen 2026-05-05",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-379",
+   "source": "land-162",
+   "target": "land-19",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "fuel products tested with SIG alongside AlphaEarth",
+   "modality": "first seen 2026-05-05",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-380",
+   "source": "aicw-org-ai2",
+   "target": "land-19",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "benchmarking subgroup, then the nine-org initiative and NSF proposal",
+   "modality": "first seen 2026-03-01",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-381",
+   "source": "aicw-org-ai2",
+   "target": "land-23",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "EDF in the benchmark subgroup agreeing fires and metrics",
+   "modality": "first seen 2026-03-01",
+   "startDate": "2026-03-01"
+  },
+  {
+   "id": "aicw-e-382",
+   "source": "land-23",
+   "target": "land-25",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "joint emissions-management convening, Jan 2026, ~40 experts",
+   "modality": "first seen 2026-01-15",
+   "startDate": "2026-01-15"
+  },
+  {
+   "id": "aicw-e-383",
+   "source": "land-109",
+   "target": "land-164",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "joint Sandbox proposal: live ignitions into SPARK",
+   "modality": "first seen 2026-10-16",
+   "startDate": "2026-10-16"
+  },
+  {
+   "id": "aicw-e-384",
+   "source": "land-19",
+   "target": "land-164",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "early talks on smoke vulnerability with AFAC and CSIRO",
+   "modality": "first seen 2026-10-01",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-385",
+   "source": "land-163",
+   "target": "land-22",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "both built with SIG; PyreCast forecasts in Watch Duty",
+   "modality": "first seen 2025-03-24",
+   "startDate": "2025-03-24"
+  },
+  {
+   "id": "aicw-e-386",
+   "source": "land-163",
+   "target": "aicw-org-firewerx",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "two channels to agencies; FireSat data planned into both",
+   "modality": "first seen 2026-05-05",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-387",
+   "source": "land-32",
+   "target": "land-163",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "FAO Phase 2 names Watch Duty and Wildfire Commons as WS3 partners",
+   "modality": "first seen 2026-10-01",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-388",
+   "source": "land-22",
+   "target": "land-25",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "Planscape Canada and Alaska expansion with Woodwell and EDF",
+   "modality": "first seen 2026-10-01",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-389",
+   "source": "aicw-org-firewerx",
+   "target": "land-130",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "both translate FireSat for fire services",
+   "modality": "first seen 2026-05-05",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-390",
+   "source": "land-7",
+   "target": "land-32",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "WEF, FAO and SIG aligning global fire initiatives",
+   "modality": "first seen 2026-05-05",
+   "startDate": "2026-05-05"
+  },
+  {
+   "id": "aicw-e-391",
+   "source": "land-7",
+   "target": "aicw-org-signal",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "GWLN highlights AIC:W tools and FireSat to industry and finance",
+   "modality": "first seen 2026-01-01",
+   "startDate": "2026-01-01"
+  },
+  {
+   "id": "aicw-e-392",
+   "source": "land-169",
+   "target": "aicw-org-signal",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "midterm finding that joint work needs its own budget shaped the Sandbox Fund",
+   "modality": "first seen 2026-04-22",
+   "startDate": "2026-04-22"
+  },
+  {
+   "id": "aicw-e-393",
+   "source": "land-23",
+   "target": "land-7",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "economics of early detection feeds the investment case",
+   "modality": "first seen 2026-10-01",
+   "startDate": "2026-10-01"
+  },
+  {
+   "id": "aicw-e-394",
+   "source": "collab-efa",
+   "target": "inst-google-org",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "Google Research adapting its fire-boundaries model to FireSat",
+   "modality": "first seen 2026-10-28",
+   "startDate": "2026-10-28"
+  },
+  {
+   "id": "aicw-e-395",
+   "source": "land-12",
+   "target": "land-163",
+   "type": "COLLABORATES_WITH",
+   "label": "collaborates",
+   "how": "WIFIRE models displayed in Watch Duty",
+   "modality": "first seen 2026-10-01",
+   "startDate": "2026-10-01"
+  }
+ ]
+}

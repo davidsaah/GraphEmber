@@ -38,6 +38,8 @@ export type RelationType =
   | 'OPERATES'
   | 'ADMINISTERS';
 
+export type ImpactLevel = 'none' | 'planned' | 'emerging' | 'live';
+
 export interface BaseNode {
   id: string;
   type: NodeType;
@@ -47,6 +49,20 @@ export interface BaseNode {
   acronym?: string;
   location?: string;
   tags?: string[];
+  // Time and impact fields (AIC:W network): ISO dates and none/planned/emerging/live ratings per period
+  startDate?: string;
+  endDate?: string;
+  color?: string;
+  impact?: Record<string, Record<string, ImpactLevel>>;
+  impactNorthStar2026_10?: Record<string, ImpactLevel>;
+  launchScore?: number;
+  nowScore?: number;
+  northStarLevers?: string[];
+  northStarOutcomes?: string[];
+  // Set by the period selector: the ratings shown for the chosen period
+  activeImpact?: Record<string, ImpactLevel>;
+  // Set by the time slider: started in the three months up to the chosen month
+  isNew?: boolean;
   // D3 force simulation coordinates
   x?: number;
   y?: number;
@@ -170,6 +186,7 @@ export interface GraphEdge {
   properties?: Record<string, any>;
   startDate?: string;
   endDate?: string;
+  isNew?: boolean;
 }
 
 export interface NetworkDataset {
