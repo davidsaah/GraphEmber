@@ -10,8 +10,8 @@ import { MetricsModal } from './components/MetricsModal';
 import { AddEntityModal } from './components/AddEntityModal';
 import { OntologyModal } from './components/OntologyModal';
 import { AicwAboutModal } from './components/AicwAboutModal';
-import { ImpactTimeline, PERIODS, IMPACT_INDICATORS } from './components/ImpactTimeline';
-import type { PeriodKey } from './components/ImpactTimeline';
+import { ImpactTimeline, ALL_TIME, IMPACT_INDICATORS, monthRange, ratingKeyAt } from './components/ImpactTimeline';
+import type { TimePoint } from './components/ImpactTimeline';
 
 const ALL_TYPES: NodeType[] = [
   'person',
@@ -35,7 +35,8 @@ export const App: React.FC = () => {
   const [activeTypes, setActiveTypes] = useState<Set<NodeType>>(new Set(ALL_TYPES));
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
   const [minFunding, setMinFunding] = useState<number>(0);
-  const [period, setPeriod] = useState<PeriodKey>('all');
+  const [month, setMonth] = useState<string>(ALL_TIME);
+  const [highlightNew, setHighlightNew] = useState<boolean>(false);
 
   // Selection & Hover state
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
@@ -89,32 +90,64 @@ export const App: React.FC = () => {
     setPathEdgeIds([]);
   }, []);
 
-  // Impact over time: keep what existed by the chosen date and show that date's ratings.
-  // Ratings are written onto the node objects so the force layout keeps their positions.
+  // Time: every dated node and link has a startDate (and sometimes an endDate). A month shows
+  // what existed by its end, and each rated project carries the latest rating on or before it.
+  const months = useMemo(() => {
+    const dates = [...nodes.map((n) => n.startDate), ...edges.map((e) => e.startDate)].filter(Boolean) as string[];
+    const first = dates.reduce((a, b) => (b < a ? b : a), '9999-12');
+    const last = dates.reduce((a, b) => (b > a ? b : a), '0000-01');
+    return monthRange(first, last);
+  }, [nodes, edges]);
+
+  const cutoff = month === ALL_TIME ? '9999-12-31' : `${month}-31`;
+  const newFrom = useMemo(() => {
+    if (month === ALL_TIME) return '9999-12-31';
+    const i = months.indexOf(month);
+    return `${months[Math.max(0, i - 2)]}-01`;
+  }, [month, months]);
+
+  const existsAt = useCallback(
+    (item: { startDate?: string; endDate?: string }, end: string) =>
+      (!item.startDate || item.startDate <= end) && (!item.endDate || item.endDate > end),
+    []
+  );
+
+  // Node objects are annotated in place so the force layout keeps their positions between months
   const periodNodes = useMemo(() => {
-    const p = PERIODS.find((x) => x.key === period)!;
     return nodes.filter((node) => {
       if (node.impact) {
-        const keys = Object.keys(node.impact).sort();
-        const key = period === 'all' ? keys[keys.length - 1] : period;
-        node.activeImpact = node.impact[key];
+        const key = ratingKeyAt(month, Object.keys(node.impact));
+        node.activeImpact = key ? node.impact[key] : undefined;
       }
-      return !node.startDate || node.startDate <= p.cutoff;
+      node.isNew = highlightNew && !!node.startDate && node.startDate >= newFrom && node.startDate <= cutoff;
+      return existsAt(node, cutoff);
     });
-  }, [nodes, period]);
+  }, [nodes, month, cutoff, newFrom, highlightNew, existsAt]);
 
-  const ratingCounts = useMemo(() => {
-    let live = 0;
-    let rated = 0;
-    periodNodes.forEach((n) => {
-      if (n.type !== 'product' || !n.activeImpact) return;
-      IMPACT_INDICATORS.forEach((i) => {
-        rated += 1;
-        if (n.activeImpact![i] === 'live') live += 1;
+  // Month-by-month series for the trend chart
+  const timeSeries = useMemo<TimePoint[]>(() => {
+    return months.map((m) => {
+      const end = `${m}-31`;
+      let live = 0;
+      let rated = 0;
+      nodes.forEach((n) => {
+        if (n.type !== 'product' || !n.impact || !existsAt(n, end)) return;
+        const key = ratingKeyAt(m, Object.keys(n.impact));
+        if (!key) return;
+        IMPACT_INDICATORS.forEach((i) => {
+          rated += 1;
+          if (n.impact![key][i] === 'live') live += 1;
+        });
       });
+      return {
+        month: m,
+        organisations: edges.filter((e) => e.type === 'MEMBER_OF' && e.startDate && existsAt(e, end)).length,
+        links: edges.filter((e) => e.startDate && existsAt(e, end)).length,
+        live,
+        rated,
+      };
     });
-    return { live, rated };
-  }, [periodNodes]);
+  }, [months, nodes, edges, existsAt]);
 
   // Filtered nodes and edges
   const filteredNodes = useMemo(() => {
@@ -157,19 +190,19 @@ export const App: React.FC = () => {
   const filteredNodeIds = useMemo(() => new Set(filteredNodes.map((n) => n.id)), [filteredNodes]);
 
   const filteredEdges = useMemo(() => {
-    const cutoff = PERIODS.find((x) => x.key === period)!.cutoff;
     return edges.filter((edge) => {
-      if (edge.startDate && edge.startDate > cutoff) return false;
+      if (!existsAt(edge, cutoff)) return false;
+      edge.isNew = highlightNew && !!edge.startDate && edge.startDate >= newFrom;
       const linkImpact = edge.properties?.impact as Record<string, string> | undefined;
       if (linkImpact) {
-        const keys = Object.keys(linkImpact).sort();
-        edge.label = `${edge.properties!.linkage}: ${linkImpact[period === 'all' ? keys[keys.length - 1] : period]}`;
+        const key = ratingKeyAt(month, Object.keys(linkImpact));
+        edge.label = `${edge.properties!.linkage}: ${key ? linkImpact[key] : 'none'}`;
       }
       const s = typeof edge.source === 'object' ? edge.source.id : edge.source;
       const t = typeof edge.target === 'object' ? edge.target.id : edge.target;
       return filteredNodeIds.has(s) && filteredNodeIds.has(t);
     });
-  }, [edges, filteredNodeIds, period]);
+  }, [edges, filteredNodeIds, cutoff, newFrom, highlightNew, month, existsAt]);
 
   // Node & Edge Creation Handlers
   const handleAddNode = useCallback((newNode: GraphNode) => {
@@ -305,13 +338,39 @@ export const App: React.FC = () => {
         onSelectNode={setSelectedNode}
       />
 
-      {/* Bottom-left AIC:W impact-over-time selector */}
+      {/* Tagline band, as on every AIC:W deck slide */}
+      <div
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: 28,
+          background: '#FFE8A5',
+          display: 'flex',
+          alignItems: 'center',
+          padding: '0 16px',
+          gap: 12,
+          zIndex: 20,
+          fontSize: '0.75rem',
+          color: '#202124',
+        }}
+      >
+        <img src={`${import.meta.env.BASE_URL}aicw-flame.svg`} alt="" style={{ height: 16 }} />
+        <span>Better inputs → better models → better decisions.</span>
+        <span style={{ marginLeft: 'auto', color: '#5F6368' }}>AI Collaborative: Wildfires · with support from Google.org · ratings are PMO drafts, corrected live 3 Nov 2026</span>
+      </div>
+
+      {/* Bottom-left time slider, trend and rating legend */}
       <ImpactTimeline
-        period={period}
-        onChange={setPeriod}
+        months={months}
+        month={month}
+        onChange={setMonth}
+        series={timeSeries}
         shownCount={filteredNodes.length}
-        liveCells={ratingCounts.live}
-        ratedCells={ratingCounts.rated}
+        newCount={filteredNodes.filter((n) => n.isNew).length + filteredEdges.filter((e) => e.isNew).length}
+        highlightNew={highlightNew}
+        onToggleHighlightNew={() => setHighlightNew((v) => !v)}
       />
 
       {/* Path Finder Modal */}

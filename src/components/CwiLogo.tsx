@@ -85,7 +85,7 @@ export const CwiLogo: React.FC<CwiLogoProps> = ({
               fontWeight: 700,
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              color: '#ffffff',
+              color: '#202124',
               lineHeight: 1.1,
             }}
           >
@@ -98,7 +98,7 @@ export const CwiLogo: React.FC<CwiLogoProps> = ({
               fontWeight: 500,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: '#FFBE5F',
+              color: '#B85C00',
               lineHeight: 1.2,
             }}
           >
@@ -133,12 +133,12 @@ export const CwiLogo: React.FC<CwiLogoProps> = ({
             fontWeight: 700,
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
-            color: '#f8fafc',
+            color: '#202124',
           }}
         >
           Climate & Wildfire Institute
         </span>
-        <span style={{ fontSize: '0.6rem', color: '#FFBE5F' }}>
+        <span style={{ fontSize: '0.6rem', color: '#B85C00' }}>
           Boundary Innovation Tool
         </span>
       </div>

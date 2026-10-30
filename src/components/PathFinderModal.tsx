@@ -53,7 +53,7 @@ export const PathFinderModal: React.FC<PathFinderModalProps> = ({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.65)',
+        backgroundColor: 'rgba(32, 33, 36, 0.14)',
         backdropFilter: 'blur(8px)',
         display: 'flex',
         alignItems: 'center',
@@ -92,7 +92,7 @@ export const PathFinderModal: React.FC<PathFinderModalProps> = ({
               <Route size={18} color="var(--color-collaborative)" />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#ffffff' }}>Ecosystem Path Finder</h3>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#202124' }}>Ecosystem Path Finder</h3>
               <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
                 Discover shortest collaboration bridges and degrees of separation
               </p>
@@ -168,10 +168,10 @@ export const PathFinderModal: React.FC<PathFinderModalProps> = ({
             style={{
               flex: 1,
               height: 40,
-              background: 'linear-gradient(135deg, #FF9F40 0%, #ea580c 100%)',
+              background: 'linear-gradient(135deg, #FF9F40 0%, #B85C00 100%)',
               border: 'none',
               borderRadius: 'var(--radius-md)',
-              color: '#ffffff',
+              color: '#202124',
               fontWeight: 600,
               fontSize: '0.85rem',
               display: 'flex',
@@ -215,7 +215,7 @@ export const PathFinderModal: React.FC<PathFinderModalProps> = ({
           >
             {resultPath ? (
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#34d399', fontSize: '0.85rem', fontWeight: 600, marginBottom: 12 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#38761D', fontSize: '0.85rem', fontWeight: 600, marginBottom: 12 }}>
                   <CheckCircle2 size={16} />
                   <span>
                     Shortest Path Found ({resultPath.pathNodeIds.length - 1} degrees of separation)
@@ -235,13 +235,13 @@ export const PathFinderModal: React.FC<PathFinderModalProps> = ({
                       <div key={nodeId} style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                           <span className={`badge badge-${node.type}`}>{node.type}</span>
-                          <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#f8fafc' }}>
+                          <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#202124' }}>
                             {node.label}
                           </span>
                         </div>
 
                         {!isLast && nextEdge && (
-                          <div style={{ display: 'flex', alignItems: 'center', gap: 8, paddingLeft: 18, color: '#FFBE5F', fontSize: '0.75rem' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8, paddingLeft: 18, color: '#B85C00', fontSize: '0.75rem' }}>
                             <ArrowRight size={13} />
                             <span>
                               {nextEdge.label || nextEdge.type.replace(/_/g, ' ')}

@@ -48,7 +48,7 @@ export const MetricsModal: React.FC<MetricsModalProps> = ({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.65)',
+        backgroundColor: 'rgba(32, 33, 36, 0.14)',
         backdropFilter: 'blur(8px)',
         display: 'flex',
         alignItems: 'center',
@@ -82,7 +82,7 @@ export const MetricsModal: React.FC<MetricsModalProps> = ({
                 width: 34,
                 height: 34,
                 borderRadius: 'var(--radius-md)',
-                backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                backgroundColor: 'rgba(95, 99, 104, 0.2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -91,7 +91,7 @@ export const MetricsModal: React.FC<MetricsModalProps> = ({
               <BarChart3 size={18} color="var(--color-program)" />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#ffffff' }}>Ecosystem Network Intelligence</h3>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#202124' }}>Ecosystem Network Intelligence</h3>
               <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
                 Centrality rankings, bridge entities, and multi-institutional flows
               </p>
@@ -113,8 +113,8 @@ export const MetricsModal: React.FC<MetricsModalProps> = ({
             }}
           >
             <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Total Entities</div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#ffffff', marginTop: 4 }}>{nodes.length}</div>
-            <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: 2 }}>{edges.length} active relationships</div>
+            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#202124', marginTop: 4 }}>{nodes.length}</div>
+            <div style={{ fontSize: '0.75rem', color: '#5F6368', marginTop: 2 }}>{edges.length} active relationships</div>
           </div>
 
           <div
@@ -126,10 +126,10 @@ export const MetricsModal: React.FC<MetricsModalProps> = ({
             }}
           >
             <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Active Funding</div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#34d399', marginTop: 4 }}>
+            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#38761D', marginTop: 4 }}>
               {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', notation: 'compact' }).format(totalFunding)}
             </div>
-            <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: 2 }}>across {totalGrants.length} major grants</div>
+            <div style={{ fontSize: '0.75rem', color: '#5F6368', marginTop: 2 }}>across {totalGrants.length} major grants</div>
           </div>
 
           <div
@@ -141,10 +141,10 @@ export const MetricsModal: React.FC<MetricsModalProps> = ({
             }}
           >
             <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Collaboratives & Prods</div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#FFBE5F', marginTop: 4 }}>
+            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#B85C00', marginTop: 4 }}>
               {(typeCounts.collaborative || 0) + (typeCounts.product || 0)}
             </div>
-            <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: 2 }}>alliances and open tools</div>
+            <div style={{ fontSize: '0.75rem', color: '#5F6368', marginTop: 2 }}>alliances and open tools</div>
           </div>
         </div>
 
@@ -186,7 +186,7 @@ export const MetricsModal: React.FC<MetricsModalProps> = ({
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <span style={{ fontSize: '0.8rem', fontWeight: 700, color: index < 3 ? '#fbbf24' : 'var(--text-muted)', width: 16 }}>
+                  <span style={{ fontSize: '0.8rem', fontWeight: 700, color: index < 3 ? '#B85C00' : 'var(--text-muted)', width: 16 }}>
                     #{index + 1}
                   </span>
                   <div>

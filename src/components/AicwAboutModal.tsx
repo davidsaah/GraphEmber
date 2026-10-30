@@ -40,19 +40,19 @@ export const AicwAboutModal: React.FC<AicwAboutModalProps> = ({ isOpen, onClose,
         style={{ width: 'min(620px, 100%)', maxHeight: '90vh', overflowY: 'auto', borderRadius: 'var(--radius-lg)', padding: 24, border: '1px solid rgba(255,159,64,0.35)' }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <img src={`${import.meta.env.BASE_URL}aicw-logo-white.png`} alt="AI Collaborative: Wildfires" style={{ height: 56 }} />
+          <img src={`${import.meta.env.BASE_URL}aicw-logo.png`} alt="AI Collaborative: Wildfires" style={{ height: 56 }} />
           <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'var(--text-secondary)' }} aria-label="Close">
             <X size={18} />
           </button>
         </div>
         <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: 4 }}>with support from Google.org</div>
 
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', marginTop: 18, color: '#FFBE5F', textTransform: 'uppercase', letterSpacing: '0.06em' }}>North Star</h2>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', marginTop: 18, color: '#202124', textTransform: 'uppercase', letterSpacing: '0.04em', borderLeft: '3px solid #FF9F40', paddingLeft: 8 }}>North Star</h2>
         <p style={{ fontSize: '0.85rem', lineHeight: 1.5 }}>
           More good fire, less bad fire: shift acreage to beneficial fire and reduce catastrophic wildfire damage (as adjusted at Tahoe, May 2026).
         </p>
 
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', marginTop: 18, color: '#FFBE5F', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Workstreams</h2>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', marginTop: 18, color: '#202124', textTransform: 'uppercase', letterSpacing: '0.04em', borderLeft: '3px solid #FF9F40', paddingLeft: 8 }}>Workstreams</h2>
         <div style={{ display: 'grid', gap: 6 }}>
           {WORKSTREAMS.map((w) => (
             <div key={w.id} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.85rem' }}>
@@ -62,7 +62,7 @@ export const AicwAboutModal: React.FC<AicwAboutModalProps> = ({ isOpen, onClose,
           ))}
         </div>
 
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', marginTop: 18, color: '#FFBE5F', textTransform: 'uppercase', letterSpacing: '0.06em' }}>How impact is rated</h2>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', marginTop: 18, color: '#202124', textTransform: 'uppercase', letterSpacing: '0.04em', borderLeft: '3px solid #FF9F40', paddingLeft: 8 }}>How impact is rated</h2>
         <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
           Each project is rated on Capability, Used and Collaboration; the six linkages between workstreams are rated too. Ratings are PMO drafts at
           Mar 2025, May 2026 and Oct 2026, corrected by each group on 3 Nov 2026. Pick a date in "Impact over time" to see the network and ratings then.

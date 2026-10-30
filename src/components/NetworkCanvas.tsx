@@ -1,7 +1,8 @@
 import { LEVEL_COLORS, IMPACT_INDICATORS } from './ImpactTimeline';
+import { TYPE_STYLE, INK, markerPath } from '../theme';
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
-import type { GraphNode, GraphEdge, NodeType } from '../types/graph';
+import type { GraphNode, GraphEdge } from '../types/graph';
 import { ZoomIn, ZoomOut, Maximize2, Play, Pause } from 'lucide-react';
 
 interface NetworkCanvasProps {
@@ -15,29 +16,7 @@ interface NetworkCanvasProps {
   onHoverNode: (nodeId: string | null) => void;
 }
 
-const TYPE_COLORS: Record<NodeType, string> = {
-  person: '#10b981',
-  institution: '#f59e0b',
-  collaborative: '#FF9F40',
-  program: '#3b82f6',
-  product: '#6366f1',
-  grant: '#ef4444',
-  research: '#a855f7',
-  meeting: '#06b6d4',
-  topic: '#e11d48',
-};
-
-const TYPE_ICONS: Record<NodeType, string> = {
-  person: '👤',
-  institution: '🏛️',
-  collaborative: '🤝',
-  program: '🚀',
-  product: '📦',
-  grant: '💰',
-  research: '📄',
-  meeting: '📅',
-  topic: '🎯',
-};
+const LEVEL_WIDTH: Record<string, number> = { none: 1, planned: 1.5, emerging: 2.5, live: 4 };
 
 export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
   nodes,
@@ -72,25 +51,25 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
     return map;
   }, [edges]);
 
-  // Determine node size based on type and importance
-  const getNodeRadius = useCallback((node: GraphNode): number => {
-    switch (node.type) {
-      case 'institution':
-      case 'collaborative':
-        return 28;
-      case 'program':
-      case 'product':
-      case 'grant':
-      case 'topic':
-        return 24;
-      case 'person':
-        return 22;
-      case 'research':
-      case 'meeting':
-      default:
-        return 19;
-    }
-  }, []);
+  // Marker size grows with the number of connections, so hubs read at a glance
+  const degree = useMemo(() => {
+    const d = new Map<string, number>();
+    edges.forEach((e) => {
+      const s = typeof e.source === 'object' ? e.source.id : e.source;
+      const t = typeof e.target === 'object' ? e.target.id : e.target;
+      d.set(s, (d.get(s) || 0) + 1);
+      d.set(t, (d.get(t) || 0) + 1);
+    });
+    return d;
+  }, [edges]);
+
+  const getNodeRadius = useCallback(
+    (node: GraphNode): number => {
+      const base = node.type === 'person' ? 3.5 : 5;
+      return Math.min(base + 1.9 * Math.sqrt(degree.get(node.id) || 0), 26);
+    },
+    [degree]
+  );
 
   // Initialize and run D3 force simulation
   useEffect(() => {
@@ -120,13 +99,13 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
           })
           .strength(0.7)
       )
-      .force('charge', d3.forceManyBody().strength(-460).distanceMax(650))
+      .force('charge', d3.forceManyBody().strength(-260).distanceMax(600))
       .force('center', d3.forceCenter(width / 2, height / 2).strength(0.08))
       .force(
         'collide',
         d3
           .forceCollide<GraphNode>()
-          .radius((d) => getNodeRadius(d) + 16)
+          .radius((d) => getNodeRadius(d) + 10)
           .iterations(2)
       );
 
@@ -148,26 +127,6 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
       ctx.translate(transform.x, transform.y);
       ctx.scale(transform.k, transform.k);
 
-      // Render subtle background grid
-      const gridSize = 40;
-      const minX = -transform.x / transform.k;
-      const minY = -transform.y / transform.k;
-      const maxX = minX + width / transform.k;
-      const maxY = minY + height / transform.k;
-
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      for (let x = Math.floor(minX / gridSize) * gridSize; x <= maxX; x += gridSize) {
-        ctx.moveTo(x, minY);
-        ctx.lineTo(x, maxY);
-      }
-      for (let y = Math.floor(minY / gridSize) * gridSize; y <= maxY; y += gridSize) {
-        ctx.moveTo(minX, y);
-        ctx.lineTo(maxX, y);
-      }
-      ctx.stroke();
-
       const isFilteringActive = activeFocusNodeId !== null || highlightedPathNodeIds.length > 0;
       const pathEdgeSet = new Set(highlightedPathEdgeIds);
       const pathNodeSet = new Set(highlightedPathNodeIds);
@@ -183,20 +142,28 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
         const isConnectedToFocus =
           activeFocusNodeId && (source.id === activeFocusNodeId || target.id === activeFocusNodeId);
 
-        let alpha = 0.25;
-        let strokeColor = 'rgba(148, 163, 184, 0.35)';
-        let lineWidth = 1.5;
+        // Workstream linkages carry their rating: width and colour by level, dashed while planned
+        const linkLevel = (edge.properties?.impact ? edge.label?.split(': ')[1] : undefined) as keyof typeof LEVEL_COLORS | undefined;
+        let alpha = linkLevel ? 0.95 : 0.55;
+        let strokeColor = linkLevel ? (linkLevel === 'live' ? '#FF9F40' : linkLevel === 'emerging' ? '#FFBE5F' : '#C9CCD1') : '#D5D7DB';
+        let lineWidth = linkLevel ? LEVEL_WIDTH[linkLevel] : 0.8;
+        ctx.setLineDash(linkLevel === 'planned' ? [5, 4] : []);
 
+        if (edge.isNew && !isFilteringActive) {
+          alpha = 1.0;
+          strokeColor = '#FF9F40';
+          lineWidth = Math.max(lineWidth, 1.6);
+        }
         if (isPathEdge) {
           alpha = 1.0;
           strokeColor = '#FF9F40';
-          lineWidth = 3.5;
+          lineWidth = Math.max(lineWidth, 2.5);
         } else if (isConnectedToFocus) {
-          alpha = 0.9;
-          strokeColor = '#fbbf24';
-          lineWidth = 2.5;
+          alpha = 1.0;
+          strokeColor = linkLevel ? strokeColor : '#5F6368';
+          lineWidth = Math.max(lineWidth, 1.4);
         } else if (isFilteringActive) {
-          alpha = 0.05;
+          alpha = 0.08;
         }
 
         ctx.strokeStyle = strokeColor;
@@ -210,7 +177,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
 
         if (dist === 0) return;
 
-        const targetRadius = getNodeRadius(target) + 6;
+        const targetRadius = getNodeRadius(target) + 3;
         const arrowX = target.x - (dx / dist) * targetRadius;
         const arrowY = target.y - (dy / dist) * targetRadius;
 
@@ -219,9 +186,12 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
         ctx.lineTo(arrowX, arrowY);
         ctx.stroke();
 
-        // Directional arrow head
+        ctx.setLineDash([]);
+
+        // Direction is shown only for links in focus, to keep the overview clean
+        if (!(isConnectedToFocus || isPathEdge)) return;
         const arrowAngle = Math.atan2(dy, dx);
-        const arrowLength = isConnectedToFocus || isPathEdge ? 8 : 6;
+        const arrowLength = 6;
 
         ctx.fillStyle = strokeColor;
         ctx.beginPath();
@@ -254,14 +224,14 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
           ctx.textBaseline = 'middle';
 
           const textWidth = ctx.measureText(displayLabel).width;
-          ctx.fillStyle = 'rgba(15, 23, 42, 0.92)';
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.96)';
           ctx.fillRect(midX - textWidth / 2 - 5, midY - 8, textWidth + 10, 16);
 
-          ctx.strokeStyle = isPathEdge ? 'rgba(255, 159, 64, 0.5)' : 'rgba(255, 255, 255, 0.15)';
+          ctx.strokeStyle = isPathEdge ? 'rgba(255, 159, 64, 0.5)' : 'rgba(32, 33, 36, 0.10)';
           ctx.lineWidth = 1;
           ctx.strokeRect(midX - textWidth / 2 - 5, midY - 8, textWidth + 10, 16);
 
-          ctx.fillStyle = isPathEdge ? '#FFBE5F' : '#cbd5e1';
+          ctx.fillStyle = isPathEdge ? '#B85C00' : '#3C4043';
           ctx.fillText(displayLabel, midX, midY);
         }
       });
@@ -285,72 +255,73 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
 
         ctx.globalAlpha = alpha;
         const radius = getNodeRadius(node);
-        const baseColor = node.color || TYPE_COLORS[node.type] || '#64748b';
+        const style = TYPE_STYLE[node.type];
+        const fill = node.color || style.color;
 
-        // Outer glow halo for selected / focused nodes
+        // Selection: a thin ink ring, no glow
         if (isSelected || isHovered || isPathNode) {
-          ctx.save();
-          const gradient = ctx.createRadialGradient(node.x, node.y, radius * 0.8, node.x, node.y, radius * 2.2);
-          gradient.addColorStop(0, baseColor + '99');
-          gradient.addColorStop(1, baseColor + '00');
-          ctx.fillStyle = gradient;
           ctx.beginPath();
-          ctx.arc(node.x, node.y, radius * 2.2, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.restore();
+          ctx.arc(node.x, node.y, radius + (node.activeImpact ? 9 : 4), 0, Math.PI * 2);
+          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = isSelected ? INK : '#FF9F40';
+          ctx.stroke();
         }
 
-        // Main node background circle
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#0f172a';
-        ctx.fill();
+        // New in the last three months: dashed flame outline
+        if (node.isNew) {
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, radius + (node.activeImpact ? 9 : 4), 0, Math.PI * 2);
+          ctx.setLineDash([3, 2]);
+          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = '#FF9F40';
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
 
-        // Node border ring
-        ctx.lineWidth = isSelected || isHovered || isPathNode ? 3.5 : 2;
-        ctx.strokeStyle = isSelected ? '#ffffff' : baseColor;
-        ctx.stroke();
-
-        // Node inner fill
+        // Marker: flat fill, hairline outline
         ctx.beginPath();
-        ctx.arc(node.x, node.y, radius - 3, 0, Math.PI * 2);
-        ctx.fillStyle = baseColor + '28';
-        ctx.fill();
+        markerPath(ctx, style.shape, node.x, node.y, radius);
+        if (style.shape === 'ring') {
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fill();
+          ctx.lineWidth = Math.max(2, radius * 0.35);
+          ctx.strokeStyle = '#E0C200';
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = fill;
+          ctx.fill();
+          ctx.lineWidth = 0.75;
+          ctx.strokeStyle = 'rgba(32, 33, 36, 0.45)';
+          ctx.stroke();
+        }
 
         // Impact ring: three arcs for capability, used and collaboration at the chosen date
         if (node.activeImpact) {
           IMPACT_INDICATORS.forEach((indicator, i) => {
             const level = node.activeImpact![indicator];
-            const start = -Math.PI / 2 + (i * 2 * Math.PI) / 3 + 0.08;
+            const start = -Math.PI / 2 + (i * 2 * Math.PI) / 3 + 0.12;
             ctx.beginPath();
-            ctx.arc(node.x!, node.y!, radius + 5, start, start + (2 * Math.PI) / 3 - 0.16);
-            ctx.lineWidth = 4;
-            ctx.strokeStyle = LEVEL_COLORS[level] || '#5F6368';
+            ctx.arc(node.x!, node.y!, radius + 4.5, start, start + (2 * Math.PI) / 3 - 0.24);
+            ctx.lineWidth = 3;
+            ctx.setLineDash(level === 'planned' ? [2.5, 2] : []);
+            ctx.strokeStyle = LEVEL_COLORS[level] || '#DADDE2';
             ctx.stroke();
+            ctx.setLineDash([]);
           });
         }
 
-        // Node Icon or Glyph
-        ctx.font = `${Math.round(radius * 0.72)}px sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(TYPE_ICONS[node.type] || '●', node.x, node.y + 1);
-
-        // Label below node
-        const showLabel = transform.k > 0.42 || isSelected || isHovered || isFocus || isNeighbor;
+        // Label: shown for hubs, on zoom, or in focus
+        const showLabel = isSelected || isHovered || isFocus || isNeighbor || isPathNode || radius * transform.k > 11 || transform.k > 1.6;
         if (showLabel) {
-          ctx.font = `${isSelected || isHovered ? '600 12px "Roboto Condensed", sans-serif' : '500 11px Roboto, sans-serif'}`;
+          ctx.font = isSelected || isHovered ? '600 12px "Roboto Condensed", sans-serif' : '400 11px Roboto, sans-serif';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'top';
-
-          const label = node.label.length > 28 ? node.label.slice(0, 26) + '...' : node.label;
-          const labelY = node.y + radius + 5;
-          const textWidth = ctx.measureText(label).width;
-
-          ctx.fillStyle = 'rgba(7, 9, 14, 0.75)';
-          ctx.fillRect(node.x - textWidth / 2 - 3, labelY - 1, textWidth + 6, 14);
-
-          ctx.fillStyle = isSelected || isHovered ? '#ffffff' : '#cbd5e1';
+          const label = node.label.length > 34 ? node.label.slice(0, 32) + '…' : node.label;
+          const labelY = node.y + radius + (node.activeImpact ? 9 : 4);
+          ctx.lineWidth = 3;
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+          ctx.strokeText(label, node.x, labelY);
+          ctx.fillStyle = isSelected || isHovered ? INK : '#3C4043';
           ctx.fillText(label, node.x, labelY);
         }
       });
@@ -542,7 +513,7 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
         className="glass-panel"
         style={{
           position: 'absolute',
-          bottom: 24,
+          bottom: 44,
           right: 24,
           display: 'flex',
           flexDirection: 'column',
@@ -631,13 +602,13 @@ export const NetworkCanvas: React.FC<NetworkCanvasProps> = ({
             padding: '8px 12px',
             maxWidth: 260,
             boxShadow: 'var(--shadow-lg)',
-            border: `1px solid ${TYPE_COLORS[tooltip.node.type]}55`,
+            border: `1px solid #E6E2DA`,
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
             <span className={`badge badge-${tooltip.node.type}`}>{tooltip.node.type}</span>
           </div>
-          <div style={{ fontWeight: 600, fontSize: '0.85rem', color: '#f8fafc', marginBottom: 2 }}>
+          <div style={{ fontWeight: 600, fontSize: '0.85rem', color: '#202124', marginBottom: 2 }}>
             {tooltip.node.label}
           </div>
           {tooltip.node.description && (

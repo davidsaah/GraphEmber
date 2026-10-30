@@ -61,6 +61,8 @@ export interface BaseNode {
   northStarOutcomes?: string[];
   // Set by the period selector: the ratings shown for the chosen period
   activeImpact?: Record<string, ImpactLevel>;
+  // Set by the time slider: started in the three months up to the chosen month
+  isNew?: boolean;
   // D3 force simulation coordinates
   x?: number;
   y?: number;
@@ -184,6 +186,7 @@ export interface GraphEdge {
   properties?: Record<string, any>;
   startDate?: string;
   endDate?: string;
+  isNew?: boolean;
 }
 
 export interface NetworkDataset {

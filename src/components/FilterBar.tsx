@@ -1,6 +1,8 @@
 import React from 'react';
 import type { NodeType, GraphNode } from '../types/graph';
 import { Layers, DollarSign, Tag, RefreshCcw } from 'lucide-react';
+import { TYPE_STYLE } from '../theme';
+import { TypeMarker } from './TypeMarker';
 
 interface FilterBarProps {
   nodes: GraphNode[];
@@ -14,17 +16,8 @@ interface FilterBarProps {
   onResetFilters: () => void;
 }
 
-const TYPE_CONFIG: Array<{ type: NodeType; label: string; icon: string; color: string }> = [
-  { type: 'person', label: 'People', icon: '👤', color: 'var(--color-person)' },
-  { type: 'institution', label: 'Institutions', icon: '🏛️', color: 'var(--color-institution)' },
-  { type: 'collaborative', label: 'Collaboratives', icon: '🤝', color: 'var(--color-collaborative)' },
-  { type: 'program', label: 'Programs', icon: '🚀', color: 'var(--color-program)' },
-  { type: 'product', label: 'Products', icon: '📦', color: 'var(--color-product)' },
-  { type: 'grant', label: 'Grants', icon: '💰', color: 'var(--color-grant)' },
-  { type: 'research', label: 'Research', icon: '📄', color: 'var(--color-research)' },
-  { type: 'meeting', label: 'Meetings', icon: '📅', color: 'var(--color-meeting)' },
-  { type: 'topic', label: 'Topics', icon: '🎯', color: 'var(--color-topic)' },
-];
+const TYPE_ORDER: NodeType[] = ['institution', 'collaborative', 'program', 'product', 'grant', 'person', 'meeting', 'topic', 'research'];
+const TYPE_CONFIG = TYPE_ORDER.map((type) => ({ type, label: TYPE_STYLE[type].label }));
 
 export const FilterBar: React.FC<FilterBarProps> = ({
   nodes,
@@ -86,7 +79,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
       className="glass-panel"
       style={{
         position: 'absolute',
-        top: 92,
+        top: 76,
         left: 16,
         padding: '12px 16px',
         display: 'flex',
@@ -103,13 +96,14 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginRight: 4 }}>
           <Layers size={15} color="var(--text-muted)" />
           <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-            Entity Types:
+            Show
           </span>
         </div>
 
-        {TYPE_CONFIG.map(({ type, label, icon, color }) => {
+        {TYPE_CONFIG.map(({ type, label }) => {
           const isActive = activeTypes.has(type);
           const count = typeCounts[type] || 0;
+          if (count === 0) return null;
 
           return (
             <button
@@ -121,9 +115,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 gap: 6,
                 padding: '5px 10px',
                 borderRadius: 'var(--radius-full)',
-                backgroundColor: isActive ? 'var(--bg-surface-elevated)' : 'rgba(15, 23, 42, 0.4)',
-                border: `1px solid ${isActive ? color : 'var(--border-subtle)'}`,
-                color: isActive ? '#f8fafc' : 'var(--text-muted)',
+                backgroundColor: isActive ? 'var(--bg-surface-elevated)' : 'rgba(255, 255, 255, 0.96)',
+                border: `1px solid ${isActive ? '#C9CCD1' : 'var(--border-subtle)'}`,
+                opacity: isActive ? 1 : 0.55,
+                color: isActive ? '#202124' : 'var(--text-muted)',
                 fontSize: '0.78rem',
                 fontWeight: isActive ? 600 : 400,
                 transition: 'all 0.15s ease',
@@ -135,15 +130,15 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 if (!isActive) e.currentTarget.style.borderColor = 'var(--border-subtle)';
               }}
             >
-              <span>{icon}</span>
+              <TypeMarker type={type} size={11} />
               <span>{label}</span>
               <span
                 style={{
                   fontSize: '0.68rem',
                   padding: '1px 5px',
                   borderRadius: 'var(--radius-full)',
-                  backgroundColor: isActive ? color + '2a' : 'rgba(255, 255, 255, 0.05)',
-                  color: isActive ? color : 'var(--text-muted)',
+                  backgroundColor: isActive ? '#F1F0EC' : 'rgba(32, 33, 36, 0.04)',
+                  color: isActive ? '#202124' : 'var(--text-muted)',
                 }}
               >
                 {count}
@@ -185,7 +180,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                   borderRadius: 'var(--radius-sm)',
                   backgroundColor: isSelected ? 'rgba(255, 159, 64, 0.2)' : 'var(--bg-surface)',
                   border: `1px solid ${isSelected ? 'var(--color-collaborative)' : 'var(--border-subtle)'}`,
-                  color: isSelected ? '#FFBE5F' : 'var(--text-secondary)',
+                  color: isSelected ? '#B85C00' : 'var(--text-secondary)',
                 }}
               >
                 #{tag}
@@ -231,7 +226,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               backgroundColor: 'var(--bg-surface-elevated)',
               border: '1px solid var(--border-subtle)',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#202124')}
             onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
           >
             <RefreshCcw size={12} />
