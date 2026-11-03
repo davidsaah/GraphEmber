@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { PanelLeftClose } from 'lucide-react';
+import { TypeIcon } from './TypeIcon';
 import type { GraphNode, GraphEdge, NodeType } from '../types/graph';
 
 interface InsightsPanelProps {
@@ -163,7 +164,7 @@ export const InsightsPanel: React.FC<InsightsPanelProps> = ({
                 node,
                 <>
                   <span className="insight-label">
-                    <span className="dot" style={{ background: `var(--color-${node.type})` }} />
+                    <TypeIcon type={node.type} size={12} style={{ color: `var(--color-${node.type})`, flexShrink: 0 }} />
                     <span className="clip">{node.label}</span>
                     <span className="insight-value">{partners}</span>
                   </span>
@@ -192,7 +193,7 @@ export const InsightsPanel: React.FC<InsightsPanelProps> = ({
               row(
                 node,
                 <span className="insight-label">
-                  <span className="dot" style={{ background: `var(--color-${node.type})` }} />
+                  <TypeIcon type={node.type} size={12} style={{ color: `var(--color-${node.type})`, flexShrink: 0 }} />
                   <span className="clip">{node.label}</span>
                   <span className="pips" aria-label={`${count} projects`}>
                     {Array.from({ length: Math.min(count, 8) }, (_, i) => (

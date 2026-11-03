@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { GraphNode, GraphEdge, NodeType, RelationType } from '../types/graph';
 import { X, Layers, Share2 } from 'lucide-react';
+import { TypeBadge } from './TypeIcon';
 
 interface AddEntityModalProps {
   isOpen: boolean;
@@ -176,11 +177,14 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
               <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 4 }}>
                 Entity Type
               </label>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <TypeBadge type={nodeType} size={38} />
               <select
                 value={nodeType}
                 onChange={(e) => setNodeType(e.target.value as NodeType)}
                 style={{
-                  width: '100%',
+                  flex: 1,
+                  minWidth: 0,
                   height: 38,
                   padding: '0 10px',
                   backgroundColor: 'var(--bg-surface)',
@@ -189,16 +193,17 @@ export const AddEntityModal: React.FC<AddEntityModalProps> = ({
                   color: 'var(--text-primary)',
                 }}
               >
-                <option value="person">👤 Person</option>
-                <option value="institution">🏛️ Institution</option>
-                <option value="collaborative">🤝 Collaborative</option>
-                <option value="program">🚀 Program</option>
-                <option value="product">📦 Product</option>
-                <option value="grant">💰 Grant</option>
-                <option value="research">📄 Research</option>
-                <option value="meeting">📅 Meeting</option>
-                <option value="topic">🎯 Topic</option>
+                <option value="person">Person</option>
+                <option value="institution">Institution</option>
+                <option value="collaborative">Collaborative</option>
+                <option value="program">Program</option>
+                <option value="product">Product</option>
+                <option value="grant">Grant</option>
+                <option value="research">Research</option>
+                <option value="meeting">Meeting</option>
+                <option value="topic">Topic</option>
               </select>
+              </div>
             </div>
 
             <div>

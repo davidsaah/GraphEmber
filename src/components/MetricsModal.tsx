@@ -1,7 +1,7 @@
 import React from 'react';
 import type { GraphNode, GraphEdge } from '../types/graph';
 import { calculateNodeMetrics } from '../utils/graphMetrics';
-import { BarChart3, X, Trophy, Network } from 'lucide-react';
+import { BarChart3, X, ListOrdered, Network } from 'lucide-react';
 
 interface MetricsModalProps {
   isOpen: boolean;
@@ -151,7 +151,7 @@ export const MetricsModal: React.FC<MetricsModalProps> = ({
         {/* Top Central Connectors Table */}
         <div style={{ flex: 1, overflowY: 'auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-            <Trophy size={16} color="var(--color-institution)" />
+            <ListOrdered size={16} color="var(--color-institution)" />
             <h4 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>
               Top Network Connectors (Degree Centrality)
             </h4>
